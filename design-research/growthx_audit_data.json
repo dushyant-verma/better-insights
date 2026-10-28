@@ -1,0 +1,745 @@
+{
+  "canonicalUrl": "https://growthx.club/",
+  "siteUrls": {
+    "internal": [
+      "https://growthx.club/",
+      "https://growthx.club/pricing",
+      "https://growthx.club/login",
+      "https://growthx.club/#learn-ai",
+      "https://growthx.club/#courses",
+      "https://growthx.club/#crack",
+      "https://growthx.club/upgrade?intent=ai_sprint&source=home_page",
+      "https://growthx.club/upgrade?intent=membership&source=home_page",
+      "https://growthx.club/upgrade?intent=membership_ai_sprint&source=home_page",
+      "https://growthx.club/#learn-ai-timetable",
+      "https://growthx.club/#learn-ai-week-1",
+      "https://growthx.club/#learn-ai-week-2",
+      "https://growthx.club/#learn-ai-week-3",
+      "https://growthx.club/#learn-ai-week-4",
+      "https://growthx.club/learn/explore/courses",
+      "https://growthx.club/learn/programs/data-led-growth",
+      "https://growthx.club/learn/programs/event-led-growth",
+      "https://growthx.club/learn/programs/creative-strategy",
+      "https://growthx.club/learn/programs/brand-led-growth",
+      "https://growthx.club/learn/programs/storytelling",
+      "https://growthx.club/help/applying",
+      "https://growthx.club/terms/build-sprint",
+      "https://growthx.club/help/payments-invoices-and-refunds",
+      "https://growthx.club/help/troubleshooting-and-support",
+      "https://growthx.club/build-week/defer",
+      "https://growthx.club/events/city/bengaluru",
+      "https://growthx.club/events/city/mumbai",
+      "https://growthx.club/events/city/hyderabad",
+      "https://growthx.club/events/city/chennai",
+      "https://growthx.club/events/city/kolkata",
+      "https://growthx.club/events/city/new%20delhi",
+      "https://growthx.club/events/city/pune",
+      "https://growthx.club/learn/resources/how_to_build_your_first_ai_assistant_btq9u",
+      "https://growthx.club/learn/resources/build_voice_ai_agents_in_30_minutes_hpc7b",
+      "https://growthx.club/learn/resources/how_fdes_drive_0_1_ai_transformations_f5rrh",
+      "https://growthx.club/learn/resources/make_your_first__1_000_with_ai_7itxe",
+      "https://growthx.club/learn/resources/how_to_crack_shortform_content_on_youtube__hbwoy",
+      "https://growthx.club/learn/resources/build_a_marketing_campaign_tracker_with_lovable_ld3e1",
+      "https://growthx.club/learn/resources/how_pms_use_ai__c16c9",
+      "https://growthx.club/learn/programs/advanced-growth-strategy",
+      "https://growthx.club/learn/programs/growth-modelling",
+      "https://growthx.club/learn/programs/building-growth-teams",
+      "https://growthx.club/learn/programs/partnership-led-growth",
+      "https://growthx.club/learn/programs/tech-for-growth",
+      "https://growthx.club/crafts/go-to-market",
+      "https://growthx.club/learn/foundations/ai-product-manager",
+      "https://growthx.club/learn/foundations/technical-product-manager",
+      "https://growthx.club/learn/foundations/product-manager",
+      "https://growthx.club/learn/foundations/product-marketing-manager",
+      "https://growthx.club/learn/foundations/digital-marketing-manager",
+      "https://growthx.club/learn/foundations/brand-attribution",
+      "https://growthx.club/learn/foundations/669f7f7839fe934f434a01c3",
+      "https://growthx.club/learn/foundations/668d47c1c295a0cf8239a383",
+      "https://growthx.club/learn/foundations/668b8c7df174f62312ddedbc",
+      "https://growthx.club/terms-and-conditions",
+      "https://growthx.club/privacy-policy",
+      "https://growthx.club/blog/"
+    ],
+    "external": [
+      "https://www.timesnownews.com/business-economy/companies/growthx-raises-1-5-million-the-largest-ever-community-led-seed-round-with-212-investors-article-92700494",
+      "https://www.business-standard.com/companies/start-ups/linkedin-s-top-indian-startups-2024-zepto-leads-as-india-s-newest-unicorn-124092700791_1.html",
+      "https://economictimes.indiatimes.com/tech/artificial-intelligence/why-founders-are-flocking-to-openclaw/articleshow/129615413.cms",
+      "https://www.livemint.com/mint-lounge/business-of-life/gen-z-business-entrepreneurs-residency-hacker-house-11785839736145.html",
+      "https://www.newindian.in/growthx-crosses-5000-members-founder-udayan-walvekar-shares-5-lessons-on-building-a-high-trust-community/",
+      "https://www.exchange4media.com/marketing-news/abhishek-patil-and-swati-mohan-unveil-craft-of-brand-led-growth-131830.html",
+      "https://growthx.cc/influence-selection",
+      "https://growthx.cc/account-based-marketing",
+      "https://growthx.cc/seo-foundation",
+      "https://growthx.cc/paid-marketing",
+      "https://growthx.cc/founder-branding",
+      "https://website.growthx.club/speakers",
+      "https://website.growthx.club/origin-story",
+      "https://drive.google.com/drive/folders/1m5fNDDHm83iB01ksBReJZYT42mc4RjXl?usp=sharing",
+      "https://website.growthx.club/careers",
+      "https://www.youtube.com/@GrowthX",
+      "https://www.linkedin.com/school/growthxclub/?viewAsMember=true",
+      "https://www.instagram.com/growthx.club/?hl=en",
+      "https://x.com/growthx_club/",
+      "https://chromewebstore.google.com/detail/elevate-by-growthx/gaaeokfljnaahnemphknpchoimmbmhjj?hl=en",
+      "https://shorts.growthx.club/"
+    ]
+  },
+  "cssVariables": {
+    "--bg": "#060606",
+    "--bg-paper": "#0f0f0f",
+    "--bg-raised": "#141414",
+    "--bg-card": "#ffffff09",
+    "--bg-card-hover": "#ffffff0e",
+    "--bg-subtle": "#ffffff06",
+    "--ink": "#ffffff",
+    "--ink-dim": "#ffffffc7",
+    "--ink-muted": "#ffffff9e",
+    "--ink-label": "#ffffff85",
+    "--ink-soft": "#ffffff57",
+    "--rule": "#ffffff1f",
+    "--rule-strong": "#ffffff38",
+    "--rule-card": "#ffffff24",
+    "--accent": "#0064ff",
+    "--accent-soft": "#0064ff1f",
+    "--accent-border": "#0064ff52",
+    "--accent-glow": "#0064ff38",
+    "--warn": "#ff3b3b",
+    "--warn-soft": "#ff3b3b1a",
+    "--gold": "#fabb05",
+    "--good": "#34d399",
+    "--diff-starter": "#34d399",
+    "--diff-challenging": "#fabb05",
+    "--diff-beast": "#ff3b3b",
+    "--radius-sm": "6px",
+    "--radius": "10px",
+    "--radius-lg": "12px",
+    "--radius-xl": "16px",
+    "--radius-8": "8px",
+    "--glass-bg": "#060606b8",
+    "--glass-bg-str": "#060606e0",
+    "--color-white-4": "#ffffff0a",
+    "--color-white-5": "#ffffff0d",
+    "--color-white-6": "#ffffff0f",
+    "--color-white-8": "#ffffff14",
+    "--color-black-0": "#00000000",
+    "--color-black-78": "#000000c7",
+    "--color-grey-4": "#0a0a0a",
+    "--color-red-62-8": "#ff3b3b14",
+    "--height-1200": "1200px",
+    "--height-1160": "1160px",
+    "--width-1380": "1380px",
+    "--width-580": "580px",
+    "--width-564-26": "564.26px",
+    "--stroke-weight-1": "1px",
+    "--stroke-weight-1-17": "1.1666666px",
+    "--item-spacing-xxxs": "2px",
+    "--item-spacing-11": "11px",
+    "--item-spacing-s-plus": "24px",
+    "--item-spacing-28": "28px",
+    "--item-spacing-1-3": "1.3px",
+    "--item-spacing-12-8": "12.8px",
+    "--item-spacing-13-99": "13.99px",
+    "--item-spacing-41-31": "41.31px",
+    "--item-spacing-114-22": "114.22px",
+    "--item-spacing-230-86": "230.86px",
+    "--item-spacing-586-5": "586.5px",
+    "--font-family-font-1": "\"DM Mono\"",
+    "--font-family-font-2": "\"Instrument Serif\"",
+    "--font-family-font-3": "\"Inter\"",
+    "--font-weight-300": "300",
+    "--font-weight-400": "400",
+    "--font-weight-500": "500",
+    "--font-weight-600": "600",
+    "--font-size-10-5": "10.5px",
+    "--font-size-14": "14px",
+    "--font-size-15-5": "15.5px",
+    "--font-size-17": "17px",
+    "--font-size-18": "18px",
+    "--font-size-42": "42px",
+    "--font-size-64": "64px",
+    "--font-size-384": "384px",
+    "--line-height-17-33": "17.33px",
+    "--line-height-18-15": "18.15px",
+    "--line-height-21-6": "21.6px",
+    "--line-height-23-1": "23.1px",
+    "--line-height-24-8": "24.8px",
+    "--line-height-29-7": "29.7px",
+    "--line-height-44-1": "44.1px",
+    "--line-height-65-28": "65.28px",
+    "--line-height-337-92": "337.92px",
+    "--letter-spacing-1-54": "1.54px",
+    "--letter-spacing-1-89": "1.89px",
+    "--letter-spacing-0-84": "0.84px",
+    "--letter-spacing-1-47": "1.47px",
+    "--letter-spacing-1-6": "1.6px",
+    "--letter-spacing-2-2": "2.2px",
+    "--letter-spacing-neg-0-07": "-0.07px",
+    "--letter-spacing-neg-0-08": "-0.077px",
+    "--letter-spacing-neg-0-14": "-0.14px",
+    "--letter-spacing-neg-0-17": "-0.17px",
+    "--letter-spacing-neg-0-18": "-0.18px",
+    "--letter-spacing-neg-1-05": "-1.05px",
+    "--letter-spacing-neg-1-79": "-1.792px",
+    "--letter-spacing-neg-13-44": "-13.44px",
+    "--frame-width": "1512px",
+    "--font-title": "\"Newsreader\", serif",
+    "--font-body": "\"Gilroy\", sans-serif",
+    "--font-sf": "-apple-system, BlinkMacSystemFont, \"SF Pro Text\", \"SF Pro Display\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+    "--font-inter": "\"Inter\", sans-serif",
+    "--gx-bar-out": "0.18s",
+    "--gx-bar-in": "0.32s",
+    "--gx-bar-delay": "0.14s",
+    "--gx-bar-done": "0.46s",
+    "--gx-bar-shift": "calc(5px * var(--gx-motion))",
+    "--gx-ease-out": "cubic-bezier(0.22, 1, 0.36, 1)",
+    "--gx-ease-press": "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+    "--gx-reveal-duration": "0.6s",
+    "--gx-motion": "1"
+  },
+  "sectionsData": {
+    "title": "GrowthX | Build your unfair career advantage",
+    "docHeight": 13986,
+    "bodyBg": "rgb(255, 255, 255)",
+    "bodyColor": "rgb(20, 20, 19)",
+    "bodyFont": "Gilroy, sans-serif",
+    "rootBg": "rgba(0, 0, 0, 0)"
+  },
+  "sectionsAudit": [
+    {
+      "index": 0,
+      "tagName": "HEADER",
+      "id": "site-header",
+      "className": "site-header is-hidden",
+      "rect": {
+        "top": -61.890625,
+        "height": 61.890625,
+        "width": 1440
+      },
+      "headingText": null,
+      "headingColor": null,
+      "headingFontSize": null,
+      "headingFontWeight": null,
+      "textColor": "rgb(20, 20, 19)",
+      "bgColor": "rgb(255, 255, 255)",
+      "bgImage": "none",
+      "borderColor": "rgb(20, 20, 19)",
+      "borderWidth": "0px",
+      "borderBottom": "0px none rgb(20, 20, 19)",
+      "btnBg": "rgb(17, 17, 17)",
+      "btnColor": "rgb(255, 255, 255)",
+      "btnBorder": "rgb(255, 255, 255)",
+      "cardBg": "rgba(0, 0, 0, 0)",
+      "cardBorder": "rgb(20, 20, 19)",
+      "cardRadius": "10px"
+    },
+    {
+      "index": 1,
+      "tagName": "SECTION",
+      "id": "",
+      "className": "hero",
+      "rect": {
+        "top": 61.890625,
+        "height": 717.578125,
+        "width": 1440
+      },
+      "headingText": "Start your next goal here",
+      "headingColor": "rgb(53, 53, 53)",
+      "headingFontSize": "56px",
+      "headingFontWeight": "400",
+      "textColor": "rgb(74, 74, 74)",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "bgImage": "none",
+      "borderColor": "rgb(20, 20, 19)",
+      "borderWidth": "0px",
+      "borderBottom": "0px none rgb(20, 20, 19)",
+      "btnBg": null,
+      "btnColor": null,
+      "btnBorder": null,
+      "cardBg": "rgba(0, 0, 0, 0)",
+      "cardBorder": "rgb(20, 20, 19)",
+      "cardRadius": "0px"
+    },
+    {
+      "index": 2,
+      "tagName": "SECTION",
+      "id": "",
+      "className": "trusted",
+      "rect": {
+        "top": 713.78125,
+        "height": 942.84375,
+        "width": 1440
+      },
+      "headingText": "Trusted by 200K+ builders & founders across 5 countries",
+      "headingColor": "rgb(6, 6, 6)",
+      "headingFontSize": "40px",
+      "headingFontWeight": "400",
+      "textColor": "rgb(20, 20, 19)",
+      "bgColor": "rgb(255, 255, 255)",
+      "bgImage": "none",
+      "borderColor": "rgb(20, 20, 19)",
+      "borderWidth": "0px",
+      "borderBottom": "0px none rgb(20, 20, 19)",
+      "btnBg": null,
+      "btnColor": null,
+      "btnBorder": null,
+      "cardBg": null,
+      "cardBorder": null,
+      "cardRadius": null
+    },
+    {
+      "index": 3,
+      "tagName": "SECTION",
+      "id": "learn-ai",
+      "className": "learn-ai",
+      "rect": {
+        "top": 1577.59375,
+        "height": 2664.5,
+        "width": 1440
+      },
+      "headingText": "Become an AI  leader in 4 weeks",
+      "headingColor": "rgb(29, 29, 31)",
+      "headingFontSize": "80px",
+      "headingFontWeight": "600",
+      "textColor": "rgb(110, 110, 115)",
+      "bgColor": "rgb(255, 255, 255)",
+      "bgImage": "none",
+      "borderColor": "rgb(20, 20, 19)",
+      "borderWidth": "0px",
+      "borderBottom": "0px none rgb(20, 20, 19)",
+      "btnBg": "rgb(0, 113, 227)",
+      "btnColor": "rgb(20, 20, 19)",
+      "btnBorder": "rgb(20, 20, 19)",
+      "cardBg": "rgba(0, 0, 0, 0)",
+      "cardBorder": "rgb(20, 20, 19)",
+      "cardRadius": "0px"
+    },
+    {
+      "index": 4,
+      "tagName": "SECTION",
+      "id": "",
+      "className": "testimonial",
+      "rect": {
+        "top": 3983.0625,
+        "height": 788.5625,
+        "width": 1440
+      },
+      "headingText": null,
+      "headingColor": null,
+      "headingFontSize": null,
+      "headingFontWeight": null,
+      "textColor": "rgb(31, 31, 31)",
+      "bgColor": "rgb(255, 255, 255)",
+      "bgImage": "none",
+      "borderColor": "rgb(20, 20, 19)",
+      "borderWidth": "0px",
+      "borderBottom": "0px none rgb(20, 20, 19)",
+      "btnBg": null,
+      "btnColor": null,
+      "btnBorder": null,
+      "cardBg": "rgb(245, 245, 247)",
+      "cardBorder": "rgb(20, 20, 19)",
+      "cardRadius": "28px"
+    },
+    {
+      "index": 5,
+      "tagName": "SECTION",
+      "id": "courses",
+      "className": "courses is-light",
+      "rect": {
+        "top": 4674.5,
+        "height": 2815.796875,
+        "width": 1440
+      },
+      "headingText": "Master the science of  product and growth",
+      "headingColor": "rgb(29, 29, 31)",
+      "headingFontSize": "80px",
+      "headingFontWeight": "590",
+      "textColor": "rgb(110, 110, 115)",
+      "bgColor": "rgb(234, 220, 194)",
+      "bgImage": "none",
+      "borderColor": "rgb(20, 20, 19)",
+      "borderWidth": "0px",
+      "borderBottom": "0px none rgb(20, 20, 19)",
+      "btnBg": "rgb(255, 255, 255)",
+      "btnColor": "rgb(0, 0, 0)",
+      "btnBorder": "rgb(0, 0, 0)",
+      "cardBg": null,
+      "cardBorder": null,
+      "cardRadius": null
+    },
+    {
+      "index": 6,
+      "tagName": "SECTION",
+      "id": "crack",
+      "className": "crack",
+      "rect": {
+        "top": 7275.078125,
+        "height": 3310.96875,
+        "width": 1440
+      },
+      "headingText": "The best of GrowthX All in one.",
+      "headingColor": "rgb(245, 245, 247)",
+      "headingFontSize": "80px",
+      "headingFontWeight": "600",
+      "textColor": "rgb(134, 134, 139)",
+      "bgColor": "rgb(0, 0, 0)",
+      "bgImage": "none",
+      "borderColor": "rgb(20, 20, 19)",
+      "borderWidth": "0px",
+      "borderBottom": "0px none rgb(20, 20, 19)",
+      "btnBg": "rgb(0, 113, 227)",
+      "btnColor": "rgb(20, 20, 19)",
+      "btnBorder": "rgb(20, 20, 19)",
+      "cardBg": "rgb(0, 0, 0)",
+      "cardBorder": "rgb(20, 20, 19)",
+      "cardRadius": "33.8845px"
+    },
+    {
+      "index": 7,
+      "tagName": "SECTION",
+      "id": "paths",
+      "className": "paths",
+      "rect": {
+        "top": 10307,
+        "height": 1022.4375,
+        "width": 1440
+      },
+      "headingText": "Choose a path for your goal",
+      "headingColor": "rgb(31, 31, 31)",
+      "headingFontSize": "40px",
+      "headingFontWeight": "400",
+      "textColor": "rgb(110, 110, 115)",
+      "bgColor": "rgb(255, 255, 255)",
+      "bgImage": "none",
+      "borderColor": "rgb(20, 20, 19)",
+      "borderWidth": "0px",
+      "borderBottom": "0px none rgb(20, 20, 19)",
+      "btnBg": "rgb(31, 31, 31)",
+      "btnColor": "rgb(255, 255, 255)",
+      "btnBorder": "rgb(255, 255, 255)",
+      "cardBg": null,
+      "cardBorder": null,
+      "cardRadius": null
+    },
+    {
+      "index": 8,
+      "tagName": "SECTION",
+      "id": "news",
+      "className": "news",
+      "rect": {
+        "top": 11303.734375,
+        "height": 1054.328125,
+        "width": 1440
+      },
+      "headingText": "In the news",
+      "headingColor": "rgb(31, 31, 31)",
+      "headingFontSize": "40px",
+      "headingFontWeight": "400",
+      "textColor": "rgb(118, 118, 123)",
+      "bgColor": "rgb(255, 255, 255)",
+      "bgImage": "none",
+      "borderColor": "rgb(20, 20, 19)",
+      "borderWidth": "0px",
+      "borderBottom": "0px none rgb(20, 20, 19)",
+      "btnBg": null,
+      "btnColor": null,
+      "btnBorder": null,
+      "cardBg": "rgba(0, 0, 0, 0)",
+      "cardBorder": "rgb(20, 20, 19)",
+      "cardRadius": "0px"
+    },
+    {
+      "index": 9,
+      "tagName": "SECTION",
+      "id": "faqs",
+      "className": "faqs",
+      "rect": {
+        "top": 12107.59375,
+        "height": 963.890625,
+        "width": 1440
+      },
+      "headingText": "Questions, Answered.",
+      "headingColor": "rgb(17, 17, 17)",
+      "headingFontSize": "56px",
+      "headingFontWeight": "300",
+      "textColor": "rgb(96, 96, 96)",
+      "bgColor": "rgb(255, 255, 255)",
+      "bgImage": "none",
+      "borderColor": "rgb(20, 20, 19)",
+      "borderWidth": "0px",
+      "borderBottom": "0px none rgb(20, 20, 19)",
+      "btnBg": "rgb(5, 5, 5)",
+      "btnColor": "rgb(255, 255, 255)",
+      "btnBorder": "rgb(255, 255, 255)",
+      "cardBg": "rgba(0, 0, 0, 0)",
+      "cardBorder": "rgb(20, 20, 19) rgb(20, 20, 19) rgb(229, 229, 229)",
+      "cardRadius": "0px"
+    },
+    {
+      "index": 10,
+      "tagName": "FOOTER",
+      "id": "",
+      "className": "footer",
+      "rect": {
+        "top": 13024.828125,
+        "height": 960.828125,
+        "width": 1440
+      },
+      "headingText": null,
+      "headingColor": null,
+      "headingFontSize": null,
+      "headingFontWeight": null,
+      "textColor": "rgb(255, 255, 255)",
+      "bgColor": "rgb(6, 6, 6)",
+      "bgImage": "none",
+      "borderColor": "rgb(20, 20, 19)",
+      "borderWidth": "0px",
+      "borderBottom": "0px none rgb(20, 20, 19)",
+      "btnBg": "rgba(0, 0, 0, 0)",
+      "btnColor": "rgb(169, 169, 169)",
+      "btnBorder": "rgb(169, 169, 169)",
+      "cardBg": null,
+      "cardBorder": null,
+      "cardRadius": null
+    }
+  ],
+  "paletteAnalysis": {
+    "bgColors": [
+      [
+        "rgb(255, 255, 255)",
+        35
+      ],
+      [
+        "rgb(17, 17, 17)",
+        34
+      ],
+      [
+        "rgb(0, 0, 0)",
+        18
+      ],
+      [
+        "rgb(0, 113, 227)",
+        6
+      ],
+      [
+        "rgb(245, 245, 247)",
+        6
+      ],
+      [
+        "rgb(242, 241, 238)",
+        6
+      ],
+      [
+        "rgba(255, 255, 255, 0.42)",
+        4
+      ],
+      [
+        "rgb(31, 31, 31)",
+        3
+      ],
+      [
+        "rgb(243, 243, 241)",
+        3
+      ],
+      [
+        "rgba(255, 255, 255, 0.96)",
+        2
+      ],
+      [
+        "rgba(255, 255, 255, 0.22)",
+        2
+      ],
+      [
+        "rgba(22, 22, 23, 0.94)",
+        1
+      ],
+      [
+        "rgb(232, 232, 237)",
+        1
+      ],
+      [
+        "rgb(234, 220, 194)",
+        1
+      ],
+      [
+        "rgba(255, 255, 255, 0.12)",
+        1
+      ],
+      [
+        "rgb(28, 28, 30)",
+        1
+      ],
+      [
+        "rgb(17, 13, 25)",
+        1
+      ],
+      [
+        "rgb(5, 5, 5)",
+        1
+      ],
+      [
+        "rgb(6, 6, 6)",
+        1
+      ]
+    ],
+    "textColors": [
+      [
+        "rgb(20, 20, 19)",
+        499
+      ],
+      [
+        "rgb(255, 255, 255)",
+        139
+      ],
+      [
+        "rgb(17, 17, 17)",
+        102
+      ],
+      [
+        "rgb(31, 31, 31)",
+        95
+      ],
+      [
+        "rgb(169, 169, 169)",
+        75
+      ],
+      [
+        "rgb(96, 96, 96)",
+        68
+      ],
+      [
+        "rgb(0, 0, 0)",
+        38
+      ],
+      [
+        "rgb(141, 141, 141)",
+        32
+      ],
+      [
+        "rgb(208, 208, 208)",
+        32
+      ],
+      [
+        "rgb(74, 74, 74)",
+        31
+      ],
+      [
+        "rgb(139, 139, 139)",
+        27
+      ],
+      [
+        "rgba(255, 255, 255, 0.8)",
+        18
+      ],
+      [
+        "rgb(29, 29, 31)",
+        12
+      ],
+      [
+        "rgb(110, 110, 115)",
+        12
+      ],
+      [
+        "rgb(38, 37, 37)",
+        12
+      ],
+      [
+        "rgb(245, 245, 247)",
+        9
+      ],
+      [
+        "rgb(53, 53, 53)",
+        7
+      ],
+      [
+        "rgb(187, 187, 187)",
+        6
+      ],
+      [
+        "rgb(118, 118, 123)",
+        6
+      ],
+      [
+        "rgb(204, 204, 204)",
+        5
+      ],
+      [
+        "rgb(153, 153, 153)",
+        3
+      ],
+      [
+        "rgb(189, 182, 214)",
+        3
+      ],
+      [
+        "rgb(64, 64, 64)",
+        3
+      ],
+      [
+        "rgb(134, 134, 139)",
+        2
+      ],
+      [
+        "rgb(189, 163, 255)",
+        2
+      ]
+    ],
+    "borderColors": [
+      [
+        "rgb(31, 31, 31)",
+        32
+      ],
+      [
+        "rgb(20, 20, 19) rgb(20, 20, 19) rgb(229, 229, 229)",
+        27
+      ],
+      [
+        "rgba(0, 0, 0, 0.09) rgb(20, 20, 19) rgb(20, 20, 19)",
+        12
+      ],
+      [
+        "rgba(188, 164, 255, 0.18)",
+        5
+      ],
+      [
+        "rgba(0, 0, 0, 0.09)",
+        4
+      ],
+      [
+        "rgba(0, 0, 0, 0.1)",
+        3
+      ],
+      [
+        "rgb(139, 139, 139) rgb(139, 139, 139) rgb(139, 139, 139) rgba(0, 0, 0, 0)",
+        3
+      ],
+      [
+        "rgba(127, 127, 127, 0.25) rgb(255, 255, 255) rgb(255, 255, 255)",
+        2
+      ],
+      [
+        "rgba(0, 0, 0, 0.08)",
+        1
+      ],
+      [
+        "rgb(20, 20, 19) rgb(20, 20, 19) rgb(20, 20, 19) rgba(0, 0, 0, 0.09)",
+        1
+      ],
+      [
+        "rgb(17, 17, 17) rgb(17, 17, 17) rgb(17, 17, 17) rgba(0, 0, 0, 0)",
+        1
+      ],
+      [
+        "rgba(127, 127, 127, 0.25) rgb(31, 31, 31) rgb(31, 31, 31)",
+        1
+      ]
+    ],
+    "fonts": [
+      "Times",
+      "Gilroy, sans-serif",
+      "Newsreader, serif",
+      "-apple-system, \"system-ui\", \"SF Pro Text\", \"SF Pro Display\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+      "Inter, sans-serif"
+    ]
+  }
+}

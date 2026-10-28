@@ -1,0 +1,574 @@
+/* ==========================================================================
+   Better Insights - Category & Archive Master Stylesheet
+   Scope: body.archive.category, body.archive, .bi-category-archive
+   Brand System:
+     - Warm off-white: #F3F2EF
+     - Black: #000000
+     - White: #FFFFFF
+     - Body Gray: #596579
+     - Muted Gray: #6A6A6A
+     - Light Background: #F7F9FC
+     - Border Gray: #E6E8ED / #D0D3DA
+   Font: Noto Sans, sans-serif
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. CONTAINER BREAKOUT & ASTRA PARENT RESET
+   Removes excessive spacing, boxed containers, and unstyled Astra margins.
+   -------------------------------------------------------------------------- */
+body.archive #content,
+body.archive #content.site-content,
+body.archive .ast-container,
+body.archive #primary,
+body.archive.category #content,
+body.archive.category #content.site-content,
+body.archive.category .ast-container,
+body.archive.category #primary {
+	width: 100% !important;
+	max-width: 100% !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	float: none !important;
+	display: block !important;
+	background: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+}
+
+/* Hide any default Astra archive header or empty entry titles */
+body.archive.category .ast-archive-description,
+body.archive.category .page-header.ast-archive-description,
+body.archive .ast-archive-description,
+body.archive .page-header.ast-archive-description {
+	display: none !important;
+}
+
+/* Master Category Archive Wrapper */
+.bi-category-archive {
+	width: 100%;
+	position: relative;
+	background-color: #FFFFFF;
+	font-family: "Noto Sans", sans-serif;
+	color: #000000;
+	overflow-x: clip;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* --------------------------------------------------------------------------
+   1. DEDICATED CATEGORY HERO (Directly Below Global Header)
+   Height target on desktop: ~220–280px total height including padding.
+   -------------------------------------------------------------------------- */
+.bi-category-hero {
+	position: relative;
+	width: 100%;
+	background: var(--bi-gradient-warm-light, linear-gradient(135deg, #FFFFFF 0%, #F3F2EF 55%, #FFFFFF 100%));
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+	padding: clamp(38px, 4.2vw, 56px) 0 clamp(34px, 3.8vw, 50px);
+	box-sizing: border-box;
+}
+
+.bi-category-hero__container {
+	width: 100%;
+	max-width: var(--bi-max, 1380px);
+	margin: 0 auto;
+	padding: 0 32px;
+	box-sizing: border-box;
+}
+
+.bi-category-hero__content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	max-width: 880px;
+}
+
+/* Eyebrow Pill */
+.bi-category-hero__eyebrow-wrap {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 5px 14px;
+	background: rgba(0, 0, 0, 0.05);
+	border: 1px solid rgba(0, 0, 0, 0.12);
+	border-radius: 999px;
+	margin-bottom: 16px;
+}
+
+.bi-category-hero__eyebrow-dot {
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background-color: #000000;
+	box-shadow: none;
+	flex-shrink: 0;
+}
+
+.bi-category-hero__eyebrow {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 11.5px;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: #000000;
+}
+
+/* Main Category Heading */
+.bi-category-hero__title {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(34px, 4vw, 52px);
+	font-weight: 800;
+	line-height: 1.15;
+	letter-spacing: -0.025em;
+	color: #000000;
+	margin: 0 0 14px 0;
+}
+
+/* Supporting Description */
+.bi-category-hero__desc {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(15px, 1.2vw, 17px);
+	line-height: 1.6;
+	color: #596579;
+	margin: 0;
+	max-width: 780px;
+}
+
+/* --------------------------------------------------------------------------
+   2. CATEGORY ARCHIVE FEED SECTION & CONTROLS
+   -------------------------------------------------------------------------- */
+.bi-category-feed {
+	width: 100%;
+	background-color: #FFFFFF;
+	padding: clamp(36px, 4vw, 54px) 0 clamp(64px, 7vw, 100px);
+	box-sizing: border-box;
+}
+
+.bi-category-feed__container {
+	width: 100%;
+	max-width: var(--bi-max, 1380px);
+	margin: 0 auto;
+	padding: 0 32px;
+	box-sizing: border-box;
+}
+
+/* Category Navigation Pills Bar */
+.bi-category-nav-bar {
+	width: 100%;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #EBECEF;
+	margin-bottom: clamp(28px, 3vw, 42px);
+}
+
+.bi-category-pills {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	overflow-x: auto;
+	overflow-y: hidden;
+	-webkit-overflow-scrolling: touch;
+	scrollbar-width: none;
+	padding: 4px 0;
+}
+
+.bi-category-pills::-webkit-scrollbar {
+	display: none;
+}
+
+.bi-cat-pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 18px;
+	border-radius: 999px;
+	background: #FFFFFF;
+	border: 1px solid #D0D3DA;
+	color: #6A6A6A;
+	font-family: "Noto Sans", sans-serif;
+	font-size: 13.5px;
+	font-weight: 600;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: all 200ms ease;
+	flex-shrink: 0;
+}
+
+.bi-cat-pill:hover {
+	color: #000000;
+	border-color: #000000;
+}
+
+.bi-cat-pill.is-active {
+	background-color: #000000;
+	color: #FFFFFF;
+	border-color: #000000;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.bi-cat-pill__count {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 18px;
+	height: 18px;
+	padding: 0 5px;
+	border-radius: 999px;
+	background: rgba(0, 0, 0, 0.06);
+	font-size: 11px;
+	font-weight: 700;
+	color: inherit;
+}
+
+.bi-cat-pill.is-active .bi-cat-pill__count {
+	background: rgba(255, 255, 255, 0.25);
+	color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   3. 3-COLUMN EDITORIAL ARTICLE GRID
+   -------------------------------------------------------------------------- */
+.bi-category-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: clamp(24px, 2.5vw, 36px);
+	width: 100%;
+}
+
+/* Individual Article Card */
+.bi-category-card {
+	display: flex;
+	flex-direction: column;
+	background: #FFFFFF;
+	border: 1px solid #E6E8ED;
+	border-radius: 16px;
+	overflow: hidden;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+	transition: transform 280ms cubic-bezier(0.16, 1, 0.3, 1),
+	            box-shadow 280ms cubic-bezier(0.16, 1, 0.3, 1),
+	            border-color 280ms ease;
+	box-sizing: border-box;
+	height: 100%;
+}
+
+.bi-category-card:hover {
+	transform: translateY(-4px);
+	border-color: #D0D3DA;
+	box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+}
+
+/* 16:9 Image Visual */
+.bi-category-card__visual {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	background-color: #0F172A;
+	overflow: hidden;
+}
+
+.bi-category-card__img-link {
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+}
+
+.bi-category-card__img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	display: block;
+	transition: transform 450ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bi-category-card:hover .bi-category-card__img {
+	transform: scale(1.04);
+}
+
+/* Category Badge over Image */
+.bi-category-card__cat-badge {
+	position: absolute;
+	top: 12px;
+	left: 12px;
+	padding: 4px 10px;
+	background: rgba(0, 0, 0, 0.72);
+	backdrop-filter: blur(6px);
+	-webkit-backdrop-filter: blur(6px);
+	color: #FFFFFF;
+	font-family: "Noto Sans", sans-serif;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	border-radius: 999px;
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	z-index: 2;
+}
+
+/* Card Body */
+.bi-category-card__body {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	padding: 24px;
+	box-sizing: border-box;
+}
+
+/* Meta Information */
+.bi-category-card__meta {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-family: "Noto Sans", sans-serif;
+	font-size: 13.5px;
+	color: #6A6A6A;
+	margin-bottom: 12px;
+}
+
+.bi-category-card__date {
+	color: #6A6A6A;
+	font-weight: 500;
+}
+
+.bi-category-card__sep {
+	color: #D0D3DA;
+	font-size: 10px;
+}
+
+.bi-category-card__read-time {
+	color: #6A6A6A;
+	font-weight: 500;
+}
+
+/* Title */
+.bi-category-card__title {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(20px, 1.5vw, 23px);
+	font-weight: 600;
+	line-height: 1.35;
+	letter-spacing: -0.015em;
+	color: #000000;
+	margin: 0 0 12px 0;
+}
+
+.bi-category-card__title-link {
+	color: inherit;
+	text-decoration: none;
+	transition: color 180ms ease;
+}
+
+.bi-category-card__title-link:hover {
+	color: #000000;
+	text-decoration: underline;
+}
+
+/* Excerpt */
+.bi-category-card__excerpt {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 15px;
+	line-height: 1.6;
+	color: #596579;
+	margin: 0 0 20px 0;
+}
+
+.bi-category-card__excerpt p {
+	margin: 0;
+	color: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+/* Card Footer / CTA */
+.bi-category-card__footer {
+	margin-top: auto;
+	padding-top: 16px;
+	border-top: 1px solid #F1F3F6;
+}
+
+.bi-category-card__cta {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-family: "Noto Sans", sans-serif;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: #000000;
+	text-decoration: none;
+	transition: gap 200ms ease, color 200ms ease;
+}
+
+.bi-category-card__cta-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 14px;
+	height: 14px;
+	transition: transform 200ms ease;
+}
+
+.bi-category-card:hover .bi-category-card__cta {
+	gap: 9px;
+}
+
+.bi-category-card:hover .bi-category-card__cta-icon {
+	transform: translate(2px, -2px);
+}
+
+/* --------------------------------------------------------------------------
+   4. PAGINATION
+   -------------------------------------------------------------------------- */
+.bi-category-pagination {
+	margin-top: clamp(48px, 6vw, 72px);
+	display: flex;
+	justify-content: center;
+}
+
+.bi-category-pagination ul.page-numbers {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.bi-category-pagination .page-numbers {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 42px;
+	height: 42px;
+	padding: 0 12px;
+	border-radius: 10px;
+	border: 1px solid #EBECEF;
+	background: #FFFFFF;
+	color: #000000;
+	font-family: "Noto Sans", sans-serif;
+	font-size: 14px;
+	font-weight: 600;
+	text-decoration: none;
+	transition: all 180ms ease;
+}
+
+.bi-category-pagination .page-numbers:hover {
+	border-color: #000000;
+	color: #000000;
+}
+
+.bi-category-pagination .page-numbers.current {
+	background: #000000;
+	border-color: #000000;
+	color: #FFFFFF;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   5. EMPTY STATE
+   -------------------------------------------------------------------------- */
+.bi-category-empty {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 64px 20px;
+	max-width: 580px;
+	margin: 0 auto;
+}
+
+.bi-category-empty__icon {
+	width: 56px;
+	height: 56px;
+	color: #6A6A6A;
+	margin-bottom: 20px;
+}
+
+.bi-category-empty__title {
+	font-size: 24px;
+	font-weight: 700;
+	color: #000000;
+	margin: 0 0 12px 0;
+}
+
+.bi-category-empty__desc {
+	font-size: 15px;
+	line-height: 1.6;
+	color: #596579;
+	margin: 0 0 24px 0;
+}
+
+/* --------------------------------------------------------------------------
+   6. RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+
+/* Tablet (768px – 1024px): Two cards per row */
+@media (min-width: 768px) and (max-width: 1024px) {
+	.bi-category-hero__container,
+	.bi-category-feed__container {
+		padding: 0 28px;
+	}
+
+	.bi-category-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 24px;
+	}
+
+	.bi-category-card__body {
+		padding: 20px;
+	}
+}
+
+/* Mobile (<768px) */
+@media (max-width: 767px) {
+	.bi-category-hero {
+		padding: 32px 0 28px;
+	}
+
+	.bi-category-hero__container,
+	.bi-category-feed__container {
+		padding: 0 20px;
+	}
+
+	.bi-category-hero__title {
+		font-size: clamp(28px, 6.8vw, 36px);
+		margin-bottom: 10px;
+	}
+
+	.bi-category-hero__desc {
+		font-size: 14.5px;
+	}
+
+	.bi-category-feed {
+		padding: 28px 0 60px;
+	}
+
+	.bi-category-grid {
+		grid-template-columns: 1fr;
+		gap: 22px;
+	}
+
+	.bi-category-card {
+		border-radius: 14px;
+	}
+
+	.bi-category-card__body {
+		padding: 18px;
+	}
+
+	.bi-category-card__title {
+		font-size: 19px;
+	}
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+	.bi-category-card,
+	.bi-category-card__img,
+	.bi-category-card__cta,
+	.bi-category-card__cta-icon,
+	.bi-cat-pill {
+		transition: none !important;
+		transform: none !important;
+	}
+}

@@ -1,0 +1,493 @@
+/* ==========================================================================
+   Better Insights - About Page: Our Values & Animated Typography (.fwt)
+   Reference: Ascendion "Who We Are" (https://ascendion.com/who-we-are/)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. OUR VALUES SECTION (.bi-about-values)
+   -------------------------------------------------------------------------- */
+.bi-about-values {
+	position: relative;
+	width: 100%;
+	background-color: #F5F5F3;
+	color: #000000;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.bi-about-values__container {
+	width: 100%;
+	max-width: var(--bi-max, 1380px);
+	margin: 0 auto;
+	padding: 0 32px;
+	box-sizing: border-box;
+	position: relative;
+	z-index: 1;
+}
+
+/* Header Area */
+.bi-about-values__header {
+	padding: clamp(84px, 9vw, 130px) 0 clamp(44px, 5.5vw, 68px);
+	max-width: 780px;
+}
+
+.bi-about-values__eyebrow {
+	display: block;
+	font-family: "Noto Sans", sans-serif;
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	color: #000000;
+	opacity: 0.6;
+	text-transform: uppercase;
+	margin-bottom: 16px;
+}
+
+.bi-about-values__title {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(38px, 5vw, 68px);
+	font-weight: 800;
+	line-height: 1.04;
+	letter-spacing: -0.025em;
+	color: #000000;
+	margin: 0 0 20px 0;
+	text-transform: capitalize;
+}
+
+.bi-about-values__title-accent {
+	color: #000000;
+}
+
+.bi-about-values__subtitle {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(16px, 1.25vw, 19px);
+	font-weight: 400;
+	line-height: 1.65;
+	color: #4A4A4A;
+	margin: 0;
+}
+
+/* Four Columns Grid with Subtle Vertical Dividers */
+.bi-about-values__grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 0;
+	border-top: 1px solid rgba(0, 0, 0, 0.12);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+	margin-bottom: clamp(40px, 6vw, 80px);
+}
+
+.bi-about-values__col {
+	position: relative;
+	padding: clamp(34px, 3.8vw, 48px) clamp(20px, 2vw, 32px) clamp(40px, 4.4vw, 60px);
+	border-right: 1px solid rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	background-color: transparent;
+	transition: background-color 300ms ease;
+}
+
+.bi-about-values__col:first-child {
+	padding-left: 0;
+}
+
+.bi-about-values__col:last-child {
+	border-right: none;
+	padding-right: 0;
+}
+
+.bi-about-values__col:hover {
+	background-color: rgba(0, 0, 0, 0.02);
+}
+
+.bi-about-values__num-wrap {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 24px;
+}
+
+.bi-about-values__number {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	color: #000000;
+	line-height: 1;
+}
+
+.bi-about-values__divider-dot {
+	width: 4px;
+	height: 4px;
+	background-color: rgba(0, 0, 0, 0.25);
+	border-radius: 50%;
+}
+
+.bi-about-values__heading {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(20px, 1.9vw, 25px);
+	font-weight: 700;
+	line-height: 1.25;
+	letter-spacing: -0.02em;
+	color: #000000;
+	margin: 0 0 12px 0;
+}
+
+.bi-about-values__desc {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 1.65;
+	color: #444444;
+	margin: 0;
+}
+
+/* Subtle Active Accent Bar on Column Hover */
+.bi-about-values__accent-bar {
+	position: absolute;
+	bottom: -1px;
+	left: 0;
+	right: 0;
+	height: 2px;
+	background: #000000;
+	opacity: 0;
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: opacity 300ms ease, transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+	pointer-events: none;
+}
+
+.bi-about-values__col:hover .bi-about-values__accent-bar {
+	opacity: 1;
+	transform: scaleX(1);
+}
+
+/* --------------------------------------------------------------------------
+   2. ANIMATED FULL-WIDTH TYPOGRAPHY SECTION (.bi-about-fwt / .fwt)
+   Editorial-grade marquee statement inspired by WPP Media & Valtech
+   -------------------------------------------------------------------------- */
+.bi-about-fwt,
+.fwt.bi-about-fwt {
+	position: relative;
+	width: 100%;
+	background-color: #F5F7FA;
+	color: #000000;
+	overflow: hidden;
+	box-sizing: border-box;
+	padding: clamp(44px, 4.8vw, 68px) 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.bi-about-fwt__rule {
+	width: 100%;
+	height: 1px;
+	background-color: #D0D3DA;
+}
+
+.bi-about-fwt__inner {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(14px, 1.6vw, 22px);
+	padding: 0;
+	overflow: hidden;
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.bi-about-fwt__marquee-wrap {
+	display: flex;
+	width: 100%;
+	max-width: 100%;
+	overflow: hidden;
+	position: relative;
+	user-select: none;
+}
+
+.bi-about-fwt__marquee-wrap--primary {
+	z-index: 2;
+}
+
+.bi-about-fwt__marquee-wrap--secondary {
+	z-index: 1;
+}
+
+.bi-about-fwt__track {
+	display: flex;
+	align-items: center;
+	width: max-content;
+	will-change: transform;
+	padding: 2px 0;
+}
+
+/* Primary Editorial Statement */
+.bi-about-fwt__statement {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(32px, 3.6vw, 52px);
+	font-weight: 800;
+	line-height: 1.15;
+	letter-spacing: -0.02em;
+	color: #000000;
+	text-transform: uppercase;
+	margin: 0;
+	white-space: nowrap;
+	flex-shrink: 0;
+}
+
+.bi-about-fwt__separator {
+	display: inline-block;
+	width: clamp(7px, 0.7vw, 10px);
+	height: clamp(7px, 0.7vw, 10px);
+	background-color: #000000;
+	border-radius: 50%;
+	margin: 0 clamp(24px, 2.5vw, 44px);
+	vertical-align: middle;
+	flex-shrink: 0;
+}
+
+.bi-about-fwt__accent {
+	color: #000000;
+}
+
+/* Secondary Refined Editorial Supporting Concepts */
+.bi-about-fwt__outline-text {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(12px, 1.05vw, 15px);
+	font-weight: 600;
+	line-height: 1.4;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	white-space: nowrap;
+	color: #6A6A6A;
+	-webkit-text-stroke: 0;
+	margin: 0;
+	flex-shrink: 0;
+	display: inline-flex;
+	align-items: center;
+}
+
+.bi-about-fwt__sub-item {
+	display: inline;
+	color: #6A6A6A;
+}
+
+.bi-about-fwt__sub-dot {
+	display: inline-block;
+	width: 4px;
+	height: 4px;
+	background-color: #000000;
+	border-radius: 50%;
+	margin: 0 clamp(12px, 1.2vw, 18px);
+	vertical-align: middle;
+	flex-shrink: 0;
+}
+
+.bi-about-fwt__sub-dot--group {
+	width: 5px;
+	height: 5px;
+	margin: 0 clamp(20px, 2vw, 32px);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1199px) {
+	.bi-about-values__grid {
+		grid-template-columns: repeat(2, 1fr);
+		border-bottom: none;
+	}
+
+	.bi-about-values__col {
+		padding: 32px 24px 44px;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+	}
+
+	.bi-about-values__col:first-child {
+		padding-left: 0;
+	}
+
+	.bi-about-values__col:nth-child(2) {
+		border-right: none;
+		padding-right: 0;
+	}
+
+	.bi-about-values__col:nth-child(3) {
+		padding-left: 0;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+	}
+
+	.bi-about-values__col:nth-child(4) {
+		border-right: none;
+		padding-right: 0;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+	}
+}
+
+@media (max-width: 1024px) {
+	.bi-about-fwt,
+	.fwt.bi-about-fwt {
+		padding: clamp(36px, 4.2vw, 48px) 0;
+	}
+
+	.bi-about-fwt__inner {
+		gap: 14px;
+	}
+
+	.bi-about-fwt__statement {
+		font-size: clamp(26px, 3.6vw, 36px);
+		letter-spacing: -0.015em;
+	}
+
+	.bi-about-fwt__separator {
+		width: 7px;
+		height: 7px;
+		margin: 0 clamp(16px, 2vw, 28px);
+	}
+
+	.bi-about-fwt__outline-text {
+		font-size: clamp(11px, 1.3vw, 13px);
+		letter-spacing: 0.11em;
+	}
+
+	.bi-about-fwt__sub-dot {
+		margin: 0 10px;
+	}
+
+	.bi-about-fwt__sub-dot--group {
+		margin: 0 18px;
+	}
+}
+
+@media (max-width: 767px) {
+	.bi-about-values__container {
+		padding: 0 20px;
+	}
+
+	.bi-about-values__header {
+		padding: 64px 0 36px;
+	}
+
+	.bi-about-values__title {
+		font-size: clamp(32px, 8.5vw, 44px);
+		line-height: 1.1;
+	}
+
+	.bi-about-values__grid {
+		grid-template-columns: 1fr;
+		border-bottom: none;
+		margin-bottom: 60px;
+	}
+
+	.bi-about-values__col {
+		padding: 24px 0 32px;
+		border-right: none;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+	}
+
+	.bi-about-values__col:first-child,
+	.bi-about-values__col:nth-child(2),
+	.bi-about-values__col:nth-child(3),
+	.bi-about-values__col:nth-child(4) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.bi-about-values__col:last-child {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+	}
+
+	.bi-about-values__heading {
+		font-size: 20px;
+		margin-bottom: 12px;
+	}
+
+	.bi-about-fwt,
+	.fwt.bi-about-fwt {
+		padding: 32px 0;
+	}
+
+	.bi-about-fwt__inner {
+		padding: 0;
+		gap: 10px;
+		-webkit-mask-image: none;
+		mask-image: none;
+	}
+
+	.bi-about-fwt__statement {
+		font-size: clamp(18px, 4.8vw, 24px);
+		letter-spacing: -0.01em;
+		line-height: 1.2;
+	}
+
+	.bi-about-fwt__separator {
+		width: 6px;
+		height: 6px;
+		margin: 0 14px;
+	}
+
+	.bi-about-fwt__outline-text {
+		font-size: 11px;
+		letter-spacing: 0.08em;
+	}
+
+	.bi-about-fwt__sub-dot {
+		width: 3px;
+		height: 3px;
+		margin: 0 7px;
+	}
+
+	.bi-about-fwt__sub-dot--group {
+		width: 4px;
+		height: 4px;
+		margin: 0 12px;
+	}
+}
+
+/* --------------------------------------------------------------------------
+   PREFERS REDUCED MOTION
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+	.bi-about-fwt__track {
+		transform: none !important;
+		width: 100% !important;
+		justify-content: center !important;
+		flex-wrap: wrap !important;
+		padding: 0 20px !important;
+		box-sizing: border-box !important;
+	}
+
+	.bi-about-fwt__statement--echo,
+	.bi-about-fwt__separator,
+	.bi-about-fwt__outline-text--echo,
+	.bi-about-fwt__sub-dot--group {
+		display: none !important;
+	}
+
+	.bi-about-fwt__statement {
+		white-space: normal !important;
+		text-align: center;
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.bi-about-fwt__outline-text {
+		white-space: normal !important;
+		text-align: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		max-width: 800px;
+		margin: 0 auto;
+		row-gap: 6px;
+	}
+
+	.bi-about-values__col,
+	.bi-about-values__accent-bar {
+		transition: none !important;
+	}
+}

@@ -1,0 +1,61 @@
+/**
+ * Better Insights — Master Brand Design Tokens
+ * Harmonized with Homepage Design System (Host Grotesk, Warm Stone, Emerald Green)
+ */
+
+:root {
+  /* Core Brand Colors (Exact Homepage Match) */
+  --bi-black: #1B1411;
+  --bi-charcoal: #1B1411;
+  --bi-dark-surface: #1B1411;
+  --bi-white: #FFFFFF;
+  --bi-warm-stone: #FAF5F0;
+  --bi-warm-off-white: #FAF5F0;
+  --bi-beige: #EEE5DC;
+  --bi-cream: #FAF5F0;
+  
+  /* Brand Accent: Homepage Electric/Emerald Green */
+  --bi-green: #33CC7A;
+  --bi-green-hover: #2BB86D;
+  --bi-green-subtle: rgba(51, 204, 122, 0.12);
+  --bi-green-glow: 0 0.75rem 1.75rem -0.75rem rgba(51, 204, 122, 0.45);
+  
+  /* Typography & Muted Colors */
+  --bi-muted: #66574F;
+  --bi-light-body: #66574F;
+  --bi-dark-body: #B8ABA3;
+  --bi-sand-muted: #B8ABA3;
+
+  /* Editorial Dividers & Borders */
+  --bi-light-divider: rgba(27, 20, 17, 0.08);
+  --bi-light-border: rgba(27, 20, 17, 0.08);
+  --bi-border-strong: rgba(27, 20, 17, 0.16);
+  --bi-border-dark: rgba(250, 245, 240, 0.12);
+
+  /* Typography */
+  --bi-font-family: "Host Grotesk", "Host Grotesk Fallback", Arial, sans-serif;
+  --font-host-grotesk: "Host Grotesk", "Host Grotesk Fallback", Arial, sans-serif;
+
+  /* Standard Radii */
+  --bi-radius-pill: 62.5rem;
+  --bi-radius-card: 1.75rem;
+  --bi-radius-card-sm: 1.25rem;
+  --bi-radius-section: 3.5rem;
+
+  /* Standard Shadows */
+  --bi-shadow-card: 0 4px 20px -2px rgba(27, 20, 17, 0.06), 0 2px 6px -1px rgba(27, 20, 17, 0.04);
+  --bi-shadow-card-hover: 0 12px 32px -4px rgba(27, 20, 17, 0.10), 0 4px 12px -2px rgba(27, 20, 17, 0.06);
+  --bi-shadow-cta: 0 0.75rem 1.75rem -0.75rem rgba(51, 204, 122, 0.45);
+
+  /* Inner-Page Hero Gradient Tokens */
+  --bi-gradient-light: linear-gradient(135deg, #FFFFFF 0%, #FAF5F0 55%, #FFFFFF 100%);
+  --bi-gradient-dark: linear-gradient(135deg, #1B1411 0%, #2E241F 50%, #1B1411 100%);
+  --bi-gradient-warm: linear-gradient(110deg, #FAF5F0 0%, #FFFFFF 70%, #FAF5F0 100%);
+
+  /* Subtle Neutral Glass Overlays */
+  --bi-glass-stone: rgba(250, 245, 240, 0.90);
+  --bi-glass-white: rgba(255, 255, 255, 0.92);
+  --bi-glass-dark: rgba(27, 20, 17, 0.92);
+  --bi-glass-border-light: rgba(27, 20, 17, 0.08);
+  --bi-glass-border-dark: rgba(250, 245, 240, 0.14);
+}

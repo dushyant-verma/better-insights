@@ -1,0 +1,266 @@
+/* ==========================================================================
+   Better Insights — Premium Insights & Blogs Experience Stylesheet
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. ANIMATIONS & KEYFRAMES
+   -------------------------------------------------------------------------- */
+@keyframes biFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes biPulseDot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.6;
+  }
+}
+
+@keyframes biCardShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-bi-fade-in-up {
+  animation: biFadeInUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.bi-pulse-indicator {
+  animation: biPulseDot 2.4s ease-in-out infinite;
+}
+
+/* --------------------------------------------------------------------------
+   2. EDITORIAL HERO & AMBIENT ELEMENTS
+   -------------------------------------------------------------------------- */
+.bi-hero-ambient-grid {
+  position: absolute;
+  inset: 0;
+  background-size: 48px 48px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 75%);
+}
+
+.bi-hero-ambient-glow {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 60vw;
+  height: 60vw;
+  max-width: 800px;
+  max-height: 800px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 50%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. CATEGORY SCROLLER & PILLS
+   -------------------------------------------------------------------------- */
+.bi-category-scroller {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.bi-category-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   4. EDITORIAL CARDS & HOVER EFFECTS
+   -------------------------------------------------------------------------- */
+.bi-insight-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+  will-change: transform, box-shadow;
+}
+
+.bi-insight-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.12);
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+.bi-insight-card .bi-card-img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bi-insight-card:hover .bi-card-img {
+  transform: scale(1.05);
+}
+
+/* --------------------------------------------------------------------------
+   5. ARTICLE PROSE & TYPOGRAPHY
+   -------------------------------------------------------------------------- */
+.bi-prose {
+  color: #171717;
+  font-size: 1.0625rem;
+  line-height: 1.85;
+}
+
+.bi-prose h2 {
+  font-size: clamp(1.6rem, 2.8vw, 2.25rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: #000000;
+  margin-top: 2.75rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
+  scroll-margin-top: 100px;
+}
+
+.bi-prose h3 {
+  font-size: clamp(1.3rem, 2vw, 1.65rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: #000000;
+  margin-top: 2.25rem;
+  margin-bottom: 1rem;
+  line-height: 1.25;
+  scroll-margin-top: 100px;
+}
+
+.bi-prose h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #171717;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.bi-prose p {
+  margin-bottom: 1.5rem;
+  color: #262626;
+}
+
+.bi-prose strong,
+.bi-prose b {
+  font-weight: 700;
+  color: #000000;
+}
+
+.bi-prose ul {
+  list-style-type: disc;
+  padding-left: 1.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.bi-prose ol {
+  list-style-type: decimal;
+  padding-left: 1.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.bi-prose li {
+  margin-bottom: 0.5rem;
+}
+
+.bi-prose blockquote {
+  border-left: 4px solid #000000;
+  padding: 1rem 0 1rem 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: #171717;
+  background: rgba(243, 242, 239, 0.5);
+  border-radius: 0 1rem 1rem 0;
+}
+
+.bi-prose a {
+  color: #000000;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.bi-prose a:hover {
+  opacity: 0.75;
+}
+
+.bi-prose img {
+  border-radius: 1.25rem;
+  margin: 2.5rem 0;
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.bi-prose code {
+  font-family: monospace;
+  font-size: 0.9em;
+  background: rgba(0, 0, 0, 0.06);
+  padding: 0.2em 0.4em;
+  border-radius: 0.35em;
+}
+
+.bi-prose pre {
+  background: #171717;
+  color: #F3F2EF;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  overflow-x: auto;
+  margin: 1.75rem 0;
+  font-size: 0.9rem;
+}
+
+/* --------------------------------------------------------------------------
+   6. STICKY TABLE OF CONTENTS & PROGRESS
+   -------------------------------------------------------------------------- */
+.bi-reading-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #000000;
+  z-index: 9999;
+  transition: width 0.1s ease-out;
+}
+
+.bi-toc-link.active {
+  color: #000000;
+  font-weight: 700;
+  border-left: 2px solid #000000;
+  padding-left: 0.75rem;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+/* --------------------------------------------------------------------------
+   7. ACCESSIBILITY & PREFERS-REDUCED-MOTION
+   -------------------------------------------------------------------------- */
+.bi-focus-ring:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-bi-fade-in-up,
+  .bi-pulse-indicator,
+  .bi-insight-card,
+  .bi-card-img,
+  .bi-reading-progress-bar {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,59 @@
+# Environment & Secrets
+.env
+.env*.local
+*.env.local
+wp-config.php
+
+# Node & Package Managers
+**/node_modules/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Next.js Build Outputs & Caches
+**/.next/
+**/.turbo/
+better-insights-frontend/out/
+better-insights-frontend/build/
+better-insights-frontend/dist/
+better-insights-frontend/.vercel/
+better-insights-frontend/next-env.d.ts
+better-insights-frontend/*.tsbuildinfo
+
+# WordPress Backups, Caches, & Temp
+wp-content/updraft/
+wp-content/upgrade/
+wp-content/upgrade-temp-backup/
+wp-content/cache/
+wp-content/backups/
+wp-content/blogs.dir/
+
+# Database dumps and archive backups
+*.sql
+*.sql.gz
+*.sqlite
+*.tar.gz
+*.zip
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+debug.log
+
+# Operating System & Editor Files
+.DS_Store
+**/.DS_Store
+Thumbs.db
+ehthumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~

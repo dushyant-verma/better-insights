@@ -1,0 +1,60 @@
+@import "tailwindcss";
+@source "../";
+
+@import "../styles/design-tokens.css";
+@import "../styles/services.css";
+@import "../styles/about.css";
+@import "../styles/contact.css";
+@import "../styles/insights.css";
+@import "../styles/home-merged.css";
+
+:root {
+  --color-bi-black: #000000;
+  --color-bi-white: #FFFFFF;
+  --color-bi-stone: #F3F2EF;
+  --color-bi-charcoal: #171717;
+  --color-bi-muted: #666666;
+  --color-bi-border: #E5E5E5;
+}
+
+html:not(.lenis) {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bi-warm-stone, #FAF5F0);
+  color: var(--bi-black, #1B1411);
+  font-family: var(--bi-font-family, "Host Grotesk", "Host Grotesk Fallback", Arial, sans-serif);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar styling in neutral monochrome */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F3F2EF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000000;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #171717;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

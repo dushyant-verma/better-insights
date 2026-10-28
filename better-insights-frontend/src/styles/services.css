@@ -1,0 +1,122 @@
+/* ==========================================================================
+   Better Insights - Services & Single Service Master Stylesheet
+   Harmonized with Homepage Design System (Host Grotesk, Warm Stone, Emerald Green)
+   ========================================================================== */
+
+/* Ambient & Background Effects */
+.services-ambient-bg {
+  position: relative;
+  background-color: #1B1411;
+  background-image: 
+    radial-gradient(circle at 20% 15%, rgba(51, 204, 122, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 80% 85%, rgba(51, 204, 122, 0.05) 0%, transparent 45%);
+}
+
+.services-grid-overlay {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.services-light-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(27, 20, 17, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(27, 20, 17, 0.03) 1px, transparent 1px);
+}
+
+/* Glassmorphism & Pill Badges */
+.service-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #33CC7A;
+}
+
+.service-pill-badge-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: #EEE5DC;
+  border: 1px solid rgba(27, 20, 17, 0.08);
+  color: #1B1411;
+}
+
+/* Card Glow and Hover Transitions */
+.service-overview-card {
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+  overflow: hidden;
+  border-radius: 1.75rem;
+}
+
+.service-overview-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(27, 20, 17, 0.08);
+  border-color: rgba(51, 204, 122, 0.4);
+}
+
+.service-dark-card {
+  background: #2E241F;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.75rem;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease,
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-dark-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(51, 204, 122, 0.4);
+  box-shadow: 0 20px 40px -15px rgba(51, 204, 122, 0.15);
+}
+
+/* Image Zoom on Card Hover */
+.service-card-image-wrap {
+  overflow: hidden;
+  position: relative;
+  border-radius: 1.25rem;
+}
+
+.service-card-image-wrap img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-overview-card:hover .service-card-image-wrap img {
+  transform: scale(1.05);
+}
+
+/* Accessibility Focus Ring */
+.service-focus-ring:focus-visible {
+  outline: 2px solid #33CC7A;
+  outline-offset: 3px;
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  .service-overview-card,
+  .service-dark-card,
+  .service-card-image-wrap img {
+    transition: none !important;
+    transform: none !important;
+  }
+}

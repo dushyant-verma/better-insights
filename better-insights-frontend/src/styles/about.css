@@ -1,0 +1,99 @@
+/* ==========================================================================
+   Better Insights — About Page Animation & Editorial Styling
+   ========================================================================== */
+
+@keyframes aboutMarqueePrimary {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes aboutMarqueeSecondary {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes aboutPulseDot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.55;
+  }
+}
+
+@keyframes aboutFloatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes aboutFloatReverse {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+.about-marquee-primary {
+  display: flex;
+  width: max-content;
+  animation: aboutMarqueePrimary 40s linear infinite;
+  will-change: transform;
+}
+
+.about-marquee-secondary {
+  display: flex;
+  width: max-content;
+  animation: aboutMarqueeSecondary 48s linear infinite;
+  will-change: transform;
+}
+
+.about-marquee-wrap:hover .about-marquee-primary,
+.about-marquee-wrap:hover .about-marquee-secondary {
+  animation-play-state: paused;
+}
+
+.about-pulse-indicator {
+  animation: aboutPulseDot 2.4s ease-in-out infinite;
+}
+
+.about-float-up {
+  animation: aboutFloatSlow 7s ease-in-out infinite;
+}
+
+.about-float-down {
+  animation: aboutFloatReverse 8s ease-in-out infinite;
+}
+
+/* Accessible focus ring */
+.about-interactive-focus:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 4px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .about-marquee-primary,
+  .about-marquee-secondary,
+  .about-pulse-indicator,
+  .about-float-up,
+  .about-float-down {
+    animation: none !important;
+    transform: none !important;
+  }
+}

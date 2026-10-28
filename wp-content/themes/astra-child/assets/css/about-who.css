@@ -1,0 +1,411 @@
+/* ==========================================================================
+   Better Insights - About Page Section 2: Who We Are & Business Metrics
+   Reference: Ascendion "Who We Are" (https://ascendion.com/who-we-are/)
+   ========================================================================== */
+
+.bi-about-who {
+	position: relative;
+	width: 100%;
+	background-color: #000000;
+	color: #FFFFFF;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+.bi-about-who__container {
+	width: 100%;
+	max-width: var(--bi-max, 1380px);
+	margin: 0 auto;
+	padding: 0 32px;
+	box-sizing: border-box;
+	position: relative;
+	z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   1. INTRODUCTORY BANNER (Wide Visual with Strong Dark Overlay)
+   -------------------------------------------------------------------------- */
+.bi-about-who__banner {
+	position: relative;
+	width: 100%;
+	padding: clamp(90px, 11vw, 160px) 0 clamp(80px, 9vw, 120px);
+	overflow: hidden;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	box-sizing: border-box;
+}
+
+.bi-about-who__banner-bg {
+	position: absolute;
+	inset: 0;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	z-index: 0;
+	filter: brightness(0.6);
+}
+
+.bi-about-who__banner-overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(135deg, rgba(0, 0, 0, 0.94) 0%, rgba(0, 0, 0, 0.86) 55%, rgba(0, 0, 0, 0.94) 100%);
+	backdrop-filter: blur(2px);
+}
+
+.bi-about-who__banner-content {
+	position: relative;
+	z-index: 1;
+	max-width: 820px;
+}
+
+.bi-about-who__banner-eyebrow {
+	display: block;
+	font-family: "Noto Sans", sans-serif;
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	color: #FFFFFF;
+	opacity: 0.8;
+	text-transform: uppercase;
+	margin-bottom: 16px;
+}
+
+.bi-about-who__banner-title {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(40px, 5.2vw, 76px);
+	font-weight: 800;
+	line-height: 1;
+	letter-spacing: -0.03em;
+	color: #FFFFFF;
+	text-transform: capitalize;
+	margin: 0 0 24px 0;
+}
+
+.bi-about-who__banner-desc {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(17px, 1.35vw, 21px);
+	font-weight: 400;
+	line-height: 1.65;
+	color: #D0D3DA;
+	margin: 0;
+	max-width: 780px;
+}
+
+/* --------------------------------------------------------------------------
+   2. MAIN EDITORIAL STATEMENT (Two-Column on Black)
+   -------------------------------------------------------------------------- */
+.bi-about-who__statement-wrap {
+	position: relative;
+	padding: clamp(72px, 8vw, 110px) 0 clamp(36px, 4vw, 50px);
+	box-sizing: border-box;
+}
+
+.bi-about-who__statement-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+	gap: clamp(40px, 5.5vw, 80px);
+	align-items: start;
+}
+
+.bi-about-who__statement-left {
+	display: flex;
+	flex-direction: column;
+}
+
+.bi-about-who__statement-heading {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(28px, 3.4vw, 48px);
+	font-weight: 800;
+	line-height: 1.12;
+	letter-spacing: -0.025em;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	margin: 0;
+}
+
+.bi-about-who__statement-accent {
+	color: #FFFFFF;
+}
+
+.bi-about-who__statement-right {
+	display: flex;
+	align-items: flex-start;
+	padding-top: 6px;
+}
+
+.bi-about-who__statement-desc {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(16px, 1.2vw, 18px);
+	font-weight: 400;
+	line-height: 1.65;
+	color: #A8A8A8;
+	margin: 0;
+	max-width: 520px;
+}
+
+/* --------------------------------------------------------------------------
+   3. BUSINESS METRICS (Horizontal Grid with Subtle Dividers & Fine Bottom Border)
+   -------------------------------------------------------------------------- */
+.bi-about-who__metrics-wrap {
+	position: relative;
+	padding: clamp(32px, 3.5vw, 44px) 0 clamp(32px, 3.5vw, 44px);
+	box-sizing: border-box;
+}
+
+.bi-about-who__metrics-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 0;
+	border-top: 1px solid rgba(255, 255, 255, 0.12);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.bi-about-who__metric-card {
+	position: relative;
+	padding: 28px 24px 36px;
+	border-right: 1px solid rgba(255, 255, 255, 0.12);
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	transition: background-color 300ms ease;
+}
+
+.bi-about-who__metric-card:first-child {
+	padding-left: 0;
+}
+
+.bi-about-who__metric-card:last-child {
+	border-right: none;
+	padding-right: 0;
+}
+
+.bi-about-who__metric-card:hover {
+	background-color: rgba(255, 255, 255, 0.02);
+}
+
+.bi-about-who__metric-stat {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(44px, 4.6vw, 68px);
+	font-weight: 800;
+	line-height: 1;
+	letter-spacing: -0.03em;
+	font-variant-numeric: tabular-nums;
+	color: #FFFFFF;
+	margin-bottom: 14px;
+	display: flex;
+	align-items: baseline;
+	gap: 2px;
+}
+
+.bi-about-who__metric-sym {
+	color: #FFFFFF;
+	font-weight: 700;
+}
+
+.bi-about-who__metric-label {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 1.35;
+	color: #FFFFFF;
+	margin: 0 0 6px 0;
+	letter-spacing: -0.01em;
+}
+
+.bi-about-who__metric-sub {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #8A8A8A;
+	margin: 0;
+}
+
+/* Subtle Active Underline Bar on Card Hover */
+.bi-about-who__metric-line {
+	position: absolute;
+	bottom: -1px;
+	left: 0;
+	right: 0;
+	height: 2px;
+	background: #FFFFFF;
+	opacity: 0;
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: opacity 300ms ease, transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+	pointer-events: none;
+}
+
+.bi-about-who__metric-card:hover .bi-about-who__metric-line {
+	opacity: 1;
+	transform: scaleX(1);
+}
+
+/* --------------------------------------------------------------------------
+   4. COMPACT WHITE CTA BUTTON
+   -------------------------------------------------------------------------- */
+.bi-about-who__cta-wrap {
+	position: relative;
+	padding: clamp(24px, 2.5vw, 36px) 0 clamp(72px, 8vw, 112px);
+	box-sizing: border-box;
+}
+
+.bi-about-who__cta-inner {
+	display: flex;
+	align-items: center;
+}
+
+.bi-about-who__cta-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	padding: 14px 30px;
+	background: #FFFFFF;
+	color: #000000;
+	font-family: "Noto Sans", sans-serif;
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	text-decoration: none;
+	border: 1.5px solid transparent;
+	border-radius: 999px;
+	box-shadow: 0 4px 16px rgba(255, 255, 255, 0.12);
+	transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease, transform 200ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 200ms ease;
+	outline: none;
+	box-sizing: border-box;
+}
+
+.bi-about-who__cta-btn:hover {
+	background: #F3F2EF;
+	color: #000000;
+	border-color: #FFFFFF;
+	transform: translateY(-2px);
+	box-shadow: 0 8px 24px rgba(255, 255, 255, 0.25);
+}
+
+.bi-about-who__cta-btn:focus-visible {
+	box-shadow: 0 0 0 3px #000000, 0 0 0 5px #FFFFFF;
+}
+
+.bi-about-who__cta-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bi-about-who__cta-btn:hover .bi-about-who__cta-icon {
+	transform: translateX(4px);
+}
+
+.bi-about-who__banner {
+	display: none;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+	.bi-about-who__statement-grid {
+		grid-template-columns: 1fr;
+		gap: 28px;
+	}
+
+	.bi-about-who__metrics-grid {
+		grid-template-columns: repeat(2, 1fr);
+		border-bottom: none;
+	}
+
+	.bi-about-who__metric-card {
+		padding: 24px 20px 36px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+	}
+
+	.bi-about-who__metric-card:first-child {
+		padding-left: 0;
+	}
+
+	.bi-about-who__metric-card:nth-child(2) {
+		border-right: none;
+		padding-right: 0;
+	}
+
+	.bi-about-who__metric-card:nth-child(3) {
+		padding-left: 0;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+	}
+
+	.bi-about-who__metric-card:nth-child(4) {
+		border-right: none;
+		padding-right: 0;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+	}
+}
+
+@media (max-width: 767px) {
+	.bi-about-who__banner {
+		padding: 70px 0 60px;
+	}
+
+	.bi-about-who__container {
+		padding: 0 20px;
+	}
+
+	.bi-about-who__statement-wrap {
+		padding: 60px 0 50px;
+	}
+
+	.bi-about-who__statement-heading {
+		font-size: clamp(24px, 7vw, 36px);
+		line-height: 1.12;
+	}
+
+	.bi-about-who__metrics-wrap {
+		padding: 48px 0 32px;
+	}
+
+	.bi-about-who__metrics-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.bi-about-who__metric-card {
+		padding: 18px 12px 28px;
+	}
+
+	.bi-about-who__metric-stat {
+		font-size: clamp(38px, 10vw, 48px);
+		margin-bottom: 10px;
+	}
+
+	.bi-about-who__metric-label {
+		font-size: 14px;
+	}
+
+	.bi-about-who__metric-sub {
+		font-size: 12px;
+	}
+
+	.bi-about-who__cta-wrap {
+		padding: 24px 0 60px;
+	}
+
+	.bi-about-who__cta-btn {
+		width: 100%;
+		justify-content: center;
+	}
+}
+
+/* --------------------------------------------------------------------------
+   PREFERS REDUCED MOTION
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+
+	.bi-about-who__metric-card,
+	.bi-about-who__metric-line,
+	.bi-about-who__cta-btn,
+	.bi-about-who__cta-icon {
+		transition: none !important;
+	}
+}

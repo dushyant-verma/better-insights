@@ -1,0 +1,216 @@
+{
+  "bodyBg": "rgb(243, 242, 239)",
+  "bodyColor": "rgb(0, 0, 0)",
+  "headerPosition": null,
+  "headerBg": null,
+  "headerColor": null,
+  "blocksCount": 145,
+  "blockDetails": [
+    {
+      "className": "",
+      "tagName": "DIV",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)",
+      "title": "Unlock trapped value in your business",
+      "padding": "0px",
+      "position": "static",
+      "transition": "all"
+    },
+    {
+      "className": "hero-block",
+      "tagName": "SECTION",
+      "bgColor": "rgb(0, 0, 0)",
+      "color": "rgb(255, 255, 255)",
+      "title": "Unlock trapped value in your business",
+      "padding": "0px",
+      "position": "relative",
+      "transition": "all"
+    },
+    {
+      "className": "hero-block__wrapper ",
+      "tagName": "DIV",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 255, 255)",
+      "title": "Unlock trapped value in your business",
+      "padding": "0px",
+      "position": "static",
+      "transition": "all"
+    },
+    {
+      "className": "hero-block__bg-images js-hero-slider-images flickity-enabled",
+      "tagName": "DIV",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 255, 255)",
+      "title": null,
+      "padding": "0px",
+      "position": "absolute",
+      "transition": "all"
+    },
+    {
+      "className": "hero-block__bg-image",
+      "tagName": "DIV",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 255, 255)",
+      "title": null,
+      "padding": "0px",
+      "position": "absolute",
+      "transition": "all"
+    },
+    {
+      "className": "hero-block__bg-image is-selected",
+      "tagName": "DIV",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 255, 255)",
+      "title": null,
+      "padding": "0px",
+      "position": "absolute",
+      "transition": "all"
+    },
+    {
+      "className": "hero-block__bg-image",
+      "tagName": "DIV",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 255, 255)",
+      "title": null,
+      "padding": "0px",
+      "position": "absolute",
+      "transition": "all"
+    },
+    {
+      "className": "hero-block__bg-image",
+      "tagName": "DIV",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 255, 255)",
+      "title": null,
+      "padding": "0px",
+      "position": "absolute",
+      "transition": "all"
+    },
+    {
+      "className": "hero-block__container",
+      "tagName": "DIV",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 255, 255)",
+      "title": "Unlock trapped value in your business",
+      "padding": "0px",
+      "position": "relative",
+      "transition": "all"
+    },
+    {
+      "className": "hero-block__content js-hero-slider-content flickity-enabled is-draggable is-fade",
+      "tagName": "DIV",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 255, 255)",
+      "title": "Unlock trapped value in your business",
+      "padding": "0px",
+      "position": "relative",
+      "transition": "all"
+    },
+    {
+      "className": "hero-block__item",
+      "tagName": "DIV",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 255, 255)",
+      "title": "Unlock trapped value in your business",
+      "padding": "0px",
+      "position": "absolute",
+      "transition": "opacity 0.3s"
+    },
+    {
+      "className": "hero-block__item__wrapper",
+      "tagName": "DIV",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 255, 255)",
+      "title": "Unlock trapped value in your business",
+      "padding": "96px 16px 80px",
+      "position": "relative",
+      "transition": "all"
+    },
+    {
+      "className": "hero-block__item__text-adapter js-hero-block__item__text-adapter",
+      "tagName": "DIV",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 255, 255)",
+      "title": "Unlock trapped value in your business",
+      "padding": "0px",
+      "position": "static",
+      "transition": "all"
+    },
+    {
+      "className": "hero-block__item__text-adapter__wrapper",
+      "tagName": "DIV",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 255, 255)",
+      "title": "Unlock trapped value in your business",
+      "padding": "0px",
+      "position": "static",
+      "transition": "all"
+    },
+    {
+      "className": "hero-block__item__title",
+      "tagName": "DIV",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 255, 255)",
+      "title": "Unlock trapped value in your business",
+      "padding": "0px",
+      "position": "static",
+      "transition": "all"
+    }
+  ],
+  "stickyEls": [
+    {
+      "tagName": "DIV",
+      "className": "site-nav__icons",
+      "top": "0px",
+      "zIndex": "999"
+    },
+    {
+      "tagName": "DIV",
+      "className": "site-nav__overlay",
+      "top": "0px",
+      "zIndex": "888"
+    },
+    {
+      "tagName": "DIV",
+      "className": "site-nav__menu__container",
+      "top": "-13px",
+      "zIndex": "10"
+    },
+    {
+      "tagName": "A",
+      "className": "site-nav__contact-us-button",
+      "top": "auto",
+      "zIndex": "auto"
+    },
+    {
+      "tagName": "PROGRESS",
+      "className": "hide",
+      "top": "66px",
+      "zIndex": "900"
+    },
+    {
+      "tagName": "DIV",
+      "className": "side-button",
+      "top": "152px",
+      "zIndex": "1000"
+    },
+    {
+      "tagName": "svg",
+      "className": "[object SVGAnimatedString]",
+      "top": "0px",
+      "zIndex": "800"
+    },
+    {
+      "tagName": "svg",
+      "className": "[object SVGAnimatedString]",
+      "top": "0px",
+      "zIndex": "800"
+    },
+    {
+      "tagName": "svg",
+      "className": "[object SVGAnimatedString]",
+      "top": "0px",
+      "zIndex": "800"
+    }
+  ]
+}

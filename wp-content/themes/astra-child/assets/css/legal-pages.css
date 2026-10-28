@@ -1,0 +1,291 @@
+/**
+ * Better Insights - Legal Document Pages Stylesheet
+ * Covers: Privacy Policy (/privacy-policy/), Terms & Conditions (/terms-and-conditions/)
+ * Design System: Noto Sans, #000000, #FFFFFF, #F3F2EF
+ *
+ * @package Astra_Child
+ */
+
+/* ==========================================================================
+   1. LEGAL PAGE CONTAINER & STRUCTURE (White Inner Pages)
+   ========================================================================== */
+
+.bi-legal-page {
+	background-color: #FFFFFF;
+	background: #FFFFFF;
+	color: #000000;
+	min-height: 100vh;
+	/* padding-top: 130px; */
+	padding-bottom: 120px;
+	position: relative;
+	box-sizing: border-box;
+	font-family: "Noto Sans", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Hero Header Area */
+.bi-legal-hero {
+	padding: 40px 0 50px;
+	border-bottom: 1px solid #E5E5E5;
+	background: var(--bi-gradient-warm-light, linear-gradient(135deg, #FFFFFF 0%, #F3F2EF 55%, #FFFFFF 100%));
+}
+
+.bi-legal-hero__inner {
+	max-width: 860px;
+	margin: 0 auto;
+}
+
+/* Breadcrumbs (Light Theme) */
+.bi-legal-hero .bi-case-breadcrumbs {
+	margin-bottom: 20px;
+}
+
+.bi-legal-hero .bi-case-breadcrumbs__list {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	font-size: 13px;
+	font-weight: 500;
+	color: #6A6A6A;
+}
+
+.bi-legal-hero .bi-case-breadcrumbs__item a {
+	color: #6A6A6A;
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+.bi-legal-hero .bi-case-breadcrumbs__item a:hover {
+	color: #000000;
+	text-decoration: underline;
+}
+
+.bi-legal-hero .bi-case-breadcrumbs__sep {
+	color: #C0C4CC;
+}
+
+.bi-legal-hero .bi-case-breadcrumbs__item--active {
+	color: #000000;
+	font-weight: 600;
+}
+
+.bi-legal-hero__meta {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin-bottom: 16px;
+	flex-wrap: wrap;
+}
+
+.bi-legal-hero__eyebrow {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	color: #000000;
+}
+
+.bi-legal-hero__date-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	background: #F3F2EF;
+	border: 1px solid #E5E5E5;
+	color: #000000;
+	font-size: 12px;
+	font-weight: 500;
+	padding: 4px 12px;
+	border-radius: 999px;
+}
+
+.bi-legal-hero__date-badge svg {
+	stroke: #000000;
+}
+
+.bi-legal-hero__title {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(34px, 4vw, 56px);
+	font-weight: 700;
+	line-height: 1.15;
+	letter-spacing: -0.025em;
+	color: #000000;
+	margin: 0 0 16px;
+}
+
+.bi-legal-hero__lead {
+	font-size: clamp(16px, 1.25vw, 19px);
+	line-height: 1.65;
+	color: #4A5464;
+	margin: 0;
+}
+
+/* ==========================================================================
+   2. READING CONTENT COLUMN (Max-width 840px for comfortable reading)
+   ========================================================================== */
+
+.bi-legal-body {
+	padding: 60px 0 0;
+	background: #FFFFFF;
+}
+
+.bi-legal-content {
+	max-width: 840px;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+.bi-legal-content h2 {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(22px, 2.2vw, 30px);
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	color: #000000;
+	margin: 48px 0 18px;
+	padding-top: 16px;
+	border-top: 1px solid #E5E5E5;
+	position: relative;
+}
+
+.bi-legal-content h2:first-of-type {
+	margin-top: 0;
+	padding-top: 0;
+	border-top: none;
+}
+
+.bi-legal-content h3 {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(18px, 1.6vw, 22px);
+	font-weight: 700;
+	color: #000000;
+	margin: 32px 0 14px;
+}
+
+.bi-legal-content p {
+	font-size: 16px;
+	line-height: 1.75;
+	color: #2D3748;
+	margin: 0 0 20px;
+}
+
+.bi-legal-content strong {
+	color: #000000;
+	font-weight: 600;
+}
+
+.bi-legal-content a {
+	color: #000000;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	font-weight: 600;
+	transition: opacity 0.2s ease;
+}
+
+.bi-legal-content a:hover {
+	color: #000000;
+	opacity: 0.7;
+}
+
+.bi-legal-content ul,
+.bi-legal-content ol {
+	padding-left: 24px;
+	margin: 0 0 24px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.bi-legal-content li {
+	font-size: 16px;
+	line-height: 1.7;
+	color: #2D3748;
+}
+
+.bi-legal-content li strong {
+	color: #000000;
+}
+
+/* Callout Box for Legal Entity & Contact Details */
+.bi-legal-callout {
+	background: #F3F2EF;
+	border: 1px solid #E5E5E5;
+	border-left: 4px solid #000000;
+	border-radius: 12px;
+	padding: 24px 28px;
+	margin: 36px 0;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.bi-legal-callout__title {
+	font-size: 17px;
+	font-weight: 700;
+	color: #000000;
+	margin: 0 0 10px;
+}
+
+.bi-legal-callout p {
+	margin: 0 0 8px;
+	font-size: 15px;
+	color: #2D3748;
+}
+
+.bi-legal-callout p:last-child {
+	margin-bottom: 0;
+}
+
+.bi-legal-callout a {
+	color: #000000;
+	text-decoration: underline;
+	font-weight: 600;
+}
+
+.bi-legal-callout a:hover {
+	opacity: 0.7;
+}
+
+/* Legal Notice / Disclaimers Box */
+.bi-legal-notice-box {
+	background: #F3F2EF;
+	border: 1px dashed #D0D3DA;
+	border-radius: 12px;
+	padding: 20px 24px;
+	margin: 32px 0;
+	font-size: 14px;
+	color: #4A5464;
+	line-height: 1.6;
+}
+
+.bi-legal-notice-box strong {
+	color: #000000;
+}
+
+/* ==========================================================================
+   3. RESPONSIVE BREAKPOINTS (TABLET & MOBILE)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+	.bi-legal-page {
+		/* padding-top: 100px; */
+		padding-bottom: 70px;
+	}
+
+	.bi-legal-hero {
+		padding: 30px 0 40px;
+	}
+
+	.bi-legal-body {
+		padding: 40px 0 0;
+	}
+
+	.bi-legal-content h2 {
+		margin-top: 36px;
+	}
+
+	.bi-legal-callout {
+		padding: 20px;
+	}
+}

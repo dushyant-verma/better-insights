@@ -1,0 +1,385 @@
+/* ==========================================================================
+   Better Insights - About Page Hero Section
+   Reference: OWLED Media (https://www.owledmedia.com/socials)
+   ========================================================================== */
+
+.bi-about-page {
+	width: 100%;
+	position: relative;
+	overflow-x: clip;
+}
+
+.bi-about-hero {
+	position: relative;
+	width: 100%;
+	background: var(--bi-gradient-dark-premium, linear-gradient(135deg, #000000 0%, #171717 50%, #000000 100%));
+	color: #FFFFFF;
+	padding: clamp(72px, 8vw, 112px) 0;
+	overflow: hidden;
+	box-sizing: border-box;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Subtle Ambient Radial Glow */
+.bi-about-hero__ambient-glow {
+	position: absolute;
+	top: -20%;
+	left: -10%;
+	width: 70vw;
+	height: 70vw;
+	max-width: 850px;
+	max-height: 850px;
+	background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 50%, transparent 70%);
+	pointer-events: none;
+	z-index: 0;
+	filter: blur(50px);
+}
+
+.bi-about-hero__container {
+	width: 100%;
+	max-width: var(--bi-max, 1380px);
+	margin: 0 auto;
+	padding: 0 32px;
+	box-sizing: border-box;
+	position: relative;
+	z-index: 1;
+}
+
+/* Two Column Editorial Layout */
+.bi-about-hero__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+	align-items: center;
+	gap: clamp(40px, 5.5vw, 80px);
+}
+
+/* --------------------------------------------------------------------------
+   LEFT COLUMN: BRAND STORY & EDITORIAL TYPOGRAPHY
+   -------------------------------------------------------------------------- */
+.bi-about-hero__content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	max-width: 640px;
+}
+
+/* Eyebrow Pill Tag */
+.bi-about-hero__eyebrow-wrap {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	padding: 6px 16px;
+	background: rgba(255, 255, 255, 0.08);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	border-radius: 999px;
+	margin-bottom: 24px;
+}
+
+.bi-about-hero__eyebrow-dot {
+	width: 7px;
+	height: 7px;
+	background-color: #FFFFFF;
+	border-radius: 50%;
+	box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+	flex-shrink: 0;
+}
+
+.bi-about-hero__eyebrow {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	color: #FFFFFF;
+	text-transform: uppercase;
+}
+
+/* Editorial Oversized Headline */
+.bi-about-hero__heading {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(38px, 5vw, 72px);
+	font-weight: 800;
+	line-height: 1.04;
+	letter-spacing: -0.025em;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	margin: 0 0 24px 0;
+}
+
+.bi-about-hero__accent {
+	color: #FFFFFF;
+}
+
+/* Supporting Paragraphs */
+.bi-about-hero__desc {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	margin-bottom: clamp(28px, 3.5vw, 40px);
+	max-width: 580px;
+}
+
+.bi-about-hero__desc-lead {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(17px, 1.35vw, 20px);
+	font-weight: 500;
+	line-height: 1.55;
+	color: #FFFFFF;
+	margin: 0;
+}
+
+.bi-about-hero__desc-sub {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(14px, 1.1vw, 16px);
+	font-weight: 400;
+	line-height: 1.6;
+	color: #A8A8A8;
+	margin: 0;
+}
+
+/* Primary CTA Button (Standardized Monochrome) */
+.bi-about-hero__cta-wrap {
+	display: flex;
+	align-items: center;
+}
+
+.bi-about-hero__cta {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	padding: 15px 32px;
+	background: #FFFFFF;
+	color: #000000;
+	font-family: "Noto Sans", sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	text-decoration: none;
+	border: 1.5px solid #FFFFFF;
+	border-radius: 999px;
+	box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+	transition: background-color 200ms ease, border-color 200ms ease, transform 200ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 200ms ease;
+	outline: none;
+	box-sizing: border-box;
+}
+
+.bi-about-hero__cta:hover {
+	background: #F3F2EF;
+	border-color: #F3F2EF;
+	color: #000000;
+	transform: translateY(-2px);
+	box-shadow: 0 8px 26px rgba(0, 0, 0, 0.35);
+}
+
+.bi-about-hero__cta:focus-visible {
+	outline: 2px solid #FFFFFF;
+	outline-offset: 3px;
+}
+
+.bi-about-hero__cta-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bi-about-hero__cta:hover .bi-about-hero__cta-icon {
+	transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   RIGHT COLUMN: MULTI-COLUMN MOVING PORTFOLIO COLLAGE SLIDER
+   -------------------------------------------------------------------------- */
+.bi-about-hero__visual {
+	position: relative;
+	height: clamp(480px, 64vh, 660px);
+	overflow: hidden;
+	border-radius: 16px;
+	-webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000000 8%, #000000 92%, transparent 100%);
+	mask-image: linear-gradient(to bottom, transparent 0%, #000000 8%, #000000 92%, transparent 100%);
+}
+
+.bi-about-collage {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: clamp(14px, 1.6vw, 20px);
+	height: 100%;
+	width: 100%;
+}
+
+/* Individual Vertical Column Frame */
+.bi-about-collage-col {
+	position: relative;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+}
+
+/* Moving Track */
+.bi-about-collage-track {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(14px, 1.6vw, 20px);
+	width: 100%;
+	will-change: transform;
+}
+
+/* Set Container (Original & Duplicated for Infinite Vertical Loop) */
+.bi-about-collage-set {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(14px, 1.6vw, 20px);
+	width: 100%;
+	flex-shrink: 0;
+}
+
+/* Individual Visual Card */
+.bi-about-collage-card {
+	position: relative;
+	width: 100%;
+	border-radius: 14px;
+	overflow: hidden;
+	background: #141414;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+	transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1), border-color 350ms ease, box-shadow 350ms ease;
+	box-sizing: border-box;
+	flex-shrink: 0;
+}
+
+.bi-about-collage-card:hover {
+	transform: scale(1.025);
+	border-color: rgba(255, 255, 255, 0.25);
+	box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+	z-index: 2;
+}
+
+.bi-about-collage-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	pointer-events: none;
+	user-select: none;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1199px) {
+	.bi-about-hero__visual {
+		height: 600px;
+	}
+
+	.bi-about-collage {
+		gap: 14px;
+	}
+
+	.bi-about-collage-track,
+	.bi-about-collage-set {
+		gap: 14px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.bi-about-hero__grid {
+		gap: 36px;
+	}
+
+	.bi-about-hero__heading {
+		font-size: clamp(34px, 4.4vw, 54px);
+		margin-bottom: 22px;
+	}
+
+	.bi-about-hero__visual {
+		height: 500px;
+	}
+
+	.bi-about-collage {
+		gap: 12px;
+	}
+
+	.bi-about-collage-track,
+	.bi-about-collage-set {
+		gap: 12px;
+	}
+}
+
+@media (max-width: 767px) {
+	.bi-about-hero {
+		padding: 50px 0 60px;
+	}
+
+	.bi-about-hero__container {
+		padding: 0 20px;
+	}
+
+	.bi-about-hero__grid {
+		grid-template-columns: 1fr;
+		gap: 44px;
+	}
+
+	.bi-about-hero__content {
+		max-width: 100%;
+	}
+
+	.bi-about-hero__heading {
+		font-size: clamp(32px, 8.5vw, 46px);
+		line-height: 1.08;
+		margin-bottom: 20px;
+	}
+
+	.bi-about-hero__desc {
+		margin-bottom: 32px;
+	}
+
+	.bi-about-hero__cta {
+		width: 100%;
+		justify-content: center;
+	}
+
+	.bi-about-hero__visual {
+		height: 380px;
+	}
+
+	/* Simplify collage to 2 columns on mobile for visual clarity & performance */
+	.bi-about-collage-col--3 {
+		display: none;
+	}
+
+	.bi-about-collage {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 12px;
+	}
+}
+
+/* --------------------------------------------------------------------------
+   PREFERS REDUCED MOTION SUPPORT
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+	.bi-about-hero__visual {
+		-webkit-mask-image: none !important;
+		mask-image: none !important;
+	}
+
+	.bi-about-collage-track {
+		transform: none !important;
+	}
+
+	.bi-about-collage-set[aria-hidden="true"] {
+		display: none !important;
+	}
+
+	.bi-about-collage-card {
+		transition: none !important;
+		transform: none !important;
+	}
+
+	.bi-about-hero__cta,
+	.bi-about-hero__cta-icon {
+		transition: none !important;
+	}
+}

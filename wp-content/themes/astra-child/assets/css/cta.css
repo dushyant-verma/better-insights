@@ -1,0 +1,327 @@
+/* ==========================================================================
+   Better Insights - Unified Master CTA Component System
+   Master Layout Reference: .bi-our-work-header__cta
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. MASTER BASE CTA BUTTON LAYOUT (All CTAs share this exact structure)
+   -------------------------------------------------------------------------- */
+.bi-cta,
+.bi-hero__cta,
+.bi-our-work-header__cta,
+.bi-stacking-card__cta,
+.bi-solution-card__cta,
+.bi-services-header__link,
+.bi-service-card__link,
+.bi-services-bottom-cta__btn,
+.bi-tech-partners__cta,
+.bi-resource-cta,
+.bi-footer__primary-btn {
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: space-between !important;
+	gap: 12px !important;
+	padding: 8px 8px 8px 24px !important;
+	border-radius: 999px !important;
+	font-family: "Noto Sans", sans-serif !important;
+	font-size: 15px !important;
+	font-weight: 600 !important;
+	letter-spacing: -0.01em !important;
+	line-height: 1.2 !important;
+	text-decoration: none !important;
+	white-space: nowrap !important;
+	flex-shrink: 0 !important;
+	box-sizing: border-box !important;
+	transition: background-color 250ms ease, transform 250ms ease, box-shadow 250ms ease, color 250ms ease, border-color 250ms ease !important;
+}
+
+/* Master Circular Icon Badge (36px) */
+.bi-cta__icon,
+.bi-hero__cta-icon,
+.bi-our-work-header__cta-icon,
+.bi-stacking-card__cta-icon,
+.bi-solution-card__cta-icon,
+.bi-services-header__link-arrow,
+.bi-service-card__arrow,
+.bi-services-bottom-cta__icon,
+.bi-tech-partners__cta-icon,
+.bi-partners-header__link-icon,
+.bi-resource-cta__icon,
+.bi-footer__primary-btn-icon {
+	width: 36px !important;
+	height: 36px !important;
+	border-radius: 50% !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	flex-shrink: 0 !important;
+	transition: transform 250ms ease, background-color 250ms ease, color 250ms ease !important;
+}
+
+/* SVG Arrow inside Icon Badge */
+.bi-cta__icon svg,
+.bi-hero__cta-icon svg,
+.bi-our-work-header__cta-icon svg,
+.bi-stacking-card__cta-icon svg,
+.bi-solution-card__cta-icon svg,
+.bi-services-header__link-arrow svg,
+.bi-service-card__arrow svg,
+.bi-services-bottom-cta__icon svg,
+.bi-tech-partners__cta-icon svg,
+.bi-resource-cta__icon svg,
+.bi-footer__primary-btn-icon svg {
+	width: 16px !important;
+	height: 16px !important;
+	display: block !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. MASTER HOVER INTERACTION (Unified Translate & Arrow Scale Motion)
+   -------------------------------------------------------------------------- */
+.bi-cta:hover,
+.bi-hero__cta:hover,
+.bi-our-work-header__cta:hover,
+.bi-stacking-card__cta:hover,
+.bi-solution-card__cta:hover,
+.bi-services-header__link:hover,
+.bi-service-card__link:hover,
+.bi-services-bottom-cta__btn:hover,
+.bi-tech-partners__cta:hover,
+.bi-partners-header__link:hover,
+.bi-resource-cta:hover,
+.bi-footer__primary-btn:hover,
+.bi-cta:focus-visible,
+.bi-hero__cta:focus-visible,
+.bi-our-work-header__cta:focus-visible,
+.bi-stacking-card__cta:focus-visible,
+.bi-solution-card__cta:focus-visible,
+.bi-services-header__link:focus-visible,
+.bi-service-card__link:focus-visible,
+.bi-services-bottom-cta__btn:focus-visible,
+.bi-tech-partners__cta:focus-visible,
+.bi-partners-header__link:focus-visible,
+.bi-resource-cta:focus-visible,
+.bi-footer__primary-btn:focus-visible {
+	transform: translateY(-2px) !important;
+}
+
+.bi-cta:hover .bi-cta__icon,
+.bi-hero__cta:hover .bi-hero__cta-icon,
+.bi-our-work-header__cta:hover .bi-our-work-header__cta-icon,
+.bi-stacking-card__cta:hover .bi-stacking-card__cta-icon,
+.bi-solution-card__cta:hover .bi-solution-card__cta-icon,
+.bi-services-header__link:hover .bi-services-header__link-arrow,
+.bi-service-card__link:hover .bi-service-card__arrow,
+.bi-services-bottom-cta__btn:hover .bi-services-bottom-cta__icon,
+.bi-tech-partners__cta:hover .bi-tech-partners__cta-icon,
+.bi-partners-header__link:hover .bi-partners-header__link-icon,
+.bi-partners-header__link:hover svg,
+.bi-resource-cta:hover .bi-resource-cta__icon,
+.bi-resource-cta:hover .bi-cta__icon,
+.bi-footer__primary-btn:hover .bi-footer__primary-btn-icon {
+	transform: scale(1.08) translate(2px, -2px) !important;
+}
+
+/* Master Active (Click) State */
+.bi-cta:active,
+.bi-hero__cta:active,
+.bi-our-work-header__cta:active,
+.bi-stacking-card__cta:active,
+.bi-solution-card__cta:active,
+.bi-services-header__link:active,
+.bi-service-card__link:active,
+.bi-services-bottom-cta__btn:active,
+.bi-tech-partners__cta:active,
+.bi-partners-header__link:active,
+.bi-resource-cta:active,
+.bi-footer__primary-btn:active {
+	transform: translateY(0) !important;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.20) !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. NEUTRAL-LED COLOR PALETTES FOR EACH CTA VARIANT (VALTECH INSPIRED)
+   -------------------------------------------------------------------------- */
+
+/* Variant A: Primary Dark/Solid Button on Light Surfaces — e.g. Header CTA, Our Work CTA */
+.bi-cta,
+.bi-cta--blue,
+.bi-cta .bi-cta__icon,
+.bi-cta--blue .bi-cta__icon,
+.bi-our-work-header__cta,
+.bi-header .bi-cta {
+	background: #000000 !important;
+	color: #FFFFFF !important;
+}
+
+.bi-cta:hover,
+.bi-cta--blue:hover,
+.bi-our-work-header__cta:hover,
+.bi-header .bi-cta:hover {
+	background: #171717 !important;
+	color: #FFFFFF !important;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25) !important;
+}
+
+.bi-our-work-header__cta-icon,
+.bi-header .bi-cta .bi-cta__icon {
+	background: rgba(255, 255, 255, 0.20) !important;
+	color: #FFFFFF !important;
+}
+
+/* Variant B: Hero & Stacking Cards CTAs */
+.bi-hero__cta {
+	background: #FFFFFF !important;
+	color: #000000 !important;
+}
+
+.bi-hero__cta:hover {
+	background: #F3F2EF !important;
+	color: #000000 !important;
+	box-shadow: 0 8px 24px rgba(255, 255, 255, 0.25) !important;
+}
+
+.bi-hero__cta-icon {
+	background: rgba(0, 0, 0, 0.08) !important;
+	color: #000000 !important;
+}
+
+.bi-hero__cta:hover .bi-hero__cta-icon {
+	background: rgba(0, 0, 0, 0.16) !important;
+	color: #000000 !important;
+}
+
+.bi-cta--dark,
+.bi-stacking-card__cta,
+.bi-insights-mega__cta {
+	background: #000000 !important;
+	color: #FFFFFF !important;
+}
+
+.bi-cta--dark:hover,
+.bi-stacking-card__cta:hover,
+.bi-insights-mega__cta:hover {
+	background: #171717 !important;
+	color: #FFFFFF !important;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20) !important;
+}
+
+.bi-cta--dark .bi-cta__icon,
+.bi-stacking-card__cta-icon,
+.bi-insights-mega__cta-icon {
+	background: rgba(255, 255, 255, 0.20) !important;
+	color: #FFFFFF !important;
+}
+
+/* Variant C: Footer Primary CTA (White Button on Deep Black) */
+.bi-footer__primary-btn {
+	background: #FFFFFF !important;
+	color: #000000 !important;
+}
+
+.bi-footer__primary-btn:hover {
+	background: #F3F2EF !important;
+	color: #000000 !important;
+	box-shadow: 0 8px 24px rgba(255, 255, 255, 0.25) !important;
+}
+
+.bi-footer__primary-btn-icon {
+	background: rgba(0, 0, 0, 0.08) !important;
+	color: #000000 !important;
+}
+
+.bi-footer__primary-btn:hover .bi-footer__primary-btn-icon {
+	background: rgba(0, 0, 0, 0.16) !important;
+	color: #000000 !important;
+}
+
+/* Variant D: Minimal Surface / Outline CTAs (Solutions, Services, Resources) */
+.bi-solution-card__cta,
+.bi-service-card__link,
+.bi-services-header__link,
+.bi-services-bottom-cta__btn,
+.bi-partners-header__link,
+.bi-resource-cta {
+	background: rgba(255, 255, 255, 0.08) !important;
+	color: #FFFFFF !important;
+	border: 1px solid rgba(255, 255, 255, 0.14) !important;
+}
+
+.bi-theme--stone .bi-solution-card__cta,
+.bi-theme--stone .bi-resource-cta,
+.bi-resource-section .bi-resource-cta {
+	background: rgba(0, 0, 0, 0.05) !important;
+	color: #000000 !important;
+	border: 1px solid #E5E5E5 !important;
+}
+
+.bi-solution-card__cta:hover,
+.bi-service-card__link:hover,
+.bi-services-header__link:hover,
+.bi-services-bottom-cta__btn:hover,
+.bi-partners-header__link:hover {
+	background: #FFFFFF !important;
+	color: #000000 !important;
+	border-color: #FFFFFF !important;
+	box-shadow: 0 6px 20px rgba(255, 255, 255, 0.20) !important;
+}
+
+.bi-theme--stone .bi-resource-cta:hover,
+.bi-resource-section .bi-resource-cta:hover {
+	background: #000000 !important;
+	color: #FFFFFF !important;
+	border-color: #000000 !important;
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.20) !important;
+}
+
+.bi-solution-card__cta-icon,
+.bi-service-card__arrow,
+.bi-services-header__link-arrow,
+.bi-services-bottom-cta__icon,
+.bi-partners-header__link-icon,
+.bi-resource-cta__icon {
+	background: rgba(255, 255, 255, 0.14) !important;
+	color: #FFFFFF !important;
+}
+
+.bi-theme--stone .bi-resource-cta__icon,
+.bi-theme--stone .bi-resource-cta .bi-cta__icon,
+.bi-resource-section .bi-resource-cta__icon,
+.bi-resource-section .bi-resource-cta .bi-cta__icon {
+	background: rgba(0, 0, 0, 0.08) !important;
+	color: #000000 !important;
+}
+
+.bi-solution-card__cta:hover .bi-solution-card__cta-icon,
+.bi-service-card__link:hover .bi-service-card__arrow,
+.bi-services-header__link:hover .bi-services-header__link-arrow,
+.bi-services-bottom-cta__btn:hover .bi-services-bottom-cta__icon,
+.bi-partners-header__link:hover .bi-partners-header__link-icon {
+	background: rgba(0, 0, 0, 0.16) !important;
+	color: #000000 !important;
+}
+
+.bi-theme--stone .bi-resource-cta:hover .bi-resource-cta__icon,
+.bi-theme--stone .bi-resource-cta:hover .bi-cta__icon,
+.bi-resource-section .bi-resource-cta:hover .bi-resource-cta__icon,
+.bi-resource-section .bi-resource-cta:hover .bi-cta__icon {
+	background: rgba(255, 255, 255, 0.25) !important;
+	color: #FFFFFF !important;
+}
+
+/* High-Contrast Focus Visible State for Accessibility */
+.bi-cta:focus-visible,
+.bi-hero__cta:focus-visible,
+.bi-our-work-header__cta:focus-visible,
+.bi-stacking-card__cta:focus-visible,
+.bi-solution-card__cta:focus-visible,
+.bi-services-header__link:focus-visible,
+.bi-service-card__link:focus-visible,
+.bi-services-bottom-cta__btn:focus-visible,
+.bi-tech-partners__cta:focus-visible,
+.bi-partners-header__link:focus-visible,
+.bi-resource-cta:focus-visible,
+.bi-footer__primary-btn:focus-visible {
+	outline: 2px solid currentColor !important;
+	outline-offset: 2px !important;
+}

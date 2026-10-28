@@ -1,0 +1,795 @@
+/* ==========================================================================
+   Better Insights - About Page Section 6: Our Team Directory Grid & Profile Modal
+   Editorial White Grid Layout (3x3 on Desktop) with Black Typography
+   Dataset Source: https://www.betterinsights.in/about/team/
+   ========================================================================== */
+
+.bi-about-team {
+	position: relative;
+	width: 100%;
+	background-color: #FFFFFF;
+	color: #000000;
+	padding: clamp(72px, 7vw, 120px) 0;
+	overflow: hidden;
+	box-sizing: border-box;
+	border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Subtle Ambient Glow */
+.bi-about-team__ambient-glow {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 80vw;
+	height: 40vw;
+	max-width: 1100px;
+	max-height: 500px;
+	background: radial-gradient(ellipse at center top, rgba(0, 0, 0, 0.03) 0%, transparent 70%);
+	pointer-events: none;
+	z-index: 0;
+}
+
+.bi-about-team__container {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	max-width: var(--bi-max, 1380px);
+	margin: 0 auto;
+	padding: 0 32px;
+	box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   1. SECTION INTRODUCTION
+   -------------------------------------------------------------------------- */
+.bi-about-team__header {
+	max-width: 820px;
+	margin-bottom: clamp(40px, 4.5vw, 60px);
+}
+
+.bi-about-team__eyebrow {
+	display: inline-block;
+	font-family: "Noto Sans", sans-serif;
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	color: #000000;
+	opacity: 0.6;
+	text-transform: uppercase;
+	margin-bottom: 16px;
+}
+
+.bi-about-team__heading {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(32px, 4vw, 52px);
+	font-weight: 800;
+	line-height: 1.1;
+	letter-spacing: -0.025em;
+	color: #000000;
+	margin: 0 0 18px 0;
+}
+
+.bi-about-team__accent {
+	color: #000000;
+}
+
+.bi-about-team__subtext {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(15px, 1.15vw, 17px);
+	font-weight: 400;
+	line-height: 1.68;
+	color: #6A6A6A;
+	margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   2. TEAM DIRECTORY GRID (3x3 Desktop, 2x Tablet, 1x Mobile)
+   -------------------------------------------------------------------------- */
+.bi-about-team__grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: clamp(24px, 2.5vw, 36px);
+	width: 100%;
+	box-sizing: border-box;
+}
+
+/* Card Container */
+.bi-about-team__card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	background: #FFFFFF;
+	border: 1px solid #D0D3DA;
+	border-radius: 16px;
+	overflow: hidden;
+	box-sizing: border-box;
+	transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+		border-color 220ms ease,
+		box-shadow 220ms ease;
+	outline: none;
+}
+
+.bi-about-team__card:hover {
+	transform: translateY(-4px);
+	border-color: #000000;
+	box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.10),
+		0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.bi-about-team__card:focus-within {
+	border-color: #000000;
+}
+
+/* Studio Portrait Frame */
+.bi-about-team__photo-frame {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 1 / 1;
+	overflow: hidden;
+	background: #F6F8FA;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	border-bottom: 1px solid #EAECEF;
+}
+
+.bi-about-team__photo {
+	width: 82%;
+	height: 88%;
+	object-fit: contain;
+	object-position: center bottom;
+	display: block;
+	transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+	filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05));
+	pointer-events: none;
+}
+
+.bi-about-team__card:hover .bi-about-team__photo {
+	transform: scale(1.04);
+}
+
+/* Fallback Graphic */
+.bi-about-team__placeholder {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #F6F8FA;
+}
+
+.bi-about-team__svg {
+	display: block;
+	color: #D0D3DA;
+}
+
+/* Card Information Body */
+.bi-about-team__info {
+	padding: 24px 24px 24px;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	box-sizing: border-box;
+	background: #FFFFFF;
+}
+
+/* Department Label */
+.bi-about-team__dept {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: #000000;
+	opacity: 0.6;
+	margin-bottom: 8px;
+	display: block;
+}
+
+/* Member Name */
+.bi-about-team__name {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(18px, 1.3vw, 21px);
+	font-weight: 700;
+	line-height: 1.25;
+	letter-spacing: -0.015em;
+	color: #000000;
+	margin: 0 0 6px 0;
+}
+
+/* Official Job Title */
+.bi-about-team__role-title {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #6A6A6A;
+	margin: 0 0 16px 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. CARD FOOTER & VIEW PROFILE BUTTON
+   -------------------------------------------------------------------------- */
+.bi-about-team__card-footer {
+	margin-top: auto;
+	padding-top: 14px;
+	border-top: 1px solid #F0F2F5;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.bi-about-team__btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 7px;
+	font-family: "Noto Sans", sans-serif;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: #000000;
+	background-color: #F3F2EF;
+	border: 1px solid rgba(0, 0, 0, 0.12);
+	border-radius: 8px;
+	padding: 9px 16px;
+	cursor: pointer;
+	box-sizing: border-box;
+	transition: background-color 180ms ease,
+		border-color 180ms ease,
+		color 180ms ease,
+		transform 180ms ease,
+		box-shadow 180ms ease;
+	outline: none;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+.bi-about-team__btn:hover {
+	background-color: #000000;
+	color: #FFFFFF;
+	border-color: #000000;
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.bi-about-team__btn:active {
+	transform: translateY(0);
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.bi-about-team__btn:focus-visible {
+	outline: 2px solid #000000;
+	outline-offset: 3px;
+	border-color: #000000;
+}
+
+.bi-about-team__btn-icon {
+	font-size: 13px;
+	line-height: 1;
+	transition: transform 180ms ease;
+}
+
+.bi-about-team__btn:hover .bi-about-team__btn-icon {
+	transform: translate(2px, -2px);
+}
+
+/* --------------------------------------------------------------------------
+   4. ACCESSIBLE REUSABLE PROFILE MODAL
+   -------------------------------------------------------------------------- */
+body.bi-modal-is-open {
+	overflow: hidden !important;
+}
+
+.bi-team-modal {
+	position: fixed;
+	inset: 0;
+	z-index: 999999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: clamp(16px, 3.5vw, 40px);
+	box-sizing: border-box;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	transition: opacity 240ms cubic-bezier(0.16, 1, 0.3, 1),
+		visibility 240ms ease;
+}
+
+.bi-team-modal.is-active {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+}
+
+/* Backdrop */
+.bi-team-modal__backdrop {
+	position: absolute;
+	inset: 0;
+	background: rgba(15, 23, 42, 0.65);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	cursor: pointer;
+}
+
+/* Dialog Container */
+.bi-team-modal__dialog {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	max-width: 980px;
+	max-height: min(88vh, 820px);
+	background: #FFFFFF;
+	border-radius: 20px;
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	box-shadow: 0 28px 70px -15px rgba(0, 0, 0, 0.3),
+		0 0 1px rgba(0, 0, 0, 0.15);
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	transform: translateY(16px) scale(0.97);
+	transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bi-team-modal.is-active .bi-team-modal__dialog {
+	transform: translateY(0) scale(1);
+}
+
+/* Close Button (Floating Top Right) */
+.bi-team-modal__close-btn {
+	position: absolute;
+	top: 18px;
+	right: 18px;
+	z-index: 30;
+	width: 42px;
+	height: 42px;
+	border-radius: 50%;
+	background: #F1F4F9;
+	border: 1px solid rgba(0, 0, 0, 0.06);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #1A1A1A;
+	cursor: pointer;
+	padding: 0;
+	box-sizing: border-box;
+	transition: background-color 180ms ease,
+		color 180ms ease,
+		transform 180ms ease,
+		box-shadow 180ms ease;
+	outline: none;
+}
+
+.bi-team-modal__close-btn:hover {
+	background: #000000;
+	color: #FFFFFF;
+	border-color: #000000;
+	transform: rotate(90deg);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.20);
+}
+
+.bi-team-modal__close-btn:focus-visible {
+	outline: 2px solid #000000;
+	outline-offset: 3px;
+	background: #000000;
+	color: #FFFFFF;
+}
+
+/* Scrollable Container */
+.bi-team-modal__scrollable {
+	flex: 1;
+	overflow-y: auto;
+	overflow-x: hidden;
+	overscroll-behavior: contain;
+	-webkit-overflow-scrolling: touch;
+}
+
+/* Scrollbar refinement */
+.bi-team-modal__scrollable::-webkit-scrollbar {
+	width: 7px;
+}
+
+.bi-team-modal__scrollable::-webkit-scrollbar-track {
+	background: #F8FAFC;
+}
+
+.bi-team-modal__scrollable::-webkit-scrollbar-thumb {
+	background: #D0D5DD;
+	border-radius: 4px;
+}
+
+.bi-team-modal__scrollable::-webkit-scrollbar-thumb:hover {
+	background: #98A2B3;
+}
+
+/* Modal Body: Two-Column Desktop Layout */
+.bi-team-modal__body {
+	display: flex;
+	min-height: 100%;
+	align-items: stretch;
+}
+
+/* PROMINENT LEFT COLUMN: Original Profile Photograph */
+.bi-team-modal__col-left {
+	flex: 0 0 320px;
+	width: 320px;
+	background: #F8FAFC;
+	border-right: 1px solid #EAECEF;
+	padding: 44px 28px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+.bi-team-modal__portrait-wrap {
+	width: 230px;
+	height: 230px;
+	aspect-ratio: 1 / 1;
+	border-radius: 50%;
+	background: #FFFFFF;
+	border: 4px solid #FFFFFF;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 20px;
+	box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08),
+		0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.bi-team-modal__portrait {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	display: block;
+	pointer-events: none;
+}
+
+.bi-team-modal__badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-family: "Noto Sans", sans-serif;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: #0284C7;
+	background: #F0F9FF;
+	border: 1px solid rgba(2, 132, 199, 0.22);
+	border-radius: 20px;
+	padding: 6px 14px;
+}
+
+.bi-team-modal__badge svg {
+	color: #0284C7;
+	flex-shrink: 0;
+}
+
+/* RIGHT COLUMN: Full Identification, Biography, Expertise & Profile Links */
+.bi-team-modal__col-right {
+	flex: 1;
+	min-width: 0;
+	padding: 44px 40px;
+	display: flex;
+	flex-direction: column;
+	gap: 26px;
+	box-sizing: border-box;
+	background: #FFFFFF;
+}
+
+/* Employee Identification Header */
+.bi-team-modal__header {
+	border-bottom: 1px solid #F0F2F5;
+	padding-bottom: 20px;
+}
+
+.bi-team-modal__dept {
+	display: inline-block;
+	font-family: "Noto Sans", sans-serif;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: #000000;
+	opacity: 0.6;
+	margin-bottom: 6px;
+}
+
+.bi-team-modal__name {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(24px, 2vw, 30px);
+	font-weight: 800;
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+	color: #000000;
+	margin: 0 0 6px 0;
+}
+
+.bi-team-modal__role {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 15px;
+	font-weight: 500;
+	line-height: 1.45;
+	color: #6A6A6A;
+	margin: 0;
+	padding-bottom: 5px;
+}
+
+/* Section Eyebrow */
+.bi-team-modal__eyebrow {
+	display: block;
+	font-family: "Noto Sans", sans-serif;
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: #000000;
+	opacity: 0.6;
+	margin-bottom: 12px;
+}
+
+/* Biography */
+.bi-team-modal__bio {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 14.5px;
+	font-weight: 400;
+	line-height: 1.76;
+	color: #2D3748;
+}
+
+.bi-team-modal__bio p {
+	margin: 0 0 16px 0;
+}
+
+.bi-team-modal__bio p:last-child {
+	margin-bottom: 0;
+}
+
+/* Areas of Expertise Tags */
+.bi-team-modal__tags {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.bi-team-modal__tag {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	color: #000000;
+	background: #F3F2EF;
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	border-radius: 20px;
+	padding: 6px 14px;
+	display: inline-flex;
+	align-items: center;
+}
+
+/* Links Row */
+.bi-team-modal__links-row {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	flex-wrap: wrap;
+}
+
+.bi-team-modal__linkedin-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	font-family: "Noto Sans", sans-serif;
+	font-size: 13px;
+	font-weight: 600;
+	color: #FFFFFF;
+	background: #0A66C2;
+	border: 1px solid #0A66C2;
+	border-radius: 8px;
+	padding: 9px 18px;
+	text-decoration: none;
+	transition: background-color 180ms ease,
+		border-color 180ms ease,
+		box-shadow 180ms ease,
+		transform 180ms ease;
+}
+
+.bi-team-modal__linkedin-btn:hover {
+	background: #004182;
+	border-color: #004182;
+	color: #FFFFFF;
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px rgba(10, 102, 194, 0.3);
+}
+
+.bi-team-modal__linkedin-btn:focus-visible {
+	outline: 2px solid #0A66C2;
+	outline-offset: 3px;
+}
+
+.bi-team-modal__linkedin-svg {
+	width: 15px;
+	height: 15px;
+	fill: currentColor;
+	flex-shrink: 0;
+}
+
+/* Details Text (Experience & Education) */
+.bi-team-modal__detail-text {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 14.5px;
+	font-weight: 400;
+	line-height: 1.68;
+	color: #374151;
+	margin: 0;
+}
+
+/* Interests Tags */
+.bi-team-modal__tag--interest {
+	color: #0F766E;
+	background: #F0FDFA;
+	border-color: rgba(15, 118, 110, 0.22);
+}
+
+/* --------------------------------------------------------------------------
+   5. RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+
+/* Tablet (max-width: 1024px): 2 columns grid */
+@media (max-width: 1024px) {
+	.bi-about-team__container {
+		padding: 0 28px;
+	}
+
+	.bi-about-team__header {
+		margin-bottom: 36px;
+	}
+
+	.bi-about-team__grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 24px;
+	}
+
+	.bi-team-modal__dialog {
+		max-width: 860px;
+	}
+
+	.bi-team-modal__col-left {
+		flex: 0 0 280px;
+		width: 280px;
+		padding: 36px 20px;
+	}
+
+	.bi-team-modal__portrait-wrap {
+		width: 190px;
+		height: 190px;
+	}
+
+	.bi-team-modal__col-right {
+		padding: 36px 30px;
+	}
+}
+
+/* Mobile & Small Tablets (max-width: 768px): Stacked Single-column modal */
+@media (max-width: 768px) {
+	.bi-team-modal {
+		padding: 16px;
+	}
+
+	.bi-team-modal__dialog {
+		max-height: 92vh;
+		border-radius: 16px;
+	}
+
+	.bi-team-modal__close-btn {
+		top: 14px;
+		right: 14px;
+		width: 38px;
+		height: 38px;
+	}
+
+	.bi-team-modal__body {
+		flex-direction: column;
+	}
+
+	.bi-team-modal__col-left {
+		flex: none;
+		width: 100%;
+		border-right: none;
+		border-bottom: 1px solid #EAECEF;
+		padding: 32px 20px 20px;
+	}
+
+	.bi-team-modal__portrait-wrap {
+		width: 160px;
+		height: 160px;
+		margin-bottom: 14px;
+	}
+
+	.bi-team-modal__col-right {
+		padding: 24px 20px 36px;
+		gap: 22px;
+	}
+
+	.bi-team-modal__name {
+		font-size: 22px;
+	}
+
+	.bi-team-modal__bio {
+		font-size: 14px;
+		line-height: 1.7;
+	}
+}
+
+/* Small Mobile (max-width: 640px): 1 column team cards */
+@media (max-width: 640px) {
+	.bi-about-team {
+		padding: 60px 0;
+	}
+
+	.bi-about-team__container {
+		padding: 0 20px;
+	}
+
+	.bi-about-team__header {
+		margin-bottom: 32px;
+	}
+
+	.bi-about-team__grid {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+
+	.bi-about-team__info {
+		padding: 20px 20px 22px;
+	}
+}
+
+/* --------------------------------------------------------------------------
+   6. ACCESSIBILITY & PREFERS-REDUCED-MOTION
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+
+	.bi-about-team__card,
+	.bi-about-team__photo,
+	.bi-about-team__btn,
+	.bi-about-team__btn-icon,
+	.bi-team-modal,
+	.bi-team-modal__dialog,
+	.bi-team-modal__close-btn {
+		transition: none !important;
+		transform: none !important;
+	}
+
+	.bi-about-team__card:hover {
+		transform: none !important;
+	}
+
+	.bi-about-team__card:hover .bi-about-team__photo {
+		transform: none !important;
+	}
+
+	.bi-about-team__btn:hover {
+		transform: none !important;
+	}
+
+	.bi-about-team__btn:hover .bi-about-team__btn-icon {
+		transform: none !important;
+	}
+
+	.bi-team-modal__close-btn:hover {
+		transform: none !important;
+	}
+}

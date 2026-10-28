@@ -1,0 +1,65 @@
+# BEGIN MIME Types & CORS for Fonts & WebP Images
+<IfModule mod_mime.c>
+    AddType font/ttf .ttf
+    AddType font/otf .otf
+    AddType font/woff .woff
+    AddType font/woff2 .woff2
+    AddType image/webp .webp
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(ttf|otf|woff|woff2)$">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+</IfModule>
+# END MIME Types & CORS
+
+# 301 Redirects for Legacy URLs
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /betterinsights/
+    RewriteRule ^work/(.*?)/?$ /betterinsights/case-study/$1/ [R=301,L]
+    RewriteRule ^case-studies/?$ /betterinsights/our-work/ [R=301,L]
+    RewriteRule ^contact-us/?$ /betterinsights/contact/ [R=301,L]
+    RewriteRule ^about/team/?$ /betterinsights/about/#our-team [R=301,L,NE]
+    RewriteRule ^team/?$ /betterinsights/about/#our-team [R=301,L,NE]
+
+    # Services & Capabilities Routing
+    RewriteRule ^crm-development/?$ /betterinsights/crm-integrations/ [R=301,L]
+    RewriteRule ^services/crm-development/?$ /betterinsights/crm-integrations/ [R=301,L]
+    RewriteRule ^wordpress-development/?$ /betterinsights/website-development/ [R=301,L]
+    RewriteRule ^services/web-development/?$ /betterinsights/website-development/ [R=301,L]
+    RewriteRule ^services/wordpress-development/?$ /betterinsights/website-development/ [R=301,L]
+    RewriteRule ^woocommerce/?$ /betterinsights/website-development/ [R=301,L]
+    RewriteRule ^services/woocommerce-solutions/?$ /betterinsights/website-development/ [R=301,L]
+    RewriteRule ^api-integrations/?$ /betterinsights/technology-engineering/ [R=301,L]
+    RewriteRule ^services/api-integrations/?$ /betterinsights/technology-engineering/ [R=301,L]
+    RewriteRule ^services/ai-solutions/?$ /betterinsights/ai-solutions/ [R=301,L]
+    RewriteRule ^services/ai-agents/?$ /betterinsights/ai-solutions/ [R=301,L]
+    RewriteRule ^services/marketing-automation/?$ /betterinsights/ai-solutions/ [R=301,L]
+    RewriteRule ^services/digital-transformation/?$ /betterinsights/digital-transformation/ [R=301,L]
+    RewriteRule ^services/seo-search-strategy/?$ /betterinsights/digital-growth/ [R=301,L]
+    RewriteRule ^services/performance-marketing/?$ /betterinsights/digital-growth/ [R=301,L]
+    RewriteRule ^services/conversion-optimization/?$ /betterinsights/digital-growth/ [R=301,L]
+    RewriteRule ^services/content-strategy/?$ /betterinsights/digital-growth/ [R=301,L]
+    RewriteRule ^services/paid-media-search/?$ /betterinsights/digital-growth/ [R=301,L]
+    RewriteRule ^services/growth-analytics/?$ /betterinsights/digital-growth/ [R=301,L]
+    RewriteRule ^services/data-analytics/?$ /betterinsights/digital-growth/ [R=301,L]
+    RewriteRule ^services/digital-strategy/?$ /betterinsights/digital-growth/ [R=301,L]
+</IfModule>
+
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /betterinsights/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /betterinsights/index.php [L]
+</IfModule>
+
+# END WordPress

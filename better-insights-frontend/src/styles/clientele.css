@@ -1,0 +1,112 @@
+/* Better Insights - Clientele & Partner Directory Stylesheet */
+
+@keyframes clienteleFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes clienteleMarquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.clientele-reveal-1 {
+  animation: clienteleFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.clientele-reveal-2 {
+  animation: clienteleFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+  opacity: 0;
+}
+
+.clientele-reveal-3 {
+  animation: clienteleFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+  opacity: 0;
+}
+
+/* Continuous Logo Marquee Track */
+.clientele-marquee-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.clientele-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: clienteleMarquee 45s linear infinite;
+}
+
+.clientele-marquee-wrapper:hover .clientele-marquee-track,
+.clientele-marquee-wrapper:focus-within .clientele-marquee-track {
+  animation-play-state: paused;
+}
+
+/* Client Logo Card */
+.client-logo-card {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.client-logo-card:hover {
+  transform: translateY(-3px);
+}
+
+.client-logo-img-wrap {
+  transition: all 0.3s ease;
+}
+
+.client-logo-card:hover .client-logo-img-wrap {
+  filter: grayscale(0) opacity(1);
+  transform: scale(1.05);
+}
+
+/* Filter Tab Button */
+.clientele-filter-tab {
+  transition: all 0.25s ease;
+}
+
+.clientele-filter-tab.is-active {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+/* Accessible focus ring */
+.clientele-focus-ring:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 3px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .clientele-reveal-1,
+  .clientele-reveal-2,
+  .clientele-reveal-3 {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .clientele-marquee-track {
+    animation: none !important;
+    transform: none !important;
+    overflow-x: auto;
+  }
+
+  .client-logo-card,
+  .client-logo-img-wrap,
+  .clientele-filter-tab {
+    transition: none !important;
+  }
+}

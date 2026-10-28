@@ -1,0 +1,125 @@
+/* ==========================================================================
+   Better Insights — Premium Careers Page Stylesheet
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. KEYFRAMES & MICRO-ANIMATIONS
+   -------------------------------------------------------------------------- */
+@keyframes careersFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes careersPulseDot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.6;
+  }
+}
+
+.animate-careers-fade-in-up {
+  animation: careersFadeInUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.careers-pulse-dot {
+  animation: careersPulseDot 2.4s ease-in-out infinite;
+}
+
+/* --------------------------------------------------------------------------
+   2. AMBIENT BACKGROUND ACCENTS
+   -------------------------------------------------------------------------- */
+.careers-ambient-grid {
+  position: absolute;
+  inset: 0;
+  background-size: 48px 48px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 75%);
+}
+
+.careers-ambient-glow {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 65vw;
+  height: 65vw;
+  max-width: 800px;
+  max-height: 800px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 50%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. EDITORIAL CARDS & HOVER EFFECTS
+   -------------------------------------------------------------------------- */
+.careers-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+  will-change: transform, box-shadow;
+}
+
+.careers-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.12);
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+.careers-job-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.careers-job-card:hover {
+  border-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   4. DROPZONE & FILE INPUT
+   -------------------------------------------------------------------------- */
+.careers-dropzone {
+  border: 2px dashed rgba(0, 0, 0, 0.18);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  background: #FFFFFF;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.careers-dropzone:hover,
+.careers-dropzone.drag-active {
+  border-color: #000000;
+  background: rgba(243, 242, 239, 0.6);
+}
+
+/* --------------------------------------------------------------------------
+   5. ACCESSIBILITY & PREFERS-REDUCED-MOTION
+   -------------------------------------------------------------------------- */
+.careers-focus-ring:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-careers-fade-in-up,
+  .careers-pulse-dot,
+  .careers-card,
+  .careers-job-card {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

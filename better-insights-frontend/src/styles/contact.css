@@ -1,0 +1,156 @@
+/* ==========================================================================
+   Better Insights — Premium Contact Page Stylesheet
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. KEYFRAMES & MICRO-ANIMATIONS
+   -------------------------------------------------------------------------- */
+@keyframes contactFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes contactPulseDot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.6;
+  }
+}
+
+.animate-contact-fade-in-up {
+  animation: contactFadeInUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.contact-pulse-dot {
+  animation: contactPulseDot 2.4s ease-in-out infinite;
+}
+
+/* --------------------------------------------------------------------------
+   2. AMBIENT BACKGROUND ACCENTS
+   -------------------------------------------------------------------------- */
+.contact-ambient-grid {
+  position: absolute;
+  inset: 0;
+  background-size: 48px 48px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 75%);
+}
+
+.contact-ambient-glow {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 65vw;
+  height: 65vw;
+  max-width: 800px;
+  max-height: 800px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 50%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. CONTACT WAYS — EXACT 18PX TYPOGRAPHY PRESERVATION
+   -------------------------------------------------------------------------- */
+.contact__ways {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem;
+  font-size: 18px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact__ways li {
+  display: grid;
+  gap: 0.5rem;
+  align-content: start;
+  font-size: 18px;
+}
+
+.contact__ways .contact__way-label,
+.contact__ways p {
+  color: #666666;
+  font-size: 18px !important;
+  line-height: 1.35;
+  font-weight: 500;
+  margin: 0;
+}
+
+.contact__ways a,
+.contact__ways .contact__way-value,
+.contact__ways address {
+  font-size: 18px !important;
+  line-height: 1.4;
+  color: #000000;
+  font-weight: 700;
+  text-decoration: none;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  transition: opacity 0.2s ease, text-decoration 0.2s ease;
+}
+
+.contact__ways a:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+@media (max-width: 64rem) {
+  .contact__ways {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 48rem) {
+  .contact__ways {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. EDITORIAL CARDS & ACCESSIBLE FOCUS
+   -------------------------------------------------------------------------- */
+.contact-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+  will-change: transform, box-shadow;
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+.contact-focus-ring:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   5. REDUCED MOTION PREFERENCES
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .animate-contact-fade-in-up,
+  .contact-pulse-dot,
+  .contact-card {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

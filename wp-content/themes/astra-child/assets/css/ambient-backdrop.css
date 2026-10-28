@@ -1,0 +1,177 @@
+/**
+ * Better Insights — WPP Media–Inspired Ambient Scroll Background
+ *
+ * Soft-edged ambient background grounding.
+ */
+
+/* ==========================================================================
+   1. AMBIENT BACKDROP CONTAINER & BASE CANVAS (WARM STONE GROUNDING)
+   ========================================================================== */
+
+.bi-homepage {
+	background-color: var(--bi-warm-stone, #F3F2EF) !important;
+}
+
+/* Distracting pastel green/lavender/blue drifting shapes disabled per Valtech design */
+.bi-ambient-backdrop {
+	display: none !important;
+}
+
+/* ==========================================================================
+   3. STRATEGIC POSITIONS ACROSS THE HOMEPAGE FLOW
+   ========================================================================== */
+
+/* Shape 1: Hero Exit / Logo Wall (Green) */
+.bi-ambient-shape--1 {
+	top: 7%;
+	left: -8%;
+	width: clamp(550px, 48vw, 820px);
+	height: clamp(520px, 46vw, 780px);
+}
+
+/* Shape 2: We Believe Top / Cards 01-02 (Blue) */
+.bi-ambient-shape--2 {
+	top: 15%;
+	right: -6%;
+	width: clamp(500px, 42vw, 700px);
+	height: clamp(500px, 42vw, 700px);
+}
+
+/* Shape 3: We Believe Lower / Cards 03-04 (Lavender) */
+.bi-ambient-shape--3 {
+	top: 24%;
+	left: -6%;
+	width: clamp(520px, 44vw, 720px);
+	height: clamp(520px, 44vw, 720px);
+}
+
+/* Shape 4: Transition into Our Solutions (Green) */
+.bi-ambient-shape--4 {
+	top: 33%;
+	right: -8%;
+	width: clamp(560px, 46vw, 780px);
+	height: clamp(540px, 44vw, 750px);
+}
+
+/* Shape 5: Solutions Slider Area (Lavender) */
+.bi-ambient-shape--5 {
+	top: 42%;
+	left: 5%;
+	width: clamp(500px, 42vw, 680px);
+	height: clamp(500px, 42vw, 680px);
+}
+
+/* Shape 6: Services Section Deep Ambient Aura (Dark Safe) */
+.bi-ambient-shape--6 {
+	top: 54%;
+	right: 5%;
+	width: clamp(550px, 45vw, 750px);
+	height: clamp(550px, 45vw, 750px);
+}
+
+/* Shape 7: Transition into Our Work (Blue) */
+.bi-ambient-shape--7 {
+	top: 63%;
+	left: -8%;
+	width: clamp(520px, 44vw, 700px);
+	height: clamp(520px, 44vw, 700px);
+}
+
+/* Shape 8: Our Work Carousel Cards (Green) */
+.bi-ambient-shape--8 {
+	top: 70%;
+	right: -6%;
+	width: clamp(560px, 46vw, 760px);
+	height: clamp(540px, 44vw, 740px);
+}
+
+/* Shape 9: Technology Partners Deep Ambient Aura (Dark Safe) */
+.bi-ambient-shape--9 {
+	top: 78%;
+	left: 10%;
+	width: clamp(500px, 40vw, 650px);
+	height: clamp(500px, 40vw, 650px);
+}
+
+/* Shape 10: Resource Center Left (Green) */
+.bi-ambient-shape--10 {
+	top: 86%;
+	left: -8%;
+	width: clamp(560px, 46vw, 780px);
+	height: clamp(540px, 44vw, 750px);
+}
+
+/* Shape 11: Resource Center Right (Lavender) */
+.bi-ambient-shape--11 {
+	top: 91%;
+	right: -6%;
+	width: clamp(520px, 44vw, 720px);
+	height: clamp(500px, 42vw, 700px);
+}
+
+/* ==========================================================================
+   4. STACKING CONTEXTS & FOREGROUND CARD REINFORCEMENT
+   ========================================================================== */
+
+/* All homepage sections sit cleanly above the ambient backdrop */
+.bi-homepage>section,
+.bi-homepage>div:not(.bi-ambient-backdrop):not(.bi-scroll-progress) {
+	position: relative;
+	z-index: 1;
+}
+
+/* Interactive cards retain crisp, solid surfaces */
+.bi-stacking-card,
+.bi-solution-card,
+.bi-service-card,
+.bi-our-work-card,
+.bi-resource-card {
+	position: relative;
+	z-index: 2;
+}
+
+/* Dark sections remain pure black and high-contrast */
+.bi-services-section,
+.bi-partners-section,
+.bi-footer {
+	position: relative;
+	z-index: 3;
+	background-color: #000000 !important;
+}
+
+/* ==========================================================================
+   5. MOBILE & ACCESSIBILITY OPTIMIZATIONS
+   ========================================================================== */
+
+@media (max-width: 768px) {
+	.bi-ambient-shape {
+		filter: blur(55px);
+		opacity: 0.70;
+	}
+
+	.bi-ambient-shape--green {
+		filter: blur(55px);
+	}
+
+	.bi-ambient-shape--blue {
+		filter: blur(60px);
+	}
+
+	.bi-ambient-shape--lavender {
+		filter: blur(55px);
+	}
+
+	/* Hide minor secondary shapes on mobile to preserve GPU performance */
+	.bi-ambient-shape--3,
+	.bi-ambient-shape--5,
+	.bi-ambient-shape--9 {
+		display: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.bi-ambient-shape {
+		transform: none !important;
+		will-change: auto;
+	}
+}

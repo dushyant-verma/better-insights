@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 40" width="248" height="40" role="img" aria-labelledby="biLogoTitle">
+  <title id="biLogoTitle">Better Insights</title>
+  <g fill="none" fill-rule="evenodd">
+    <rect x="0.75" y="4.75" width="30.5" height="30.5" rx="8" stroke="#22C3C8" stroke-width="1.5"/>
+    <circle cx="16" cy="20" r="4.25" fill="#22C3C8"/>
+    <circle cx="16" cy="20" r="8.5" stroke="#22C3C8" stroke-opacity="0.45" stroke-width="1.25"/>
+    <path d="M23.2 13.1l2.4-2.4" stroke="#F4F7FA" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+  <text x="42" y="26.5" fill="#F7FBFF" font-family="Inter, Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="18" font-weight="600" letter-spacing="-0.02em">Better Insights</text>
+</svg>

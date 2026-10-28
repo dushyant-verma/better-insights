@@ -1,0 +1,275 @@
+{
+  "vars": {},
+  "transitions": [
+    {
+      "tag": "HTML",
+      "className": "theme-light-side",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "HEAD",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "META",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "TITLE",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "META",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "META",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "META",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "META",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "META",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "META",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "META",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "META",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "META",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "META",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "META",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "META",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "META",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "META",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "META",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "META",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "META",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "SCRIPT",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "SCRIPT",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "SCRIPT",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "SCRIPT",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "META",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "LINK",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "LINK",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "LINK",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    {
+      "tag": "LINK",
+      "className": "",
+      "transition": "all",
+      "transform": "none",
+      "position": "static",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    }
+  ]
+}

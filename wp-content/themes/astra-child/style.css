@@ -1,0 +1,316 @@
+/*
+Theme Name: Astra Child
+Theme URI: https://wpastra.com/
+Description: Child theme for Astra
+Author: Better Insights
+Author URI: https://betterinsights.in/
+Template: astra
+Version: 1.2.0
+*/
+
+/* ==========================================================================
+   Primary Theme Font: Noto Sans (Loaded via Google Fonts in functions.php)
+   ========================================================================== */
+
+:root {
+	--ast-global-font-family: "Noto Sans", sans-serif !important;
+	--ast-widget-font-family: "Noto Sans", sans-serif !important;
+
+	/* ==========================================================================
+	   Better Insights — Approved Core Colour Palette & Design System
+	   Core Palette:
+	     - Warm off-white: #F3F2EF
+	     - Black: #000000
+	     - White: #FFFFFF
+	     - Opacity variations of black and white for borders, overlays, pills
+	     - #171717 permitted only as subtle black variation in dark gradients
+	   ========================================================================== */
+
+	/* --------------------------------------------------------------------------
+	   1. Approved Core Foundations
+	   -------------------------------------------------------------------------- */
+	--bi-black: #000000;
+	--bi-white: #FFFFFF;
+	--bi-warm-stone: #F3F2EF;
+	--bi-warm-off-white: #F3F2EF;
+	--bi-charcoal: #171717; /* Subtle black variation for dark gradients */
+	--bi-dark-surface: #171717;
+	--bi-light-divider: #D1D3CA;
+	--bi-light-border: #E5E5E5;
+	--bi-light-body: #4A5464;
+	--bi-dark-body: #CCCCCC;
+	--bi-muted: #666666;
+
+	/* --------------------------------------------------------------------------
+	   2. Approved Inner-Page Hero Gradient Tokens
+	   -------------------------------------------------------------------------- */
+	/* Option A — Warm light gradient */
+	--bi-gradient-warm-light: linear-gradient(135deg, #FFFFFF 0%, #F3F2EF 55%, #FFFFFF 100%);
+
+	/* Option B — Dark premium gradient */
+	--bi-gradient-dark-premium: linear-gradient(135deg, #000000 0%, #171717 50%, #000000 100%);
+
+	/* Option C — Warm-to-white gradient */
+	--bi-gradient-warm-white: linear-gradient(110deg, #F3F2EF 0%, #FFFFFF 70%, #F3F2EF 100%);
+
+	/* Monochrome Interactive Accents (Black / White only) */
+	--bi-accent-primary: #FFFFFF;
+	--bi-accent-secondary: #000000;
+	--bi-accent-glow: rgba(255, 255, 255, 0.08);
+	--bi-accent-pill-bg: rgba(255, 255, 255, 0.08);
+	--bi-accent-pill-border: rgba(255, 255, 255, 0.18);
+
+	/* Aliases for backwards compatibility */
+	--bi-primary-blue: #000000;
+	--bi-primary-hover: #171717;
+	--bi-blue: #000000;
+
+	/* --------------------------------------------------------------------------
+	   Subtle Neutral Glassmorphism Tokens (#F3F2EF, #000000, #FFFFFF Only)
+	   -------------------------------------------------------------------------- */
+	--bi-glass-warm-stone: rgba(243, 242, 239, 0.88);
+	--bi-glass-white: rgba(255, 255, 255, 0.92);
+	--bi-glass-dark: rgba(0, 0, 0, 0.90);
+	--bi-glass-blur-sm: 6px;
+	--bi-glass-blur-md: 10px;
+	--bi-glass-blur-lg: 16px;
+	--bi-glass-border-light: rgba(0, 0, 0, 0.08);
+	--bi-glass-border-dark: rgba(255, 255, 255, 0.16);
+
+	/* --------------------------------------------------------------------------
+	   3. Light & Stone Editorial Theme Tokens
+	   -------------------------------------------------------------------------- */
+	--bi-light-canvas: #FFFFFF;
+	--bi-light-stone: #F3F2EF;
+	--bi-light-hero: #F3F2EF;
+	--bi-light-card: #FFFFFF;
+	--bi-light-card-subtle: #F3F2EF;
+	--bi-light-border-hover: #D1D3CA;
+	--bi-light-text-heading: #000000;
+	--bi-light-text-body: #4A5464;
+	--bi-light-text-muted: #666666;
+
+	/* --------------------------------------------------------------------------
+	   4. Dark Editorial Theme Tokens
+	   -------------------------------------------------------------------------- */
+	--bi-dark-canvas: #000000;
+	--bi-dark-charcoal: #171717;
+	--bi-dark-card: #171717;
+	--bi-dark-card-glass: rgba(255, 255, 255, 0.04);
+	--bi-dark-card-hover: rgba(255, 255, 255, 0.08);
+	--bi-dark-border: rgba(255, 255, 255, 0.10);
+	--bi-dark-border-card: rgba(255, 255, 255, 0.16);
+	--bi-dark-text-heading: #FFFFFF;
+	--bi-dark-text-body: #CCCCCC;
+	--bi-dark-text-muted: #8E95A5;
+
+	/* --------------------------------------------------------------------------
+	   5. Layout & Dimensional Standards
+	   -------------------------------------------------------------------------- */
+	--bi-max: 1380px;
+	--bi-radius-sm: 8px;
+	--bi-radius-md: 16px;
+	--bi-radius-lg: 24px;
+	--bi-radius-pill: 999px;
+}
+
+/* ==========================================================================
+   Section Theme Conventions (Editorial Rhythm Architecture)
+   ========================================================================== */
+
+/* Light Section Convention (.bi-theme--light / [data-theme="light"]) */
+.bi-theme--light,
+[data-theme="light"] {
+	--bi-theme-bg: var(--bi-light-canvas);
+	--bi-theme-surface: var(--bi-light-card);
+	--bi-theme-surface-subtle: var(--bi-light-card-subtle);
+	--bi-theme-border: var(--bi-light-border);
+	--bi-theme-border-hover: var(--bi-light-border-hover);
+	--bi-theme-heading: var(--bi-light-text-heading);
+	--bi-theme-body: var(--bi-light-text-body);
+	--bi-theme-muted: var(--bi-light-text-muted);
+	--bi-theme-accent: #000000;
+	--bi-theme-pill-bg: rgba(0, 0, 0, 0.05);
+	--bi-theme-pill-border: rgba(0, 0, 0, 0.12);
+	--bi-theme-pill-text: #000000;
+}
+
+/* Warm Stone Section Convention (.bi-theme--stone / [data-theme="stone"]) */
+.bi-theme--stone,
+[data-theme="stone"] {
+	--bi-theme-bg: var(--bi-warm-stone);
+	--bi-theme-surface: var(--bi-light-card);
+	--bi-theme-surface-subtle: var(--bi-light-card-subtle);
+	--bi-theme-border: var(--bi-light-border);
+	--bi-theme-border-hover: var(--bi-light-border-hover);
+	--bi-theme-heading: var(--bi-light-text-heading);
+	--bi-theme-body: var(--bi-light-text-body);
+	--bi-theme-muted: var(--bi-light-text-muted);
+	--bi-theme-accent: #000000;
+	--bi-theme-pill-bg: rgba(0, 0, 0, 0.05);
+	--bi-theme-pill-border: rgba(0, 0, 0, 0.12);
+	--bi-theme-pill-text: #000000;
+}
+
+/* Dark Section Convention (.bi-theme--dark / [data-theme="dark"]) */
+.bi-theme--dark,
+[data-theme="dark"] {
+	--bi-theme-bg: var(--bi-dark-canvas);
+	--bi-theme-surface: var(--bi-dark-card);
+	--bi-theme-surface-glass: var(--bi-dark-card-glass);
+	--bi-theme-surface-hover: var(--bi-dark-card-hover);
+	--bi-theme-border: var(--bi-dark-border);
+	--bi-theme-border-card: var(--bi-dark-border-card);
+	--bi-theme-heading: var(--bi-dark-text-heading);
+	--bi-theme-body: var(--bi-dark-text-body);
+	--bi-theme-muted: var(--bi-dark-text-muted);
+	--bi-theme-accent: #FFFFFF;
+	--bi-theme-pill-bg: rgba(255, 255, 255, 0.08);
+	--bi-theme-pill-border: rgba(255, 255, 255, 0.18);
+	--bi-theme-pill-text: #FFFFFF;
+}
+
+/* Charcoal Section Convention (.bi-theme--charcoal / [data-theme="charcoal"]) */
+.bi-theme--charcoal,
+[data-theme="charcoal"] {
+	--bi-theme-bg: var(--bi-charcoal);
+	--bi-theme-surface: var(--bi-dark-card);
+	--bi-theme-surface-glass: var(--bi-dark-card-glass);
+	--bi-theme-surface-hover: var(--bi-dark-card-hover);
+	--bi-theme-border: var(--bi-dark-border);
+	--bi-theme-border-card: var(--bi-dark-border-card);
+	--bi-theme-heading: var(--bi-dark-text-heading);
+	--bi-theme-body: var(--bi-dark-text-body);
+	--bi-theme-muted: var(--bi-dark-text-muted);
+	--bi-theme-accent: #FFFFFF;
+	--bi-theme-pill-bg: rgba(255, 255, 255, 0.08);
+	--bi-theme-pill-border: rgba(255, 255, 255, 0.18);
+	--bi-theme-pill-text: #FFFFFF;
+}
+
+/* Valtech-Inspired Zero-Gap Adjacent Theme Seam Collapsing */
+.bi-theme--dark + .bi-theme--dark,
+[data-theme="dark"] + [data-theme="dark"] {
+	border-top: none;
+}
+
+.bi-theme--light + .bi-theme--light,
+[data-theme="light"] + [data-theme="light"] {
+	border-top: none;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+	font-family: "Noto Sans", sans-serif;
+}
+
+body *,
+body *::before,
+body *::after {
+	font-family: inherit;
+}
+
+/* Headings Default Hierarchy */
+h1 {
+	font-weight: 700;
+	letter-spacing: -0.045em;
+}
+
+h2 {
+	font-weight: 700;
+	letter-spacing: -0.04em;
+}
+
+h3 {
+	font-weight: 700;
+	letter-spacing: -0.025em;
+}
+
+h4,
+h5,
+h6 {
+	font-weight: 600;
+	letter-spacing: -0.02em;
+}
+
+/* Astra & Elementor Overrides */
+.ast-single-post-title,
+.entry-title,
+.ast-nav-menu,
+.ast-builder-menu,
+.ast-custom-button,
+.site-title,
+.elementor-widget,
+.elementor-widget-heading .elementor-heading-title,
+.elementor-widget-text-editor,
+.elementor-button,
+.elementor-nav-menu,
+.elementor-field-group input,
+.elementor-field-group textarea,
+.elementor-field-group select,
+.woocommerce {
+	font-family: "Noto Sans", sans-serif;
+}
+
+/* ==========================================================================
+   Icon Font Exclusions (Preserve FontAwesome, Elementor & Astra icons)
+   ========================================================================== */
+
+.fa,
+.fas,
+.far,
+.fab,
+.fal,
+.fad,
+[class*="fa-"],
+[class^="fa-"] {
+	font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands", "FontAwesome", sans-serif !important;
+}
+
+[class*="eicon-"],
+[class^="eicon-"],
+.eicon {
+	font-family: "elementor" !important;
+}
+
+.dashicons,
+[class*="dashicons-"] {
+	font-family: "dashicons" !important;
+}
+
+[class*="ast-icon-"],
+.ast-icon {
+	font-family: inherit;
+}
+
+/* ==========================================================================
+   Global Custom Scrollbar Styling
+   ========================================================================== */
+
+/* Firefox */
+html {
+	scrollbar-color: #000000 #FFFFFF;
+	scrollbar-width: thin;
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: #FFFFFF;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #000000;
+	border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #333333;
+}

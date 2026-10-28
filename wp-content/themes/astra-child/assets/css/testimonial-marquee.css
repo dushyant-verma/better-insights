@@ -1,0 +1,299 @@
+/* ==========================================================================
+   Better Insights - Client Recognition Testimonial Marquee Slider
+   Brand System:
+     - Background: #FFFFFF
+     - Primary Text: #000000
+     - Accent: #000000
+     - Secondary Text: #4A5464
+     - Dividers: #D1D3CA
+   Typography: Noto Sans, sans-serif
+   Scope: .bi-testimonial-marquee
+   ========================================================================== */
+
+.bi-testimonial-marquee {
+	width: 100%;
+	background-color: #FFFFFF;
+	color: #000000;
+	padding: clamp(64px, 7vw, 112px) 0;
+	position: relative;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+/* Header Container (aligned to left in standard 1380px container) */
+.bi-testimonial-marquee__container {
+	width: 100%;
+	max-width: var(--bi-max, 1380px);
+	margin: 0 auto;
+	padding: 0 clamp(24px, 4vw, 48px);
+	box-sizing: border-box;
+}
+
+.bi-testimonial-marquee__header {
+	margin-bottom: clamp(40px, 4.5vw, 64px);
+}
+
+.bi-testimonial-marquee__heading {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(28px, 3.4vw, 46px);
+	font-weight: 700;
+	line-height: 1.15;
+	letter-spacing: -0.02em;
+	color: #000000;
+	margin: 0;
+	text-align: left;
+}
+
+.bi-testimonial-marquee__heading-accent {
+	color: #000000;
+}
+
+/* Marquee Viewport: Full Bleed with Edge Clipping */
+.bi-testimonial-marquee__viewport {
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	outline: none;
+	border-top: 1px solid #D1D3CA;
+	border-bottom: 1px solid #D1D3CA;
+	background: #FFFFFF;
+}
+
+.bi-testimonial-marquee__viewport:focus-visible {
+	outline: 2px solid #000000;
+	outline-offset: -2px;
+}
+
+/* Continuously Moving Track */
+.bi-testimonial-marquee .bi-testimonial-marquee__track,
+.bi-testimonial-marquee__track {
+	display: flex;
+	width: max-content;
+	animation: biMarqueeScroll 40s linear infinite;
+	will-change: transform;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+/* Pause linear motion on cursor hover and keyboard focus */
+.bi-testimonial-marquee:hover .bi-testimonial-marquee__track,
+.bi-testimonial-marquee__viewport:hover .bi-testimonial-marquee__track,
+.bi-testimonial-marquee__viewport:focus-within .bi-testimonial-marquee__track {
+	animation-play-state: paused;
+}
+
+/* Testimonial Sets (Set 1 Primary + Duplicate Sets) */
+.bi-testimonial-marquee__set {
+	display: flex;
+	flex-shrink: 0;
+}
+
+/* Testimonial Card */
+.bi-testimonial-card {
+	width: clamp(340px, 24vw, 390px);
+	flex: 0 0 clamp(340px, 24vw, 390px);
+	background: #FFFFFF;
+	box-sizing: border-box;
+	border-right: 1px solid #D0D3DA;
+	border-radius: 0;
+	box-shadow: none;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	outline: none;
+}
+
+.bi-testimonial-card:focus-visible {
+	outline: 2px solid #000000;
+	outline-offset: -2px;
+	z-index: 2;
+}
+
+.bi-testimonial-card__inner {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+	min-height: clamp(340px, 28vw, 400px);
+	padding: clamp(28px, 2.5vw, 36px);
+	box-sizing: border-box;
+}
+
+/* Quote Mark in Neutral */
+.bi-testimonial-card__quote-mark {
+	margin-bottom: 24px;
+	color: #000000;
+	opacity: 0.25;
+	display: flex;
+	align-items: center;
+	line-height: 1;
+}
+
+.bi-testimonial-card__quote-mark svg {
+	width: 38px;
+	height: 30px;
+	display: block;
+	fill: currentColor;
+}
+
+/* Testimonial Quote Text */
+.bi-testimonial-card__quote {
+	margin: 0 0 32px 0;
+	padding: 0;
+	border: none;
+	flex-grow: 1;
+}
+
+.bi-testimonial-card__text {
+	font-family: "Noto Sans", sans-serif;
+	font-size: clamp(15px, 1.1vw, 17px);
+	font-weight: 400;
+	line-height: 1.68;
+	color: #1A1A1A;
+	margin: 0;
+}
+
+/* Testimonial Author Attribution (Aligned near bottom) */
+.bi-testimonial-card__author {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	padding-top: 16px;
+	border-top: 1px solid rgba(208, 211, 218, 0.4);
+}
+
+.bi-testimonial-card__name {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	font-style: normal;
+	color: #000000;
+	line-height: 1.3;
+}
+
+.bi-testimonial-card__role {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	color: #6A6A6A;
+	line-height: 1.4;
+}
+
+/* Linear Infinite Marquee Animation (Translates 1 full set out of 4 = -25%) */
+@keyframes biMarqueeScroll {
+	0% {
+		transform: translate3d(0, 0, 0);
+	}
+	100% {
+		transform: translate3d(-25%, 0, 0);
+	}
+}
+
+/* --------------------------------------------------------------------------
+   ACCESSIBILITY & PREFERS-REDUCED-MOTION
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+	.bi-testimonial-marquee .bi-testimonial-marquee__track,
+	.bi-testimonial-marquee__track {
+		animation: none !important;
+		transform: none !important;
+	}
+
+	.bi-testimonial-marquee__set[aria-hidden="true"] {
+		display: none !important;
+	}
+
+	.bi-testimonial-marquee__viewport {
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		-webkit-overflow-scrolling: touch;
+		padding-bottom: 12px;
+	}
+
+	.bi-testimonial-card {
+		scroll-snap-align: start;
+	}
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+
+/* Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+	.bi-testimonial-marquee {
+		padding: clamp(56px, 6vw, 84px) 0;
+	}
+
+	.bi-testimonial-marquee__heading {
+		font-size: clamp(26px, 3.8vw, 36px);
+	}
+
+	.bi-testimonial-card {
+		width: clamp(300px, 38vw, 340px);
+		flex: 0 0 clamp(300px, 38vw, 340px);
+	}
+
+	.bi-testimonial-card__inner {
+		min-height: 330px;
+		padding: 28px 24px;
+	}
+
+	.bi-testimonial-card__quote-mark svg {
+		width: 32px;
+		height: 25px;
+	}
+
+	.bi-testimonial-card__text {
+		font-size: 15px;
+		line-height: 1.62;
+	}
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+	.bi-testimonial-marquee {
+		padding: 48px 0;
+	}
+
+	.bi-testimonial-marquee__container {
+		padding: 0 20px;
+	}
+
+	.bi-testimonial-marquee__header {
+		margin-bottom: 28px;
+	}
+
+	.bi-testimonial-marquee__heading {
+		font-size: clamp(24px, 6.5vw, 30px);
+	}
+
+	.bi-testimonial-card {
+		width: clamp(280px, 78vw, 320px);
+		flex: 0 0 clamp(280px, 78vw, 320px);
+	}
+
+	.bi-testimonial-card__inner {
+		min-height: 310px;
+		padding: 24px 20px;
+	}
+
+	.bi-testimonial-card__quote-mark svg {
+		width: 28px;
+		height: 22px;
+	}
+
+	.bi-testimonial-card__text {
+		font-size: 14.5px;
+		line-height: 1.6;
+	}
+
+	.bi-testimonial-card__name {
+		font-size: 15px;
+	}
+
+	.bi-testimonial-card__role {
+		font-size: 13.5px;
+	}
+}
