@@ -186,52 +186,42 @@ export function MergedHeader() {
               <div
                 role="menu"
                 aria-label="Home pages"
-                className="absolute top-full left-0 mt-2 w-64 p-2 bg-white/95 backdrop-blur-xl border border-black/10 rounded-2xl shadow-[0_16px_36px_-6px_rgba(0,0,0,0.14)] z-50 animate-in fade-in slide-in-from-top-2 duration-150"
+                className="absolute top-full left-0 mt-2 w-52 p-1.5 bg-white/95 backdrop-blur-xl border border-black/10 rounded-2xl shadow-[0_16px_36px_-6px_rgba(0,0,0,0.14)] z-50 animate-in fade-in slide-in-from-top-2 duration-150"
               >
                 <Link
                   href="/"
                   role="menuitem"
                   onClick={() => setHomeOpen(false)}
-                  className={`flex flex-col p-2.5 rounded-xl transition-all duration-150 ${
+                  className={`flex items-center justify-between px-3 py-2 rounded-xl transition-all duration-150 ${
                     pathname === "/"
                       ? "bg-[#6C3CFF]/10 text-[#6C3CFF]"
                       : "hover:bg-black/5 text-[#1B1411] hover:text-[#6C3CFF]"
                   }`}
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="font-semibold text-xs sm:text-sm">Home Main 1</span>
-                    {pathname === "/" && (
-                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#6C3CFF] text-white font-medium">
-                        Active
-                      </span>
-                    )}
-                  </div>
-                  <span className="text-[11px] text-[#1B1411]/60 mt-0.5">
-                    Original merged design studio homepage
-                  </span>
+                  <span className="font-semibold text-xs sm:text-sm">Home Main 1</span>
+                  {pathname === "/" && (
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#6C3CFF] text-white font-medium">
+                      Active
+                    </span>
+                  )}
                 </Link>
 
                 <Link
                   href="/home-redesign-1"
                   role="menuitem"
                   onClick={() => setHomeOpen(false)}
-                  className={`flex flex-col p-2.5 rounded-xl mt-1 transition-all duration-150 ${
+                  className={`flex items-center justify-between px-3 py-2 rounded-xl mt-1 transition-all duration-150 ${
                     pathname === "/home-redesign-1"
                       ? "bg-[#6C3CFF]/10 text-[#6C3CFF]"
                       : "hover:bg-black/5 text-[#1B1411] hover:text-[#6C3CFF]"
                   }`}
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="font-semibold text-xs sm:text-sm">Home Main 2</span>
-                    {pathname === "/home-redesign-1" && (
-                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#6C3CFF] text-white font-medium">
-                        Active
-                      </span>
-                    )}
-                  </div>
-                  <span className="text-[11px] text-[#1B1411]/60 mt-0.5">
-                    Hero &amp; Voice-to-Text digital marketing variant
-                  </span>
+                  <span className="font-semibold text-xs sm:text-sm">Home Main 2</span>
+                  {pathname === "/home-redesign-1" && (
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#6C3CFF] text-white font-medium">
+                      Active
+                    </span>
+                  )}
                 </Link>
               </div>
             )}
@@ -438,25 +428,35 @@ export function MergedHeader() {
                 <li>
                   <Link
                     href="/"
-                    className={`block py-1 ${
+                    className={`flex items-center justify-between py-1 pr-2 ${
                       pathname === "/" ? "text-[#6C3CFF] font-semibold" : "text-white/80"
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Home Main 1
+                    <span>Home Main 1</span>
+                    {pathname === "/" && (
+                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#6C3CFF] text-white font-medium">
+                        Active
+                      </span>
+                    )}
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="/home-redesign-1"
-                    className={`block py-1 ${
+                    className={`flex items-center justify-between py-1 pr-2 ${
                       pathname === "/home-redesign-1"
                         ? "text-[#6C3CFF] font-semibold"
                         : "text-white/80"
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Home Main 2
+                    <span>Home Main 2</span>
+                    {pathname === "/home-redesign-1" && (
+                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#6C3CFF] text-white font-medium">
+                        Active
+                      </span>
+                    )}
                   </Link>
                 </li>
               </ul>
