@@ -58,3 +58,40 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Mobile Navigation Toggle Button - Set icon and visible strokes to black (#000000) */
+@media (max-width: 63.99rem) {
+  #nav .m-icon-btn.nav__toggle,
+  .nav .m-icon-btn.nav__toggle,
+  .m-icon-btn.nav__toggle {
+    color: #000000 !important;
+    border-color: rgba(0, 0, 0, 0.25) !important;
+  }
+
+  #nav .m-icon-btn.nav__toggle svg,
+  .nav .m-icon-btn.nav__toggle svg,
+  .m-icon-btn.nav__toggle svg,
+  #nav .m-icon-btn.nav__toggle svg path,
+  .nav .m-icon-btn.nav__toggle svg path,
+  .m-icon-btn.nav__toggle svg path {
+    stroke: #000000 !important;
+  }
+
+  @media (hover: hover) {
+    #nav .m-icon-btn.nav__toggle:hover,
+    .nav .m-icon-btn.nav__toggle:hover,
+    .m-icon-btn.nav__toggle:hover {
+      color: #FFFFFF !important;
+      border-color: #6C3CFF !important;
+    }
+    #nav .m-icon-btn.nav__toggle:hover svg,
+    #nav .m-icon-btn.nav__toggle:hover svg path,
+    .nav .m-icon-btn.nav__toggle:hover svg,
+    .nav .m-icon-btn.nav__toggle:hover svg path,
+    .m-icon-btn.nav__toggle:hover svg,
+    .m-icon-btn.nav__toggle:hover svg path {
+      stroke: #FFFFFF !important;
+    }
+  }
+}
+

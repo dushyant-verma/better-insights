@@ -1390,6 +1390,13 @@
 
     #nav .nav__toggle {
       display: inline-grid;
+      color: #000000;
+      border-color: rgba(0, 0, 0, 0.25);
+    }
+
+    #nav .nav__toggle svg,
+    #nav .nav__toggle svg path {
+      stroke: #000000;
     }
   }
 }

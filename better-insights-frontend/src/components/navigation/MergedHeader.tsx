@@ -64,7 +64,8 @@ export function MergedHeader() {
   const homeItemRef = useRef<HTMLLIElement | null>(null);
   const servicesItemRef = useRef<HTMLLIElement | null>(null);
 
-  const isHomeActive = pathname === "/" || pathname === "/home-redesign-1";
+  const isHomeActive =
+    pathname === "/" || pathname === "/home-2" || pathname === "/home-redesign-1";
   const isServicesActive = pathname?.startsWith("/services");
 
   // Close menus on route change
@@ -159,27 +160,35 @@ export function MergedHeader() {
             onMouseEnter={handleHomeMouseEnter}
             onMouseLeave={handleHomeMouseLeave}
           >
-            <button
-              type="button"
-              className={`m-link-2 flex items-center gap-1.5 cursor-pointer py-1 bg-transparent border-0 font-inherit ${
-                isHomeActive ? "is-active font-semibold text-[#1B1411]" : ""
-              }`}
-              onClick={() => {
-                setHomeOpen((prev) => !prev);
-                setServicesOpen(false);
-              }}
-              aria-haspopup="true"
-              aria-expanded={homeOpen}
-              aria-label="Home dropdown"
-            >
-              <span>Home</span>
-              <ChevronDown
-                className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                  homeOpen ? "rotate-180 text-[#6C3CFF]" : "text-[#1B1411]/60"
+            <div className="flex items-center gap-1">
+              <Link
+                href="/"
+                className={`m-link-2 flex items-center py-1 font-inherit ${
+                  isHomeActive ? "is-active font-semibold text-[#1B1411]" : ""
                 }`}
-                aria-hidden="true"
-              />
-            </button>
+                aria-label="Home"
+              >
+                <span>Home</span>
+              </Link>
+              <button
+                type="button"
+                className="p-1 cursor-pointer bg-transparent border-0 text-[#1B1411]/60 hover:text-[#6C3CFF] transition-colors flex items-center justify-center"
+                onClick={() => {
+                  setHomeOpen((prev) => !prev);
+                  setServicesOpen(false);
+                }}
+                aria-haspopup="true"
+                aria-expanded={homeOpen}
+                aria-label="Toggle Home dropdown"
+              >
+                <ChevronDown
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                    homeOpen ? "rotate-180 text-[#6C3CFF]" : "text-[#1B1411]/60"
+                  }`}
+                  aria-hidden="true"
+                />
+              </button>
+            </div>
 
             {/* Desktop Home Dropdown Menu */}
             {homeOpen && (
@@ -198,7 +207,7 @@ export function MergedHeader() {
                       : "hover:bg-black/5 text-[#1B1411] hover:text-[#6C3CFF]"
                   }`}
                 >
-                  <span className="font-semibold text-xs sm:text-sm">Home Main 1</span>
+                  <span className="font-semibold text-xs sm:text-sm">Home 1</span>
                   {pathname === "/" && (
                     <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#6C3CFF] text-white font-medium">
                       Active
@@ -207,17 +216,17 @@ export function MergedHeader() {
                 </Link>
 
                 <Link
-                  href="/home-redesign-1"
+                  href="/home-2"
                   role="menuitem"
                   onClick={() => setHomeOpen(false)}
                   className={`flex items-center justify-between px-3 py-2 rounded-xl mt-1 transition-all duration-150 ${
-                    pathname === "/home-redesign-1"
+                    pathname === "/home-2"
                       ? "bg-[#6C3CFF]/10 text-[#6C3CFF]"
                       : "hover:bg-black/5 text-[#1B1411] hover:text-[#6C3CFF]"
                   }`}
                 >
-                  <span className="font-semibold text-xs sm:text-sm">Home Main 2</span>
-                  {pathname === "/home-redesign-1" && (
+                  <span className="font-semibold text-xs sm:text-sm">Home 2</span>
+                  {pathname === "/home-2" && (
                     <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#6C3CFF] text-white font-medium">
                       Active
                     </span>
@@ -433,7 +442,7 @@ export function MergedHeader() {
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    <span>Home Main 1</span>
+                    <span>Home 1</span>
                     {pathname === "/" && (
                       <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#6C3CFF] text-white font-medium">
                         Active
@@ -443,16 +452,16 @@ export function MergedHeader() {
                 </li>
                 <li>
                   <Link
-                    href="/home-redesign-1"
+                    href="/home-2"
                     className={`flex items-center justify-between py-1 pr-2 ${
-                      pathname === "/home-redesign-1"
+                      pathname === "/home-2"
                         ? "text-[#6C3CFF] font-semibold"
                         : "text-white/80"
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    <span>Home Main 2</span>
-                    {pathname === "/home-redesign-1" && (
+                    <span>Home 2</span>
+                    {pathname === "/home-2" && (
                       <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#6C3CFF] text-white font-medium">
                         Active
                       </span>

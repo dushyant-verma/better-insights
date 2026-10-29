@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPostBySlug, getPosts } from "@/lib/wordpress/api";
+import { resolvePostImageUrl } from "@/lib/wordpress/images";
 import { ReadingProgress } from "@/components/insights/ReadingProgress";
 import { TableOfContents, TOCItem } from "@/components/insights/TableOfContents";
 import { ShareButtons } from "@/components/insights/ShareButtons";
@@ -40,7 +41,8 @@ export async function generateMetadata({
   const excerpt = post.excerpt?.rendered 
     ? post.excerpt.rendered.replace(/<[^>]*>/g, "").trim().slice(0, 160) 
     : "";
-  const imageUrl = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/images/blog01.webp";
+  const rawImageUrl = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
+  const imageUrl = resolvePostImageUrl(rawImageUrl, "/images/blog01.webp");
 
   return {
     title: `${title} | Better Insights`,
@@ -132,7 +134,8 @@ export default async function InsightDetailPage({
   const authorName = post._embedded?.author?.[0]?.name || "Better Insights Research Team";
   const categoryName = post._embedded?.["wp:term"]?.[0]?.[0]?.name || "Strategy";
   const categorySlug = post._embedded?.["wp:term"]?.[0]?.[0]?.slug || "";
-  const featuredImage = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/images/blog01.webp";
+  const rawFeaturedImage = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
+  const featuredImage = resolvePostImageUrl(rawFeaturedImage, "/images/blog01.webp");
 
   // Calculate accurate reading time (190 words/min)
   const contentPlainText = (post.content?.rendered || "").replace(/<[^>]*>/g, "");
@@ -375,9 +378,8 @@ export default async function InsightDetailPage({
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {relatedPosts.map((rel) => {
                 const relTitle = rel.title.rendered;
-                const relImage =
-                  rel._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
-                  "/images/blog01.webp";
+                const rawRelImage = rel._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
+                const relImage = resolvePostImageUrl(rawRelImage, "/images/blog01.webp");
                 const relCat =
                   rel._embedded?.["wp:term"]?.[0]?.[0]?.name ||
                   "Perspective";

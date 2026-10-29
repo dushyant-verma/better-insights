@@ -29,6 +29,18 @@ const nextConfig: NextConfig = {
         hostname: "localhost",
       },
       {
+        protocol: "http",
+        hostname: "127.0.0.1",
+      },
+      {
+        protocol: "http",
+        hostname: "**.betterinsights.in",
+      },
+      {
+        protocol: "https",
+        hostname: "**.betterinsights.in",
+      },
+      {
         protocol: "https",
         hostname: "**",
       },
@@ -67,9 +79,9 @@ const nextConfig: NextConfig = {
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com data:",
-              "img-src 'self' data: blob: https:",
+              "img-src 'self' data: blob: https: http:",
               "media-src 'self' https: data: blob:",
-              "connect-src 'self' https:",
+              "connect-src 'self' https: http:",
               "frame-ancestors 'self'",
             ].join("; "),
           },

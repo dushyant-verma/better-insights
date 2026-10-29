@@ -8,6 +8,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static public routes
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${siteUrl}/`, lastModified: new Date(), changeFrequency: "daily", priority: 1.0 },
+    { url: `${siteUrl}/home-2`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteUrl}/services`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.95 },
     { url: `${siteUrl}/services/website-development`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteUrl}/services/crm-integrations`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },

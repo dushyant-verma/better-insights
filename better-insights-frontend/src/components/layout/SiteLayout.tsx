@@ -20,7 +20,8 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener("bi:open-lead-modal", handleOpen);
   }, []);
 
-  const isCustomLayout = pathname === "/" || pathname === "/home-redesign-1";
+  const isCustomLayout =
+    pathname === "/" || pathname === "/home-2" || pathname === "/home-redesign-1";
 
   if (isCustomLayout) {
     return (

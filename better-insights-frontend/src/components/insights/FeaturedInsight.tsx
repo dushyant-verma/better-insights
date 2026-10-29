@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { WPPost } from "@/types/wordpress";
 import { ArrowUpRight, Calendar, Clock, Sparkles } from "lucide-react";
+import { resolvePostImageUrl } from "@/lib/wordpress/images";
 
 interface FeaturedInsightProps {
   post: WPPost;
@@ -12,6 +13,10 @@ interface FeaturedInsightProps {
 
 export function FeaturedInsight({ post }: FeaturedInsightProps) {
   if (!post) return null;
+
+  const rawImage = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
+  const initialImage = resolvePostImageUrl(rawImage, "/images/blog02.webp");
+  const [imgSrc, setImgSrc] = useState<string>(initialImage);
 
   const title = post.title.rendered;
   const rawExcerpt = post.excerpt?.rendered 
@@ -26,9 +31,6 @@ export function FeaturedInsight({ post }: FeaturedInsightProps) {
   });
 
   const categoryName = post._embedded?.["wp:term"]?.[0]?.[0]?.name || "Strategic Perspective";
-  const featuredImage = 
-    post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || 
-    "/images/blog02.webp";
 
   // Calculate approximate reading time
   const contentText = (post.content?.rendered || post.excerpt?.rendered || "").replace(/<[^>]*>/g, "");
@@ -55,12 +57,13 @@ export function FeaturedInsight({ post }: FeaturedInsightProps) {
             <div className="lg:col-span-7 relative min-h-[320px] sm:min-h-[420px] lg:min-h-[500px] bg-[#FAF5F0] overflow-hidden">
               <Link href={`/insights/${post.slug}`} className="block h-full w-full relative" tabIndex={-1} aria-hidden="true">
                 <Image
-                  src={featuredImage}
+                  src={imgSrc}
                   alt={title}
                   fill
                   priority
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                   sizes="(max-width: 1024px) 100vw, 60vw"
+                  onError={() => setImgSrc("/images/blog02.webp")}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
                 <div className="absolute top-6 left-6">

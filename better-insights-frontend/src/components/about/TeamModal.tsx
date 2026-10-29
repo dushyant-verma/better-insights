@@ -10,6 +10,7 @@ export interface TeamMemberData {
   role: string;
   department: string;
   image: string;
+  originalPhoto?: string;
   bio: string;
   experience?: string;
   expertise?: string[];
@@ -97,7 +98,7 @@ export function TeamModal({ member, isOpen, onClose }: TeamModalProps) {
           <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-8 pb-6 border-b border-black/10">
             <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden shrink-0 bg-white border border-black/10 shadow-sm">
               <Image
-                src={member.image}
+                src={member.originalPhoto || member.image}
                 alt={member.name}
                 fill
                 className="object-cover object-top"
