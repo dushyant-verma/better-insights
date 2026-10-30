@@ -1553,7 +1553,7 @@ export function MergedHomepage() {
                 </div>
                 <label className="m-text-6">A few words about the project<textarea className="m-field" name="message" rows={3} required></textarea></label>
                 <div className="contact__actions">
-                  <button className="m-btn" type="submit"><span className="m-btn__label">Send message</span></button>
+                  <button data-magnetic className="m-btn" type="submit"><span className="m-btn__label">Send message</span></button>
                   <p className="m-text contact__status" role="status" aria-live="polite" data-success="Thank you. Our marketing team will review your enquiry and reply within 24 hours." data-error="Please add your name, a valid email, and details about your marketing goals."></p>
                 </div>
               </form>
@@ -2045,7 +2045,7 @@ export function MergedHomepage() {
                 <div className="m-field"><label className="m-field__label" htmlFor="contact-name">Your name</label><input className="m-field__input" id="contact-name" name="name" type="text" autoComplete="name" required /></div>
                 <div className="m-field"><label className="m-field__label" htmlFor="contact-email">Email</label><input className="m-field__input" id="contact-email" name="email" type="email" autoComplete="email" required /></div>
                 <div className="m-field"><label className="m-field__label" htmlFor="contact-message">How can we help?</label><textarea className="m-field__input" id="contact-message" name="message" rows={4} required></textarea></div>
-                <button className="m-btn-2" type="submit"><span className="m-btn__label">Send Enquiry</span><span className="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></button>
+                <button data-magnetic className="m-btn-2" type="submit"><span className="m-btn__label">Send Enquiry</span><span className="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></button>
                 <p className="contact__status m-text-8" role="status" aria-live="polite"></p>
               </form>
             </div>

@@ -54,15 +54,22 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     };
   }, [isOpen]);
 
+  const handleClose = () => {
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("bi:cursor-reset"));
+    }
+    onClose();
+  };
+
   // Global Esc key to close
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape" && isOpen) {
-        onClose();
+        handleClose();
       }
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
-        if (isOpen) onClose();
+        if (isOpen) handleClose();
         else {
           // Trigger open
         }
@@ -104,7 +111,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       aria-labelledby="bi-search-title"
     >
       {/* Click outside backdrop */}
-      <div className="absolute inset-0" onClick={onClose} aria-hidden="true" />
+      <div className="absolute inset-0" onClick={handleClose} aria-hidden="true" />
 
       {/* Modal Dialog */}
       <div className="relative w-full max-w-2xl bg-[#F3F2EF] rounded-2xl shadow-2xl border border-black/10 overflow-hidden z-10 animate-scale-up">
@@ -123,7 +130,8 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           {loading && <Loader2 className="w-5 h-5 text-black/40 animate-spin mr-3 shrink-0" />}
           <button
             type="button"
-            onClick={onClose}
+            data-magnetic
+            onClick={handleClose}
             className="p-1.5 rounded-full text-black/50 hover:text-black hover:bg-black/5 transition-colors"
             aria-label="Close search dialog"
           >

@@ -133,6 +133,7 @@ export function FloatingChatbot() {
         <button
           ref={launcherRef}
           type="button"
+          data-magnetic
           onClick={() => setIsOpen((prev) => !prev)}
           className="relative group flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tr from-[#582AD9] to-[#6C3CFF] text-white shadow-[0_8px_24px_-2px_rgba(108,60,255,0.45)] hover:shadow-[0_12px_32px_-2px_rgba(108,60,255,0.6)] hover:scale-105 active:scale-95 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-[#6C3CFF] focus-visible:outline-offset-4"
           aria-label={isOpen ? "Close AI Assistant" : "Open Better Insights AI Assistant"}

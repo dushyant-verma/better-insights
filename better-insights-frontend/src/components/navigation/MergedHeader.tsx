@@ -369,6 +369,7 @@ export function MergedHeader() {
         {/* Action Button */}
         <button
           type="button"
+          data-magnetic
           className="m-btn-3 nav__cta cursor-pointer"
           onClick={() => openMarketingPlanModal()}
           aria-haspopup="dialog"
@@ -384,6 +385,7 @@ export function MergedHeader() {
         <button
           className="m-icon-btn nav__toggle"
           type="button"
+          data-magnetic
           aria-expanded={mobileMenuOpen}
           aria-controls="menu"
           aria-label="Toggle navigation menu"

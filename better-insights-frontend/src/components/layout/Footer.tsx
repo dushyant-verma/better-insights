@@ -32,6 +32,7 @@ export function Footer({ onOpenLeadModal }: FooterProps) {
               brand to go? We&apos;re ready to help you get there.
             </p>
             <a
+              data-magnetic
               className="m-link m-text-6"
               href="#top"
               onClick={handleBackToTop}

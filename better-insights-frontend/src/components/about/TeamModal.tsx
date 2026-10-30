@@ -49,15 +49,22 @@ export function TeamModal({ member, isOpen, onClose }: TeamModalProps) {
     };
   }, [isOpen]);
 
+  const handleClose = () => {
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("bi:cursor-reset"));
+    }
+    onClose();
+  };
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isOpen) {
-        onClose();
+        handleClose();
       }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, onClose]);
+  }, [isOpen]);
 
   if (!isOpen || !member) return null;
 
@@ -75,7 +82,7 @@ export function TeamModal({ member, isOpen, onClose }: TeamModalProps) {
       {/* Clickable Backdrop */}
       <div
         className="absolute inset-0 cursor-pointer"
-        onClick={onClose}
+        onClick={handleClose}
         aria-hidden="true"
       />
 
@@ -85,7 +92,8 @@ export function TeamModal({ member, isOpen, onClose }: TeamModalProps) {
         <button
           ref={closeBtnRef}
           type="button"
-          onClick={onClose}
+          data-magnetic
+          onClick={handleClose}
           className="absolute top-4 right-4 z-20 p-2 text-black/60 hover:text-black rounded-full bg-white/80 hover:bg-white shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-[#33CC7A]"
           aria-label="Close team member profile"
         >

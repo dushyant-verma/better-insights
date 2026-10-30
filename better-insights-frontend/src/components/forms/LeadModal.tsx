@@ -19,6 +19,9 @@ export function LeadModal({ isOpen: propIsOpen, onClose: propOnClose }: LeadModa
   const isOpen = propIsOpen !== undefined ? propIsOpen : internalOpen;
 
   const handleClose = () => {
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("bi:cursor-reset"));
+    }
     if (propOnClose) {
       propOnClose();
     } else {
@@ -158,6 +161,7 @@ export function LeadModal({ isOpen: propIsOpen, onClose: propOnClose }: LeadModa
       <div className="relative w-full max-w-lg bg-[#FAF5F0] rounded-[1.75rem] shadow-2xl border border-black/15 overflow-hidden z-10 p-6 sm:p-8 max-h-[92vh] overflow-y-auto">
         <button
           type="button"
+          data-magnetic
           onClick={handleClose}
           className="absolute top-5 right-5 p-2 text-black/50 hover:text-black rounded-full hover:bg-black/5 transition-colors focus:outline-none focus:ring-2 focus:ring-[#33CC7A]"
           aria-label="Close dialog"
@@ -289,6 +293,7 @@ export function LeadModal({ isOpen: propIsOpen, onClose: propOnClose }: LeadModa
 
               <button
                 type="submit"
+                data-magnetic
                 disabled={submitting}
                 className="w-full mt-3 py-3.5 bg-[#1B1411] hover:bg-black text-white text-xs font-bold uppercase tracking-widest rounded-xl transition-all flex items-center justify-center gap-2 disabled:opacity-50 shadow-md hover:shadow-lg"
               >

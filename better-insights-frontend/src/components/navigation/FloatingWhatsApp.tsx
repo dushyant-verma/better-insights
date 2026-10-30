@@ -18,6 +18,7 @@ export function FloatingWhatsApp() {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
+        data-magnetic
         className="relative group flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-[0_8px_24px_-2px_rgba(37,211,102,0.45)] hover:shadow-[0_12px_32px_-2px_rgba(37,211,102,0.6)] hover:scale-105 active:scale-95 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-[#25D366] focus-visible:outline-offset-4"
         aria-label="Chat on WhatsApp with Better Insights"
       >

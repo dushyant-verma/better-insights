@@ -7,6 +7,7 @@ import { MergedHeader } from "@/components/navigation/MergedHeader";
 import { Footer } from "@/components/layout/Footer";
 import { openMarketingPlanModal } from "@/components/forms/LeadModal";
 import { PanelsTopLeft, TrendingUp, Workflow } from "lucide-react";
+import { InteractiveGrowthSection } from "@/components/home/InteractiveGrowthSection";
 
 export function HomeRedesign1() {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -1197,7 +1198,7 @@ export function HomeRedesign1() {
                   <li><svg viewBox="0 0 16 16" aria-hidden="true"><path className="hero__tick" d="M3 8.5l3 3 7-7"/></svg>Custom AI & CRM engineering</li>
                 </ul>
                 <div className="hero__actions">
-                  <button type="button" className="m-btn" onClick={() => openMarketingPlanModal()}>
+                  <button type="button" data-magnetic className="m-btn" onClick={() => openMarketingPlanModal()}>
                     <span className="m-btn__label">Get Marketing Plan</span>
                     <span className="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span>
                   </button>
@@ -1534,6 +1535,9 @@ export function HomeRedesign1() {
               </div>
             </div>
           </section>
+
+          {/* Section: Interactive Growth Transformation (Pull Cord Lamp + Slider) */}
+          <InteractiveGrowthSection />
 
           {/* Section: Capabilities */}
           <section id="capabilities" data-8b-section="capabilities" aria-labelledby="capabilities-title">

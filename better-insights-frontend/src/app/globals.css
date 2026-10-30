@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @source "../";
 
+@theme inline {
+  --radius-full: 999px;
+}
+
 @import "../styles/design-tokens.css";
 @import "../styles/services.css";
 @import "../styles/about.css";
@@ -94,4 +98,8 @@ body {
     }
   }
 }
+
+/* --------------------------------------------------------------------------
+   Custom Cursor Global Styles (Native cursor preserved alongside fluid dot)
+   -------------------------------------------------------------------------- */
 
