@@ -34,7 +34,7 @@ export function ContactCTA() {
             </div>
 
             {/* Headline */}
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-[#FAF5F0] leading-[1.05] mb-6">
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-light lg:font-normal tracking-[-0.035em] text-[#FAF5F0] leading-[1.04] mb-6 [font-family:'Host_Grotesk',sans-serif]">
               Your next big idea starts <br />
               <span className="text-[#B8ABA3]">with a conversation.</span>
             </h2>

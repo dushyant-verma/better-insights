@@ -22,10 +22,11 @@
   border-radius: 9999px;
   background-color: rgba(27, 20, 17, 0.05);
   border: 1px solid rgba(27, 20, 17, 0.08);
+  font-family: var(--bi-font-heading, "Host Grotesk", sans-serif);
   font-size: 0.7rem;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.15em;
   color: #66574F;
 }
 

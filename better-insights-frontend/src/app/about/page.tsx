@@ -125,7 +125,7 @@ export default function AboutPage() {
             <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#66574F] block mb-3">
               Delivery Framework
             </span>
-            <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-[#1B1411] leading-tight">
+            <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
               Four stages to predictable scale
             </h2>
           </div>
@@ -189,7 +189,7 @@ export default function AboutPage() {
             <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#33CC7A] block mb-4">
               Start Your Transformation
             </span>
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-[#FAF5F0] max-w-3xl mx-auto leading-tight">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-light lg:font-normal tracking-[-0.035em] text-[#FAF5F0] max-w-3xl mx-auto leading-[1.05] [font-family:'Host_Grotesk',sans-serif]">
               Ready to build what’s next?
             </h2>
             <p className="mt-6 text-base sm:text-lg text-[#B8ABA3] max-w-2xl mx-auto leading-relaxed font-normal">

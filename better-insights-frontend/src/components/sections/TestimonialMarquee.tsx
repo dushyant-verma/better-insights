@@ -56,7 +56,7 @@ export function TestimonialMarquee() {
         <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-black/50 block mb-2">
           Client Recognition
         </span>
-        <h2 className="text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-black leading-tight">
+        <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-black leading-tight [font-family:'Host_Grotesk',sans-serif]">
           What Leaders Say About Us.
         </h2>
       </div>

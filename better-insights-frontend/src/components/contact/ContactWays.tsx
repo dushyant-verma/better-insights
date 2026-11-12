@@ -13,7 +13,7 @@ export function ContactWays() {
           <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#66574F] block mb-3">
             Direct Communication
           </span>
-          <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-[#1B1411] leading-tight">
+          <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
             Connect with our leadership
           </h2>
           <p className="mt-4 text-base text-[#66574F] font-normal leading-relaxed">

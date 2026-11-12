@@ -34,8 +34,8 @@ export function InnerPageHero({
       className={cn(
         "relative pt-28 pb-16 sm:pt-36 sm:pb-24 overflow-hidden select-none border-b",
         isDark
-          ? "bg-[linear-gradient(140deg,#0C091A_0%,#180F33_42%,#0F0A24_80%,#080612_100%)] text-[#FAF5F0] border-white/10"
-          : "bg-[linear-gradient(135deg,#FAF8F5_0%,#F5EFFB_45%,#FAF5F0_80%,#F0E9F8_100%)] text-[#1B1411] border-black/8"
+          ? "bg-[linear-gradient(140deg,#0B0B0D_0%,#1B1411_45%,#0B0B0D_100%)] text-[#FAF5F0] border-white/10"
+          : "bg-[linear-gradient(135deg,#FFFFFF_0%,#FAF5F0_55%,#FFFFFF_100%)] text-[#1B1411] border-black/8"
       )}
     >
       {/* Subtle Ambient Glow Behind Content */}
@@ -43,8 +43,8 @@ export function InnerPageHero({
         className={cn(
           "absolute -top-32 left-1/3 -translate-x-1/2 w-[700px] h-[450px] blur-[120px] rounded-full pointer-events-none",
           isDark
-            ? "bg-[radial-gradient(circle,rgba(139,92,246,0.14)_0%,rgba(99,102,241,0.06)_50%,transparent_75%)]"
-            : "bg-[radial-gradient(circle,rgba(168,85,247,0.06)_0%,rgba(139,92,246,0.03)_50%,transparent_75%)]"
+            ? "bg-[radial-gradient(circle,rgba(52,204,123,0.10)_0%,rgba(43,184,109,0.03)_50%,transparent_75%)]"
+            : "bg-[radial-gradient(circle,rgba(52,204,123,0.08)_0%,rgba(43,184,109,0.02)_50%,transparent_75%)]"
         )}
         aria-hidden="true"
       />
@@ -54,8 +54,8 @@ export function InnerPageHero({
         className={cn(
           "absolute -bottom-24 -right-16 sm:-bottom-32 sm:-right-20 w-[420px] h-[420px] sm:w-[560px] sm:h-[560px] rounded-full blur-[50px] sm:blur-[70px] pointer-events-none",
           isDark
-            ? "bg-[radial-gradient(circle_at_40%_40%,rgba(168,85,247,0.16)_0%,rgba(124,58,237,0.08)_45%,transparent_75%)]"
-            : "bg-[radial-gradient(circle_at_40%_40%,rgba(192,132,252,0.18)_0%,rgba(168,85,247,0.09)_45%,rgba(147,51,234,0.02)_70%,transparent_85%)]"
+            ? "bg-[radial-gradient(circle_at_40%_40%,rgba(52,204,123,0.09)_0%,rgba(43,184,109,0.03)_45%,transparent_75%)]"
+            : "bg-[radial-gradient(circle_at_40%_40%,rgba(52,204,123,0.08)_0%,rgba(238,229,220,0.6)_45%,transparent_85%)]"
         )}
         aria-hidden="true"
       />
@@ -63,8 +63,8 @@ export function InnerPageHero({
         className={cn(
           "absolute -bottom-8 right-24 sm:-bottom-12 sm:right-40 w-[300px] h-[300px] sm:w-[420px] sm:h-[420px] rounded-full blur-[40px] sm:blur-[60px] pointer-events-none",
           isDark
-            ? "bg-[radial-gradient(circle_at_45%_45%,rgba(99,102,241,0.12)_0%,rgba(139,92,246,0.05)_50%,transparent_75%)]"
-            : "bg-[radial-gradient(circle_at_45%_45%,rgba(147,51,234,0.11)_0%,rgba(167,139,250,0.05)_50%,transparent_75%)]"
+            ? "bg-[radial-gradient(circle_at_45%_45%,rgba(52,204,123,0.07)_0%,transparent_75%)]"
+            : "bg-[radial-gradient(circle_at_45%_45%,rgba(238,229,220,0.5)_0%,transparent_75%)]"
         )}
         aria-hidden="true"
       />
@@ -72,8 +72,8 @@ export function InnerPageHero({
         className={cn(
           "absolute -bottom-16 right-6 sm:-bottom-20 sm:right-10 w-[220px] h-[220px] sm:w-[300px] sm:h-[300px] rounded-full blur-[45px] sm:blur-[65px] pointer-events-none",
           isDark
-            ? "bg-[radial-gradient(circle_at_50%_50%,rgba(51,204,122,0.08)_0%,rgba(51,204,122,0.02)_45%,transparent_70%)]"
-            : "bg-[radial-gradient(circle_at_50%_50%,rgba(51,204,122,0.07)_0%,rgba(51,204,122,0.02)_45%,transparent_70%)]"
+            ? "bg-[radial-gradient(circle_at_50%_50%,rgba(52,204,123,0.08)_0%,rgba(52,204,123,0.02)_45%,transparent_70%)]"
+            : "bg-[radial-gradient(circle_at_50%_50%,rgba(52,204,123,0.07)_0%,rgba(52,204,123,0.02)_45%,transparent_70%)]"
         )}
         aria-hidden="true"
       />
@@ -126,7 +126,7 @@ export function InnerPageHero({
         {/* Headline */}
         <h1
           className={cn(
-            "text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05] max-w-4xl",
+            "text-4xl sm:text-6xl lg:text-7xl font-light lg:font-normal tracking-[-0.035em] leading-[1.04] max-w-4xl [font-family:'Host_Grotesk',sans-serif]",
             isDark ? "text-[#FAF5F0]" : "text-[#1B1411]"
           )}
           dangerouslySetInnerHTML={{ __html: title }}

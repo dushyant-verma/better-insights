@@ -206,7 +206,7 @@ export function CultureHero() {
         </div>
 
         {/* Master Heading: A talented bunch of humans that love what we do */}
-        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.5rem] font-semibold tracking-[-0.035em] text-white leading-[1.04] sm:leading-[1.02] max-w-3xl lg:max-w-4xl mx-auto [font-family:'Host_Grotesk',sans-serif]">
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.5rem] font-light lg:font-normal tracking-[-0.035em] text-white leading-[1.04] sm:leading-[1.02] max-w-3xl lg:max-w-4xl mx-auto [font-family:'Host_Grotesk',sans-serif]">
           A talented bunch{" "}
           <br className="hidden sm:inline" />
           of humans that love{" "}

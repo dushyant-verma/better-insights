@@ -29,7 +29,7 @@ export function TechnologyPartners() {
             <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-white/50 block mb-3">
               Platforms &amp; Technologies
             </span>
-            <h2 className="text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-white leading-tight">
+            <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-white leading-tight [font-family:'Host_Grotesk',sans-serif]">
               Platforms &amp; Technologies
             </h2>
             <p className="mt-3 text-sm text-white/70 leading-relaxed font-normal">

@@ -112,28 +112,32 @@
    -------------------------------------------------------------------------- */
 .bi-prose {
   color: #171717;
+  font-family: var(--bi-font-body, "Host Grotesk", sans-serif);
   font-size: 1.0625rem;
-  line-height: 1.85;
+  line-height: 1.75;
+  letter-spacing: -0.01em;
 }
 
 .bi-prose h2 {
+  font-family: var(--bi-font-heading, "Host Grotesk", sans-serif);
   font-size: clamp(1.6rem, 2.8vw, 2.25rem);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-  color: #000000;
+  font-weight: 300;
+  text-transform: none;
+  letter-spacing: -0.03em;
+  color: #1B1411;
   margin-top: 2.75rem;
   margin-bottom: 1.25rem;
-  line-height: 1.2;
+  line-height: 1.15;
   scroll-margin-top: 100px;
 }
 
 .bi-prose h3 {
+  font-family: var(--bi-font-heading, "Host Grotesk", sans-serif);
   font-size: clamp(1.3rem, 2vw, 1.65rem);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-  color: #000000;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  color: #1B1411;
   margin-top: 2.25rem;
   margin-bottom: 1rem;
   line-height: 1.25;
@@ -141,9 +145,11 @@
 }
 
 .bi-prose h4 {
+  font-family: var(--bi-font-heading, "Host Grotesk", sans-serif);
   font-size: 1.2rem;
-  font-weight: 700;
-  color: #171717;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: #1B1411;
   margin-top: 1.75rem;
   margin-bottom: 0.75rem;
 }

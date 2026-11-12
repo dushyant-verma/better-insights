@@ -56,7 +56,7 @@ export function CultureValues() {
           <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#66574F] block mb-3">
             Core Principles
           </span>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-[-0.03em] text-[#171717] leading-tight [font-family:'Host_Grotesk',sans-serif]">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-light lg:font-normal tracking-[-0.03em] text-[#171717] leading-tight [font-family:'Host_Grotesk',sans-serif]">
             What matters to us.
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#66574F] font-normal leading-relaxed">

@@ -77,7 +77,7 @@ export function ServicesGrid() {
           <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-white/50 block mb-3">
             Services Showcase
           </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-white leading-tight">
+          <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-white leading-tight [font-family:'Host_Grotesk',sans-serif]">
             Capabilities designed to scale your enterprise.
           </h2>
           <p className="mt-4 text-sm sm:text-base text-white/70 font-normal leading-relaxed">

@@ -90,7 +90,7 @@ export function ContactHero() {
         </div>
 
         {/* Main Heading */}
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-tight text-[#1B1411] leading-[1.08] sm:leading-[1.04] mb-6 animate-contact-fade-in-up contact-delay-1">
+        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light lg:font-normal tracking-[-0.035em] text-[#1B1411] leading-[1.04] mb-6 animate-contact-fade-in-up contact-delay-1 [font-family:'Host_Grotesk',sans-serif]">
           Have an ambitious idea? <br />
           <span className="text-[#66574F]">Let&apos;s make it happen.</span>
         </h1>

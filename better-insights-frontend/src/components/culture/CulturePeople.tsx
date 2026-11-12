@@ -48,7 +48,7 @@ export function CulturePeople({ onSelectMember }: CulturePeopleProps) {
             <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#34CC7B] block mb-3">
               Meet the People
             </span>
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-[-0.03em] text-white leading-tight [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-light lg:font-normal tracking-[-0.03em] text-white leading-tight [font-family:'Host_Grotesk',sans-serif]">
               The minds behind the magic.
             </h2>
             <p className="mt-4 text-base sm:text-lg text-[#A5A5A5] font-normal leading-relaxed">

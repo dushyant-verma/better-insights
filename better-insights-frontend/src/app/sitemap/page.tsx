@@ -194,7 +194,7 @@ export default function SitemapPage() {
                       <IconComponent className="w-4 h-4 text-[#33CC7A]" />
                     </div>
                     <div>
-                      <h2 className="text-lg sm:text-xl font-semibold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif]">
+                      <h2 className="text-lg sm:text-xl font-medium tracking-[-0.02em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif]">
                         {section.title}
                       </h2>
                       <p className="text-xs text-[#1B1411]/60 mt-0.5">
@@ -243,7 +243,7 @@ export default function SitemapPage() {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
                 Direct Communications
               </span>
-              <h3 className="text-2xl font-semibold tracking-[-0.03em] text-white [font-family:'Host_Grotesk',sans-serif]">
+              <h3 className="text-2xl sm:text-3xl font-light sm:font-normal tracking-[-0.03em] text-white [font-family:'Host_Grotesk',sans-serif]">
                 Can&apos;t find what you are looking for?
               </h3>
               <p className="text-xs sm:text-sm text-white/70 leading-relaxed font-normal">

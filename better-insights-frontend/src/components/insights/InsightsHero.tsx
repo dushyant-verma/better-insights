@@ -49,7 +49,7 @@ export function InsightsHero() {
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-tight text-[#1B1411] leading-[1.05] mb-6">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light lg:font-normal tracking-[-0.035em] text-[#1B1411] leading-[1.04] mb-6 [font-family:'Host_Grotesk',sans-serif]">
             Ideas that move <br className="hidden sm:inline" />
             <span className="text-[#66574F]">businesses forward.</span>
           </h1>

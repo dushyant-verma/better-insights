@@ -20,7 +20,7 @@ export default function NotFound() {
           <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
           Error 404
         </span>
-        <h1 className="text-3xl sm:text-5xl font-semibold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif]">
+        <h1 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.035em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif]">
           Page Not Found
         </h1>
         <p className="text-xs sm:text-sm text-[#1B1411]/60 leading-relaxed font-normal">

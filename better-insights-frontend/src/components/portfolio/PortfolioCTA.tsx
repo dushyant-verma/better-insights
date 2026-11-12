@@ -24,7 +24,7 @@ export function PortfolioCTA() {
               <span>Next steps</span>
             </span>
 
-            <h2 className="text-3xl sm:text-5xl font-semibold tracking-[-0.03em] text-white leading-tight [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-white leading-tight [font-family:'Host_Grotesk',sans-serif]">
               Have a project in mind?
             </h2>
 

@@ -89,7 +89,7 @@ export function FeaturedInsight({ post }: FeaturedInsightProps) {
                 </div>
 
                 {/* Title */}
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-[#1B1411] leading-tight group-hover:text-[#33CC7A] transition-colors">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight group-hover:text-[#33CC7A] transition-colors [font-family:'Host_Grotesk',sans-serif]">
                   <Link href={`/insights/${post.slug}`}>
                     {title}
                   </Link>

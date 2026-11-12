@@ -29,7 +29,7 @@ export function CultureJoinCTA() {
             </div>
 
             {/* Headline */}
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-semibold tracking-[-0.03em] text-white leading-[1.08] mb-6 [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-light lg:font-normal tracking-[-0.035em] text-white leading-[1.05] mb-6 [font-family:'Host_Grotesk',sans-serif]">
               Great people make <span className="text-[#34CC7B]">better things happen.</span>
             </h2>
 

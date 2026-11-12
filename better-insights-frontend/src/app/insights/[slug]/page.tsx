@@ -256,7 +256,7 @@ export default async function InsightDetailPage({
         {/* Article Header */}
         <header className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
           <h1
-            className="text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-[1.08] mb-6"
+            className="text-3xl sm:text-5xl lg:text-6xl font-light lg:font-normal tracking-[-0.035em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-[1.05] mb-6"
             dangerouslySetInnerHTML={{ __html: rawTitle }}
           />
 

@@ -138,7 +138,7 @@ export function WhoWeAreRedesign() {
                 <span className="who-intro-badge__dot" />
                 <span>Who We Are</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-[#1B1411] leading-[1.12]">
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-[1.08] [font-family:'Host_Grotesk',sans-serif]">
                 A team of thinkers, creators &amp; digital problem solvers.
               </h2>
             </div>
@@ -228,7 +228,7 @@ export function WhoWeAreRedesign() {
               </div>
 
               {/* B. Main Heading */}
-              <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-semibold tracking-tight text-[#FFFFFF] leading-[1.2] who-reveal-item">
+              <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-light lg:font-normal tracking-[-0.03em] text-[#FFFFFF] leading-[1.15] who-reveal-item [font-family:'Host_Grotesk',sans-serif]">
                 We&apos;ve created an environment where everyone feels comfortable, valued, and open.
               </h2>
 
@@ -290,7 +290,7 @@ export function WhoWeAreRedesign() {
             </div>
 
             {/* Dark Charcoal Modern Heading */}
-            <h2 className="text-3xl sm:text-5xl lg:text-[46px] font-semibold tracking-[-0.03em] text-[#111827] leading-[1.15] mb-4">
+            <h2 className="text-3xl sm:text-5xl lg:text-[46px] font-light lg:font-normal tracking-[-0.03em] text-[#111827] leading-[1.12] mb-4 [font-family:'Host_Grotesk',sans-serif]">
               Measurable momentum, verified track record.
             </h2>
 

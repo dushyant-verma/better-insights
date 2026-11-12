@@ -65,7 +65,7 @@ export function ServicesFaq({
               Clarity &amp; transparency
             </span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-semibold tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
+          <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
             {title}
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#1B1411]/70 font-normal leading-relaxed">

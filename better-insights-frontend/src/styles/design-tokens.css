@@ -32,9 +32,37 @@
   --bi-border-strong: rgba(27, 20, 17, 0.16);
   --bi-border-dark: rgba(250, 245, 240, 0.12);
 
-  /* Typography */
-  --bi-font-family: "Host Grotesk", "Host Grotesk Fallback", Arial, sans-serif;
-  --font-host-grotesk: "Host Grotesk", "Host Grotesk Fallback", Arial, sans-serif;
+  /* =========================================================================
+     Master Typography Tokens — Made by Shape Inspired Neo-Grotesque Aesthetic
+     ========================================================================= */
+  --bi-font-display: "Host Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --bi-font-heading: "Host Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --bi-font-body: "Host Grotesk", "Onest", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --bi-font-family: var(--bi-font-body);
+  --font-host-grotesk: var(--bi-font-heading);
+
+  /* Font Weights: Lightweight Display & Section Headings (Made by Shape DNA) */
+  --bi-font-weight-display: 300;     /* Editorial Hero & H1 */
+  --bi-font-weight-h2: 300;          /* Major Section Titles */
+  --bi-font-weight-h3: 400;          /* Subsection & Card Headings */
+  --bi-font-weight-h4: 500;          /* Eyebrows, Labels, Meta */
+  --bi-font-weight-body: 400;        /* Paragraphs & Body Copy */
+  --bi-font-weight-medium: 500;      /* Links & Accents */
+  --bi-font-weight-semibold: 600;    /* Interactive Buttons */
+
+  /* Letter Spacing (Tracking): Tight but comfortable */
+  --bi-letter-spacing-display: -0.035em;
+  --bi-letter-spacing-h2: -0.03em;
+  --bi-letter-spacing-h3: -0.02em;
+  --bi-letter-spacing-h4: -0.01em;
+  --bi-letter-spacing-body: -0.01em;
+
+  /* Line Heights: Balanced, never loose */
+  --bi-line-height-display: 1.02;
+  --bi-line-height-h2: 1.08;
+  --bi-line-height-h3: 1.2;
+  --bi-line-height-h4: 1.3;
+  --bi-line-height-body: 1.65;
 
   /* Standard Radii */
   --bi-radius-pill: 62.5rem;

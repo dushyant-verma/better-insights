@@ -58,7 +58,7 @@ export function ServicesHero() {
           </div>
 
           {/* Master Headline */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-semibold tracking-tight text-[#FAF5F0] leading-[1.05] mb-6">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-light lg:font-normal tracking-[-0.035em] text-[#FAF5F0] leading-[1.04] mb-6 [font-family:'Host_Grotesk',sans-serif]">
             Digital solutions built around your{" "}
             <span className="text-[#33CC7A] block sm:inline">
               next big move.

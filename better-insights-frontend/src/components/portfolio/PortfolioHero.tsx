@@ -49,7 +49,7 @@ export function PortfolioHero() {
         </div>
 
         {/* Headline */}
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-[-0.03em] text-[#1B1411] leading-[1.05] max-w-4xl [font-family:'Host_Grotesk',sans-serif]">
+        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light lg:font-normal tracking-[-0.035em] text-[#1B1411] leading-[1.04] max-w-4xl [font-family:'Host_Grotesk',sans-serif]">
           Ideas brought to life.<br />
           <span className="text-[#1B1411]/60">Experiences built to perform.</span>
         </h1>

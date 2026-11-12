@@ -114,7 +114,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
           )}
         </div>
 
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-[1.1] mb-6">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light lg:font-normal tracking-[-0.035em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-[1.05] mb-6">
           {project.title}
         </h1>
 
@@ -158,7 +158,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
                 01 / Context
               </span>
-              <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-tight">
+              <h2 className="text-2xl sm:text-3xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-tight">
                 Client &amp; Project Overview
               </h2>
             </div>
@@ -209,7 +209,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
                 02 / Challenge
               </span>
-              <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-tight">
+              <h2 className="text-2xl sm:text-3xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-tight">
                 The Business Challenge
               </h2>
             </div>
@@ -230,7 +230,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
                 03 / Goals
               </span>
-              <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-tight">
+              <h2 className="text-2xl sm:text-3xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-tight">
                 Strategic Objectives
               </h2>
             </div>
@@ -259,7 +259,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
                 04 / Approach
               </span>
-              <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-tight">
+              <h2 className="text-2xl sm:text-3xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-tight">
                 Our Strategy &amp; Approach
               </h2>
             </div>
@@ -277,7 +277,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
                 05 / Solution
               </span>
-              <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-tight">
+              <h2 className="text-2xl sm:text-3xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-tight">
                 Solution &amp; Implementation
               </h2>
             </div>
@@ -321,7 +321,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
                 06 / Impact
               </span>
-              <h2 className="text-3xl sm:text-4xl font-semibold tracking-[-0.03em] text-white [font-family:'Host_Grotesk',sans-serif] leading-tight">
+              <h2 className="text-3xl sm:text-4xl font-light lg:font-normal tracking-[-0.03em] text-white [font-family:'Host_Grotesk',sans-serif] leading-tight">
                 Measurable Business Results
               </h2>
               <p className="text-xs sm:text-sm text-white/70 mt-2">
@@ -353,7 +353,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
                   <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
                   07 / More Work
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif]">
+                <h2 className="text-2xl sm:text-3xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif]">
                   Related Client Success Stories
                 </h2>
               </div>

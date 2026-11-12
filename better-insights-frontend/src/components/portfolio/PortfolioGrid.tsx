@@ -58,7 +58,7 @@ export function PortfolioGrid() {
                 Portfolio &amp; solutions
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-semibold tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
               Featured case studies
             </h2>
           </div>

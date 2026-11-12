@@ -47,7 +47,7 @@ export function CultureStats() {
           <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#34CC7B] block mb-3">
             Impact &amp; Growth
           </span>
-          <h2 className="text-3xl sm:text-5xl font-semibold tracking-[-0.03em] text-white leading-tight [font-family:'Host_Grotesk',sans-serif]">
+          <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-white leading-tight [font-family:'Host_Grotesk',sans-serif]">
             Culture by the numbers.
           </h2>
           <p className="mt-3 text-sm sm:text-base text-[#A5A5A5] font-normal leading-relaxed">

@@ -164,7 +164,7 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
               </div>
 
               {/* Service Headline */}
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-white leading-[1.08] mb-6 [font-family:'Host_Grotesk',sans-serif]">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light lg:font-normal tracking-[-0.035em] text-white leading-[1.05] mb-6 [font-family:'Host_Grotesk',sans-serif]">
                 {service.heroHeadline}
               </h1>
 
@@ -273,7 +273,7 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
                 Strategic Friction Diagnosed
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-semibold tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
               Challenges we eliminate.
             </h2>
             <p className="mt-4 text-base sm:text-lg text-[#1B1411]/70 font-normal leading-relaxed">
@@ -345,7 +345,7 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
                 Engineering Discipline
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-semibold tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
               How we approach {service.title.toLowerCase()}.
             </h2>
             <p className="mt-4 text-base sm:text-lg text-[#1B1411]/70 font-normal leading-relaxed">
@@ -407,7 +407,7 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
                 Specialized Scope
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-semibold tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
               Services &amp; capabilities.
             </h2>
             <p className="mt-4 text-base sm:text-lg text-[#1B1411]/70 font-normal leading-relaxed">
@@ -474,7 +474,7 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
                 Predictable Roadmap
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-semibold tracking-[-0.03em] text-white leading-tight [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-white leading-tight [font-family:'Host_Grotesk',sans-serif]">
               Our process: discover to optimize.
             </h2>
             <p className="mt-4 text-base sm:text-lg text-white/75 font-normal leading-relaxed">
@@ -553,7 +553,7 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
                   Measurable ROI
                 </span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-semibold tracking-[-0.03em] text-[#1B1411] leading-tight mb-6 [font-family:'Host_Grotesk',sans-serif]">
+              <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight mb-6 [font-family:'Host_Grotesk',sans-serif]">
                 Benefits &amp; business outcomes.
               </h2>
               <p className="text-base sm:text-lg text-[#1B1411]/70 font-normal leading-relaxed mb-8">
@@ -661,7 +661,7 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
                 Complementary Solutions
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-semibold tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
               Related services.
             </h2>
             <p className="mt-4 text-base sm:text-lg text-[#1B1411]/70 font-normal leading-relaxed">

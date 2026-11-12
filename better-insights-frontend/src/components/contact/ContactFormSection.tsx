@@ -219,7 +219,7 @@ export function ContactFormSection() {
               </div>
 
               {/* Section Heading */}
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-[#1B1411] leading-[1.08] mb-6">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light lg:font-normal tracking-[-0.035em] text-[#1B1411] leading-[1.04] mb-6 [font-family:'Host_Grotesk',sans-serif]">
                 Have a project <br />
                 <span className="text-[#66574F]">in mind?</span>
               </h2>

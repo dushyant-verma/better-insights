@@ -83,7 +83,7 @@ export function InsightsExplorer({
               <Filter className="w-3.5 h-3.5 text-[#33CC7A]" />
               <span className="uppercase tracking-widest font-semibold">Browse Archive</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-[#1B1411]">
+            <h2 className="text-3xl sm:text-4xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif]">
               Latest insights
             </h2>
           </div>

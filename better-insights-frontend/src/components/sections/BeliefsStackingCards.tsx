@@ -59,7 +59,7 @@ export function BeliefsStackingCards() {
             <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-black/50 block mb-3">
               We Believe
             </span>
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight text-black leading-none">
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-light lg:font-normal tracking-[-0.035em] text-black leading-[1.04] [font-family:'Host_Grotesk',sans-serif]">
               Better Marketing,<br />Better ROI.
             </h2>
           </div>
@@ -89,7 +89,7 @@ export function BeliefsStackingCards() {
                     <span className="font-mono text-sm sm:text-base font-bold text-black/40">
                       {card.number}
                     </span>
-                    <h3 className="text-base sm:text-xl font-extrabold uppercase tracking-tight text-black">
+                    <h3 className="text-base sm:text-xl font-medium tracking-tight text-black [font-family:'Host_Grotesk',sans-serif]">
                       {card.title}
                     </h3>
                   </div>

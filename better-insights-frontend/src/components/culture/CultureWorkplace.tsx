@@ -154,7 +154,7 @@ export function CultureWorkplace() {
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-semibold tracking-[-0.03em] text-white leading-[1.12] [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-light lg:font-normal tracking-[-0.03em] text-white leading-[1.08] [font-family:'Host_Grotesk',sans-serif]">
               A home away from home, a place where you can be who you want to be
             </h2>
           </div>
