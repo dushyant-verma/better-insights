@@ -20,7 +20,7 @@
   right: 6%;
   width: clamp(380px, 48vw, 750px);
   height: clamp(320px, 38vw, 650px);
-  background: radial-gradient(circle, rgba(51, 204, 122, 0.09) 0%, rgba(168, 85, 247, 0.04) 50%, transparent 75%);
+  background: radial-gradient(circle, rgba(51, 204, 122, 0.09) 0%, rgba(52, 204, 123, 0.04) 50%, transparent 75%);
   filter: blur(130px);
   pointer-events: none;
   z-index: 1;

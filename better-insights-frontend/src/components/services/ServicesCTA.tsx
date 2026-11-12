@@ -29,7 +29,7 @@ export function ServicesCTA({
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative bg-[linear-gradient(145deg,#0C091A_0%,#180F33_45%,#0F0A24_80%,#090714_100%)] text-white rounded-[2rem] sm:rounded-[2.5rem] p-8 sm:p-14 lg:p-16 overflow-hidden shadow-2xl text-center border border-white/10">
           {/* Ambient Radial Gradient Accents */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-r from-[#6C3CFF]/25 via-[#8B5CF6]/15 to-transparent rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-r from-[#34CC7B]/25 via-[#2BB86D]/15 to-transparent rounded-full blur-[100px] pointer-events-none" />
 
           <div className="relative z-10 max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 mb-6">

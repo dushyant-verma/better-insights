@@ -9,10 +9,10 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <div className="min-h-[80vh] flex items-center justify-center pt-32 pb-20 px-4 bg-[linear-gradient(135deg,#FAF7F4_0%,#F5EFFB_45%,#FAF5F0_85%,#EFE6F7_100%)] text-[#1B1411] select-none relative overflow-hidden">
+    <div className="min-h-[80vh] flex items-center justify-center pt-32 pb-20 px-4 bg-[linear-gradient(135deg,#FAF7F4_0%,#FAF5F0_45%,#FAF5F0_85%,#F3F9F5_100%)] text-[#1B1411] select-none relative overflow-hidden">
       {/* Subtle ambient lighting */}
       <div 
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 w-96 h-96 bg-[radial-gradient(circle,rgba(108,60,255,0.07)_0%,transparent_70%)] rounded-full blur-3xl pointer-events-none" 
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 w-96 h-96 bg-[radial-gradient(circle,rgba(52,204,123,0.07)_0%,transparent_70%)] rounded-full blur-3xl pointer-events-none" 
         aria-hidden="true" 
       />
       <div className="max-w-lg w-full text-center p-8 sm:p-12 bg-white rounded-[1.75rem] border border-black/10 shadow-2xs space-y-6 relative z-10">

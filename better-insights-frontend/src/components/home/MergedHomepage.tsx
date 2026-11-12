@@ -1077,7 +1077,7 @@ export function MergedHomepage() {
               </span>
               <span className="hero__period" aria-hidden="true">
                 <span className="hero__stage">
-                  {/* Ambient Purple Depth Glow */}
+                  {/* Ambient Emerald Green Depth Glow */}
                   <span className="hero__glow" aria-hidden="true"></span>
 
                   {/* Secondary Concentric Orbital Track */}

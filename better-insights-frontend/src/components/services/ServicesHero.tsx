@@ -16,7 +16,7 @@ export function ServicesHero() {
   return (
     <section className="relative min-h-[75vh] sm:min-h-[85vh] flex items-center justify-center bg-[linear-gradient(145deg,#090714_0%,#150D2E_40%,#100A24_70%,#080611_100%)] text-[#FAF5F0] overflow-hidden pt-28 pb-20 select-none">
       {/* Background Ambient Glow */}
-      <div className="absolute top-1/4 left-1/3 w-[550px] h-[550px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(108,60,255,0.18)_0%,rgba(79,70,229,0.06)_50%,transparent_75%)] blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-1/3 w-[550px] h-[550px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(52,204,123,0.18)_0%,rgba(43,184,109,0.06)_50%,transparent_75%)] blur-3xl pointer-events-none" />
 
       {/* Organic Blobs in Bottom-Right Corner (Overlapping, soft-edged, cropped) */}
       <div

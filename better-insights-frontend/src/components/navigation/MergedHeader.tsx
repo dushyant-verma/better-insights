@@ -175,7 +175,7 @@ export function MergedHeader() {
               <span>Services</span>
               <ChevronDown
                 className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                  servicesOpen ? "rotate-180 text-[#6C3CFF]" : "text-[#1B1411]/60"
+                  servicesOpen ? "rotate-180 text-[#34CC7B]" : "text-[#1B1411]/60"
                 }`}
                 aria-hidden="true"
               />
@@ -195,8 +195,8 @@ export function MergedHeader() {
                   onClick={() => setServicesOpen(false)}
                   className={`flex items-center justify-between p-2.5 rounded-xl font-semibold text-xs sm:text-sm transition-all duration-150 ${
                     pathname === "/services"
-                      ? "bg-[#6C3CFF]/10 text-[#6C3CFF]"
-                      : "bg-[#FAF5F0] hover:bg-[#6C3CFF] hover:text-white text-[#1B1411]"
+                      ? "bg-[#34CC7B]/10 text-[#34CC7B]"
+                      : "bg-[#FAF5F0] hover:bg-[#34CC7B] hover:text-[#1B1411] text-[#1B1411]"
                   }`}
                 >
                   <span>All Services Overview</span>
@@ -217,8 +217,8 @@ export function MergedHeader() {
                         onClick={() => setServicesOpen(false)}
                         className={`flex flex-col px-3 py-2 rounded-xl transition-all duration-150 ${
                           isActive
-                            ? "bg-[#6C3CFF]/10 text-[#6C3CFF]"
-                            : "hover:bg-black/5 text-[#1B1411] hover:text-[#6C3CFF]"
+                            ? "bg-[#34CC7B]/10 text-[#34CC7B]"
+                            : "hover:bg-black/5 text-[#1B1411] hover:text-[#34CC7B]"
                         }`}
                       >
                         <div className="flex items-center justify-between">
@@ -226,7 +226,7 @@ export function MergedHeader() {
                             {srv.title}
                           </span>
                           {isActive && (
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#6C3CFF]" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#34CC7B]" />
                           )}
                         </div>
                         <span className="text-[11px] text-[#1B1411]/55 leading-tight mt-0.5">
@@ -329,7 +329,7 @@ export function MergedHeader() {
             <Link
               href="/"
               className={`w-full flex items-center justify-between text-left m-link-2 py-1 font-inherit ${
-                isHomeActive ? "text-[#6C3CFF] font-semibold" : ""
+                isHomeActive ? "text-[#34CC7B] font-semibold" : ""
               }`}
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -341,7 +341,7 @@ export function MergedHeader() {
           <li>
             <Link
               href="/about"
-              className={`m-link-2 ${pathname === "/about" ? "text-[#6C3CFF] font-semibold" : ""}`}
+              className={`m-link-2 ${pathname === "/about" ? "text-[#34CC7B] font-semibold" : ""}`}
               onClick={() => setMobileMenuOpen(false)}
             >
               About
@@ -359,7 +359,7 @@ export function MergedHeader() {
               <span>Services</span>
               <ChevronDown
                 className={`w-4 h-4 transition-transform duration-200 ${
-                  mobileServicesExpanded ? "rotate-180 text-[#6C3CFF]" : ""
+                  mobileServicesExpanded ? "rotate-180 text-[#34CC7B]" : ""
                 }`}
               />
             </button>
@@ -379,7 +379,7 @@ export function MergedHeader() {
                     <Link
                       href={srv.slug}
                       className={`block py-1 ${
-                        pathname === srv.slug ? "text-[#6C3CFF] font-semibold" : "text-white/80"
+                        pathname === srv.slug ? "text-[#34CC7B] font-semibold" : "text-white/80"
                       }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >

@@ -9,7 +9,7 @@ export function CareersHero() {
       aria-label="Careers Editorial Hero"
     >
       {/* Ambient Depth Elements */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-r from-[#7C3AED]/20 via-[#6366F1]/14 to-transparent rounded-full blur-[120px] pointer-events-none" aria-hidden="true" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-r from-[#34CC7B]/20 via-[#2BB86D]/14 to-transparent rounded-full blur-[120px] pointer-events-none" aria-hidden="true" />
 
       {/* Organic Blobs in Bottom-Right Corner (Overlapping, soft-edged, cropped) */}
       <div

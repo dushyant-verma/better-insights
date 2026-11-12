@@ -110,7 +110,7 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
         </div>
 
         {/* Ambient Subtle Glow */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-r from-[#6C3CFF]/20 via-[#8B5CF6]/14 to-[#3B82F6]/08 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-r from-[#34CC7B]/20 via-[#2BB86D]/14 to-[#33CC7A]/08 rounded-full blur-[130px] pointer-events-none" />
 
         {/* Organic Blobs in Bottom-Right Corner (Overlapping, soft-edged, cropped) */}
         <div
@@ -463,8 +463,8 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
           SECTION 5: PROCESS AND DELIVERABLES (Delivery Roadmap)
           =================================================================== */}
       <section className="py-20 sm:py-28 bg-[linear-gradient(145deg,#0A0818_0%,#150D2E_45%,#0F0A24_80%,#080611_100%)] text-white border-b border-black/10 select-none relative overflow-hidden">
-        {/* Subtle ambient violet depth */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-r from-[#7C3AED]/18 via-[#6366F1]/10 to-transparent rounded-full blur-[120px] pointer-events-none" />
+        {/* Subtle ambient emerald green depth */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-r from-[#34CC7B]/18 via-[#2BB86D]/10 to-transparent rounded-full blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mb-14 sm:mb-16">

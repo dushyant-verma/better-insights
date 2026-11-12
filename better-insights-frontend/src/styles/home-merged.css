@@ -178,7 +178,7 @@
   #home-2-scope {
     --color-1: #0d0c11;
     --color-2: #ffffff;
-    --color-3: #6c3cff;
+    --color-3: #34CC7B;
     --color-4: #efeef4;
     --color-5: #aaa7b4;
     --color-6: #5d5a67;
@@ -1464,12 +1464,12 @@
     pointer-events: none;
   }
 
-  /* Ambient Purple Depth Glow */
+  /* Ambient Emerald Green Depth Glow */
   #h2-hero .hero__glow {
     position: absolute;
     inset: -16%;
     border-radius: var(--radius-2);
-    background: radial-gradient(circle, rgba(108, 60, 255, 0.42) 0%, rgba(108, 60, 255, 0.16) 42%, transparent 72%);
+    background: radial-gradient(circle, rgba(52, 204, 123, 0.42) 0%, rgba(52, 204, 123, 0.16) 42%, transparent 72%);
     filter: blur(28px);
     pointer-events: none;
     z-index: 0;
@@ -1509,7 +1509,7 @@
     margin: -4.25% 0 0 -4.25%;
     border-radius: var(--radius-2);
     background: var(--color-3);
-    box-shadow: 0 0 14px #6c3cff, 0 0 30px rgba(108, 60, 255, 0.75);
+    box-shadow: 0 0 14px #34CC7B, 0 0 30px rgba(52, 204, 123, 0.75);
     will-change: transform;
   }
 
@@ -1535,7 +1535,7 @@
     -webkit-clip-path: circle(50% at 50% 50%);
     background: var(--color-3);
     isolation: isolate;
-    box-shadow: 0 24px 64px -12px rgba(0, 0, 0, 0.85), 0 0 44px -8px rgba(108, 60, 255, 0.35);
+    box-shadow: 0 24px 64px -12px rgba(0, 0, 0, 0.85), 0 0 44px -8px rgba(52, 204, 123, 0.35);
   }
 
   /* 3D Liquid-Metal Image */

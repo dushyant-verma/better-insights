@@ -192,10 +192,10 @@ export default async function InsightDetailPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <article className="min-h-screen bg-[linear-gradient(180deg,#F5EFFB_0%,#FAF8F5_28%,#FAF5F0_100%)] text-[#1B1411] select-none pt-28 sm:pt-36 pb-24 relative overflow-hidden">
+      <article className="min-h-screen bg-[linear-gradient(180deg,#FAF8F5_0%,#FAF8F5_28%,#FAF5F0_100%)] text-[#1B1411] select-none pt-28 sm:pt-36 pb-24 relative overflow-hidden">
         {/* Ambient Subtle Radial Glow */}
         <div
-          className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-[radial-gradient(circle,rgba(108,60,255,0.07)_0%,transparent_70%)] blur-[120px] rounded-full pointer-events-none"
+          className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-[radial-gradient(circle,rgba(52,204,123,0.07)_0%,transparent_70%)] blur-[120px] rounded-full pointer-events-none"
           aria-hidden="true"
         />
         

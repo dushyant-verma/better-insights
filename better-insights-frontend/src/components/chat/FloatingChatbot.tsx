@@ -135,7 +135,7 @@ export function FloatingChatbot() {
           type="button"
           data-magnetic
           onClick={() => setIsOpen((prev) => !prev)}
-          className="relative group flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tr from-[#582AD9] to-[#6C3CFF] text-white shadow-[0_8px_24px_-2px_rgba(108,60,255,0.45)] hover:shadow-[0_12px_32px_-2px_rgba(108,60,255,0.6)] hover:scale-105 active:scale-95 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-[#6C3CFF] focus-visible:outline-offset-4"
+          className="relative group flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tr from-[#2BB86D] to-[#34CC7B] text-[#1B1411] shadow-[0_8px_24px_-2px_rgba(52,204,123,0.45)] hover:shadow-[0_12px_32px_-2px_rgba(52,204,123,0.6)] hover:scale-105 active:scale-95 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-[#34CC7B] focus-visible:outline-offset-4"
           aria-label={isOpen ? "Close AI Assistant" : "Open Better Insights AI Assistant"}
           aria-expanded={isOpen}
         >
@@ -171,8 +171,8 @@ export function FloatingChatbot() {
           {/* Header */}
           <div className="bg-[#181324] text-white p-4 flex items-center justify-between border-b border-white/10 shrink-0">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#6C3CFF] to-[#A855F7] flex items-center justify-center shadow-inner">
-                <Bot className="w-5 h-5 text-white" />
+              <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#2BB86D] to-[#34CC7B] flex items-center justify-center shadow-inner text-[#1B1411]">
+                <Bot className="w-5 h-5 text-[#1B1411]" />
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
@@ -209,7 +209,7 @@ export function FloatingChatbot() {
                   <div
                     className={`p-3 rounded-2xl text-xs sm:text-sm leading-relaxed ${
                       isUser
-                        ? "bg-[#6C3CFF] text-white rounded-br-xs"
+                        ? "bg-[#34CC7B] text-[#1B1411] font-medium rounded-br-xs"
                         : "bg-white text-[#1B1411] border border-black/8 shadow-xs rounded-bl-xs"
                     }`}
                   >
@@ -223,7 +223,7 @@ export function FloatingChatbot() {
                         <button
                           type="button"
                           onClick={() => handleActionClick(m.action!)}
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#1B1411] hover:bg-[#6C3CFF] text-white text-xs font-medium transition-colors shadow-xs"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#1B1411] hover:bg-[#34CC7B] hover:text-[#1B1411] text-white text-xs font-medium transition-colors shadow-xs"
                         >
                           <span>{m.action.label}</span>
                           <ArrowRight className="w-3 h-3" />
@@ -232,7 +232,7 @@ export function FloatingChatbot() {
                         <Link
                           href={m.action.target}
                           onClick={() => setIsOpen(false)}
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#1B1411] hover:bg-[#6C3CFF] text-white text-xs font-medium transition-colors shadow-xs"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#1B1411] hover:bg-[#34CC7B] hover:text-[#1B1411] text-white text-xs font-medium transition-colors shadow-xs"
                         >
                           <span>{m.action.label}</span>
                           <ExternalLink className="w-3 h-3" />
@@ -249,7 +249,7 @@ export function FloatingChatbot() {
                           key={i}
                           type="button"
                           onClick={() => handleSend(sug)}
-                          className="px-2.5 py-1 rounded-full bg-white hover:bg-[#6C3CFF]/10 hover:text-[#6C3CFF] border border-black/10 text-[11px] font-medium text-[#1B1411]/80 transition-colors"
+                          className="px-2.5 py-1 rounded-full bg-white hover:bg-[#34CC7B]/15 hover:text-[#2BB86D] hover:border-[#34CC7B]/40 border border-black/10 text-[11px] font-medium text-[#1B1411]/80 transition-colors"
                         >
                           {sug}
                         </button>
@@ -264,9 +264,9 @@ export function FloatingChatbot() {
 
             {loading && (
               <div className="flex items-center gap-1.5 bg-white p-3 rounded-2xl border border-black/8 shadow-xs w-20">
-                <span className="w-2 h-2 rounded-full bg-[#6C3CFF] animate-bounce"></span>
-                <span className="w-2 h-2 rounded-full bg-[#6C3CFF] animate-bounce [animation-delay:0.15s]"></span>
-                <span className="w-2 h-2 rounded-full bg-[#6C3CFF] animate-bounce [animation-delay:0.3s]"></span>
+                <span className="w-2 h-2 rounded-full bg-[#34CC7B] animate-bounce"></span>
+                <span className="w-2 h-2 rounded-full bg-[#34CC7B] animate-bounce [animation-delay:0.15s]"></span>
+                <span className="w-2 h-2 rounded-full bg-[#34CC7B] animate-bounce [animation-delay:0.3s]"></span>
               </div>
             )}
 
@@ -288,15 +288,15 @@ export function FloatingChatbot() {
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask about marketing, SEO, or web dev..."
               disabled={loading}
-              className="flex-1 bg-[#FAF5F0] border border-black/10 rounded-full px-4 py-2.5 text-xs sm:text-sm text-[#1B1411] placeholder:text-[#1B1411]/45 focus:outline-none focus:border-[#6C3CFF] focus:ring-1 focus:ring-[#6C3CFF] transition-all"
+              className="flex-1 bg-[#FAF5F0] border border-black/10 rounded-full px-4 py-2.5 text-xs sm:text-sm text-[#1B1411] placeholder:text-[#1B1411]/45 focus:outline-none focus:border-[#34CC7B] focus:ring-1 focus:ring-[#34CC7B] transition-all"
             />
             <button
               type="submit"
               disabled={!input.trim() || loading}
-              className="w-9 h-9 rounded-full bg-[#6C3CFF] hover:bg-[#582AD9] disabled:opacity-40 disabled:hover:bg-[#6C3CFF] text-white flex items-center justify-center transition-all shrink-0 focus-visible:outline-2 focus-visible:outline-[#6C3CFF]"
+              className="w-9 h-9 rounded-full bg-[#34CC7B] hover:bg-[#2BB86D] disabled:opacity-40 disabled:hover:bg-[#34CC7B] text-[#1B1411] flex items-center justify-center transition-all shrink-0 focus-visible:outline-2 focus-visible:outline-[#34CC7B]"
               aria-label="Send message"
             >
-              {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4 ml-0.5" />}
+              {loading ? <Loader2 className="w-4 h-4 animate-spin text-[#1B1411]" /> : <Send className="w-4 h-4 ml-0.5 text-[#1B1411]" />}
             </button>
           </form>
         </div>

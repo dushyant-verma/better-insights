@@ -50,7 +50,7 @@ No agent? Click **[Use this template](https://github.com/new?template_name=desig
 
 ![#0d0c11](https://img.shields.io/badge/-%230d0c11-0d0c11?style=flat-square) near-black bands and text  
 ![#ffffff](https://img.shields.io/badge/-%23ffffff-ffffff?style=flat-square) white bands, text on black  
-![#6c3cff](https://img.shields.io/badge/-%236c3cff-6c3cff?style=flat-square) violet dots, buttons, process ring, contact section  
+![#34CC7B](https://img.shields.io/badge/-%2334CC7B-34CC7B?style=flat-square) brand green dots, buttons, process ring, contact section  
 ![#efeef4](https://img.shields.io/badge/-%23efeef4-efeef4?style=flat-square) pale cards for services and the form  
 ![#aaa7b4](https://img.shields.io/badge/-%23aaa7b4-aaa7b4?style=flat-square) muted text on black  
 ![#5d5a67](https://img.shields.io/badge/-%235d5a67-5d5a67?style=flat-square) secondary text on white  
