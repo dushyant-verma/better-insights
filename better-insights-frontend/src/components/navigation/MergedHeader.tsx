@@ -50,22 +50,27 @@ export function MergedHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Dropdown states for desktop
+  const [aboutOpen, setAboutOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
 
   // Accordion states for mobile drawer
+  const [mobileAboutExpanded, setMobileAboutExpanded] = useState(false);
   const [mobileServicesExpanded, setMobileServicesExpanded] = useState(false);
 
   // Hover timeout refs to prevent dropdown flicker
+  const aboutTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const aboutItemRef = useRef<HTMLLIElement | null>(null);
   const servicesTimerRef = useRef<NodeJS.Timeout | null>(null);
-
   const servicesItemRef = useRef<HTMLLIElement | null>(null);
 
   const isHomeActive = pathname === "/" || pathname === "/home-2";
+  const isAboutActive = pathname === "/about" || pathname === "/culture";
   const isServicesActive = pathname?.startsWith("/services");
 
   // Close menus on route change
   useEffect(() => {
     setMobileMenuOpen(false);
+    setAboutOpen(false);
     setServicesOpen(false);
   }, [pathname]);
 
@@ -82,6 +87,7 @@ export function MergedHeader() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
+        setAboutOpen(false);
         setServicesOpen(false);
         setMobileMenuOpen(false);
       }
@@ -96,6 +102,9 @@ export function MergedHeader() {
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       const target = e.target as Node;
+      if (aboutItemRef.current && !aboutItemRef.current.contains(target)) {
+        setAboutOpen(false);
+      }
       if (servicesItemRef.current && !servicesItemRef.current.contains(target)) {
         setServicesOpen(false);
       }
@@ -103,6 +112,17 @@ export function MergedHeader() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  // Hover handlers for About
+  const handleAboutMouseEnter = () => {
+    if (aboutTimerRef.current) clearTimeout(aboutTimerRef.current);
+    setAboutOpen(true);
+  };
+  const handleAboutMouseLeave = () => {
+    aboutTimerRef.current = setTimeout(() => {
+      setAboutOpen(false);
+    }, 150);
+  };
 
   // Hover handlers for Services
   const handleServicesMouseEnter = () => {
@@ -142,14 +162,86 @@ export function MergedHeader() {
             </Link>
           </li>
 
-          {/* 2. About */}
-          <li className="nav__item" role="none">
-            <Link
-              href="/about"
-              className={`m-link-2 ${pathname === "/about" ? "is-active" : ""}`}
+          {/* 2. About Dropdown */}
+          <li
+            ref={aboutItemRef}
+            className="nav__item relative"
+            role="none"
+            onMouseEnter={handleAboutMouseEnter}
+            onMouseLeave={handleAboutMouseLeave}
+          >
+            <button
+              type="button"
+              className={`m-link-2 flex items-center gap-1.5 cursor-pointer py-1 bg-transparent border-0 font-inherit ${
+                isAboutActive ? "is-active font-semibold text-[#1B1411]" : ""
+              }`}
+              onClick={() => {
+                setAboutOpen((prev) => !prev);
+              }}
+              aria-haspopup="true"
+              aria-expanded={aboutOpen}
+              aria-label="About menu"
             >
-              About
-            </Link>
+              <span>About</span>
+              <ChevronDown
+                className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                  aboutOpen ? "rotate-180 text-[#34CC7B]" : "text-[#1B1411]/60"
+                }`}
+                aria-hidden="true"
+              />
+            </button>
+
+            {aboutOpen && (
+              <div
+                role="menu"
+                aria-label="About links"
+                className="absolute top-full left-0 mt-2 w-64 p-2 bg-white/95 backdrop-blur-xl border border-black/10 rounded-2xl shadow-[0_16px_36px_-6px_rgba(0,0,0,0.14)] z-50 animate-in fade-in slide-in-from-top-2 duration-150"
+              >
+                <Link
+                  href="/about"
+                  role="menuitem"
+                  onClick={() => setAboutOpen(false)}
+                  className={`flex flex-col p-2.5 rounded-xl transition-all duration-150 ${
+                    pathname === "/about"
+                      ? "bg-[#34CC7B]/10 text-[#34CC7B]"
+                      : "hover:bg-black/5 text-[#1B1411] hover:text-[#34CC7B]"
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold text-xs sm:text-sm">About Us</span>
+                    {pathname === "/about" && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#34CC7B]" />
+                    )}
+                  </div>
+                  <span className="text-[11px] text-[#1B1411]/55 leading-tight mt-0.5">
+                    Our story, mission &amp; leadership
+                  </span>
+                </Link>
+
+                <div className="h-px bg-black/8 my-1" />
+
+                <Link
+                  href="/culture"
+                  role="menuitem"
+                  onClick={() => setAboutOpen(false)}
+                  className={`flex flex-col p-2.5 rounded-xl transition-all duration-150 ${
+                    pathname === "/culture"
+                      ? "bg-[#34CC7B]/10 text-[#34CC7B]"
+                      : "hover:bg-black/5 text-[#1B1411] hover:text-[#34CC7B]"
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold text-xs sm:text-sm">Culture &amp; Life</span>
+                    {pathname === "/culture" && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#34CC7B]" />
+                    )}
+                  </div>
+                  <span className="text-[11px] text-[#1B1411]/55 leading-tight mt-0.5">
+                    Team values, atmosphere &amp; stories
+                  </span>
+                </Link>
+              </div>
+            )}
           </li>
 
           {/* 3. Services Dropdown */}
@@ -337,15 +429,47 @@ export function MergedHeader() {
             </Link>
           </li>
 
-          {/* 2. Mobile About */}
+          {/* 2. Mobile About Accordion */}
           <li>
-            <Link
-              href="/about"
-              className={`m-link-2 ${pathname === "/about" ? "text-[#34CC7B] font-semibold" : ""}`}
-              onClick={() => setMobileMenuOpen(false)}
+            <button
+              type="button"
+              className="w-full flex items-center justify-between text-left m-link-2 py-1 bg-transparent border-0 font-inherit"
+              onClick={() => setMobileAboutExpanded((prev) => !prev)}
+              aria-expanded={mobileAboutExpanded}
             >
-              About
-            </Link>
+              <span className={isAboutActive ? "text-[#34CC7B] font-semibold" : ""}>About</span>
+              <ChevronDown
+                className={`w-4 h-4 transition-transform duration-200 ${
+                  mobileAboutExpanded ? "rotate-180 text-[#34CC7B]" : ""
+                }`}
+              />
+            </button>
+            {mobileAboutExpanded && (
+              <ul className="pl-4 mt-2 space-y-2 border-l border-white/20 text-sm">
+                <li>
+                  <Link
+                    href="/about"
+                    className={`block py-1 ${
+                      pathname === "/about" ? "text-[#34CC7B] font-semibold" : "text-white/80"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/culture"
+                    className={`block py-1 ${
+                      pathname === "/culture" ? "text-[#34CC7B] font-semibold" : "text-white/80"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Culture &amp; Life
+                  </Link>
+                </li>
+              </ul>
+            )}
           </li>
 
           {/* 3. Mobile Services Accordion */}

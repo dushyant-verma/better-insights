@@ -26,6 +26,7 @@ const STATIC_SEARCH_INDEX: SearchItem[] = [
   { title: "CPR Calculator Tool", url: "/cpr-tool", type: "Tool", desc: "Calculate your customer acquisition cost, conversion rate, and marketing ROI" },
   { title: "Our Work & Case Studies", url: "/our-work", type: "Showcase", desc: "Client success stories and measurable enterprise impact" },
   { title: "About Better Insights", url: "/about", type: "Company", desc: "Our story, mission, and leadership team" },
+  { title: "Culture & Life", url: "/culture", type: "Company", desc: "Team culture, values, everyday atmosphere, and stories" },
   { title: "Executive Team", url: "/team", type: "Company", desc: "The strategists, engineers, and digital innovators behind Better Insights" },
   { title: "Our Clientele", url: "/clientele", type: "Company", desc: "Enterprises and high-growth brands we partner with" },
   { title: "Careers", url: "/careers", type: "Company", desc: "Explore open positions and join our engineering teams" },

@@ -110,6 +110,11 @@ export function Footer({ onOpenLeadModal }: FooterProps) {
                   </Link>
                 </li>
                 <li>
+                  <Link className="m-link-2" href="/culture">
+                    Culture &amp; Life
+                  </Link>
+                </li>
+                <li>
                   <Link className="m-link-2" href="/careers">
                     Careers
                   </Link>

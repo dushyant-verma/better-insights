@@ -37,6 +37,7 @@ const SITEMAP_SECTIONS = [
       { label: "Our Clientele", href: "/our-clientele", desc: "Brands, institutions, and partners we collaborate with" },
       { label: "Insights & Articles", href: "/insights", desc: "Analysis, strategies, and engineering insights" },
       { label: "About Better Insights", href: "/about", desc: "Our story, leadership, and engineering philosophy" },
+      { label: "Culture & Life", href: "/culture", desc: "Team values, studio atmosphere, and life at Better Insights" },
       { label: "Careers", href: "/careers", desc: "Open roles and working culture at Better Insights" },
       { label: "Contact Us", href: "/contact", desc: "Direct communications, inquiries, and consultation bookings" },
       { label: "CPR Calculator Tool", href: "/cpr-tool", desc: "Interactive Cost Per Result & ROI estimation tool" },

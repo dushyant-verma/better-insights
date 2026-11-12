@@ -1,0 +1,271 @@
+/**
+ * Better Insights — Dedicated Culture Page Styles
+ * Inspired by MadeByShape's visual language, adapted to Better Insights brand
+ * Colors:
+ *   - Primary accent: #34CC7B
+ *   - Dark background: #0D0D10
+ *   - Light background: #F7F4F1
+ *   - Neutral dark text: #171717
+ *   - Neutral light text: #FFFFFF / #A5A5A5
+ */
+
+/* ==========================================================================
+   1. Page Container & Global Variables
+   ========================================================================== */
+.bi-culture-page {
+  --bi-c-dark: #0D0D10;
+  --bi-c-dark-elevated: #15151A;
+  --bi-c-light: #F7F4F1;
+  --bi-c-light-card: #FFFFFF;
+  --bi-c-green: #34CC7B;
+  --bi-c-green-hover: #2BB86D;
+  --bi-c-green-subtle: rgba(52, 204, 123, 0.12);
+  --bi-c-text-dark: #171717;
+  --bi-c-text-muted: #66574F;
+  --bi-c-text-light: #FFFFFF;
+  --bi-c-text-light-muted: #A5A5A5;
+  --bi-c-border-dark: rgba(255, 255, 255, 0.10);
+  --bi-c-border-light: rgba(23, 23, 23, 0.08);
+
+  background-color: var(--bi-c-dark);
+  color: var(--bi-c-text-light);
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. Atmosphere Horizontal Gallery (.bi-atmosphere-track)
+   ========================================================================== */
+.bi-atmosphere-wrap {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y pinch-zoom;
+}
+
+.bi-atmosphere-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.bi-atmosphere-wrap.is-dragging {
+  cursor: grabbing;
+}
+
+.bi-atmosphere-track {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+  width: max-content;
+  padding: 2.5rem 3rem 4rem 3rem;
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .bi-atmosphere-track {
+    gap: 1.25rem;
+    padding: 1.5rem 1.25rem 2.5rem 1.25rem;
+  }
+}
+
+/* Atmosphere Cluster: Paired or Tripled Asymmetric Layout */
+.bi-atmosphere-cluster {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .bi-atmosphere-cluster {
+    gap: 1rem;
+  }
+}
+
+/* Atmosphere Individual Item */
+.bi-atmosphere-item {
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 1.75rem;
+  overflow: visible;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  will-change: transform;
+}
+
+.bi-atmosphere-item:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  z-index: 20;
+}
+
+.bi-atmosphere-item__media {
+  position: relative;
+  border-radius: 1.75rem;
+  overflow: hidden;
+  background-color: #1a1a22;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.bi-atmosphere-item__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bi-atmosphere-item:hover .bi-atmosphere-item__img {
+  transform: scale(1.05);
+}
+
+/* Variations in Sizing & Rotations (MadeByShape signature rhythm) */
+.bi-atmosphere-item--portrait-lg {
+  width: clamp(280px, 24vw, 380px);
+  height: clamp(380px, 32vw, 500px);
+  transform: rotate(-1.5deg);
+}
+
+.bi-atmosphere-item--landscape {
+  width: clamp(320px, 28vw, 440px);
+  height: clamp(240px, 20vw, 320px);
+  transform: rotate(1.2deg);
+}
+
+.bi-atmosphere-item--square {
+  width: clamp(260px, 22vw, 340px);
+  height: clamp(260px, 22vw, 340px);
+  transform: rotate(-0.8deg);
+}
+
+.bi-atmosphere-item--portrait-sm {
+  width: clamp(240px, 20vw, 320px);
+  height: clamp(320px, 26vw, 420px);
+  transform: rotate(2deg);
+}
+
+.bi-atmosphere-item--wide {
+  width: clamp(360px, 32vw, 480px);
+  height: clamp(260px, 22vw, 340px);
+  transform: rotate(-1deg);
+}
+
+@media (max-width: 768px) {
+  .bi-atmosphere-item--portrait-lg,
+  .bi-atmosphere-item--landscape,
+  .bi-atmosphere-item--square,
+  .bi-atmosphere-item--portrait-sm,
+  .bi-atmosphere-item--wide {
+    transform: none !important;
+    border-radius: 1.25rem;
+  }
+  .bi-atmosphere-item__media {
+    border-radius: 1.25rem;
+  }
+}
+
+/* Floating Caption Badge & Emoji */
+.bi-atmosphere-caption {
+  position: absolute;
+  z-index: 25;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+.bi-atmosphere-caption__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 0.875rem;
+  background: rgba(13, 13, 16, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 9999px;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.5);
+}
+
+.bi-atmosphere-caption__emoji {
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Caption Positions */
+.bi-atmosphere-caption--top-left {
+  top: -14px;
+  left: 16px;
+}
+
+.bi-atmosphere-caption--bottom-right {
+  bottom: -14px;
+  right: 16px;
+}
+
+.bi-atmosphere-caption--top-right {
+  top: -14px;
+  right: 16px;
+}
+
+.bi-atmosphere-caption--bottom-left {
+  bottom: -14px;
+  left: 16px;
+}
+
+/* ==========================================================================
+   3. Values Section Editorial Cards
+   ========================================================================== */
+.bi-value-card {
+  position: relative;
+  background-color: #FFFFFF;
+  border-radius: 2rem;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  border: 1px solid rgba(27, 20, 17, 0.08);
+}
+
+.bi-value-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px -12px rgba(27, 20, 17, 0.12);
+  border-color: rgba(52, 204, 123, 0.4);
+}
+
+.bi-value-card__media {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.bi-value-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bi-value-card:hover .bi-value-card__img {
+  transform: scale(1.06);
+}
+
+/* ==========================================================================
+   4. Reduced Motion Fallbacks
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .bi-atmosphere-item,
+  .bi-atmosphere-item__img,
+  .bi-value-card,
+  .bi-value-card__img {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
