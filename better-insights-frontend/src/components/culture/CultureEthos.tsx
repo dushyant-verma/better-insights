@@ -106,9 +106,9 @@ export function CultureEthos() {
             </p>
 
             {/* =============================================================== */}
-            {/* Prominent Bright Lime-Green Testimonial Card (#CBFC6B)            */}
+            {/* Prominent Emerald Green Testimonial Card (#34CC7B)                */}
             {/* =============================================================== */}
-            <div className="relative bg-[#CBFC6B] text-[#101112] rounded-[20px] p-7 sm:p-8 lg:p-9 shadow-[0_20px_50px_rgba(203,252,107,0.2)] overflow-hidden">
+            <div className="relative bg-[#34CC7B] text-[#101112] rounded-[20px] p-7 sm:p-8 lg:p-9 shadow-[0_20px_50px_rgba(52,204,123,0.25)] overflow-hidden">
               
               {/* Quote Icon & Text */}
               <div className="flex items-start gap-3.5 mb-6">

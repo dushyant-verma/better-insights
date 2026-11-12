@@ -197,32 +197,37 @@ export function CultureHero() {
         ref={headingRef}
         className="relative z-20 max-w-4xl mx-auto px-6 sm:px-8 text-center flex flex-col items-center justify-center pointer-events-auto"
       >
-        {/* Eyebrow Label: • Culture */}
+        {/* Eyebrow Label: • Culture at Better Insights */}
         <div className="inline-flex items-center justify-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-md mb-6 sm:mb-8 shadow-sm">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B] animate-pulse" />
-          <span className="text-xs font-semibold tracking-wider text-white/85 uppercase">
-            Culture
+          <span className="w-1.5 h-1.5 rounded-full bg-[#34CC7B] animate-pulse" />
+          <span className="text-xs font-semibold tracking-wider text-white/90 uppercase">
+            Culture at Better Insights
           </span>
         </div>
 
-        {/* Master Heading: A talented bunch of humans that love what we do */}
+        {/* Master Heading: A curious bunch of thinkers & makers that love what we do */}
         <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.5rem] font-light lg:font-normal tracking-[-0.035em] text-white leading-[1.04] sm:leading-[1.02] max-w-3xl lg:max-w-4xl mx-auto [font-family:'Host_Grotesk',sans-serif]">
-          A talented bunch{" "}
+          A curious bunch{" "}
           <br className="hidden sm:inline" />
-          of humans that love{" "}
+          of thinkers &amp; makers{" "}
           <br className="hidden sm:inline" />
-          what we do
+          that love what we do
         </h1>
 
-        {/* Rounded CTA Button: I'm intrigued */}
+        {/* Supporting Brand Subtitle for Better Insights */}
+        <p className="mt-6 text-base sm:text-lg md:text-xl text-[#A5A5A5] font-normal max-w-2xl mx-auto leading-relaxed [font-family:'Host_Grotesk',sans-serif]">
+          At Better Insights, we unite strategic clarity, creative autonomy, and engineering craft to build digital experiences that drive compounding growth.
+        </p>
+
+        {/* Rounded CTA Button: Explore Our Culture */}
         <div className="mt-8 sm:mt-10">
           <a
             href="#culture-intro"
             onClick={handleScrollToIntro}
-            className="inline-flex items-center gap-2.5 px-8 py-3.5 sm:py-4 rounded-full bg-[#CBFC6B] hover:bg-[#b8f755] text-[#101112] font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-200 hover:scale-105 shadow-[0_10px_30px_rgba(203,252,107,0.25)] cursor-pointer"
-            aria-label="I'm intrigued - scroll to culture details"
+            className="inline-flex items-center gap-2.5 px-8 py-3.5 sm:py-4 rounded-full bg-[#34CC7B] hover:bg-[#2BB86D] text-[#101112] font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-200 hover:scale-105 shadow-[0_10px_30px_rgba(52,204,123,0.3)] cursor-pointer"
+            aria-label="Explore our culture - scroll to culture details"
           >
-            <span>I&apos;m intrigued</span>
+            <span>Explore Our Culture</span>
             <ArrowDown className="w-4 h-4" />
           </a>
         </div>

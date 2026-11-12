@@ -447,8 +447,8 @@ export function CultureAtmosphere() {
           {/* Eyebrow & Title */}
           <div className="atmosphere-header-item">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 mb-3 sm:mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B] animate-pulse" />
-              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#CBFC6B]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#34CC7B] animate-pulse" />
+              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#34CC7B]">
                 Our Culture &amp; People
               </span>
             </div>
@@ -475,7 +475,7 @@ export function CultureAtmosphere() {
               type="button"
               onClick={() => scrollByAmount("left")}
               disabled={!canScrollLeft}
-              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#CBFC6B] hover:text-[#101112] transition-all cursor-pointer"
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#34CC7B] hover:text-[#101112] transition-all cursor-pointer"
               aria-label="Scroll gallery left"
             >
               <ArrowLeft className="w-4 h-4" />
@@ -484,7 +484,7 @@ export function CultureAtmosphere() {
               type="button"
               onClick={() => scrollByAmount("right")}
               disabled={!canScrollRight}
-              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#CBFC6B] hover:text-[#101112] transition-all cursor-pointer"
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#34CC7B] hover:text-[#101112] transition-all cursor-pointer"
               aria-label="Scroll gallery right"
             >
               <ArrowRight className="w-4 h-4" />
@@ -555,7 +555,7 @@ export function CultureAtmosphere() {
                         )}
 
                         {/* Image Container with Rounded Corners & Soft Border */}
-                        <div className="relative w-full h-full rounded-[14px] sm:rounded-[18px] overflow-hidden bg-[#181622] border border-white/10 shadow-[0_16px_40px_-10px_rgba(0,0,0,0.7)] group-hover:border-[#CBFC6B]/40 transition-colors duration-300">
+                        <div className="relative w-full h-full rounded-[14px] sm:rounded-[18px] overflow-hidden bg-[#181622] border border-white/10 shadow-[0_16px_40px_-10px_rgba(0,0,0,0.7)] group-hover:border-[#34CC7B]/40 transition-colors duration-300">
                           <Image
                             src={card.src}
                             alt={card.alt}
@@ -580,7 +580,7 @@ export function CultureAtmosphere() {
       {/* ===================================================================== */}
       <div className="bi-culture-container pb-5 sm:pb-6 pt-2 shrink-0 relative z-20 hidden md:flex items-center justify-between text-xs text-white/40">
         <div className="flex items-center gap-3">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B] animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#34CC7B] animate-pulse" />
           <span className="tracking-widest uppercase text-[10px] text-white/60 font-mono">
             Scroll down to explore gallery
           </span>
@@ -591,7 +591,7 @@ export function CultureAtmosphere() {
           <div className="w-36 h-[2px] bg-white/10 rounded-full overflow-hidden">
             <div
               ref={progressBarRef}
-              className="h-full bg-[#CBFC6B] w-full origin-left scale-x-0 will-change-transform"
+              className="h-full bg-[#34CC7B] w-full origin-left scale-x-0 will-change-transform"
             />
           </div>
           <span className="text-[10px] text-white/40 font-mono">05</span>
