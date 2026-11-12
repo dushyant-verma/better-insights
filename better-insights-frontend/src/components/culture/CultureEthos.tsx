@@ -49,7 +49,7 @@ export function CultureEthos() {
           },
         });
       }
-    }, sectionRef);
+    }, sectionRef.current);
 
     return () => {
       ctx.revert();

@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getGSAP } from "@/lib/gsap";
 import "@/styles/about-culture.css";
 
@@ -239,31 +238,13 @@ const ATMOSPHERE_CLUSTERS: ImageCluster[] = [
   },
 ];
 
+const ALL_ATMOSPHERE_CARDS: ClusterCard[] = ATMOSPHERE_CLUSTERS.flatMap((cluster) => cluster.cards);
+
 export function CultureAtmosphere() {
   const sectionRef = useRef<HTMLElement>(null);
   const trackWrapperRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
-
-  // Mobile swipeable indicator states
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-
-  const handleMobileScroll = () => {
-    if (!trackWrapperRef.current) return;
-    const { scrollLeft, scrollWidth, clientWidth } = trackWrapperRef.current;
-    setCanScrollLeft(scrollLeft > 15);
-    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 15);
-  };
-
-  const scrollByAmount = (direction: "left" | "right") => {
-    if (!trackWrapperRef.current) return;
-    const distance = window.innerWidth * 0.75;
-    trackWrapperRef.current.scrollBy({
-      left: direction === "left" ? -distance : distance,
-      behavior: "smooth",
-    });
-  };
 
   // GSAP ScrollTrigger Setup: Pinned Horizontal Scrubbing on Desktop/Tablet
   useEffect(() => {
@@ -372,6 +353,10 @@ export function CultureAtmosphere() {
 
         return () => {
           tl.kill();
+          gsap.set(track, { clearProps: "all" });
+          if (progressBar) gsap.set(progressBar, { clearProps: "all" });
+          const cards = track.querySelectorAll(".atmosphere-card");
+          if (cards.length > 0) gsap.set(cards, { clearProps: "all" });
         };
       });
 
@@ -379,24 +364,25 @@ export function CultureAtmosphere() {
       // Mobile / Compact Viewports: Natural vertical flow + entrance reveals
       // =======================================================================
       mm.add("(max-width: 767px), (max-height: 559px)", () => {
-        const cards = track.querySelectorAll(".atmosphere-card");
-        cards.forEach((card) => {
-          gsap.fromTo(
-            card,
-            { opacity: 0.4, scale: 0.94 },
-            {
-              opacity: 1,
-              scale: 1,
-              duration: 0.6,
-              ease: "power2.out",
-              scrollTrigger: {
-                trigger: card,
-                start: "top 92%",
-                once: true,
-              },
-            }
-          );
-        });
+        const mobileCards = section.querySelectorAll(".atmosphere-mobile-card");
+        if (mobileCards.length > 0) {
+          gsap.from(mobileCards, {
+            opacity: 0,
+            y: 20,
+            duration: 0.6,
+            stagger: 0.05,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: section,
+              start: "top 85%",
+              once: true,
+            },
+          });
+        }
+
+        return () => {
+          if (mobileCards.length > 0) gsap.set(mobileCards, { clearProps: "all" });
+        };
       });
     }, section);
 
@@ -467,41 +453,52 @@ export function CultureAtmosphere() {
             </p>
           </div>
         </div>
-
-        {/* Mobile Navigation Controls */}
-        <div className="flex items-center justify-between mt-6 md:hidden">
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => scrollByAmount("left")}
-              disabled={!canScrollLeft}
-              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#34CC7B] hover:text-[#101112] transition-all cursor-pointer"
-              aria-label="Scroll gallery left"
-            >
-              <ArrowLeft className="w-4 h-4" />
-            </button>
-            <button
-              type="button"
-              onClick={() => scrollByAmount("right")}
-              disabled={!canScrollRight}
-              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#34CC7B] hover:text-[#101112] transition-all cursor-pointer"
-              aria-label="Scroll gallery right"
-            >
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-          <span className="text-xs text-white/50 font-light">Swipe to view more</span>
-        </div>
       </header>
 
       {/* ===================================================================== */}
-      {/* 2. Horizontal Photographic Gallery Track                              */}
-      {/* Pinned horizontal travel on Desktop / Native touch swipe on Mobile   */}
+      {/* 2. Responsive Mobile Image Gallery (< 768px)                          */}
+      {/* Editorial 2-column grid contained within viewport, zero overflow     */}
+      {/* ===================================================================== */}
+      <div className="block md:hidden w-full px-4 sm:px-6 py-4 overflow-hidden relative z-10">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4">
+          {ALL_ATMOSPHERE_CARDS.map((card, idx) => {
+            const isWide = idx % 3 === 0;
+            return (
+              <div
+                key={`mobile-${card.id}`}
+                className={`atmosphere-mobile-card relative rounded-2xl overflow-hidden bg-[#181622] border border-white/10 shadow-[0_12px_32px_rgba(0,0,0,0.6)] ${
+                  isWide ? "col-span-2 aspect-[16/10]" : "aspect-[4/5]"
+                }`}
+              >
+                <Image
+                  src={card.src}
+                  alt={card.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, 400px"
+                  loading="lazy"
+                />
+                {card.caption && (
+                  <div className="absolute inset-x-0 bottom-0 pt-8 pb-3 px-3 bg-gradient-to-t from-black/85 via-black/45 to-transparent flex items-center gap-1.5 z-10">
+                    <span className="text-sm select-none">{card.caption.emoji}</span>
+                    <span className="text-xs font-medium text-white/95 tracking-tight [font-family:'Host_Grotesk',sans-serif] truncate">
+                      {card.caption.text}
+                    </span>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* ===================================================================== */}
+      {/* 3. Horizontal Photographic Gallery Track (Desktop & Tablet >= 768px)   */}
+      {/* Pinned horizontal travel with 5 distinct clusters and GSAP scrub      */}
       {/* ===================================================================== */}
       <div
         ref={trackWrapperRef}
-        onScroll={handleMobileScroll}
-        className="relative w-full md:flex-1 md:min-h-0 md:flex md:items-center overflow-x-auto md:overflow-hidden scroll-smooth snap-x snap-mandatory no-scrollbar touch-pan-x py-6 md:py-0 z-10"
+        className="hidden md:flex relative w-full md:flex-1 md:min-h-0 md:items-center md:overflow-hidden py-0 z-10"
       >
         <div
           ref={trackRef}

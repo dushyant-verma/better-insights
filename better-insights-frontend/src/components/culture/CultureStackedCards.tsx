@@ -141,6 +141,11 @@ export function CultureStackedCards() {
             `step-${i}`
           );
         }
+
+        return () => {
+          tl.kill();
+          gsap.set(cards, { clearProps: "all" });
+        };
       });
 
       // =======================================================================
@@ -148,6 +153,9 @@ export function CultureStackedCards() {
       // =======================================================================
       mm.add("(max-width: 1023px)", () => {
         const cards = cardsRef.current.filter(Boolean) as HTMLDivElement[];
+        // Clear any desktop inline transforms or opacity
+        gsap.set(cards, { clearProps: "all" });
+
         cards.forEach((card) => {
           gsap.from(card, {
             opacity: 0,
@@ -161,8 +169,12 @@ export function CultureStackedCards() {
             },
           });
         });
+
+        return () => {
+          gsap.set(cards, { clearProps: "all" });
+        };
       });
-    }, sectionRef);
+    }, sectionRef.current);
 
     return () => {
       ctx.revert();

@@ -70,7 +70,7 @@ export function CultureWorkplace() {
           },
         });
       }
-    }, sectionRef);
+    }, sectionRef.current);
 
     return () => {
       ctx.revert();

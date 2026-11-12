@@ -8,11 +8,11 @@ import { openMarketingPlanModal } from "@/components/forms/LeadModal";
 export function CultureJoinCTA() {
   return (
     <section
-      className="py-24 sm:py-32 bg-[#F7F4F1] text-[#171717] select-none border-t border-black/8 relative overflow-hidden"
+      className="py-24 sm:py-32 bg-[#0D0D10] text-white select-none border-t border-white/8 relative overflow-hidden"
       aria-label="Join Our Team"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-[2.5rem] sm:rounded-[3rem] bg-[#0D0D10] text-white p-8 sm:p-14 lg:p-20 overflow-hidden shadow-2xl text-center border border-white/10">
+        <div className="relative rounded-[2.5rem] sm:rounded-[3rem] bg-[#141419] text-white p-8 sm:p-14 lg:p-20 overflow-hidden shadow-2xl text-center border border-white/10">
           {/* Ambient Accent Radial Glow */}
           <div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[radial-gradient(circle,rgba(52,204,123,0.15)_0%,transparent_70%)] blur-[130px] pointer-events-none"

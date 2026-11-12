@@ -17,7 +17,7 @@ export default async function CulturePage() {
   const { posts } = await getPosts({ perPage: 8 });
 
   return (
-    <div className="bi-culture-page">
+    <div className="bi-culture-page w-full max-w-full overflow-x-hidden bg-[#0D0D10] select-none">
       {/* 1. Immersive Hero */}
       <CultureHero />
 

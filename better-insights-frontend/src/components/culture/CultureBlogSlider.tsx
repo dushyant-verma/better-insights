@@ -169,7 +169,7 @@ export function CultureBlogSlider({ initialPosts }: CultureBlogSliderProps) {
           },
         });
       }
-    }, sectionRef);
+    }, sectionRef.current);
 
     return () => ctx.revert();
   }, []);

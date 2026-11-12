@@ -124,7 +124,7 @@ export function CultureTeamSlider() {
           },
         });
       }
-    }, sectionRef);
+    }, sectionRef.current);
 
     return () => ctx.revert();
   }, []);
@@ -171,7 +171,7 @@ export function CultureTeamSlider() {
         {/* ================================================================= */}
         <div
           ref={cardRef}
-          className="relative w-full bg-[#ffffff] text-[#101112] rounded-[24px] sm:rounded-[32px] lg:rounded-[36px] p-6 sm:p-10 lg:p-12 xl:p-14 shadow-[0_30px_70px_rgba(52,204,123,0.25)] overflow-hidden"
+          className="relative w-full bg-[#34CC7B] text-[#101112] rounded-[24px] sm:rounded-[32px] lg:rounded-[36px] p-6 sm:p-10 lg:p-12 xl:p-14 shadow-[0_30px_70px_rgba(52,204,123,0.25)] overflow-hidden"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
             {/* ------------------------------------------------------------- */}
