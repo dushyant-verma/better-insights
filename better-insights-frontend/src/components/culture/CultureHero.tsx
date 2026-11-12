@@ -199,7 +199,7 @@ export function CultureHero() {
       >
         {/* Eyebrow Label: • Culture */}
         <div className="inline-flex items-center justify-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-md mb-6 sm:mb-8 shadow-sm">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#34CC7B] animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B] animate-pulse" />
           <span className="text-xs font-semibold tracking-wider text-white/85 uppercase">
             Culture
           </span>
@@ -219,7 +219,7 @@ export function CultureHero() {
           <a
             href="#culture-intro"
             onClick={handleScrollToIntro}
-            className="inline-flex items-center gap-2.5 px-8 py-3.5 sm:py-4 rounded-full bg-[#34CC7B] hover:bg-[#2BB86D] text-[#0B0B0D] font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-200 hover:scale-105 shadow-[0_10px_30px_rgba(52,204,123,0.3)] cursor-pointer"
+            className="inline-flex items-center gap-2.5 px-8 py-3.5 sm:py-4 rounded-full bg-[#CBFC6B] hover:bg-[#b8f755] text-[#101112] font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-200 hover:scale-105 shadow-[0_10px_30px_rgba(203,252,107,0.25)] cursor-pointer"
             aria-label="I'm intrigued - scroll to culture details"
           >
             <span>I&apos;m intrigued</span>

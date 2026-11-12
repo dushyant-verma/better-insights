@@ -22,7 +22,7 @@ export function CultureJoinCTA() {
           <div className="relative z-10 max-w-3xl mx-auto">
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 mb-6">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white/5 text-[#34CC7B] border border-white/10">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white/5 text-[#CBFC6B] border border-white/10">
                 <Sparkles className="w-3.5 h-3.5" />
                 Join Our Collective
               </span>
@@ -30,7 +30,7 @@ export function CultureJoinCTA() {
 
             {/* Headline */}
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-light lg:font-normal tracking-[-0.035em] text-white leading-[1.05] mb-6 [font-family:'Host_Grotesk',sans-serif]">
-              Great people make <span className="text-[#34CC7B]">better things happen.</span>
+              Great people make <span className="text-[#CBFC6B]">better things happen.</span>
             </h2>
 
             {/* Supporting Copy */}
@@ -43,7 +43,7 @@ export function CultureJoinCTA() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#34CC7B] hover:bg-[#2BB86D] text-[#171717] font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-xl shadow-[#34CC7B]/20 hover:scale-105"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#CBFC6B] hover:bg-[#b8f755] text-[#101112] font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-xl shadow-[#CBFC6B]/25 hover:scale-105"
               >
                 <span>Let&apos;s Connect</span>
                 <ArrowRight className="w-4 h-4" />

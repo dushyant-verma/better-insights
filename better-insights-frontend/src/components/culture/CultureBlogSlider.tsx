@@ -49,7 +49,7 @@ function BlogCard({ post }: { post: WPPost }) {
     <article className="w-[82vw] max-w-[340px] sm:w-[360px] md:w-[380px] lg:w-[400px] xl:w-[420px] shrink-0 flex flex-col group select-none">
       <Link
         href={`/insights/${post.slug}`}
-        className="flex flex-col h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5FF68] rounded-[22px]"
+        className="flex flex-col h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#CBFC6B] rounded-[22px]"
       >
         {/* 1. Featured Image (16:9 Landscape with Rounded Corners) */}
         <div className="relative aspect-[16/9] w-full rounded-[18px] sm:rounded-[20px] overflow-hidden bg-[#16161D] mb-4 sm:mb-5 shadow-[0_12px_30px_-8px_rgba(0,0,0,0.5)]">
@@ -70,7 +70,7 @@ function BlogCard({ post }: { post: WPPost }) {
         </div>
 
         {/* 3. Blog Title (White, Medium weight, 2-line clamp) */}
-        <h3 className="text-xl sm:text-2xl lg:text-[26px] xl:text-[27px] font-normal sm:font-medium text-white leading-[1.22] tracking-tight group-hover:text-[#C5FF68] transition-colors duration-300 [font-family:'Host_Grotesk',sans-serif] line-clamp-2 mb-2">
+        <h3 className="text-xl sm:text-2xl lg:text-[26px] xl:text-[27px] font-normal sm:font-medium text-white leading-[1.22] tracking-tight group-hover:text-[#CBFC6B] transition-colors duration-300 [font-family:'Host_Grotesk',sans-serif] line-clamp-2 mb-2">
           {title}
         </h3>
 
@@ -208,7 +208,7 @@ export function CultureBlogSlider({ initialPosts }: CultureBlogSliderProps) {
               {/* Lime-Green Pill CTA with External Arrow */}
               <Link
                 href="/insights"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#C5FF68] text-[#101112] font-medium text-sm tracking-tight hover:bg-[#b5f54e] transition-all duration-300 w-fit group/btn shadow-[0_4px_16px_rgba(197,255,104,0.18)]"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#CBFC6B] text-[#101112] font-medium text-sm tracking-tight hover:bg-[#b8f755] transition-all duration-300 w-fit group/btn shadow-[0_4px_16px_rgba(203,252,107,0.2)]"
               >
                 <span>View the Blog</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />

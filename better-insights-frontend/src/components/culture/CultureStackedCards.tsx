@@ -196,7 +196,7 @@ export function CultureStackedCards() {
           >
             {/* Small Eyebrow Label with Brand Green Dot */}
             <div className="inline-flex items-center gap-2 mb-4 sm:mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#34CC7B]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
               <span className="text-xs sm:text-sm font-medium tracking-normal text-[#A5A5A5]">
                 What&apos;s important to us
               </span>
@@ -210,10 +210,10 @@ export function CultureStackedCards() {
             {/* CTA Button: 'I like the sound of it' */}
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-white/8 hover:bg-white/12 text-white border border-white/12 hover:border-[#34CC7B]/40 text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 group shadow-lg hover:scale-105"
+              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-white/8 hover:bg-white/12 text-white border border-white/12 hover:border-[#CBFC6B]/40 text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 group shadow-lg hover:scale-105"
             >
               <span>I like the sound of it</span>
-              <div className="w-6 h-6 rounded-full bg-white/10 group-hover:bg-[#34CC7B] flex items-center justify-center transition-colors duration-300">
+              <div className="w-6 h-6 rounded-full bg-white/10 group-hover:bg-[#CBFC6B] flex items-center justify-center transition-colors duration-300">
                 <ArrowUpRight className="w-3.5 h-3.5 text-white group-hover:text-[#101112] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </div>
             </Link>
@@ -280,7 +280,7 @@ export function CultureStackedCards() {
                     <div className="absolute bottom-4 sm:bottom-5 left-0 w-full flex justify-center z-20 pointer-events-auto">
                       <Link
                         href="/contact"
-                        className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#34CC7B] hover:bg-[#2BB86D] text-[#101112] text-xs sm:text-sm font-bold tracking-tight shadow-xl shadow-[#34CC7B]/25 transition-transform duration-300 hover:scale-105"
+                        className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#CBFC6B] hover:bg-[#b8f755] text-[#101112] text-xs sm:text-sm font-bold tracking-tight shadow-xl shadow-[#CBFC6B]/25 transition-transform duration-300 hover:scale-105"
                       >
                         <span>{card.badge}</span>
                         <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />

@@ -171,7 +171,7 @@ export function CultureTeamSlider() {
         {/* ================================================================= */}
         <div
           ref={cardRef}
-          className="relative w-full bg-[#C5FF68] text-[#101112] rounded-[24px] sm:rounded-[32px] lg:rounded-[36px] p-6 sm:p-10 lg:p-12 xl:p-14 shadow-[0_30px_70px_rgba(197,255,104,0.18)] overflow-hidden"
+          className="relative w-full bg-[#CBFC6B] text-[#101112] rounded-[24px] sm:rounded-[32px] lg:rounded-[36px] p-6 sm:p-10 lg:p-12 xl:p-14 shadow-[0_30px_70px_rgba(203,252,107,0.2)] overflow-hidden"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
             {/* ------------------------------------------------------------- */}

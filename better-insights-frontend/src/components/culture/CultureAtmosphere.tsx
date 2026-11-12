@@ -405,7 +405,7 @@ export function CultureAtmosphere() {
                       )}
 
                       {/* Image Container with Rounded Corners & Soft Border */}
-                      <div className="relative w-full h-full rounded-[14px] sm:rounded-[18px] overflow-hidden bg-[#181622] border border-white/10 shadow-[0_16px_40px_-10px_rgba(0,0,0,0.7)] group-hover:border-[#34CC7B]/40 transition-colors duration-300">
+                      <div className="relative w-full h-full rounded-[14px] sm:rounded-[18px] overflow-hidden bg-[#181622] border border-white/10 shadow-[0_16px_40px_-10px_rgba(0,0,0,0.7)] group-hover:border-[#CBFC6B]/40 transition-colors duration-300">
                         <Image
                           src={item.src}
                           alt={item.alt}
@@ -469,7 +469,7 @@ export function CultureAtmosphere() {
                       )}
 
                       {/* Image Container with Rounded Corners & Soft Border */}
-                      <div className="relative w-full h-full rounded-[14px] sm:rounded-[18px] overflow-hidden bg-[#181622] border border-white/10 shadow-[0_16px_40px_-10px_rgba(0,0,0,0.7)] group-hover:border-[#34CC7B]/40 transition-colors duration-300">
+                      <div className="relative w-full h-full rounded-[14px] sm:rounded-[18px] overflow-hidden bg-[#181622] border border-white/10 shadow-[0_16px_40px_-10px_rgba(0,0,0,0.7)] group-hover:border-[#CBFC6B]/40 transition-colors duration-300">
                         <Image
                           src={item.src}
                           alt={item.alt}

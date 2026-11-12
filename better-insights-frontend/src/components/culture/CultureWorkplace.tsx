@@ -101,8 +101,8 @@ export function CultureWorkplace() {
           {/* Left Column: Eyebrow + Large Heading */}
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#34CC7B]" />
-              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#34CC7B]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
+              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#CBFC6B]">
                 Culture at Better Insights
               </span>
             </div>
@@ -150,7 +150,7 @@ export function CultureWorkplace() {
           </div>
 
           {/* --------------------------------------------------------------------- */}
-          {/* Card 1 – Top Right: 98% TEAM RETENTION (Bright Green #34CC7B)         */}
+          {/* Card 1 – Top Right: 50+ PROJECTS DELIVERED (Bright Lime-Green #CBFC6B) */}
           {/* Outer black container extends below green card into the photo         */}
           {/* --------------------------------------------------------------------- */}
           <div
@@ -176,7 +176,7 @@ export function CultureWorkplace() {
             </svg>
 
             {/* Inner Green Statistic Card */}
-            <div className="w-28 h-28 p-3 rounded-2xl sm:w-40 sm:h-40 sm:p-4 md:w-44 md:h-44 lg:w-52 lg:h-52 lg:p-5 xl:w-60 xl:h-60 xl:p-6 bg-[#34CC7B] flex flex-col justify-between shadow-[0_12px_32px_rgba(52,204,123,0.32)] select-none">
+            <div className="w-28 h-28 p-3 rounded-2xl sm:w-40 sm:h-40 sm:p-4 md:w-44 md:h-44 lg:w-52 lg:h-52 lg:p-5 xl:w-60 xl:h-60 xl:p-6 bg-[#CBFC6B] flex flex-col justify-between shadow-[0_12px_32px_rgba(203,252,107,0.25)] select-none">
               <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-[#101112] leading-none [font-family:'Host_Grotesk',sans-serif]">
                 50+
               </h3>

@@ -56,10 +56,10 @@ export function CulturePhilosophy() {
             return (
               <div
                 key={i}
-                className="p-8 sm:p-10 rounded-[2rem] bg-white border border-black/8 hover:border-[#34CC7B]/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                className="p-8 sm:p-10 rounded-[2rem] bg-white border border-black/8 hover:border-[#CBFC6B]/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-2xl bg-[#F7F4F1] border border-black/5 flex items-center justify-center text-[#34CC7B] mb-6">
+                  <div className="w-12 h-12 rounded-2xl bg-[#F7F4F1] border border-black/5 flex items-center justify-center text-[#CBFC6B] mb-6">
                     <Icon className="w-6 h-6" />
                   </div>
                   <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-[#171717] mb-3 [font-family:'Host_Grotesk',sans-serif]">
@@ -78,14 +78,14 @@ export function CulturePhilosophy() {
         <div className="rounded-[2.25rem] bg-[#0D0D10] text-white p-8 sm:p-12 lg:p-16 border border-white/10 relative overflow-hidden shadow-2xl">
           {/* Subtle Ambient Radial Glow */}
           <div
-            className="absolute top-0 right-0 w-[450px] h-[350px] bg-[radial-gradient(circle,rgba(52,204,123,0.12)_0%,transparent_70%)] blur-[100px] pointer-events-none"
+            className="absolute top-0 right-0 w-[450px] h-[350px] bg-[radial-gradient(circle,rgba(203,252,107,0.12)_0%,transparent_70%)] blur-[100px] pointer-events-none"
             aria-hidden="true"
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             {/* Founder Portrait */}
             <div className="lg:col-span-4 flex justify-center lg:justify-start">
-              <div className="relative w-44 h-44 sm:w-56 sm:h-56 rounded-full overflow-hidden border-2 border-[#34CC7B]/30 shadow-2xl bg-[#1C1C24]">
+              <div className="relative w-44 h-44 sm:w-56 sm:h-56 rounded-full overflow-hidden border-2 border-[#CBFC6B]/30 shadow-2xl bg-[#1C1C24]">
                 <Image
                   src="/team/photos/gautam-koli-photo.jpg"
                   alt="Gautam Koli, Founder & Director of Better Insights"
@@ -98,14 +98,14 @@ export function CulturePhilosophy() {
 
             {/* Founder Quote & Commentary */}
             <div className="lg:col-span-8 space-y-4">
-              <Quote className="w-10 h-10 text-[#34CC7B] opacity-80" />
+              <Quote className="w-10 h-10 text-[#CBFC6B] opacity-80" />
               <blockquote className="text-xl sm:text-2xl lg:text-3xl font-medium tracking-tight text-white leading-snug [font-family:'Host_Grotesk',sans-serif]">
                 &ldquo;My team is our greatest asset. By fostering an environment of trust, curiosity, and authentic
                 collaboration, we achieve greater insights and make rapid, compounding progress together.&rdquo;
               </blockquote>
               <div className="pt-2">
                 <span className="font-semibold text-white block text-base">Gautam Koli</span>
-                <span className="text-xs text-[#34CC7B] block font-mono">Founder &amp; Director · Better Insights</span>
+                <span className="text-xs text-[#CBFC6B] block font-mono">Founder &amp; Director · Better Insights</span>
               </div>
             </div>
           </div>

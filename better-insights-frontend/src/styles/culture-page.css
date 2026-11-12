@@ -2,7 +2,7 @@
  * Better Insights — Dedicated Culture Page Styles
  * Inspired by MadeByShape's visual language, adapted to Better Insights brand
  * Colors:
- *   - Primary accent: #34CC7B
+ *   - Primary accent: #CBFC6B
  *   - Dark background: #0D0D10
  *   - Light background: #F7F4F1
  *   - Neutral dark text: #171717
@@ -17,9 +17,9 @@
   --bi-c-dark-elevated: #15151A;
   --bi-c-light: #F7F4F1;
   --bi-c-light-card: #FFFFFF;
-  --bi-c-green: #34CC7B;
-  --bi-c-green-hover: #2BB86D;
-  --bi-c-green-subtle: rgba(52, 204, 123, 0.12);
+  --bi-c-green: #CBFC6B;
+  --bi-c-green-hover: #b8f755;
+  --bi-c-green-subtle: rgba(203, 252, 107, 0.12);
   --bi-c-text-dark: #171717;
   --bi-c-text-muted: #66574F;
   --bi-c-text-light: #FFFFFF;

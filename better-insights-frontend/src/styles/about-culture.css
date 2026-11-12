@@ -87,7 +87,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.22em;
-  color: #34cc7b;
+  color: #CBFC6B;
   margin-bottom: 12px;
 }
 
@@ -144,9 +144,9 @@
 }
 
 .bi-culture-nav-btn:hover:not(:disabled) {
-  background: #34CC7B;
-  border-color: #34CC7B;
-  color: #1B1411;
+  background: #CBFC6B;
+  border-color: #CBFC6B;
+  color: #101112;
   transform: scale(1.05);
 }
 

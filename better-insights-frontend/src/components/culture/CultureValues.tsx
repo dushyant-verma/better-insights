@@ -92,7 +92,7 @@ export function CultureValues() {
                     </div>
 
                     {/* Icon Bottom Right */}
-                    <div className="absolute bottom-4 right-4 w-9 h-9 rounded-full bg-[#34CC7B] text-[#171717] flex items-center justify-center shadow-lg">
+                    <div className="absolute bottom-4 right-4 w-9 h-9 rounded-full bg-[#CBFC6B] text-[#171717] flex items-center justify-center shadow-lg">
                       <Icon className="w-4 h-4" />
                     </div>
                   </div>
@@ -102,7 +102,7 @@ export function CultureValues() {
                     <h3 className="text-xl font-semibold tracking-tight text-[#171717] mb-1.5 [font-family:'Host_Grotesk',sans-serif]">
                       {val.title}
                     </h3>
-                    <span className="text-xs font-semibold text-[#34CC7B] block mb-3">
+                    <span className="text-xs font-semibold text-[#CBFC6B] block mb-3">
                       {val.tagline}
                     </span>
                     <p className="text-xs sm:text-sm text-[#66574F] leading-relaxed font-normal">
@@ -113,7 +113,7 @@ export function CultureValues() {
 
                 <div className="p-6 pt-0">
                   <div className="pt-4 border-t border-black/5 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#34CC7B]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
                     <span className="text-[10px] uppercase font-bold tracking-wider text-[#66574F]/70">
                       Better Insights Value
                     </span>
