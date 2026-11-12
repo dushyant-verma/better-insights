@@ -4,11 +4,18 @@ import { CultureWorkplace } from "@/components/culture/CultureWorkplace";
 import { CultureEthos } from "@/components/culture/CultureEthos";
 import { CultureStackedCards } from "@/components/culture/CultureStackedCards";
 import { CultureTeamSlider } from "@/components/culture/CultureTeamSlider";
+import { CultureBlogSlider } from "@/components/culture/CultureBlogSlider";
 import { CultureAtmosphere } from "@/components/culture/CultureAtmosphere";
 import { CultureJoinCTA } from "@/components/culture/CultureJoinCTA";
+import { getPosts } from "@/lib/wordpress/api";
 import "@/styles/culture-page.css";
 
-export default function CulturePage() {
+export const revalidate = 60;
+
+export default async function CulturePage() {
+  // Dynamically fetch WordPress blog posts (with resilient fallback to STATIC_POSTS)
+  const { posts } = await getPosts({ perPage: 8 });
+
   return (
     <div className="bi-culture-page">
       {/* 1. Immersive Hero */}
@@ -26,10 +33,13 @@ export default function CulturePage() {
       {/* 5. Our Team Testimonials Slider (Interactive Avatar Switcher) */}
       <CultureTeamSlider />
 
-      {/* 6. Feel the Atmosphere (Flagship Visual Scrapbook Gallery) */}
+      {/* 6. Blog Slider – A bit about our culture */}
+      <CultureBlogSlider initialPosts={posts} />
+
+      {/* 7. Feel the Atmosphere (Flagship Visual Scrapbook Gallery) */}
       <CultureAtmosphere />
 
-      {/* 7. Join Our Team Closing CTA */}
+      {/* 8. Join Our Team Closing CTA */}
       <CultureJoinCTA />
     </div>
   );
