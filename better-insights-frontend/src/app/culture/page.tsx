@@ -2,6 +2,7 @@ import React from "react";
 import { CultureHero } from "@/components/culture/CultureHero";
 import { CultureWorkplace } from "@/components/culture/CultureWorkplace";
 import { CultureEthos } from "@/components/culture/CultureEthos";
+import { CultureStackedCards } from "@/components/culture/CultureStackedCards";
 import { CultureAtmosphere } from "@/components/culture/CultureAtmosphere";
 import { CultureJoinCTA } from "@/components/culture/CultureJoinCTA";
 import "@/styles/culture-page.css";
@@ -18,10 +19,13 @@ export default function CulturePage() {
       {/* 3. Our Culture & Ethos (Editorial Layout & Brand Quote) */}
       <CultureEthos />
 
-      {/* 4. Feel the Atmosphere (Flagship Visual Scrapbook Gallery) */}
+      {/* 4. What's Important to Us (Sticky Left + Stacked Cards Scroll Animation) */}
+      <CultureStackedCards />
+
+      {/* 5. Feel the Atmosphere (Flagship Visual Scrapbook Gallery) */}
       <CultureAtmosphere />
 
-      {/* 5. Join Our Team Closing CTA */}
+      {/* 6. Join Our Team Closing CTA */}
       <CultureJoinCTA />
     </div>
   );
