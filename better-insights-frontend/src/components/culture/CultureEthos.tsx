@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import { getGSAP } from "@/lib/gsap";
 
 export function CultureEthos() {
@@ -19,11 +20,11 @@ export function CultureEthos() {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Subtle scroll reveal
+      // Subtle scroll entrance reveal
       if (leftColRef.current) {
         gsap.from(leftColRef.current, {
           opacity: 0,
-          y: 40,
+          y: 35,
           duration: 1,
           ease: "power3.out",
           scrollTrigger: {
@@ -37,9 +38,9 @@ export function CultureEthos() {
       if (rightColRef.current) {
         gsap.from(rightColRef.current, {
           opacity: 0,
-          y: 50,
+          y: 40,
           duration: 1.1,
-          delay: 0.15,
+          delay: 0.12,
           ease: "power3.out",
           scrollTrigger: {
             trigger: sectionRef.current,
@@ -59,106 +60,137 @@ export function CultureEthos() {
     <section
       ref={sectionRef}
       id="culture-ethos"
-      className="py-24 sm:py-32 lg:py-36 bg-[#0B0B0D] text-white border-t border-white/8 relative overflow-hidden select-none"
-      aria-label="Our Culture and People"
+      className="py-20 sm:py-28 lg:py-32 bg-[#0d0e10] text-white border-t border-white/8 relative overflow-hidden select-none"
+      aria-label="Our Culture and Ethos"
     >
-      {/* Background Subtle Radial Lighting */}
-      <div
-        className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[radial-gradient(circle,rgba(52,204,123,0.06)_0%,rgba(43,184,109,0.02)_50%,transparent_70%)] blur-[120px] pointer-events-none"
-        aria-hidden="true"
-      />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-20 items-center">
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14 xl:gap-20">
           
-          {/* ========================================================================= */}
-          {/* Left Column – Visual Area (~55% width on desktop)                         */}
-          {/* ========================================================================= */}
-          <div ref={leftColRef} className="lg:col-span-7">
-            <div className="relative rounded-[1.75rem] sm:rounded-[2.25rem] lg:rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.7)] bg-[#15151A] group">
-              <div className="relative aspect-[4/3] sm:aspect-[16/11] lg:aspect-[5/4] w-full overflow-hidden">
-                <Image
-                  src="/images/culture/hero-marketing-team.jpg"
-                  alt="Better Insights team collaborating on digital sprint strategies in our studio"
-                  fill
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 55vw"
-                />
-                
-                {/* Subtle dark gradient overlay at base */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-500" />
-
-                {/* Subtle glassmorphic corner badge */}
-                <div className="absolute top-5 left-5 sm:top-6 sm:left-6 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/15 text-white shadow-lg">
-                  <span className="w-2 h-2 rounded-full bg-[#34CC7B] animate-pulse" />
-                  <span className="text-[11px] font-medium tracking-wide uppercase">
-                    Cross-Disciplinary Pods
-                  </span>
-                </div>
-              </div>
+          {/* ================================================================= */}
+          {/* Left Column – Large Portrait-Oriented Editorial Photograph (~52%) */}
+          {/* ================================================================= */}
+          <div ref={leftColRef} className="w-full lg:w-[52%] shrink-0">
+            <div className="relative w-full aspect-[0.95/1] rounded-[24px] overflow-hidden bg-[#16161D] shadow-[0_24px_60px_-15px_rgba(0,0,0,0.7)] group">
+              <Image
+                src="/images/culture/hero-marketing-team.jpg"
+                alt="Better Insights team collaborating in studio on digital strategy"
+                fill
+                priority
+                className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 52vw"
+              />
             </div>
           </div>
 
-          {/* ========================================================================= */}
-          {/* Right Column – Content Area (~45% width on desktop)                        */}
-          {/* ========================================================================= */}
-          <div ref={rightColRef} className="lg:col-span-5 flex flex-col justify-center space-y-6 sm:space-y-7">
+          {/* ================================================================= */}
+          {/* Right Column – Content Area (~48%)                                */}
+          {/* ================================================================= */}
+          <div ref={rightColRef} className="w-full lg:w-[48%] flex flex-col justify-center">
             
-            {/* Section Identifier Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 w-fit">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#34CC7B]" />
-              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#34CC7B]">
+            {/* Small White Bullet + 'Our Culture' Label */}
+            <div className="inline-flex items-center gap-2 mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-white/90" />
+              <span className="text-sm font-light text-white/90 tracking-wide [font-family:'Host_Grotesk',sans-serif]">
                 Our Culture
               </span>
             </div>
 
-            {/* Expressive Editorial Heading */}
-            <h2 className="text-2xl sm:text-4xl lg:text-[40px] xl:text-[44px] font-light lg:font-normal tracking-[-0.03em] text-white leading-[1.12] [font-family:'Host_Grotesk',sans-serif]">
-              We&apos;ve created an environment where everyone feels comfortable, valued, and open.
+            {/* Editorial Heading (3-4 Lines on Desktop) */}
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[34px] xl:text-[40px] font-normal tracking-[-0.03em] text-white leading-[1.14] text-balance mb-6 [font-family:'Host_Grotesk',sans-serif]">
+              We&apos;ve created an environment where everyone feels comfortable and open, but we can have a laugh along the way
             </h2>
 
             {/* Supporting Paragraph */}
-            <p className="text-base sm:text-lg text-[#A5A5A5] font-normal leading-relaxed">
-              We produce good work for good people, with the conviction that both our team and our clients will feel energized throughout the entire delivery cycle. When people feel trusted, supported, and free to innovate, extraordinary outcomes happen naturally.
+            <p className="text-sm sm:text-base text-[#A5A5A5] leading-relaxed font-normal mb-8">
+              We produce good work for good people, and with the idea that staff and the client will be happy throughout the full process. This in return will bring more work our way, whether that&apos;s via recommendation or further work for that client
             </p>
 
-            {/* Testimonial / Culture Statement Card (Brand Green #34CC7B) */}
-            <div className="relative bg-[#34CC7B] text-[#101112] rounded-[1.75rem] sm:rounded-[2rem] p-7 sm:p-8 lg:p-9 shadow-[0_20px_50px_rgba(52,204,123,0.22)] overflow-hidden transition-all duration-300 hover:shadow-[0_25px_60px_rgba(52,204,123,0.32)] hover:-translate-y-1">
+            {/* =============================================================== */}
+            {/* Prominent Bright Lime-Green Testimonial Card (#CBFC6C / #C6FF70)  */}
+            {/* =============================================================== */}
+            <div className="relative bg-[#CBFC6C] text-[#101112] rounded-[20px] p-7 sm:p-8 lg:p-9 shadow-[0_20px_50px_rgba(203,252,108,0.18)] overflow-hidden">
               
-              {/* Oversized Decorative Quotation Mark */}
-              <svg
-                className="absolute top-5 right-6 w-12 h-12 text-[#101112]/15 pointer-events-none select-none fill-current"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
-              </svg>
+              {/* Quote Icon & Text */}
+              <div className="flex items-start gap-3.5 mb-6">
+                <svg
+                  className="w-5 h-5 text-[#101112] fill-current shrink-0 mt-1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 17 11"
+                  aria-hidden="true"
+                >
+                  <path d="M0 6.646C0 3.107 2.531 1.002 4.11.032c.2-.123.416.133.262.312A8.202 8.202 0 002.92 2.777 4.023 4.023 0 110 6.647zm8.955 0c0-3.539 2.531-5.644 4.11-6.613.2-.123.416.132.263.31a8.202 8.202 0 00-1.454 2.434 4.023 4.023 0 11-2.92 3.87z" />
+                </svg>
+                <p className="text-lg sm:text-xl lg:text-[21px] font-semibold tracking-[-0.015em] text-[#101112] leading-snug [font-family:'Host_Grotesk',sans-serif]">
+                  My vision has always been to look after the clients we work with, but to also look after the staff just as much. That will get the best results for everyone.
+                </p>
+              </div>
 
-              {/* Quote Statement */}
-              <p className="text-lg sm:text-xl lg:text-[22px] font-semibold text-[#101112] leading-snug tracking-tight mb-6 relative z-10 [font-family:'Host_Grotesk',sans-serif]">
-                &ldquo;Our vision has always been to look after the partners we collaborate with, but to look after the craftspeople and minds building the work just as much. That respect will always generate the finest results for everyone.&rdquo;
-              </p>
-
-              {/* Author / Profile Row */}
-              <div className="flex items-center gap-3.5 sm:gap-4 relative z-10 pt-5 border-t border-[#101112]/15">
-                <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-[#101112]/20 shrink-0 bg-[#101112]/10">
-                  <Image
-                    src="/team/gautam-koli.png"
-                    alt="Gautam Koli - Founder & Director at Better Insights"
-                    fill
-                    sizes="48px"
-                    className="object-cover object-top"
-                  />
+              {/* Author Row (Avatar + Name + Title) & LinkedIn Notch Button */}
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pt-1">
+                {/* Author Info */}
+                <div className="flex items-center gap-3.5">
+                  <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-[#101112]/20 shrink-0 bg-[#101112]/10">
+                    <Image
+                      src="/team/andy-colpys.jpg"
+                      alt="Andy Colpys - Co-Founder"
+                      fill
+                      sizes="48px"
+                      className="object-cover object-top"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="text-sm sm:text-base font-bold text-[#101112] leading-tight [font-family:'Host_Grotesk',sans-serif]">
+                      Andy Colpys
+                    </h4>
+                    <p className="text-xs text-[#101112]/80 font-normal mt-0.5">
+                      Co-Founder
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="text-sm sm:text-base font-bold text-[#101112] leading-tight [font-family:'Host_Grotesk',sans-serif]">
-                    Gautam Koli
-                  </h4>
-                  <p className="text-xs sm:text-sm text-[#101112]/80 font-medium mt-0.5">
-                    Founder &amp; Director, Better Insights
-                  </p>
+
+                {/* Dark Pill-Shaped LinkedIn Button */}
+                {/* Desktop: Positioned inside curved lower-right notch */}
+                {/* Mobile: Inline rounded pill */}
+                <div className="lg:absolute lg:bottom-0 lg:right-0 bg-[#0d0e10] lg:pl-3.5 lg:pt-3.5 lg:rounded-tl-2xl lg:rounded-tl-3xl inline-flex items-center">
+                  {/* Top-Right Inverted Corner Fillet */}
+                  <svg
+                    className="w-8 h-8 text-[#0d0e10] fill-current absolute top-px -right-px transform -translate-y-full rotate-180 pointer-events-none hidden lg:block"
+                    viewBox="0 0 100 100"
+                    aria-hidden="true"
+                  >
+                    <path d="M51.9 0v1.9c-27.6 0-50 22.4-50 50H0V0h51.9z" />
+                  </svg>
+
+                  {/* Bottom-Left Inverted Corner Fillet */}
+                  <svg
+                    className="w-8 h-8 text-[#0d0e10] fill-current absolute -bottom-px left-px transform -translate-x-full rotate-180 pointer-events-none hidden lg:block"
+                    viewBox="0 0 100 100"
+                    aria-hidden="true"
+                  >
+                    <path d="M51.9 0v1.9c-27.6 0-50 22.4-50 50H0V0h51.9z" />
+                  </svg>
+
+                  <a
+                    href="https://www.linkedin.com/in/andygolpys/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#18191E] hover:bg-[#25262C] text-white text-xs font-semibold tracking-wide transition-all duration-300 shadow-md group hover:scale-105"
+                    aria-label="Follow Andy on LinkedIn"
+                  >
+                    <span>Follow Andy on</span>
+                    <svg
+                      className="w-3.5 h-3.5 fill-current text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 448 512"
+                      aria-hidden="true"
+                    >
+                      <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                    </svg>
+                    <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5] text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </a>
                 </div>
               </div>
+
             </div>
 
           </div>
