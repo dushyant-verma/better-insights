@@ -35,33 +35,54 @@ export function TeamSlider({ members, onSelectMember }: TeamSliderProps) {
   const trackWidthRef = useRef(0);
   const rafIdRef = useRef<number | null>(null);
 
-  // Calculate track width
+  // Calculate track width with robust fallback
   const calcTrackWidth = useCallback(() => {
     if (trackRef.current) {
-      // The track contains 2 identical halves; half the scrollWidth is 1 complete cycle
-      trackWidthRef.current = trackRef.current.scrollWidth / 2;
+      const halfWidth = trackRef.current.scrollWidth / 2;
+      if (halfWidth > 0) {
+        trackWidthRef.current = halfWidth;
+      }
     }
   }, []);
 
-  // IntersectionObserver: Pause RAF loop when slider is outside the viewport to maximize 60fps scroll budget
+  // Viewport visibility check: Uses IntersectionObserver with scroll fallback
   useEffect(() => {
     const section = sectionRef.current;
-    if (!section || typeof IntersectionObserver === "undefined") return;
+    if (!section) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          isVisibleRef.current = entry.isIntersecting;
-        });
-      },
-      { rootMargin: "300px 0px" }
-    );
-    observer.observe(section);
+    const checkVisibility = () => {
+      if (!section) return;
+      const rect = section.getBoundingClientRect();
+      const inView =
+        rect.bottom >= -400 &&
+        rect.top <= (window.innerHeight || 800) + 400;
+      isVisibleRef.current = inView;
+    };
 
-    return () => observer.disconnect();
+    let observer: IntersectionObserver | null = null;
+    if (typeof IntersectionObserver !== "undefined") {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            isVisibleRef.current = entry.isIntersecting;
+          });
+        },
+        { rootMargin: "600px 0px", threshold: 0 }
+      );
+      observer.observe(section);
+    }
+
+    // Scroll listener ensures visibility never gets stuck in production or webviews
+    window.addEventListener("scroll", checkVisibility, { passive: true });
+    checkVisibility();
+
+    return () => {
+      if (observer) observer.disconnect();
+      window.removeEventListener("scroll", checkVisibility);
+    };
   }, []);
 
-  // ResizeObserver: Dynamically update track width if images/fonts load without any jump
+  // ResizeObserver: Dynamically update track width if images/fonts load
   useEffect(() => {
     const track = trackRef.current;
     if (!track || typeof ResizeObserver === "undefined") return;
@@ -74,10 +95,11 @@ export function TeamSlider({ members, onSelectMember }: TeamSliderProps) {
     return () => ro.disconnect();
   }, [calcTrackWidth]);
 
-  // Continuous animation loop
+  // Continuous animation loop (Production & Localhost resilient)
   useEffect(() => {
     const prefersReducedMotion =
       typeof window !== "undefined" &&
+      window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (prefersReducedMotion) {
@@ -86,9 +108,19 @@ export function TeamSlider({ members, onSelectMember }: TeamSliderProps) {
 
     calcTrackWidth();
 
-    const speed = 0.65; // Pixels per frame
+    // Staggered measurements to handle late-loading web fonts and images in production
+    const t1 = setTimeout(calcTrackWidth, 100);
+    const t2 = setTimeout(calcTrackWidth, 500);
+    const t3 = setTimeout(calcTrackWidth, 1200);
+
+    const speed = 0.65; // Pixels per frame (~40px/sec at 60fps)
 
     const step = () => {
+      // Dynamic track measurement if initially 0
+      if (trackWidthRef.current <= 0 && trackRef.current) {
+        calcTrackWidth();
+      }
+
       if (
         isVisibleRef.current &&
         !isPausedRef.current &&
@@ -97,7 +129,7 @@ export function TeamSlider({ members, onSelectMember }: TeamSliderProps) {
       ) {
         scrollXRef.current -= speed;
 
-        // Seamless wrap
+        // Seamless infinite wrap
         if (Math.abs(scrollXRef.current) >= trackWidthRef.current) {
           scrollXRef.current += trackWidthRef.current;
         }
@@ -114,13 +146,22 @@ export function TeamSlider({ members, onSelectMember }: TeamSliderProps) {
     const handleResize = () => {
       calcTrackWidth();
     };
+    const handleLoad = () => {
+      calcTrackWidth();
+    };
+
     window.addEventListener("resize", handleResize);
+    window.addEventListener("load", handleLoad);
 
     return () => {
       if (rafIdRef.current) {
         cancelAnimationFrame(rafIdRef.current);
       }
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("load", handleLoad);
     };
   }, [calcTrackWidth, members]);
 
@@ -187,6 +228,7 @@ export function TeamSlider({ members, onSelectMember }: TeamSliderProps) {
     isInteractingRef.current = false;
     isHorizontalDragRef.current = false;
     isDraggingRef.current = false;
+    isPausedRef.current = false;
   };
 
   const handleCardClick = (member: TeamMemberData) => {
@@ -227,11 +269,16 @@ export function TeamSlider({ members, onSelectMember }: TeamSliderProps) {
         className="relative w-full overflow-hidden py-12 z-10 cursor-grab active:cursor-grabbing touch-pan-y [mask-image:linear-gradient(to_right,transparent_0%,black_5%,black_95%,transparent_100%)]"
         role="region"
         aria-label="Continuous horizontal team profiles carousel"
-        onMouseEnter={() => {
-          isPausedRef.current = true;
-        }}
-        onMouseLeave={() => {
-          isPausedRef.current = false;
+        onPointerEnter={(e: React.PointerEvent) => {
+          // Only pause for actual desktop mouse hover, not touch taps
+          if (
+            e.pointerType === "mouse" ||
+            (typeof window !== "undefined" &&
+              window.matchMedia &&
+              window.matchMedia("(hover: hover)").matches)
+          ) {
+            isPausedRef.current = true;
+          }
         }}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
@@ -255,12 +302,12 @@ export function TeamSlider({ members, onSelectMember }: TeamSliderProps) {
                 style={{
                   transform: `translateY(${offset}px)`,
                 }}
-                aria-hidden={isDuplicate}
+                aria-hidden={isDuplicate ? "true" : "false"}
               >
                 <article
-                  onClick={() => handleCardClick(member)}
                   role="button"
                   tabIndex={isDuplicate ? -1 : 0}
+                  onClick={() => handleCardClick(member)}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
                       e.preventDefault();
@@ -270,42 +317,33 @@ export function TeamSlider({ members, onSelectMember }: TeamSliderProps) {
                   className="group relative w-full aspect-[3/4] rounded-[22px] lg:rounded-[26px] overflow-hidden bg-[#EEEEEE] shadow-[0_18px_45px_-10px_rgba(0,0,0,0.65)] hover:shadow-[0_26px_60px_-10px_rgba(0,0,0,0.85)] hover:-translate-y-1.5 transition-all duration-400 ease-out cursor-pointer select-none"
                   aria-label={`View ${member.name}'s profile: ${member.role}`}
                 >
-                  {/* Top-Right Action Buttons: Optional LinkedIn + Lime-Green Plus Button */}
+                  {/* Top-Right Floating Actions (+ Button & LinkedIn) */}
                   <div className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 flex items-center gap-1.5 sm:gap-2 z-30">
+                    {/* LinkedIn Quick Link */}
                     {member.linkedin && (
                       <a
                         href={member.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="w-8 h-8 rounded-full bg-[#0D0D0D]/75 hover:bg-[#0A66C2] backdrop-blur-md text-white/90 hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm hover:scale-105"
-                        aria-label={`${member.name} on LinkedIn (opens in new tab)`}
-                        tabIndex={isDuplicate ? -1 : 0}
+                        aria-label={`${member.name} on LinkedIn`}
+                        className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/60 hover:bg-[#34cc7b] text-white hover:text-[#0D0D0D] backdrop-blur-md flex items-center justify-center transition-all duration-300 shadow-md group/in"
                       >
-                        <svg
-                          viewBox="0 0 24 24"
-                          width="13"
-                          height="13"
-                          fill="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
-                        </svg>
+                        <span className="font-bold text-[11px] font-sans">in</span>
                       </a>
                     )}
 
-                    {/* Circular Plus Button: Styled lime-green (#C7FF62) with dark icon, opens modal */}
+                    {/* Interactive Plus Button to open modal */}
                     <button
                       type="button"
                       onClick={(e) => {
                         e.stopPropagation();
-                        handleCardClick(member);
+                        onSelectMember(member);
                       }}
-                      className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#C7FF62] text-[#0D0D0D] flex items-center justify-center shadow-[0_2px_12px_rgba(199,255,98,0.4)] transition-all duration-300 group-hover:rotate-90 hover:scale-110 cursor-pointer"
-                      aria-label={`Open ${member.name}'s profile modal`}
-                      tabIndex={isDuplicate ? -1 : 0}
+                      className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#34cc7b] text-[#0D0D0D] flex items-center justify-center shadow-md transition-all duration-300 group-hover:scale-110 group-hover:rotate-90 hover:bg-[#2bb86d]"
+                      aria-label={`Open details for ${member.name}`}
                     >
-                      <Plus className="w-4 h-4 stroke-[2.8]" />
+                      <Plus className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
                     </button>
                   </div>
 

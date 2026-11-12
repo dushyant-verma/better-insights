@@ -12,7 +12,7 @@ export function AboutCultureSection() {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
-  // 1. Mobile touch navigation handlers
+  // Mobile / Tablet manual scroll handlers
   const handleScroll = () => {
     if (!collageWrapRef.current) return;
     const { scrollLeft, scrollWidth, clientWidth } = collageWrapRef.current;
@@ -22,14 +22,14 @@ export function AboutCultureSection() {
 
   const scrollByAmount = (direction: "left" | "right") => {
     if (!collageWrapRef.current) return;
-    const distance = window.innerWidth * 0.75;
+    const distance = (typeof window !== "undefined" ? window.innerWidth : 800) * 0.75;
     collageWrapRef.current.scrollBy({
       left: direction === "left" ? -distance : distance,
       behavior: "smooth",
     });
   };
 
-  // 2. GSAP ScrollTrigger setup
+  // GSAP ScrollTrigger Scroll-Driven Horizontal Scrub & Pinning
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -42,9 +42,11 @@ export function AboutCultureSection() {
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
 
-      // Heading and intro entrance animation
+      // 1. Heading and intro entrance animation
       gsap.fromTo(
-        section.querySelectorAll(".bi-culture-intro__eyebrow, .bi-culture-intro__title, .bi-culture-intro__desc"),
+        section.querySelectorAll(
+          ".bi-culture-intro__eyebrow, .bi-culture-intro__title, .bi-culture-intro__desc"
+        ),
         {
           opacity: 0,
           y: 28,
@@ -63,7 +65,8 @@ export function AboutCultureSection() {
         }
       );
 
-      // Desktop: Horizontal scrub animation with ScrollTrigger pin (Synchronized Single Timeline)
+      // 2. Desktop: Horizontal scroll-driven animation with ScrollTrigger pin
+      // Converts vertical scroll progress into horizontal movement (no idle auto-scroll)
       mm.add("(min-width: 1024px)", () => {
         const getScrollAmount = () => {
           const collageWidth = collage.scrollWidth;
@@ -72,7 +75,7 @@ export function AboutCultureSection() {
         };
 
         const getPinDistance = () => {
-          return Math.max(collage.scrollWidth - window.innerWidth + 80, 1200);
+          return Math.max(collage.scrollWidth - window.innerWidth + 80, 1400);
         };
 
         const tl = gsap.timeline({
@@ -83,11 +86,11 @@ export function AboutCultureSection() {
             pin: true,
             scrub: 1,
             invalidateOnRefresh: true,
-            anticipatePin: 0,
+            anticipatePin: 1,
           },
         });
 
-        // 1. Synchronized horizontal collage translation
+        // Horizontal translation driven by user vertical scroll
         tl.to(
           collage,
           {
@@ -97,7 +100,7 @@ export function AboutCultureSection() {
           0
         );
 
-        // 2. Parallax and subtle tilt shifts per collage item on the same timeline
+        // Parallax and subtle tilt shifts per collage item during horizontal movement
         const items = section.querySelectorAll(".bi-culture-item");
         items.forEach((item, index) => {
           const isOdd = index % 2 === 1;
@@ -117,7 +120,7 @@ export function AboutCultureSection() {
         };
       });
 
-      // Mobile / Tablet: Smooth staggered entrance
+      // 3. Mobile / Tablet: Smooth staggered entrance without pinning
       mm.add("(max-width: 1023px)", () => {
         const items = section.querySelectorAll(".bi-culture-item");
         items.forEach((item, index) => {
@@ -146,10 +149,16 @@ export function AboutCultureSection() {
       });
     }, section);
 
-    // Refresh ScrollTrigger once fonts, layout, and images settle
-    const refreshTimer = setTimeout(() => {
+    // Staggered ScrollTrigger refresh to ensure calculations after fonts/images render
+    const t1 = setTimeout(() => {
       ScrollTrigger.refresh();
-    }, 250);
+    }, 200);
+    const t2 = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 600);
+    const t3 = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 1200);
 
     const handleLoad = () => {
       ScrollTrigger.refresh();
@@ -157,7 +166,9 @@ export function AboutCultureSection() {
     window.addEventListener("load", handleLoad);
 
     return () => {
-      clearTimeout(refreshTimer);
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
       window.removeEventListener("load", handleLoad);
       ctx.revert();
     };
@@ -422,4 +433,3 @@ export function AboutCultureSection() {
     </section>
   );
 }
-

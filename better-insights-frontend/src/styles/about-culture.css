@@ -160,8 +160,15 @@
 .bi-culture-collage-wrap {
   position: relative;
   width: 100%;
-  overflow: visible;
+  overflow: hidden;
   z-index: 2;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.bi-culture-collage-wrap:active {
+  cursor: grabbing;
 }
 
 /* Horizontal scroll track pinned on desktop */
@@ -407,6 +414,7 @@
     padding-left: clamp(20px, 4vw, 40px);
     padding-right: clamp(20px, 4vw, 40px);
     gap: 28px;
+    transform: none !important;
   }
 
   .bi-culture-cluster {
