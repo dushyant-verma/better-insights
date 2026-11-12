@@ -6,7 +6,7 @@ import { vec2, Vector2 as Vec2 } from 'vecteur';
 import { usePathname } from 'next/navigation';
 
 export interface MagneticCursorProps {
-  children: ReactNode;
+  children?: ReactNode;
   magneticFactor?: number;
   lerpAmount?: number;
   hoverPadding?: number;
@@ -36,7 +36,7 @@ interface CursorState {
 }
 
 export const MagneticCursor: FC<MagneticCursorProps> = ({
-  children,
+  children = null,
   lerpAmount = 0.14,
   magneticFactor = 0.25,
   hoverPadding = 12,
@@ -440,6 +440,10 @@ export const MagneticCursor: FC<MagneticCursorProps> = ({
       document.removeEventListener('mouseenter', handleMouseEnter);
       document.removeEventListener('keydown', handleKeyDown);
       quickSettersRef.current = null;
+      if (cursorEl) {
+        gsap.killTweensOf(cursorEl);
+        gsap.set(cursorEl, { clearProps: 'all' });
+      }
     };
   }, [disableOnTouch, isTouchDevice, cursorColor, recoverFromHover]);
 
@@ -598,7 +602,7 @@ export const MagneticCursor: FC<MagneticCursorProps> = ({
     };
   }, [pathname, bindMagneticElements, recoverFromHover]);
 
-  if (disableOnTouch && isTouchDevice) return <>{children}</>;
+  if (disableOnTouch && isTouchDevice) return children ? <>{children}</> : null;
 
   const styles: React.CSSProperties = {
     position: 'fixed',
@@ -620,7 +624,7 @@ export const MagneticCursor: FC<MagneticCursorProps> = ({
 
   return (
     <>
-      <div ref={cursorRef} className={`magnetic-cursor ${cursorClassName}`} style={styles}>
+      <div ref={cursorRef} key="bi-magnetic-cursor-el" className={`magnetic-cursor ${cursorClassName}`} style={styles}>
         {/* Magnifying glass icon: fades in over images & project media */}
         <svg
           ref={lensIconRef}

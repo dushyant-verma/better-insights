@@ -37,18 +37,19 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <MagneticCursor
-      magneticFactor={0.25}
-      lerpAmount={0.14}
-      hoverPadding={12}
-      cursorSize={36}
-      cursorColor="#ffffff"
-      blendMode="difference"
-      disableOnTouch={true}
-      speedMultiplier={0.022}
-      maxScaleX={0.85}
-      maxScaleY={0.35}
-    >
+    <>
+      <MagneticCursor
+        magneticFactor={0.25}
+        lerpAmount={0.14}
+        hoverPadding={12}
+        cursorSize={36}
+        cursorColor="#ffffff"
+        blendMode="difference"
+        disableOnTouch={true}
+        speedMultiplier={0.022}
+        maxScaleX={0.85}
+        maxScaleY={0.35}
+      />
       {isCustomLayout ? (
         <>
           {children}
@@ -58,7 +59,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
           <FloatingChatbot />
         </>
       ) : (
-        <div className="flex flex-col min-h-screen bg-[#FAF5F0] text-[#1B1411] bi-scope">
+        <div className="flex flex-col min-h-screen bg-[#FAF5F0] text-[#1B1411] bi-scope w-full">
           {/* Global Shared Header (Exact Homepage Design) */}
           <MergedHeader />
 
@@ -79,6 +80,6 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
           <FloatingChatbot />
         </div>
       )}
-    </MagneticCursor>
+    </>
   );
 }

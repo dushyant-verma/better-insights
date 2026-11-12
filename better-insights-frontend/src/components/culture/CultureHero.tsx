@@ -116,45 +116,35 @@ export function CultureHero() {
         });
       }
 
-      // 2. Parallax and entrance for floating cards (Desktop & Tablet only)
-      const mm = gsap.matchMedia();
-      mm.add("(min-width: 768px)", () => {
-        cardsRef.current.forEach((card, index) => {
-          if (!card) return;
+      // 2. Parallax and entrance for floating cards
+      cardsRef.current.forEach((card, index) => {
+        if (!card) return;
 
-          // Entrance animation
-          gsap.from(card, {
-            opacity: 0,
-            scale: 0.9,
-            y: 30 + (index % 3) * 12,
-            duration: 1.1 + index * 0.08,
-            ease: "power3.out",
-            delay: 0.15 + index * 0.06,
-          });
-
-          // Scroll parallax
-          const cardData = FLOATING_CARDS[index];
-          const shift = cardData?.parallaxSpeed ?? -30;
-
-          gsap.to(card, {
-            y: shift,
-            ease: "none",
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top top",
-              end: "bottom top",
-              scrub: 1.2,
-              invalidateOnRefresh: true,
-            },
-          });
+        // Entrance animation
+        gsap.from(card, {
+          opacity: 0,
+          scale: 0.9,
+          y: 30 + (index % 3) * 12,
+          duration: 1.1 + index * 0.08,
+          ease: "power3.out",
+          delay: 0.15 + index * 0.06,
         });
 
-        return () => {
-          const cards = cardsRef.current.filter(Boolean) as HTMLElement[];
-          if (cards.length > 0) {
-            gsap.set(cards, { clearProps: "all" });
-          }
-        };
+        // Scroll parallax
+        const cardData = FLOATING_CARDS[index];
+        const shift = cardData?.parallaxSpeed ?? -30;
+
+        gsap.to(card, {
+          y: shift,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: 1.2,
+            invalidateOnRefresh: true,
+          },
+        });
       });
     }, sectionRef.current);
 
