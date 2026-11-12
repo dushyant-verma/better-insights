@@ -20,7 +20,7 @@ const FLOATING_CARDS: FloatingCard[] = [
   {
     src: "/images/culture/photo-1556761175-4b46a572b786.jpg",
     alt: "Better Insights team sprint discussion",
-    className: "top-[10%] left-[2%] xl:left-[4%] w-[190px] md:w-[220px] xl:w-[255px]",
+    className: "top-[10%] left-[10%] xl:left-[4%] w-[190px] md:w-[220px] xl:w-[255px]",
     aspectClass: "aspect-[4/3]",
     rotation: "-rotate-3",
     parallaxSpeed: -35,
@@ -30,7 +30,7 @@ const FLOATING_CARDS: FloatingCard[] = [
   {
     src: "/images/culture/photo-1515187029135-18ee286d815b.jpg",
     alt: "Creative strategy whiteboard session",
-    className: "top-[8%] right-[2.5%] xl:right-[4.5%] w-[155px] md:w-[180px] xl:w-[205px]",
+    className: "top-[1%] right-[2.5%] xl:right-[10.5%] w-[155px] md:w-[180px] xl:w-[205px]",
     aspectClass: "aspect-[3/4]",
     rotation: "rotate-2",
     parallaxSpeed: -50,

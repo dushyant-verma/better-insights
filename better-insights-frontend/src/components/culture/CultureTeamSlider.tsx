@@ -171,7 +171,7 @@ export function CultureTeamSlider() {
         {/* ================================================================= */}
         <div
           ref={cardRef}
-          className="relative w-full bg-[#34CC7B] text-[#101112] rounded-[24px] sm:rounded-[32px] lg:rounded-[36px] p-6 sm:p-10 lg:p-12 xl:p-14 shadow-[0_30px_70px_rgba(52,204,123,0.25)] overflow-hidden"
+          className="relative w-full bg-[#ffffff] text-[#101112] rounded-[24px] sm:rounded-[32px] lg:rounded-[36px] p-6 sm:p-10 lg:p-12 xl:p-14 shadow-[0_30px_70px_rgba(52,204,123,0.25)] overflow-hidden"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
             {/* ------------------------------------------------------------- */}
@@ -195,11 +195,10 @@ export function CultureTeamSlider() {
                         aria-selected={isActive}
                         aria-label={`Select testimonial from ${member.name}`}
                         onClick={() => setActiveIndex(idx)}
-                        className={`relative w-12 h-12 sm:w-14 sm:h-14 lg:w-[58px] lg:h-[58px] rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 shrink-0 focus:outline-none ${
-                          isActive
+                        className={`relative w-12 h-12 sm:w-14 sm:h-14 lg:w-[58px] lg:h-[58px] rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 shrink-0 focus:outline-none ${isActive
                             ? "border-[2.5px] border-[#101112] shadow-sm scale-105"
                             : "border-[2.5px] border-transparent opacity-60 hover:opacity-100 hover:scale-105"
-                        }`}
+                          }`}
                       >
                         <Image
                           src={member.avatar}
