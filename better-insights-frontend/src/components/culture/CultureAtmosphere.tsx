@@ -238,15 +238,13 @@ const ATMOSPHERE_CLUSTERS: ImageCluster[] = [
   },
 ];
 
-const ALL_ATMOSPHERE_CARDS: ClusterCard[] = ATMOSPHERE_CLUSTERS.flatMap((cluster) => cluster.cards);
-
 export function CultureAtmosphere() {
   const sectionRef = useRef<HTMLElement>(null);
   const trackWrapperRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
 
-  // GSAP ScrollTrigger Setup: Pinned Horizontal Scrubbing on Desktop/Tablet
+  // GSAP ScrollTrigger Setup: Pinned Horizontal Scrubbing on Desktop, Tablet & Mobile
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -261,129 +259,105 @@ export function CultureAtmosphere() {
     if (!section || !track) return;
 
     const ctx = gsap.context(() => {
-      const mm = gsap.matchMedia();
-
-      // =======================================================================
-      // Desktop & Tablet: Pinned Horizontal Scroll
-      // Section pins in place, header stays fixed at top, track scrolls X
-      // =======================================================================
-      mm.add("(min-width: 768px) and (min-height: 560px)", () => {
-        // 1. Initial entrance reveal for header elements
-        gsap.fromTo(
-          section.querySelectorAll(".atmosphere-header-item"),
-          {
-            opacity: 0,
-            y: 24,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            stagger: 0.12,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: section,
-              start: "top 85%",
-              once: true,
-            },
-          }
-        );
-
-        // 2. Dynamic Scroll Distance Calculation
-        const getScrollDistance = () => {
-          if (!track) return 0;
-          return Math.max(0, track.scrollWidth - window.innerWidth + 120);
-        };
-
-        const getPinDuration = () => {
-          return Math.max(1600, getScrollDistance() * 1.15);
-        };
-
-        // 3. Master Pinned Horizontal Scrub Timeline
-        const tl = gsap.timeline({
+      // 1. Initial entrance reveal for header elements
+      gsap.fromTo(
+        section.querySelectorAll(".atmosphere-header-item"),
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power3.out",
           scrollTrigger: {
             trigger: section,
-            start: "top top",
-            end: () => `+=${getPinDuration()}`,
-            pin: true,
-            scrub: 1,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
+            start: "top 85%",
+            once: true,
           },
-        });
+        }
+      );
 
-        // Translate the track horizontally from 0 to -getScrollDistance()
+      // 2. Dynamic Scroll Distance Calculation (Responsive across all viewports)
+      const getScrollDistance = () => {
+        if (!track) return 0;
+        const padding = window.innerWidth < 768 ? 32 : 120;
+        return Math.max(0, track.scrollWidth - window.innerWidth + padding);
+      };
+
+      const getPinDuration = () => {
+        const dist = getScrollDistance();
+        if (window.innerWidth < 768) {
+          // Responsive pin distance tuned for mobile touch scrolling
+          return Math.max(1100, dist * 0.95);
+        }
+        return Math.max(1600, dist * 1.15);
+      };
+
+      // 3. Master Pinned Horizontal Scrub Timeline
+      // Section pins in place while track moves along the X-axis from 0 to -getScrollDistance()
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: () => `+=${getPinDuration()}`,
+          pin: true,
+          scrub: 1,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      // Translate the track horizontally from right to left
+      tl.to(
+        track,
+        {
+          x: () => -getScrollDistance(),
+          ease: "none",
+          duration: 1,
+        },
+        0
+      );
+
+      // Progress bar scrub at the bottom
+      if (progressBar) {
         tl.to(
-          track,
+          progressBar,
           {
-            x: () => -getScrollDistance(),
+            scaleX: 1,
             ease: "none",
             duration: 1,
           },
           0
         );
+      }
 
-        // Progress bar scrub at the bottom
-        if (progressBar) {
-          tl.to(
-            progressBar,
-            {
-              scaleX: 1,
-              ease: "none",
-              duration: 1,
+      // Floating parallax & subtle tilt shifts on alternating cards during horizontal travel
+      const cards = track.querySelectorAll(".atmosphere-card");
+      cards.forEach((card, idx) => {
+        const isOdd = idx % 2 === 1;
+        tl.to(
+          card,
+          {
+            y: () => {
+              const isMobile = window.innerWidth < 768;
+              return isMobile ? (isOdd ? -10 : 10) : (isOdd ? -20 : 20);
             },
-            0
-          );
-        }
-
-        // Floating parallax & subtle tilt shifts on alternating cards during horizontal travel
-        const cards = track.querySelectorAll(".atmosphere-card");
-        cards.forEach((card, idx) => {
-          const isOdd = idx % 2 === 1;
-          tl.to(
-            card,
-            {
-              y: isOdd ? -20 : 20,
-              ease: "none",
-              duration: 1,
-            },
-            0
-          );
-        });
-
-        return () => {
-          tl.kill();
-          gsap.set(track, { clearProps: "all" });
-          if (progressBar) gsap.set(progressBar, { clearProps: "all" });
-          const cards = track.querySelectorAll(".atmosphere-card");
-          if (cards.length > 0) gsap.set(cards, { clearProps: "all" });
-        };
+            ease: "none",
+            duration: 1,
+          },
+          0
+        );
       });
 
-      // =======================================================================
-      // Mobile / Compact Viewports: Natural vertical flow + entrance reveals
-      // =======================================================================
-      mm.add("(max-width: 767px), (max-height: 559px)", () => {
-        const mobileCards = section.querySelectorAll(".atmosphere-mobile-card");
-        if (mobileCards.length > 0) {
-          gsap.from(mobileCards, {
-            opacity: 0,
-            y: 20,
-            duration: 0.6,
-            stagger: 0.05,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: section,
-              start: "top 85%",
-              once: true,
-            },
-          });
-        }
-
-        return () => {
-          if (mobileCards.length > 0) gsap.set(mobileCards, { clearProps: "all" });
-        };
-      });
+      return () => {
+        tl.kill();
+        gsap.set(track, { clearProps: "all" });
+        if (progressBar) gsap.set(progressBar, { clearProps: "all" });
+        if (cards.length > 0) gsap.set(cards, { clearProps: "all" });
+      };
     }, section);
 
     // ResizeObserver: auto-refresh calculations when photos or fonts finish settling
@@ -395,7 +369,7 @@ export function CultureAtmosphere() {
       ro.observe(track);
     }
 
-    const t1 = setTimeout(() => ScrollTrigger.refresh(), 250);
+    const t1 = setTimeout(() => ScrollTrigger.refresh(), 200);
     const t2 = setTimeout(() => ScrollTrigger.refresh(), 800);
     const t3 = setTimeout(() => ScrollTrigger.refresh(), 1500);
 
@@ -416,31 +390,31 @@ export function CultureAtmosphere() {
     <section
       ref={sectionRef}
       id="culture-atmosphere"
-      className="relative w-full bg-[#0d0c12] select-none md:h-screen md:min-h-[640px] md:max-h-[1080px] md:flex md:flex-col md:justify-between overflow-hidden py-14 sm:py-20 md:py-0"
+      className="relative w-full bg-[#0d0c12] select-none h-[100dvh] min-h-[560px] max-h-[1100px] flex flex-col justify-between overflow-hidden py-3 sm:py-5 md:py-0"
       aria-labelledby="bi-culture-title"
     >
       {/* Background Ambient Radial Glow */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] lg:w-[1200px] h-[550px] bg-[radial-gradient(circle,rgba(203,252,107,0.06)_0%,rgba(203,252,107,0.015)_50%,transparent_70%)] blur-[140px] pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] lg:w-[1200px] h-[550px] bg-[radial-gradient(circle,rgba(52,204,123,0.06)_0%,rgba(43,184,109,0.015)_50%,transparent_70%)] blur-[140px] pointer-events-none"
         aria-hidden="true"
       />
 
       {/* ===================================================================== */}
-      {/* 1. Stationary Header (Fixed at top of pinned section on desktop)      */}
+      {/* 1. Stationary Header (Fixed at top of pinned section on all screens)   */}
       {/* ===================================================================== */}
-      <header className="bi-culture-container pt-8 sm:pt-12 md:pt-16 lg:pt-20 pb-4 shrink-0 relative z-20">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-12">
+      <header className="bi-culture-container pt-4 sm:pt-8 md:pt-12 lg:pt-16 pb-2 sm:pb-3 shrink-0 relative z-20">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-3 sm:gap-5 lg:gap-12">
           {/* Eyebrow & Title */}
           <div className="atmosphere-header-item">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 mb-3 sm:mb-4">
+            <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-white/[0.05] border border-white/10 mb-2 sm:mb-3 md:mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-[#34CC7B] animate-pulse" />
-              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#34CC7B]">
+              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.16em] sm:tracking-[0.18em] text-[#34CC7B]">
                 Our Culture &amp; People
               </span>
             </div>
             <h2
               id="bi-culture-title"
-              className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light text-white tracking-[-0.035em] [font-family:'Host_Grotesk',sans-serif] leading-[1.08]"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-white tracking-[-0.035em] [font-family:'Host_Grotesk',sans-serif] leading-[1.1] sm:leading-[1.08]"
             >
               Feel the atmosphere.
             </h2>
@@ -448,7 +422,7 @@ export function CultureAtmosphere() {
 
           {/* Introductory Paragraph */}
           <div className="max-w-xl atmosphere-header-item">
-            <p className="text-sm sm:text-base lg:text-[17px] text-[#A5A5A5] font-normal leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base lg:text-[17px] text-[#A5A5A5] font-normal leading-relaxed line-clamp-3 sm:line-clamp-none">
               Behind every great digital experience is a team of curious minds, creative thinkers and problem solvers. At Better Insights, we bring strategy, design and technology together to create meaningful digital experiences and build things that make a difference.
             </p>
           </div>
@@ -456,59 +430,22 @@ export function CultureAtmosphere() {
       </header>
 
       {/* ===================================================================== */}
-      {/* 2. Responsive Mobile Image Gallery (< 768px)                          */}
-      {/* Editorial 2-column grid contained within viewport, zero overflow     */}
-      {/* ===================================================================== */}
-      <div className="block md:hidden w-full px-4 sm:px-6 py-4 overflow-hidden relative z-10">
-        <div className="grid grid-cols-2 gap-3 sm:gap-4">
-          {ALL_ATMOSPHERE_CARDS.map((card, idx) => {
-            const isWide = idx % 3 === 0;
-            return (
-              <div
-                key={`mobile-${card.id}`}
-                className={`atmosphere-mobile-card relative rounded-2xl overflow-hidden bg-[#181622] border border-white/10 shadow-[0_12px_32px_rgba(0,0,0,0.6)] ${
-                  isWide ? "col-span-2 aspect-[16/10]" : "aspect-[4/5]"
-                }`}
-              >
-                <Image
-                  src={card.src}
-                  alt={card.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 640px) 100vw, 400px"
-                  loading="lazy"
-                />
-                {card.caption && (
-                  <div className="absolute inset-x-0 bottom-0 pt-8 pb-3 px-3 bg-gradient-to-t from-black/85 via-black/45 to-transparent flex items-center gap-1.5 z-10">
-                    <span className="text-sm select-none">{card.caption.emoji}</span>
-                    <span className="text-xs font-medium text-white/95 tracking-tight [font-family:'Host_Grotesk',sans-serif] truncate">
-                      {card.caption.text}
-                    </span>
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* ===================================================================== */}
-      {/* 3. Horizontal Photographic Gallery Track (Desktop & Tablet >= 768px)   */}
-      {/* Pinned horizontal travel with 5 distinct clusters and GSAP scrub      */}
+      {/* 2. Horizontal Photographic Gallery Track (Pinned Scroll on All Devices)*/}
+      {/* Smooth right-to-left travel driven by vertical scroll scrub           */}
       {/* ===================================================================== */}
       <div
         ref={trackWrapperRef}
-        className="hidden md:flex relative w-full md:flex-1 md:min-h-0 md:items-center md:overflow-hidden py-0 z-10"
+        className="relative w-full flex-1 min-h-0 flex items-center overflow-hidden py-0 z-10"
       >
         <div
           ref={trackRef}
-          className="flex flex-row items-center gap-10 sm:gap-14 md:gap-16 lg:gap-24 xl:gap-28 w-max pl-5 sm:pl-10 md:pl-16 lg:pl-24 pr-12 sm:pr-20 md:pr-28 lg:pr-44 will-change-transform"
+          className="flex flex-row items-center gap-8 sm:gap-12 md:gap-16 lg:gap-24 xl:gap-28 w-max pl-4 sm:pl-8 md:pl-16 lg:pl-24 pr-8 sm:pr-16 md:pr-28 lg:pr-44 will-change-transform"
         >
           {ATMOSPHERE_CLUSTERS.map((cluster) => {
             return (
               <div
                 key={cluster.id}
-                className={`relative shrink-0 snap-center h-[420px] sm:h-[460px] md:h-[480px] lg:h-[510px] xl:h-[540px] ${cluster.widthClass}`}
+                className={`relative shrink-0 snap-center h-[320px] sm:h-[400px] md:h-[480px] lg:h-[510px] xl:h-[540px] ${cluster.widthClass}`}
                 aria-label={cluster.title}
               >
                 {cluster.cards.map((card) => {
@@ -525,26 +462,26 @@ export function CultureAtmosphere() {
                           <div
                             className={`absolute z-30 pointer-events-none flex flex-col items-center ${
                               card.caption.position === "top"
-                                ? "-top-12 sm:-top-14"
-                                : "-bottom-14 sm:-bottom-16"
+                                ? "-top-9 sm:-top-11 md:-top-14"
+                                : "-bottom-10 sm:-bottom-13 md:-bottom-16"
                             } ${
                               card.caption.align === "left"
-                                ? "left-2 sm:left-4"
+                                ? "left-1 sm:left-2 md:left-4"
                                 : card.caption.align === "right"
-                                ? "right-2 sm:right-4"
+                                ? "right-1 sm:right-2 md:right-4"
                                 : "left-1/2 -translate-x-1/2"
                             }`}
                           >
                             {card.caption.position === "bottom" && (
-                              <span className="text-xl sm:text-2xl mb-0.5 filter drop-shadow">
+                              <span className="text-base sm:text-xl md:text-2xl mb-0.5 filter drop-shadow">
                                 {card.caption.emoji}
                               </span>
                             )}
-                            <span className="text-xs sm:text-sm font-light text-[#CCCCCC] tracking-tight whitespace-nowrap text-center filter drop-shadow [font-family:'Host_Grotesk',sans-serif]">
+                            <span className="text-[10px] sm:text-xs md:text-sm font-light text-[#CCCCCC] tracking-tight whitespace-nowrap text-center filter drop-shadow [font-family:'Host_Grotesk',sans-serif]">
                               {card.caption.text}
                             </span>
                             {card.caption.position === "top" && (
-                              <span className="text-xl sm:text-2xl mt-0.5 filter drop-shadow">
+                              <span className="text-base sm:text-xl md:text-2xl mt-0.5 filter drop-shadow">
                                 {card.caption.emoji}
                               </span>
                             )}
@@ -558,7 +495,7 @@ export function CultureAtmosphere() {
                             alt={card.alt}
                             fill
                             className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                            sizes="(max-width: 640px) 80vw, (max-width: 1024px) 45vw, 400px"
+                            sizes="(max-width: 640px) 75vw, (max-width: 1024px) 45vw, 400px"
                             loading="lazy"
                           />
                         </div>
@@ -575,23 +512,23 @@ export function CultureAtmosphere() {
       {/* ===================================================================== */}
       {/* 3. Pinned Scroll Progress Indicator (Bottom of pinned screen)         */}
       {/* ===================================================================== */}
-      <div className="bi-culture-container pb-5 sm:pb-6 pt-2 shrink-0 relative z-20 hidden md:flex items-center justify-between text-xs text-white/40">
-        <div className="flex items-center gap-3">
+      <div className="bi-culture-container pb-3 sm:pb-5 md:pb-6 pt-1 sm:pt-2 shrink-0 relative z-20 flex items-center justify-between text-xs text-white/40">
+        <div className="flex items-center gap-2 sm:gap-3">
           <span className="w-1.5 h-1.5 rounded-full bg-[#34CC7B] animate-pulse" />
-          <span className="tracking-widest uppercase text-[10px] text-white/60 font-mono">
+          <span className="tracking-widest uppercase text-[9px] sm:text-[10px] text-white/60 font-mono">
             Scroll down to explore gallery
           </span>
         </div>
 
-        <div className="flex items-center gap-3">
-          <span className="text-[10px] text-white/40 font-mono">01</span>
-          <div className="w-36 h-[2px] bg-white/10 rounded-full overflow-hidden">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <span className="text-[9px] sm:text-[10px] text-white/40 font-mono">01</span>
+          <div className="w-24 sm:w-36 h-[2px] bg-white/10 rounded-full overflow-hidden">
             <div
               ref={progressBarRef}
               className="h-full bg-[#34CC7B] w-full origin-left scale-x-0 will-change-transform"
             />
           </div>
-          <span className="text-[10px] text-white/40 font-mono">05</span>
+          <span className="text-[9px] sm:text-[10px] text-white/40 font-mono">05</span>
         </div>
       </div>
     </section>
