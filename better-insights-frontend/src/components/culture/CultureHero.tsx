@@ -1,143 +1,260 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowDown, Sparkles, Users, HeartHandshake } from "lucide-react";
+import { ArrowDown } from "lucide-react";
+import { getGSAP } from "@/lib/gsap";
+
+interface FloatingCard {
+  src: string;
+  alt: string;
+  className: string;
+  aspectClass: string;
+  rotation: string;
+  parallaxSpeed: number;
+  priority?: boolean;
+}
+
+const FLOATING_CARDS: FloatingCard[] = [
+  // 1. Top-Left: Team sprint discussion (landscape 4:3)
+  {
+    src: "/images/culture/photo-1556761175-4b46a572b786.jpg",
+    alt: "Better Insights team sprint discussion",
+    className: "top-[10%] left-[2%] xl:left-[4%] w-[190px] md:w-[220px] xl:w-[255px]",
+    aspectClass: "aspect-[4/3]",
+    rotation: "-rotate-3",
+    parallaxSpeed: -35,
+    priority: true,
+  },
+  // 2. Top-Right: Creative whiteboard session (portrait 3:4)
+  {
+    src: "/images/culture/photo-1515187029135-18ee286d815b.jpg",
+    alt: "Creative strategy whiteboard session",
+    className: "top-[8%] right-[2.5%] xl:right-[4.5%] w-[155px] md:w-[180px] xl:w-[205px]",
+    aspectClass: "aspect-[3/4]",
+    rotation: "rotate-2",
+    parallaxSpeed: -50,
+    priority: true,
+  },
+  // 3. Middle-Left: Collaboration in studio (landscape 16:10)
+  {
+    src: "/images/culture/hero-marketing-team.jpg",
+    alt: "Better Insights team collaborating",
+    className: "top-[42%] left-[1%] xl:left-[2.5%] w-[205px] md:w-[235px] xl:w-[265px] hidden md:block",
+    aspectClass: "aspect-[16/10]",
+    rotation: "rotate-2",
+    parallaxSpeed: 25,
+  },
+  // 4. Middle-Right: Engineering and product sprint (landscape 4:3)
+  {
+    src: "/images/culture/photo-1531403009284-440f080d1e12.jpg",
+    alt: "Engineering and UX design sync",
+    className: "top-[38%] right-[1%] xl:right-[2.5%] w-[195px] md:w-[225px] xl:w-[250px] hidden md:block",
+    aspectClass: "aspect-[4/3]",
+    rotation: "-rotate-2",
+    parallaxSpeed: -25,
+  },
+  // 5. Bottom-Left: Strategic team workshop (portrait 3:4)
+  {
+    src: "/images/culture/photo-1552664730-d307ca884978.jpg",
+    alt: "Strategic growth workshop",
+    className: "bottom-[7%] left-[4%] xl:left-[7%] w-[155px] md:w-[175px] xl:w-[200px]",
+    aspectClass: "aspect-[3/4]",
+    rotation: "-rotate-2",
+    parallaxSpeed: -40,
+  },
+  // 6. Bottom-Center: Knowledge sharing presentation (landscape 4:3)
+  {
+    src: "/images/culture/photo-1551836022-d5d88e9218df.jpg",
+    alt: "Team presentation and knowledge sharing",
+    className: "bottom-[3%] left-[41%] xl:left-[43%] w-[170px] md:w-[195px] xl:w-[220px] hidden lg:block",
+    aspectClass: "aspect-[4/3]",
+    rotation: "rotate-1",
+    parallaxSpeed: 30,
+  },
+  // 7. Bottom-Right: Design review & review (landscape 16:10)
+  {
+    src: "/images/culture/photo-1559136555-9303baea8ebd.jpg",
+    alt: "Design critique and brand review",
+    className: "bottom-[6%] right-[2%] xl:right-[4%] w-[205px] md:w-[240px] xl:w-[275px]",
+    aspectClass: "aspect-[16/10]",
+    rotation: "rotate-3",
+    parallaxSpeed: -35,
+  },
+];
 
 export function CultureHero() {
-  const handleScrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const headingRef = useRef<HTMLDivElement | null>(null);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  const handleScrollToIntro = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    const target = document.getElementById(id);
+    const target = document.getElementById("culture-intro");
     if (target) {
       target.scrollIntoView({ behavior: "smooth" });
     }
   };
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
+    const { gsap } = getGSAP();
+    if (!sectionRef.current) return;
+
+    const ctx = gsap.context(() => {
+      // 1. Entrance animation for the central content
+      if (headingRef.current) {
+        gsap.from(headingRef.current, {
+          opacity: 0,
+          y: 30,
+          duration: 1,
+          ease: "power3.out",
+        });
+      }
+
+      // 2. Parallax and entrance for floating cards
+      cardsRef.current.forEach((card, index) => {
+        if (!card) return;
+
+        // Entrance animation
+        gsap.from(card, {
+          opacity: 0,
+          scale: 0.9,
+          y: 30 + (index % 3) * 12,
+          duration: 1.1 + index * 0.08,
+          ease: "power3.out",
+          delay: 0.15 + index * 0.06,
+        });
+
+        // Scroll parallax
+        const cardData = FLOATING_CARDS[index];
+        const shift = cardData?.parallaxSpeed ?? -30;
+
+        gsap.to(card, {
+          y: shift,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: 1.2,
+            invalidateOnRefresh: true,
+          },
+        });
+      });
+    }, sectionRef);
+
+    return () => {
+      ctx.revert();
+    };
+  }, []);
+
   return (
     <section
-      className="relative min-h-[92vh] sm:min-h-screen flex items-center justify-center bg-[#0D0D10] text-white pt-32 pb-20 sm:pt-36 sm:pb-28 overflow-hidden select-none"
+      ref={sectionRef}
+      className="relative min-h-screen flex flex-col justify-center items-center bg-[#0B0B0D] text-white pt-28 pb-16 sm:pt-32 sm:pb-20 overflow-hidden select-none"
       aria-label="Culture Hero"
     >
-      {/* Background Ambient Radial Glow */}
+      {/* Subtle Ambient Radial Lighting */}
       <div
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[radial-gradient(circle,rgba(52,204,123,0.15)_0%,rgba(43,184,109,0.05)_50%,transparent_75%)] blur-[120px] pointer-events-none"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute -bottom-20 -right-20 w-[450px] h-[450px] bg-[radial-gradient(circle,rgba(52,204,123,0.08)_0%,transparent_70%)] blur-[100px] pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] sm:w-[900px] h-[450px] sm:h-[600px] bg-[radial-gradient(circle,rgba(52,204,123,0.09)_0%,rgba(43,184,109,0.03)_45%,transparent_70%)] blur-[120px] pointer-events-none"
         aria-hidden="true"
       />
 
-      {/* Subtle Orbital Background Line */}
-      <div
-        className="absolute inset-0 max-w-7xl mx-auto pointer-events-none opacity-20"
-        aria-hidden="true"
-      >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[850px] rounded-full border border-dashed border-white/20" />
+      {/* Floating Team/Culture Photographs (Desktop & Tablet) */}
+      <div className="absolute inset-0 pointer-events-none z-10 hidden md:block">
+        {FLOATING_CARDS.map((card, idx) => (
+          <div
+            key={card.src}
+            ref={(el) => {
+              cardsRef.current[idx] = el;
+            }}
+            className={`absolute ${card.className} ${card.rotation} pointer-events-auto group transition-transform duration-300 will-change-transform`}
+          >
+            <div
+              className={`relative w-full ${card.aspectClass} rounded-[1.25rem] overflow-hidden border border-white/12 bg-[#16161D] shadow-[0_20px_45px_rgba(0,0,0,0.65)]`}
+            >
+              <Image
+                src={card.src}
+                alt={card.alt}
+                fill
+                priority={card.priority}
+                className="object-cover transition-transform duration-700 group-hover:scale-108"
+                sizes="(max-width: 1024px) 25vw, (max-width: 1440px) 20vw, 300px"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity" />
+            </div>
+          </div>
+        ))}
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        {/* Eyebrow Pill */}
-        <div className="flex justify-center mb-6 sm:mb-8">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-[#34CC7B] text-xs font-semibold tracking-wider uppercase">
-            <Sparkles className="w-3.5 h-3.5" />
-            Culture &amp; Life at Better Insights
+      {/* Central Content Container (Always clear of floating images) */}
+      <div
+        ref={headingRef}
+        className="relative z-20 max-w-4xl mx-auto px-6 sm:px-8 text-center flex flex-col items-center justify-center pointer-events-auto"
+      >
+        {/* Eyebrow Label: • Culture */}
+        <div className="inline-flex items-center justify-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-md mb-6 sm:mb-8 shadow-sm">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#34CC7B] animate-pulse" />
+          <span className="text-xs font-semibold tracking-wider text-white/85 uppercase">
+            Culture
           </span>
         </div>
 
-        {/* Master Headline */}
-        <div className="max-w-4xl mx-auto text-center mb-8">
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold tracking-[-0.035em] text-white leading-[1.02] [font-family:'Host_Grotesk',sans-serif]">
-            Good ideas. Great people.{" "}
-            <span className="text-[#34CC7B] inline-block">Better culture.</span>
-          </h1>
-          <p className="mt-6 sm:mt-8 text-base sm:text-xl text-[#A5A5A5] max-w-2xl mx-auto font-normal leading-relaxed">
-            We believe great digital experiences begin with great people. At Better Insights, strategy,
-            creativity, and technology come together in an environment where ideas grow and people do their
-            best work.
-          </p>
+        {/* Master Heading: A talented bunch of humans that love what we do */}
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.5rem] font-semibold tracking-[-0.035em] text-white leading-[1.04] sm:leading-[1.02] max-w-3xl lg:max-w-4xl mx-auto [font-family:'Host_Grotesk',sans-serif]">
+          A talented bunch{" "}
+          <br className="hidden sm:inline" />
+          of humans that love{" "}
+          <br className="hidden sm:inline" />
+          what we do
+        </h1>
 
-          {/* Action CTAs */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="#culture-intro"
-              onClick={(e) => handleScrollToSection(e, "culture-intro")}
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#34CC7B] text-[#171717] font-bold text-xs uppercase tracking-wider hover:bg-[#2BB86D] transition-all hover:scale-105 shadow-lg shadow-[#34CC7B]/20 cursor-pointer"
-            >
-              <span>Explore our culture</span>
-              <ArrowDown className="w-4 h-4 animate-bounce" />
-            </a>
-            <a
-              href="#culture-team"
-              onClick={(e) => handleScrollToSection(e, "culture-team")}
-              className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-white/5 hover:bg-white/10 text-white font-bold text-xs uppercase tracking-wider border border-white/10 transition-all backdrop-blur-md hover:scale-105"
-            >
-              <Users className="w-4 h-4 text-[#34CC7B]" />
-              <span>Meet the team</span>
-            </a>
-          </div>
+        {/* Rounded CTA Button: I'm intrigued */}
+        <div className="mt-8 sm:mt-10">
+          <a
+            href="#culture-intro"
+            onClick={handleScrollToIntro}
+            className="inline-flex items-center gap-2.5 px-8 py-3.5 sm:py-4 rounded-full bg-[#34CC7B] hover:bg-[#2BB86D] text-[#0B0B0D] font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-200 hover:scale-105 shadow-[0_10px_30px_rgba(52,204,123,0.3)] cursor-pointer"
+            aria-label="I'm intrigued - scroll to culture details"
+          >
+            <span>I&apos;m intrigued</span>
+            <ArrowDown className="w-4 h-4" />
+          </a>
         </div>
 
-        {/* MadeByShape-Style Asymmetrical Overlapping Hero Collage */}
-        <div className="mt-14 sm:mt-18 relative max-w-5xl mx-auto">
-          <div className="grid grid-cols-12 gap-4 items-center">
-            {/* Primary Left/Center Main Photo */}
-            <div className="col-span-12 sm:col-span-7 relative group">
-              <div className="relative h-[280px] sm:h-[400px] w-full rounded-3xl sm:rounded-[2.25rem] overflow-hidden shadow-2xl border border-white/10 bg-[#16161D]">
-                <Image
-                  src="/images/culture/hero-marketing-team.jpg"
-                  alt="Better Insights team collaborating on digital creative strategy"
-                  fill
-                  priority
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, 60vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D10]/80 via-transparent to-transparent" />
-              </div>
-              {/* Floating Caption Top-Left */}
-              <div className="absolute -top-3.5 left-6 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#0D0D10]/90 backdrop-blur-md border border-white/15 text-xs font-semibold text-white shadow-xl">
-                <span>☝️</span>
-                <span>Ideas in motion</span>
-              </div>
-            </div>
-
-            {/* Overlapping Secondary Right Stack */}
-            <div className="col-span-12 sm:col-span-5 flex flex-col gap-4 sm:-ml-8 sm:mt-12 relative z-20">
-              {/* Top Card */}
-              <div className="relative h-[190px] sm:h-[220px] rounded-3xl sm:rounded-[2rem] overflow-hidden shadow-2xl border border-white/10 bg-[#16161D] group">
-                <Image
-                  src="/images/culture/photo-1556761175-4b46a572b786.jpg"
-                  alt="Team engineering and design sprint"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, 40vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D10]/70 via-transparent to-transparent" />
-                {/* Floating Caption Bottom-Right */}
-                <div className="absolute -bottom-3 right-5 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#0D0D10]/90 backdrop-blur-md border border-white/15 text-xs font-semibold text-white shadow-xl">
-                  <span>✨</span>
-                  <span>Built together</span>
-                </div>
-              </div>
-
-              {/* Bottom Card / Badge Pill */}
-              <div className="p-4 sm:p-5 rounded-2xl sm:rounded-3xl bg-white/[0.04] backdrop-blur-xl border border-white/10 flex items-center justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#34CC7B]/15 border border-[#34CC7B]/30 flex items-center justify-center text-[#34CC7B]">
-                    <HeartHandshake className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="text-xs font-semibold text-white block">People-first mindset</span>
-                    <span className="text-[11px] text-[#A5A5A5] block">Empowering creativity &amp; trust</span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#34CC7B]/10 border border-[#34CC7B]/20">
-                  <span className="w-2 h-2 rounded-full bg-[#34CC7B] animate-pulse" />
-                  <span className="text-[11px] font-semibold text-[#34CC7B]">Active Studio</span>
-                </div>
-              </div>
-            </div>
+        {/* Mobile-Only Organic Asymmetric Floating Photo Cluster (Kept safely beneath CTA) */}
+        <div className="md:hidden mt-12 flex items-center justify-center gap-3 px-2 w-full max-w-sm">
+          <div className="relative w-[34%] aspect-[4/3] rounded-2xl overflow-hidden border border-white/12 shadow-xl -rotate-2">
+            <Image
+              src="/images/culture/hero-marketing-team.jpg"
+              alt="Better Insights team collaboration"
+              fill
+              className="object-cover"
+              sizes="33vw"
+            />
+          </div>
+          <div className="relative w-[30%] aspect-[3/4] rounded-2xl overflow-hidden border border-white/12 shadow-xl rotate-1 -mt-3">
+            <Image
+              src="/images/culture/photo-1515187029135-18ee286d815b.jpg"
+              alt="Team creative strategy session"
+              fill
+              className="object-cover"
+              sizes="33vw"
+            />
+          </div>
+          <div className="relative w-[34%] aspect-[4/3] rounded-2xl overflow-hidden border border-white/12 shadow-xl rotate-2">
+            <Image
+              src="/images/culture/photo-1556761175-4b46a572b786.jpg"
+              alt="Team discussion"
+              fill
+              className="object-cover"
+              sizes="33vw"
+            />
           </div>
         </div>
       </div>
@@ -145,3 +262,4 @@ export function CultureHero() {
   );
 }
 
+export default CultureHero;
