@@ -89,11 +89,23 @@ export const MagneticCursor: FC<MagneticCursorProps> = ({
   }, [magneticFactor, speedMultiplier, maxScaleX, maxScaleY, cursorSize, lerpAmount, hoverPadding]);
 
   useEffect(() => {
-    setIsTouchDevice(
-      window.matchMedia('(pointer: coarse)').matches ||
-      'ontouchstart' in window ||
-      navigator.maxTouchPoints > 0
-    );
+    const checkTouch = () => {
+      return (
+        window.matchMedia('(hover: none)').matches ||
+        window.matchMedia('(pointer: coarse)').matches ||
+        'ontouchstart' in window ||
+        navigator.maxTouchPoints > 0 ||
+        window.innerWidth <= 1024
+      );
+    };
+
+    setIsTouchDevice(checkTouch());
+
+    const handleResize = () => {
+      setIsTouchDevice(checkTouch());
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   // Quick setters for smooth 60fps transform updates
@@ -600,7 +612,7 @@ export const MagneticCursor: FC<MagneticCursorProps> = ({
     width: cursorSize,
     height: cursorSize,
     borderRadius: '53% 47% 52% 48% / 48% 53% 47% 52%', // Organic water droplet silhouette
-    display: 'flex',
+    display: isTouchDevice ? 'none' : 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     transition: 'background-color 0.25s ease, border 0.25s ease',

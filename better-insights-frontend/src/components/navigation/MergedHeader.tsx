@@ -50,28 +50,22 @@ export function MergedHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Dropdown states for desktop
-  const [homeOpen, setHomeOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
 
   // Accordion states for mobile drawer
-  const [mobileHomeExpanded, setMobileHomeExpanded] = useState(false);
   const [mobileServicesExpanded, setMobileServicesExpanded] = useState(false);
 
   // Hover timeout refs to prevent dropdown flicker
-  const homeTimerRef = useRef<NodeJS.Timeout | null>(null);
   const servicesTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const homeItemRef = useRef<HTMLLIElement | null>(null);
   const servicesItemRef = useRef<HTMLLIElement | null>(null);
 
-  const isHomeActive =
-    pathname === "/" || pathname === "/home-2" || pathname === "/home-redesign-1";
+  const isHomeActive = pathname === "/" || pathname === "/home-2";
   const isServicesActive = pathname?.startsWith("/services");
 
   // Close menus on route change
   useEffect(() => {
     setMobileMenuOpen(false);
-    setHomeOpen(false);
     setServicesOpen(false);
   }, [pathname]);
 
@@ -88,7 +82,6 @@ export function MergedHeader() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        setHomeOpen(false);
         setServicesOpen(false);
         setMobileMenuOpen(false);
       }
@@ -103,9 +96,6 @@ export function MergedHeader() {
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       const target = e.target as Node;
-      if (homeItemRef.current && !homeItemRef.current.contains(target)) {
-        setHomeOpen(false);
-      }
       if (servicesItemRef.current && !servicesItemRef.current.contains(target)) {
         setServicesOpen(false);
       }
@@ -114,22 +104,9 @@ export function MergedHeader() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Hover handlers for Home
-  const handleHomeMouseEnter = () => {
-    if (homeTimerRef.current) clearTimeout(homeTimerRef.current);
-    setServicesOpen(false);
-    setHomeOpen(true);
-  };
-  const handleHomeMouseLeave = () => {
-    homeTimerRef.current = setTimeout(() => {
-      setHomeOpen(false);
-    }, 150);
-  };
-
   // Hover handlers for Services
   const handleServicesMouseEnter = () => {
     if (servicesTimerRef.current) clearTimeout(servicesTimerRef.current);
-    setHomeOpen(false);
     setServicesOpen(true);
   };
   const handleServicesMouseLeave = () => {
@@ -152,91 +129,30 @@ export function MergedHeader() {
 
         {/* Desktop Navigation Links */}
         <ul className="nav__links m-text-6" role="menubar">
-          {/* 1. Home Dropdown */}
-          <li
-            ref={homeItemRef}
-            className="nav__item relative"
-            role="none"
-            onMouseEnter={handleHomeMouseEnter}
-            onMouseLeave={handleHomeMouseLeave}
-          >
-            <div className="flex items-center gap-1">
-              <Link
-                href="/"
-                className={`m-link-2 flex items-center py-1 font-inherit ${
-                  isHomeActive ? "is-active font-semibold text-[#1B1411]" : ""
-                }`}
-                aria-label="Home"
-              >
-                <span>Home</span>
-              </Link>
-              <button
-                type="button"
-                className="p-1 cursor-pointer bg-transparent border-0 text-[#1B1411]/60 hover:text-[#6C3CFF] transition-colors flex items-center justify-center"
-                onClick={() => {
-                  setHomeOpen((prev) => !prev);
-                  setServicesOpen(false);
-                }}
-                aria-haspopup="true"
-                aria-expanded={homeOpen}
-                aria-label="Toggle Home dropdown"
-              >
-                <ChevronDown
-                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                    homeOpen ? "rotate-180 text-[#6C3CFF]" : "text-[#1B1411]/60"
-                  }`}
-                  aria-hidden="true"
-                />
-              </button>
-            </div>
-
-            {/* Desktop Home Dropdown Menu */}
-            {homeOpen && (
-              <div
-                role="menu"
-                aria-label="Home pages"
-                className="absolute top-full left-0 mt-2 w-52 p-1.5 bg-white/95 backdrop-blur-xl border border-black/10 rounded-2xl shadow-[0_16px_36px_-6px_rgba(0,0,0,0.14)] z-50 animate-in fade-in slide-in-from-top-2 duration-150"
-              >
-                <Link
-                  href="/"
-                  role="menuitem"
-                  onClick={() => setHomeOpen(false)}
-                  className={`flex items-center justify-between px-3 py-2 rounded-xl transition-all duration-150 ${
-                    pathname === "/"
-                      ? "bg-[#6C3CFF]/10 text-[#6C3CFF]"
-                      : "hover:bg-black/5 text-[#1B1411] hover:text-[#6C3CFF]"
-                  }`}
-                >
-                  <span className="font-semibold text-xs sm:text-sm">Home 1</span>
-                  {pathname === "/" && (
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#6C3CFF] text-white font-medium">
-                      Active
-                    </span>
-                  )}
-                </Link>
-
-                <Link
-                  href="/home-2"
-                  role="menuitem"
-                  onClick={() => setHomeOpen(false)}
-                  className={`flex items-center justify-between px-3 py-2 rounded-xl mt-1 transition-all duration-150 ${
-                    pathname === "/home-2"
-                      ? "bg-[#6C3CFF]/10 text-[#6C3CFF]"
-                      : "hover:bg-black/5 text-[#1B1411] hover:text-[#6C3CFF]"
-                  }`}
-                >
-                  <span className="font-semibold text-xs sm:text-sm">Home 2</span>
-                  {pathname === "/home-2" && (
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#6C3CFF] text-white font-medium">
-                      Active
-                    </span>
-                  )}
-                </Link>
-              </div>
-            )}
+          {/* 1. Home Link */}
+          <li className="nav__item" role="none">
+            <Link
+              href="/"
+              className={`m-link-2 flex items-center py-1 font-inherit ${
+                isHomeActive ? "is-active font-semibold text-[#1B1411]" : ""
+              }`}
+              aria-label="Home"
+            >
+              <span>Home</span>
+            </Link>
           </li>
 
-          {/* 2. Services Dropdown */}
+          {/* 2. About */}
+          <li className="nav__item" role="none">
+            <Link
+              href="/about"
+              className={`m-link-2 ${pathname === "/about" ? "is-active" : ""}`}
+            >
+              About
+            </Link>
+          </li>
+
+          {/* 3. Services Dropdown */}
           <li
             ref={servicesItemRef}
             className="nav__item relative"
@@ -251,7 +167,6 @@ export function MergedHeader() {
               }`}
               onClick={() => {
                 setServicesOpen((prev) => !prev);
-                setHomeOpen(false);
               }}
               aria-haspopup="true"
               aria-expanded={servicesOpen}
@@ -325,7 +240,7 @@ export function MergedHeader() {
             )}
           </li>
 
-          {/* 3. Our Work */}
+          {/* 4. Our Work */}
           <li className="nav__item" role="none">
             <Link
               href="/work"
@@ -335,23 +250,13 @@ export function MergedHeader() {
             </Link>
           </li>
 
-          {/* 4. Insights */}
+          {/* 5. Insights */}
           <li className="nav__item" role="none">
             <Link
               href="/insights"
               className={`m-link-2 ${pathname?.startsWith("/insights") ? "is-active" : ""}`}
             >
               Insights
-            </Link>
-          </li>
-
-          {/* 5. About */}
-          <li className="nav__item" role="none">
-            <Link
-              href="/about"
-              className={`m-link-2 ${pathname === "/about" ? "is-active" : ""}`}
-            >
-              About
             </Link>
           </li>
 
@@ -419,62 +324,31 @@ export function MergedHeader() {
         </button>
 
         <ul className="menu__links m-text-5 space-y-2">
-          {/* Mobile Home Accordion */}
+          {/* 1. Mobile Home Link */}
           <li>
-            <button
-              type="button"
-              className="w-full flex items-center justify-between text-left m-link-2 py-1 bg-transparent border-0 font-inherit"
-              onClick={() => setMobileHomeExpanded((prev) => !prev)}
-              aria-expanded={mobileHomeExpanded}
+            <Link
+              href="/"
+              className={`w-full flex items-center justify-between text-left m-link-2 py-1 font-inherit ${
+                isHomeActive ? "text-[#6C3CFF] font-semibold" : ""
+              }`}
+              onClick={() => setMobileMenuOpen(false)}
             >
               <span>Home</span>
-              <ChevronDown
-                className={`w-4 h-4 transition-transform duration-200 ${
-                  mobileHomeExpanded ? "rotate-180 text-[#6C3CFF]" : ""
-                }`}
-              />
-            </button>
-            {mobileHomeExpanded && (
-              <ul className="pl-4 mt-2 space-y-2 border-l border-white/20 text-sm">
-                <li>
-                  <Link
-                    href="/"
-                    className={`flex items-center justify-between py-1 pr-2 ${
-                      pathname === "/" ? "text-[#6C3CFF] font-semibold" : "text-white/80"
-                    }`}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <span>Home 1</span>
-                    {pathname === "/" && (
-                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#6C3CFF] text-white font-medium">
-                        Active
-                      </span>
-                    )}
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/home-2"
-                    className={`flex items-center justify-between py-1 pr-2 ${
-                      pathname === "/home-2"
-                        ? "text-[#6C3CFF] font-semibold"
-                        : "text-white/80"
-                    }`}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <span>Home 2</span>
-                    {pathname === "/home-2" && (
-                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#6C3CFF] text-white font-medium">
-                        Active
-                      </span>
-                    )}
-                  </Link>
-                </li>
-              </ul>
-            )}
+            </Link>
           </li>
 
-          {/* Mobile Services Accordion */}
+          {/* 2. Mobile About */}
+          <li>
+            <Link
+              href="/about"
+              className={`m-link-2 ${pathname === "/about" ? "text-[#6C3CFF] font-semibold" : ""}`}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              About
+            </Link>
+          </li>
+
+          {/* 3. Mobile Services Accordion */}
           <li>
             <button
               type="button"
@@ -517,7 +391,7 @@ export function MergedHeader() {
             )}
           </li>
 
-          {/* Our Work */}
+          {/* 4. Our Work */}
           <li>
             <Link
               href="/work"
@@ -528,7 +402,7 @@ export function MergedHeader() {
             </Link>
           </li>
 
-          {/* Insights */}
+          {/* 5. Insights */}
           <li>
             <Link
               href="/insights"
@@ -539,18 +413,7 @@ export function MergedHeader() {
             </Link>
           </li>
 
-          {/* About */}
-          <li>
-            <Link
-              href="/about"
-              className="m-link-2"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              About
-            </Link>
-          </li>
-
-          {/* Contact Us */}
+          {/* 6. Contact Us */}
           <li>
             <Link
               href="/contact"

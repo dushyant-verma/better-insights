@@ -1,82 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowUpRight,
-  ArrowRight,
-  Sparkles,
-  CheckCircle2,
-  TrendingUp,
-  Cpu,
-  Layers,
-  ShieldCheck,
-  Compass,
-  Code2,
-  Network,
-  BarChart3,
-  Target,
-  Zap,
-} from "lucide-react";
-import { AboutHeroSlider } from "@/components/about/AboutHeroSlider";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { AboutHeroGallery } from "@/components/about/AboutHeroGallery";
 import { TeamModal, TeamMemberData } from "@/components/about/TeamModal";
+import { TeamSlider } from "@/components/about/TeamSlider";
+import { AboutCultureSection } from "@/components/about/AboutCultureSection";
+import { StackingCapabilitiesCards } from "@/components/about/StackingCapabilitiesCards";
+import { WhoWeAreRedesign } from "@/components/about/WhoWeAreRedesign";
 import { openMarketingPlanModal } from "@/components/forms/LeadModal";
 import "@/styles/about.css";
-
-const METRICS = [
-  {
-    number: "36",
-    symbol: "+",
-    label: "Clients & Brands Served",
-    desc: "Enterprise & high-growth businesses",
-  },
-  {
-    number: "8",
-    symbol: "+",
-    label: "Technology Platforms",
-    desc: "Cloud, CRM & AI partner integrations",
-  },
-  {
-    number: "6",
-    symbol: "",
-    label: "Core Digital Capabilities",
-    desc: "Strategy, creative & engineering",
-  },
-  {
-    number: "100",
-    symbol: "%",
-    label: "Outcome-Driven Focus",
-    desc: "Accountable, measurable ROI delivery",
-  },
-];
-
-const PHILOSOPHY_PRINCIPLES = [
-  {
-    number: "01",
-    title: "Strategy Before Tactics",
-    desc: "We interrogate assumptions, analyze customer behavior, and engineer solutions rooted in commercial reality before writing a line of code or launching a campaign.",
-    tag: "Clarity & Intent",
-  },
-  {
-    number: "02",
-    title: "Creativity With Purpose",
-    desc: "Visual design and storytelling crafted to elevate brand authority, command attention, and drive meaningful customer action—never superficial decoration.",
-    tag: "Brand Authority",
-  },
-  {
-    number: "03",
-    title: "Technology That Works",
-    desc: "Practical, scalable systems engineered with AI and cloud architecture that eliminate operational bottlenecks without unnecessary complexity.",
-    tag: "Pragmatic Engineering",
-  },
-  {
-    number: "04",
-    title: "Growth You Can Measure",
-    desc: "Transparent attribution, verified performance metrics, and continuous optimization designed to deliver compounding business value and sustained ROI.",
-    tag: "Compound ROI",
-  },
-];
 
 const CAPABILITIES = [
   {
@@ -157,34 +91,6 @@ const WORKING_STAGES = [
   },
 ];
 
-const DIFFERENTIATORS = [
-  {
-    icon: Target,
-    title: "Outcome-Driven Engineering",
-    desc: "We don't build software or launch campaigns for vanity metrics. Every line of code, design decision, and media dollar is measured against customer acquisition, retention, and bottom-line margin.",
-  },
-  {
-    icon: Cpu,
-    title: "Practical AI & Automation First",
-    desc: "We integrate enterprise-grade AI agents and autonomous pipeline workflows into business processes, unlocking operational leverage that traditional agencies cannot replicate.",
-  },
-  {
-    icon: Layers,
-    title: "Unified Cross-Disciplinary Squads",
-    desc: "Our strategists, developers, and performance marketers collaborate inside unified delivery pods, eliminating communication lag and conflicting agency silos.",
-  },
-  {
-    icon: BarChart3,
-    title: "Radical Attribution Transparency",
-    desc: "Every design pivot, campaign allocation, and architectural enhancement is validated by real user telemetry and transparent multi-touch attribution.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Long-Term Innovation Partner",
-    desc: "We build enduring technology partnerships, working alongside your internal leadership as an agile innovation arm focused on sustainable growth.",
-  },
-];
-
 /**
  * Real Team Members from WordPress child theme:
  * Source of truth: wp-content/themes/astra-child/template-parts/about/about-team.php
@@ -248,8 +154,8 @@ const TEAM_MEMBERS: TeamMemberData[] = [
     name: "Dushyant Verma",
     role: "Web Developer",
     department: "Technology & Engineering",
-    image: "/team/dushyant-verma.webp",
-    originalPhoto: "/team/photos/dushyant-verma-photo.webp",
+    image: "/team/dushyant-verma-v2.webp",
+    originalPhoto: "/team/photos/dushyant-verma-photo-v2.webp",
     experience: "Full Stack Developer & Website Specialist (WordPress, Shopify, PHP, React, Next.js, APIs, AI automations).",
     expertise: ["Full Stack Development", "Next.js & React", "Headless Architecture", "Custom APIs & Integrations"],
     education: "Computer Science & Full Stack Web Development",
@@ -320,277 +226,30 @@ export default function AboutPage() {
   return (
     <div className="bg-[#FAF5F0] text-[#1B1411]">
       {/* ========================================================================= */}
-      {/* SECTION 1: HOMEPAGE-ALIGNED EDITORIAL ABOUT HERO                          */}
+      {/* SECTION 1: ANIMATED IMAGE GALLERY HERO (MadeByShape Editorial Style)     */}
       {/* ========================================================================= */}
-      <section
-        className="relative pt-24 pb-16 sm:pt-32 sm:pb-24 bg-[linear-gradient(135deg,#FAF8F5_0%,#F5EFFB_40%,#FAF5F0_75%,#F1EAF8_100%)] text-[#1B1411] overflow-hidden border-b border-black/8"
-        aria-label="About Better Insights Hero"
-      >
-        {/* Subtle Ambient Radial Glow Behind Content */}
-        <div
-          className="absolute -top-32 left-1/3 -translate-x-1/2 w-[700px] h-[450px] bg-[radial-gradient(circle,rgba(168,85,247,0.06)_0%,rgba(139,92,246,0.03)_50%,transparent_75%)] blur-[120px] rounded-full pointer-events-none"
-          aria-hidden="true"
-        />
-
-        {/* Organic Blobs in Bottom-Right Corner (Overlapping, soft-edged, cropped) */}
-        <div
-          className="absolute -bottom-24 -right-16 sm:-bottom-32 sm:-right-20 w-[420px] h-[420px] sm:w-[560px] sm:h-[560px] rounded-full bg-[radial-gradient(circle_at_40%_40%,rgba(192,132,252,0.18)_0%,rgba(168,85,247,0.09)_45%,rgba(147,51,234,0.02)_70%,transparent_85%)] blur-[50px] sm:blur-[70px] pointer-events-none"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute -bottom-8 right-24 sm:-bottom-12 sm:right-40 w-[300px] h-[300px] sm:w-[420px] sm:h-[420px] rounded-full bg-[radial-gradient(circle_at_45%_45%,rgba(147,51,234,0.11)_0%,rgba(167,139,250,0.05)_50%,transparent_75%)] blur-[40px] sm:blur-[60px] pointer-events-none"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute -bottom-16 right-6 sm:-bottom-20 sm:right-10 w-[220px] h-[220px] sm:w-[300px] sm:h-[300px] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(51,204,122,0.07)_0%,rgba(51,204,122,0.02)_45%,transparent_70%)] blur-[45px] sm:blur-[65px] pointer-events-none"
-          aria-hidden="true"
-        />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            {/* Left: Editorial Headline & Actions */}
-            <div className="lg:col-span-7 flex flex-col justify-center">
-              {/* Eyebrow badge */}
-              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#EEE5DC] border border-black/5 w-fit mb-6">
-                <span className="w-2 h-2 rounded-full bg-[#33CC7A] animate-pulse" />
-                <span className="text-[11px] font-bold tracking-[0.18em] uppercase text-[#1B1411]">
-                  About Better Insights
-                </span>
-              </div>
-
-              {/* Large Editorial Headline */}
-              <h1 className="text-4xl sm:text-6xl xl:text-7xl font-semibold tracking-tight text-[#1B1411] leading-[1.05]">
-                We turn ambitious ideas into{" "}
-                <span className="text-[#66574F] block sm:inline">meaningful growth.</span>
-              </h1>
-
-              {/* Supporting narrative */}
-              <p className="mt-6 text-base sm:text-lg text-[#66574F] max-w-2xl leading-relaxed font-normal">
-                Better Insights brings strategy, creativity, engineering, and artificial
-                intelligence together to help businesses move forward. From high-converting digital
-                platforms to autonomous operations, we turn complex challenges into scalable
-                commercial impact.
-              </p>
-
-              {/* Actions */}
-              <div className="mt-8 flex flex-wrap items-center gap-4">
-                <button
-                  type="button"
-                  onClick={() => openMarketingPlanModal()}
-                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#33CC7A] text-[#1B1411] text-xs font-bold uppercase tracking-wider hover:bg-[#2BB86D] transition-all duration-300 hover:scale-[1.03] shadow-md shadow-[#33CC7A]/20 cursor-pointer"
-                >
-                  <span>Get Marketing Plan</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-                <a
-                  href="#capabilities"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-transparent hover:bg-black/5 text-[#1B1411] text-xs font-bold uppercase tracking-wider transition-all duration-300 border border-black/15"
-                >
-                  <span>Explore Capabilities</span>
-                  <ArrowUpRight className="w-4 h-4 text-[#66574F]" />
-                </a>
-              </div>
-            </div>
-
-            {/* Right: Animated Capabilities Slider */}
-            <div className="lg:col-span-5 relative w-full">
-              <AboutHeroSlider />
-            </div>
-          </div>
-        </div>
-      </section>
+      <AboutHeroGallery />
 
       {/* ========================================================================= */}
-      {/* SECTION 2: OUR STORY / WHO WE ARE & BUSINESS METRICS                       */}
+      {/* SECTION 2: WHO WE ARE (REDESIGNED EDITORIAL CULTURE EXPERIENCE)            */}
+      {/* Target element id="423758" & Preceding Statement                          */}
       {/* ========================================================================= */}
-      <section
-        id="who-we-are"
-        className="py-20 sm:py-28 bg-[#FAF5F0] border-b border-black/8 select-none"
-        aria-label="Our Story and Who We Are"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Asymmetrical Editorial Statement */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-16 sm:mb-20">
-            <div className="lg:col-span-6">
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#66574F] block mb-3">
-                Who We Are
-              </span>
-              <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-[#1B1411] leading-tight">
-                Business growth was the goal.<br />
-                <span className="text-[#66574F]">Now, let’s make it measurable.</span>
-              </h2>
-            </div>
-            <div className="lg:col-span-6 flex flex-col gap-5 text-base text-[#66574F] leading-relaxed font-normal">
-              <p>
-                Better Insights was established with a singular conviction: technology, creative
-                design, and marketing must never operate in silos. Ambitious companies don’t need
-                fragmented vendors or disconnected experiments—they need unified systems where brand
-                strategy, performance engineering, and intelligent automation work in synchrony.
-              </p>
-              <p>
-                We partner with enterprise leaders, high-growth brands, and institutional partners
-                to build experiences that capture market share, streamline operational friction, and
-                generate accountable, compounding ROI.
-              </p>
-            </div>
-          </div>
-
-          {/* 4 Verified Business Metrics Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {METRICS.map((m) => (
-              <div
-                key={m.label}
-                className="p-8 bg-white rounded-[1.75rem] border border-black/8 shadow-sm flex flex-col justify-between hover:border-black/20 hover:shadow-md transition-all duration-300"
-              >
-                <div>
-                  <div className="text-4xl sm:text-6xl font-semibold text-[#1B1411] tracking-tight mb-2">
-                    {m.number}
-                    <span className="text-[#33CC7A]">{m.symbol}</span>
-                  </div>
-                  <h3 className="text-sm font-semibold tracking-tight text-[#1B1411] mb-1">
-                    {m.label}
-                  </h3>
-                  <p className="text-xs text-[#66574F] font-normal leading-relaxed">{m.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <WhoWeAreRedesign />
 
       {/* ========================================================================= */}
-      {/* SECTION 3: CORE PHILOSOPHY & PRINCIPLES                                    */}
+      {/* SECTION 3: CORE CAPABILITIES MATRIX (Interactive Stacking Cards Deck)     */}
       {/* ========================================================================= */}
-      <section
-        id="philosophy"
-        className="py-20 sm:py-28 bg-[#FAF5F0] border-b border-black/8 select-none"
-        aria-label="Core Philosophy"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-16">
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#66574F] block mb-3">
-              Guiding Principles
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-[#1B1411] leading-tight">
-              The standards that govern our craft
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {PHILOSOPHY_PRINCIPLES.map((item) => (
-              <div
-                key={item.number}
-                className="p-8 sm:p-10 rounded-[1.75rem] bg-white border border-black/8 shadow-sm flex flex-col justify-between hover:border-black/20 hover:shadow-md transition-all duration-300 group"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-8 pb-4 border-b border-black/5">
-                    <span className="text-xs font-mono font-bold text-[#66574F] group-hover:text-[#33CC7A] transition-colors">
-                      {item.number}
-                    </span>
-                    <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#FAF5F0] text-[#1B1411] border border-black/5">
-                      {item.tag}
-                    </span>
-                  </div>
-                  <h3 className="text-2xl font-semibold tracking-tight text-[#1B1411] mb-4">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-[#66574F] leading-relaxed font-normal">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <StackingCapabilitiesCards capabilities={CAPABILITIES} />
 
       {/* ========================================================================= */}
-      {/* SECTION 4: CORE CAPABILITIES MATRIX                                       */}
-      {/* ========================================================================= */}
-      <section
-        id="capabilities"
-        className="py-20 sm:py-28 bg-[#FAF5F0] border-b border-black/8 select-none"
-        aria-label="Core Capabilities"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16">
-            <div>
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#66574F] block mb-3">
-                Full-Lifecycle Solutions
-              </span>
-              <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-[#1B1411] leading-tight">
-                Our strategic capabilities
-              </h2>
-            </div>
-            <div>
-              <Link
-                href="/services"
-                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1B1411] hover:text-[#33CC7A] transition-colors"
-              >
-                <span>View All Services</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </div>
-
-          <div className="space-y-6">
-            {CAPABILITIES.map((cap) => (
-              <div
-                key={cap.id}
-                className="p-8 sm:p-10 rounded-[1.75rem] bg-white border border-black/8 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-8 hover:border-black/20 hover:shadow-md transition-all duration-300 group"
-              >
-                <div className="max-w-2xl">
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="text-xs font-mono font-bold text-[#66574F] group-hover:text-[#33CC7A] transition-colors">
-                      {cap.number}
-                    </span>
-                    <span className="text-xs text-black/20">•</span>
-                    <span className="text-xs uppercase font-bold tracking-wider text-[#66574F]">
-                      Core Domain
-                    </span>
-                  </div>
-                  <h3 className="text-2xl font-semibold tracking-tight text-[#1B1411] mb-3">
-                    {cap.title}
-                  </h3>
-                  <p className="text-sm text-[#66574F] leading-relaxed mb-6 font-normal">
-                    {cap.desc}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {cap.badges.map((b) => (
-                      <span
-                        key={b}
-                        className="px-3 py-1 rounded-full text-xs font-semibold bg-[#FAF5F0] border border-black/5 text-[#1B1411]"
-                      >
-                        {b}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4 shrink-0">
-                  <Link
-                    href={cap.href}
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#1B1411] text-white text-xs font-bold uppercase tracking-wider hover:bg-black transition-all hover:scale-105"
-                  >
-                    <span>Explore Service</span>
-                    <ArrowUpRight className="w-4 h-4 text-[#33CC7A]" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* SECTION 5: HOW WE WORK (METHODOLOGY)                                      */}
+      {/* SECTION 4: HOW WE WORK (METHODOLOGY)                                      */}
       {/* ========================================================================= */}
       <section
         id="methodology"
         className="py-20 sm:py-28 bg-[#FAF5F0] border-b border-black/8 select-none"
         aria-label="How We Work"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bi-container">
           <div className="max-w-3xl mb-16">
             <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#66574F] block mb-3">
               Delivery Framework
@@ -633,175 +292,28 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ========================================================================= */}
-      {/* SECTION 6: WHY BETTER INSIGHTS (DIFFERENTIATORS)                          */}
-      {/* ========================================================================= */}
-      <section
-        id="why-better-insights"
-        className="py-20 sm:py-28 bg-[#1B1411] text-[#FAF5F0] border-b border-white/10 select-none"
-        aria-label="Why Choose Better Insights"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
-            <div className="lg:col-span-8">
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#33CC7A] block mb-3">
-                The Better Insights Advantage
-              </span>
-              <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-[#FAF5F0] leading-tight">
-                Why forward-thinking brands choose us
-              </h2>
-            </div>
-            <div className="lg:col-span-4">
-              <p className="text-base text-[#B8ABA3] font-normal leading-relaxed">
-                Strategy-first thinking, technology-driven execution, and accountable growth across
-                every customer touchpoint.
-              </p>
-            </div>
-          </div>
+      {/* Target element id="424532" (MadeByShape reference anchor) */}
+      <div id="424532" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {DIFFERENTIATORS.map((diff) => {
-              const IconComp = diff.icon;
-              return (
-                <div
-                  key={diff.title}
-                  className="p-8 rounded-[1.75rem] bg-white/[0.04] border border-white/10 flex flex-col justify-between hover:border-white/25 hover:bg-white/[0.06] transition-all duration-300"
-                >
-                  <div>
-                    <div className="w-12 h-12 rounded-2xl bg-white/[0.08] flex items-center justify-center text-[#33CC7A] mb-6">
-                      <IconComp className="w-6 h-6" />
-                    </div>
-                    <h3 className="text-lg font-semibold tracking-tight text-[#FAF5F0] mb-3">
-                      {diff.title}
-                    </h3>
-                    <p className="text-sm text-[#B8ABA3] leading-relaxed font-normal">
-                      {diff.desc}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-
-            {/* Strategic Overview Card */}
-            <div className="p-8 rounded-[1.75rem] bg-[#2E241F] border border-white/15 flex flex-col justify-between">
-              <div>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-[#33CC7A] block mb-3">
-                  COMPREHENSIVE GOVERNANCE
-                </span>
-                <h3 className="text-lg font-semibold tracking-tight text-[#FAF5F0] mb-3">
-                  Enterprise-Grade Standards
-                </h3>
-                <p className="text-sm text-[#B8ABA3] leading-relaxed font-normal">
-                  All digital platforms and AI solutions are built adhering to strict data privacy
-                  standards, automated continuous testing, and zero-downtime deployment pipelines.
-                </p>
-              </div>
-              <div className="mt-8 pt-4 border-t border-white/10">
-                <Link
-                  href="/work"
-                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#FAF5F0] hover:text-[#33CC7A] transition-colors"
-                >
-                  <span>View Case Studies</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Recreated MadeByShape "Feel the atmosphere" Animated Culture Section */}
+      <AboutCultureSection />
 
       {/* ========================================================================= */}
-      {/* SECTION 7: EXECUTIVE LEADERSHIP & INTERACTIVE TEAM DIRECTORY               */}
+      {/* SECTION 5: EXECUTIVE LEADERSHIP & INTERACTIVE TEAM DIRECTORY               */}
       {/* ========================================================================= */}
-      <section
-        id="our-team"
-        className="py-20 sm:py-28 bg-[#FAF5F0] border-b border-black/8 select-none"
-        aria-label="Executive Leadership and Team Directory"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16">
-            <div>
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#66574F] block mb-3">
-                Leadership &amp; Talent
-              </span>
-              <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-[#1B1411] leading-tight">
-                Meet the team behind Better Insights
-              </h2>
-            </div>
-            <div>
-              <Link
-                href="/careers"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#1B1411] text-[#FAF5F0] text-xs font-bold uppercase tracking-wider rounded-full hover:bg-black transition-all hover:scale-105"
-              >
-                <span>Join Our Team</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Interactive Team Grid (3 columns on desktop, 2 on tablet, 1 on mobile) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {TEAM_MEMBERS.map((member) => (
-              <div
-                key={member.id}
-                onClick={() => setSelectedMember(member)}
-                className="bg-white rounded-[1.75rem] border border-black/8 overflow-hidden flex flex-col justify-between group hover:border-[#33CC7A]/60 hover:shadow-lg transition-all duration-300 p-6 sm:p-7 cursor-pointer"
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    setSelectedMember(member);
-                  }
-                }}
-                aria-haspopup="dialog"
-                aria-label={`View profile of ${member.name}, ${member.role}`}
-              >
-                <div>
-                  <div className="relative aspect-square w-full rounded-2xl bg-[#FAF5F0] overflow-hidden mb-5 border border-black/5">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                  </div>
-
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-[#33CC7A] block mb-1">
-                    {member.department}
-                  </span>
-                  <h3 className="text-xl font-semibold tracking-tight text-[#1B1411] group-hover:text-[#2BB86D] transition-colors">
-                    {member.name}
-                  </h3>
-                  <p className="text-xs text-[#66574F] mb-3 font-medium">{member.role}</p>
-
-                  <p className="text-xs text-[#66574F] leading-relaxed line-clamp-3 font-normal">
-                    {member.bio}
-                  </p>
-                </div>
-
-                <div className="mt-5 pt-4 border-t border-black/5 flex items-center justify-between">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#1B1411] group-hover:text-[#33CC7A] transition-colors">
-                    <span>View Profile</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </span>
-                  <span className="text-[11px] font-mono text-[#66574F]/50">Pune, IN</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TeamSlider
+        members={TEAM_MEMBERS}
+        onSelectMember={(member) => setSelectedMember(member)}
+      />
 
       {/* ========================================================================= */}
-      {/* SECTION 8: CLOSING CTA (Clean Floating Card Architecture)                */}
+      {/* SECTION 6: CLOSING CTA (Clean Floating Card Architecture)                */}
       {/* ========================================================================= */}
       <section
         className="py-20 sm:py-28 bg-[#FAF5F0] border-t border-black/8 select-none relative overflow-hidden"
         aria-label="Call to Action"
       >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="bi-container relative z-10">
           <div className="bg-[#1B1411] text-[#FAF5F0] rounded-[2rem] sm:rounded-[2.5rem] p-8 sm:p-14 lg:p-16 relative overflow-hidden shadow-2xl text-center">
             {/* Ambient Accent Glow */}
             <div

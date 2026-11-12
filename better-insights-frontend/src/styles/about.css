@@ -2,6 +2,11 @@
    Better Insights — About Page Animation & Editorial Styling
    ========================================================================== */
 
+@import "./about-culture.css";
+@import "./stacking-cards.css";
+@import "./about-who-redesign.css";
+@import "./about-hero-gallery.css";
+
 @keyframes aboutMarqueePrimary {
   0% {
     transform: translateX(0);
@@ -84,6 +89,29 @@
 .about-interactive-focus:focus-visible {
   outline: 2px solid #000000;
   outline-offset: 4px;
+}
+
+/* ==========================================================================
+   Team Member Profile Popup / Modal Avatar
+   - Consistent ~50% border radius across all team member profiles
+   - Perfect 1:1 circular aspect ratio with overflow containment
+   - WebKit isolation and masking to prevent subpixel edge bleed
+   ========================================================================== */
+.bi-team-modal-avatar {
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  aspect-ratio: 1 / 1;
+  isolation: isolate;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  mask-image: radial-gradient(circle, #fff 100%, transparent 100%);
+}
+
+.bi-team-modal-avatar-img {
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  object-position: top center !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 /* Reduced motion preference */

@@ -1,385 +1,310 @@
 /* ==========================================================================
-   Better Insights - About Page Hero Section
-   Reference: OWLED Media (https://www.owledmedia.com/socials)
+   Better Insights - About Page Hero Section: Arched Image Carousel
+   Reference: MadeByShape (https://madebyshape.co.uk/about/)
+   Reference Component: archedImageCarouselDesktop
    ========================================================================== */
 
-.bi-about-page {
-	width: 100%;
-	position: relative;
-	overflow-x: clip;
-}
-
-.bi-about-hero {
+.bi-about-hero-dark {
 	position: relative;
 	width: 100%;
-	background: var(--bi-gradient-dark-premium, linear-gradient(135deg, #000000 0%, #171717 50%, #000000 100%));
+	min-height: 100vh;
+	min-height: 100svh;
+	background-color: #0D0D0D;
 	color: #FFFFFF;
-	padding: clamp(72px, 8vw, 112px) 0;
 	overflow: hidden;
-	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: clamp(6.5rem, 11vh, 8.5rem);
+	padding-bottom: clamp(2.5rem, 5vh, 3.5rem);
 	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* Subtle Ambient Radial Glow */
-.bi-about-hero__ambient-glow {
-	position: absolute;
-	top: -20%;
-	left: -10%;
-	width: 70vw;
-	height: 70vw;
-	max-width: 850px;
-	max-height: 850px;
-	background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 50%, transparent 70%);
-	pointer-events: none;
-	z-index: 0;
-	filter: blur(50px);
-}
-
-.bi-about-hero__container {
-	width: 100%;
-	max-width: var(--bi-max, 1380px);
-	margin: 0 auto;
-	padding: 0 32px;
 	box-sizing: border-box;
-	position: relative;
-	z-index: 1;
-}
-
-/* Two Column Editorial Layout */
-.bi-about-hero__grid {
-	display: grid;
-	grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-	align-items: center;
-	gap: clamp(40px, 5.5vw, 80px);
-}
-
-/* --------------------------------------------------------------------------
-   LEFT COLUMN: BRAND STORY & EDITORIAL TYPOGRAPHY
-   -------------------------------------------------------------------------- */
-.bi-about-hero__content {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	max-width: 640px;
-}
-
-/* Eyebrow Pill Tag */
-.bi-about-hero__eyebrow-wrap {
-	display: inline-flex;
-	align-items: center;
-	gap: 10px;
-	padding: 6px 16px;
-	background: rgba(255, 255, 255, 0.08);
-	backdrop-filter: blur(8px);
-	-webkit-backdrop-filter: blur(8px);
-	border: 1px solid rgba(255, 255, 255, 0.18);
-	border-radius: 999px;
-	margin-bottom: 24px;
-}
-
-.bi-about-hero__eyebrow-dot {
-	width: 7px;
-	height: 7px;
-	background-color: #FFFFFF;
-	border-radius: 50%;
-	box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-	flex-shrink: 0;
-}
-
-.bi-about-hero__eyebrow {
-	font-family: "Noto Sans", sans-serif;
-	font-size: 13px;
-	font-weight: 700;
-	letter-spacing: 0.14em;
-	color: #FFFFFF;
-	text-transform: uppercase;
-}
-
-/* Editorial Oversized Headline */
-.bi-about-hero__heading {
-	font-family: "Noto Sans", sans-serif;
-	font-size: clamp(38px, 5vw, 72px);
-	font-weight: 800;
-	line-height: 1.04;
-	letter-spacing: -0.025em;
-	color: #FFFFFF;
-	text-transform: uppercase;
-	margin: 0 0 24px 0;
-}
-
-.bi-about-hero__accent {
-	color: #FFFFFF;
-}
-
-/* Supporting Paragraphs */
-.bi-about-hero__desc {
-	display: flex;
-	flex-direction: column;
-	gap: 14px;
-	margin-bottom: clamp(28px, 3.5vw, 40px);
-	max-width: 580px;
-}
-
-.bi-about-hero__desc-lead {
-	font-family: "Noto Sans", sans-serif;
-	font-size: clamp(17px, 1.35vw, 20px);
-	font-weight: 500;
-	line-height: 1.55;
-	color: #FFFFFF;
-	margin: 0;
-}
-
-.bi-about-hero__desc-sub {
-	font-family: "Noto Sans", sans-serif;
-	font-size: clamp(14px, 1.1vw, 16px);
-	font-weight: 400;
-	line-height: 1.6;
-	color: #A8A8A8;
-	margin: 0;
-}
-
-/* Primary CTA Button (Standardized Monochrome) */
-.bi-about-hero__cta-wrap {
-	display: flex;
-	align-items: center;
-}
-
-.bi-about-hero__cta {
-	display: inline-flex;
-	align-items: center;
-	gap: 12px;
-	padding: 15px 32px;
-	background: #FFFFFF;
-	color: #000000;
-	font-family: "Noto Sans", sans-serif;
-	font-size: 14px;
-	font-weight: 700;
-	letter-spacing: 0.08em;
-	text-transform: uppercase;
-	text-decoration: none;
-	border: 1.5px solid #FFFFFF;
-	border-radius: 999px;
-	box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
-	transition: background-color 200ms ease, border-color 200ms ease, transform 200ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 200ms ease;
-	outline: none;
-	box-sizing: border-box;
-}
-
-.bi-about-hero__cta:hover {
-	background: #F3F2EF;
-	border-color: #F3F2EF;
-	color: #000000;
-	transform: translateY(-2px);
-	box-shadow: 0 8px 26px rgba(0, 0, 0, 0.35);
-}
-
-.bi-about-hero__cta:focus-visible {
-	outline: 2px solid #FFFFFF;
-	outline-offset: 3px;
-}
-
-.bi-about-hero__cta-icon {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.bi-about-hero__cta:hover .bi-about-hero__cta-icon {
-	transform: translateX(4px);
-}
-
-/* --------------------------------------------------------------------------
-   RIGHT COLUMN: MULTI-COLUMN MOVING PORTFOLIO COLLAGE SLIDER
-   -------------------------------------------------------------------------- */
-.bi-about-hero__visual {
-	position: relative;
-	height: clamp(480px, 64vh, 660px);
-	overflow: hidden;
-	border-radius: 16px;
-	-webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000000 8%, #000000 92%, transparent 100%);
-	mask-image: linear-gradient(to bottom, transparent 0%, #000000 8%, #000000 92%, transparent 100%);
-}
-
-.bi-about-collage {
-	display: grid;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-	gap: clamp(14px, 1.6vw, 20px);
-	height: 100%;
-	width: 100%;
-}
-
-/* Individual Vertical Column Frame */
-.bi-about-collage-col {
-	position: relative;
-	overflow: hidden;
-	height: 100%;
-	width: 100%;
-}
-
-/* Moving Track */
-.bi-about-collage-track {
-	display: flex;
-	flex-direction: column;
-	gap: clamp(14px, 1.6vw, 20px);
-	width: 100%;
-	will-change: transform;
-}
-
-/* Set Container (Original & Duplicated for Infinite Vertical Loop) */
-.bi-about-collage-set {
-	display: flex;
-	flex-direction: column;
-	gap: clamp(14px, 1.6vw, 20px);
-	width: 100%;
-	flex-shrink: 0;
-}
-
-/* Individual Visual Card */
-.bi-about-collage-card {
-	position: relative;
-	width: 100%;
-	border-radius: 14px;
-	overflow: hidden;
-	background: #141414;
-	border: 1px solid rgba(255, 255, 255, 0.08);
-	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-	transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1), border-color 350ms ease, box-shadow 350ms ease;
-	box-sizing: border-box;
-	flex-shrink: 0;
-}
-
-.bi-about-collage-card:hover {
-	transform: scale(1.025);
-	border-color: rgba(255, 255, 255, 0.25);
-	box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
-	z-index: 2;
-}
-
-.bi-about-collage-img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	display: block;
-	pointer-events: none;
 	user-select: none;
 }
 
+/* Ambient radial glow in background */
+.bi-about-hero-glow {
+	position: absolute;
+	top: 15%;
+	left: 50%;
+	transform: translate(-50%, 0);
+	width: clamp(500px, 75vw, 1200px);
+	height: clamp(380px, 45vw, 680px);
+	background: radial-gradient(circle, rgba(51, 204, 122, 0.06) 0%, rgba(255, 255, 255, 0.02) 40%, transparent 70%);
+	filter: blur(120px);
+	pointer-events: none;
+	z-index: 1;
+}
+
 /* --------------------------------------------------------------------------
-   RESPONSIVE BREAKPOINTS
+   1. Large Centered Headline
    -------------------------------------------------------------------------- */
-
-@media (max-width: 1199px) {
-	.bi-about-hero__visual {
-		height: 600px;
-	}
-
-	.bi-about-collage {
-		gap: 14px;
-	}
-
-	.bi-about-collage-track,
-	.bi-about-collage-set {
-		gap: 14px;
-	}
+.bi-about-hero-header {
+	position: relative;
+	z-index: 20;
+	text-align: center;
+	width: 100%;
+	max-width: var(--bi-max, 1440px);
+	margin: 0 auto;
+	padding: 0 48px;
+	box-sizing: border-box;
+	pointer-events: none;
 }
 
 @media (max-width: 1024px) {
-	.bi-about-hero__grid {
-		gap: 36px;
-	}
-
-	.bi-about-hero__heading {
-		font-size: clamp(34px, 4.4vw, 54px);
-		margin-bottom: 22px;
-	}
-
-	.bi-about-hero__visual {
-		height: 500px;
-	}
-
-	.bi-about-collage {
-		gap: 12px;
-	}
-
-	.bi-about-collage-track,
-	.bi-about-collage-set {
-		gap: 12px;
+	.bi-about-hero-header {
+		padding: 0 32px;
 	}
 }
 
-@media (max-width: 767px) {
-	.bi-about-hero {
-		padding: 50px 0 60px;
-	}
-
-	.bi-about-hero__container {
+@media (max-width: 600px) {
+	.bi-about-hero-header {
 		padding: 0 20px;
 	}
+}
 
-	.bi-about-hero__grid {
-		grid-template-columns: 1fr;
-		gap: 44px;
-	}
+.bi-hero-title {
+	font-family: inherit;
+	font-size: clamp(2.5rem, 6.25vw, 5.75rem);
+	font-weight: 400;
+	line-height: 1.05;
+	letter-spacing: -0.035em;
+	color: #FFFFFF;
+	text-shadow: 0 4px 30px rgba(0, 0, 0, 0.85);
+	margin: 0 auto;
+	max-width: 66rem;
+	text-align: center;
+}
 
-	.bi-about-hero__content {
-		max-width: 100%;
-	}
-
-	.bi-about-hero__heading {
-		font-size: clamp(32px, 8.5vw, 46px);
-		line-height: 1.08;
-		margin-bottom: 20px;
-	}
-
-	.bi-about-hero__desc {
-		margin-bottom: 32px;
-	}
-
-	.bi-about-hero__cta {
-		width: 100%;
-		justify-content: center;
-	}
-
-	.bi-about-hero__visual {
-		height: 380px;
-	}
-
-	/* Simplify collage to 2 columns on mobile for visual clarity & performance */
-	.bi-about-collage-col--3 {
-		display: none;
-	}
-
-	.bi-about-collage {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 12px;
+@media (min-width: 1024px) {
+	.bi-hero-title {
+		font-size: clamp(3.75rem, 6vw, 5.75rem);
+		line-height: 1.04;
 	}
 }
 
 /* --------------------------------------------------------------------------
-   PREFERS REDUCED MOTION SUPPORT
+   2. Arched Image Carousel (Reference: archedImageCarouselDesktop)
+   -------------------------------------------------------------------------- */
+.bi-arched-carousel-stage {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	height: clamp(380px, 42vw, 580px);
+	margin-top: -2.5rem;
+	z-index: 10;
+	cursor: grab;
+	-webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+	mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.bi-arched-carousel-stage:active {
+	cursor: grabbing;
+}
+
+@media (max-width: 1024px) {
+	.bi-arched-carousel-stage {
+		height: clamp(330px, 46vw, 460px);
+		margin-top: -1.5rem;
+	}
+}
+
+@media (max-width: 640px) {
+	.bi-arched-carousel-stage {
+		height: clamp(270px, 64vw, 340px);
+		margin-top: -0.5rem;
+	}
+}
+
+/* Giant circular wheel */
+.bi-arched-wheel {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 220vw;
+	height: 220vw;
+	margin-left: -110vw;
+	transform-origin: 50% 50%;
+	will-change: transform;
+}
+
+@media (max-width: 1024px) {
+	.bi-arched-wheel {
+		width: 260vw;
+		height: 260vw;
+		margin-left: -130vw;
+	}
+}
+
+@media (max-width: 640px) {
+	.bi-arched-wheel {
+		width: 320vw;
+		height: 320vw;
+		margin-left: -160vw;
+	}
+}
+
+/* Spoke holding the card at top circumference */
+.bi-arched-spoke {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: clamp(260px, 19vw, 350px);
+	height: 50%;
+	margin-left: calc(-1 * clamp(260px, 19vw, 350px) / 2);
+	transform-origin: 50% 100%;
+	transform: rotate(var(--spoke-angle, 0deg));
+	pointer-events: none;
+}
+
+@media (max-width: 1024px) {
+	.bi-arched-spoke {
+		width: clamp(220px, 24vw, 290px);
+		margin-left: calc(-1 * clamp(220px, 24vw, 290px) / 2);
+	}
+}
+
+@media (max-width: 640px) {
+	.bi-arched-spoke {
+		width: clamp(180px, 45vw, 240px);
+		margin-left: calc(-1 * clamp(180px, 45vw, 240px) / 2);
+	}
+}
+
+/* Individual photographic card */
+.bi-arched-card {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	border-radius: 22px;
+	overflow: hidden;
+	background-color: #161719;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	box-shadow: 0 24px 55px -12px rgba(0, 0, 0, 0.85);
+	pointer-events: auto;
+	cursor: pointer;
+	transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+	            box-shadow 0.4s ease,
+	            border-color 0.4s ease;
+}
+
+.bi-arched-card:hover {
+	transform: scale(1.05);
+	border-color: rgba(51, 204, 122, 0.5);
+	box-shadow: 0 32px 70px -10px rgba(0, 0, 0, 0.95);
+	z-index: 20;
+}
+
+.bi-arched-card__img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	display: block;
+	transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bi-arched-card:hover .bi-arched-card__img {
+	transform: scale(1.05);
+}
+
+/* Subtle corner tag */
+.bi-arched-card__tag {
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	padding: 0.3rem 0.7rem;
+	border-radius: 9999px;
+	background-color: rgba(13, 13, 13, 0.65);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	font-size: 0.65rem;
+	font-family: inherit;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: #FFFFFF;
+	z-index: 5;
+	pointer-events: none;
+}
+
+.bi-arched-card__tag-dot {
+	width: 5px;
+	height: 5px;
+	border-radius: 9999px;
+	background-color: #33CC7A;
+	box-shadow: 0 0 6px rgba(51, 204, 122, 0.7);
+}
+
+/* --------------------------------------------------------------------------
+   3. Centered Brand CTA Button
+   Matches Better Insights Header CTA Button Identity:
+   - Primary background: #33CC7A
+   - Text color: #1B1411
+   -------------------------------------------------------------------------- */
+.bi-hero-cta-wrap {
+	position: relative;
+	z-index: 20;
+	display: flex;
+	justify-content: center;
+	margin-top: 1.5rem;
+	margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+	.bi-hero-cta-wrap {
+		margin-top: 2rem;
+	}
+}
+
+.bi-hero-cta-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.65rem;
+	padding: 0.85rem 2rem;
+	background-color: #33CC7A;
+	color: #1B1411;
+	font-size: 0.9375rem;
+	font-weight: 600;
+	letter-spacing: -0.005em;
+	border-radius: 9999px;
+	text-decoration: none;
+	cursor: pointer;
+	box-shadow: 0 8px 24px rgba(51, 204, 122, 0.3);
+	transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+	            box-shadow 0.3s ease,
+	            background-color 0.3s ease;
+}
+
+.bi-hero-cta-btn:hover {
+	background-color: #2bb86d;
+	color: #1B1411;
+	transform: scale(1.04);
+	box-shadow: 0 14px 34px rgba(51, 204, 122, 0.45);
+}
+
+.bi-hero-cta-arrow {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bi-hero-cta-btn:hover .bi-hero-cta-arrow {
+	transform: translate(2px, 2px);
+}
+
+/* --------------------------------------------------------------------------
+   4. Reduced Motion Preference
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
-	.bi-about-hero__visual {
-		-webkit-mask-image: none !important;
-		mask-image: none !important;
-	}
-
-	.bi-about-collage-track {
-		transform: none !important;
-	}
-
-	.bi-about-collage-set[aria-hidden="true"] {
-		display: none !important;
-	}
-
-	.bi-about-collage-card {
-		transition: none !important;
-		transform: none !important;
-	}
-
-	.bi-about-hero__cta,
-	.bi-about-hero__cta-icon {
-		transition: none !important;
+	.bi-arched-wheel {
+		animation: none !important;
+		transform: rotate(0deg) !important;
 	}
 }

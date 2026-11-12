@@ -1,0 +1,269 @@
+/* ==========================================================================
+   Better Insights — Who We Are Redesign (MadeByShape Inspired)
+   Editorial agency culture layout, asymmetrical image placements,
+   animated counter cards, and alternating visual storytelling.
+   ========================================================================== */
+
+.who-redesign {
+  background-color: #FAF5F0;
+  color: #1B1411;
+  position: relative;
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   A. Culture Preceding Statement & Intro Block
+   -------------------------------------------------------------------------- */
+.who-intro-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background-color: rgba(27, 20, 17, 0.05);
+  border: 1px solid rgba(27, 20, 17, 0.08);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #66574F;
+}
+
+.who-intro-badge__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: #33CC7A;
+}
+
+.who-hero-card {
+  position: relative;
+  border-radius: 1.75rem;
+  overflow: hidden;
+  box-shadow: 0 20px 45px -15px rgba(27, 20, 17, 0.12);
+  border: 1px solid rgba(27, 20, 17, 0.08);
+  background-color: #EDE5DC;
+}
+
+@media (min-width: 1024px) {
+  .who-hero-card {
+    border-radius: 2.25rem;
+  }
+}
+
+/* Floating Corner Cutout Badge (MadeByShape style) */
+.who-floating-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 20;
+  background-color: #FAF5F0;
+  padding: 1rem 1.25rem;
+  border-top-left-radius: 1.5rem;
+  box-shadow: -8px -8px 24px rgba(27, 20, 17, 0.06);
+}
+
+@media (min-width: 768px) {
+  .who-floating-badge {
+    padding: 1.5rem 2rem;
+    border-top-left-radius: 2rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   B. Our Culture — Dark Editorial Section with Lime-Green Testimonial Card
+   -------------------------------------------------------------------------- */
+.who-culture-dark-section {
+  background-color: #101112;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.who-culture-image-card {
+  position: relative;
+  width: 100%;
+  border-radius: 1.75rem;
+  overflow: hidden;
+  background-color: #1A1C1E;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 1024px) {
+  .who-culture-image-card {
+    border-radius: 2.25rem;
+  }
+}
+
+.who-culture-testimonial-card {
+  background-color: #C7FF65;
+  color: #101112;
+  border-radius: 1.75rem;
+  padding: 2.25rem 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 45px -10px rgba(199, 255, 101, 0.22);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 768px) {
+  .who-culture-testimonial-card {
+    padding: 2.75rem 2.5rem;
+    border-radius: 2.25rem;
+  }
+}
+
+.who-culture-testimonial-card:hover {
+  transform: translateY(-4px) scale(1.008);
+  box-shadow: 0 30px 60px -15px rgba(199, 255, 101, 0.32);
+}
+
+.who-culture-quote-mark {
+  color: #101112;
+  opacity: 0.16;
+  font-family: Georgia, serif;
+  font-size: 5.5rem;
+  line-height: 1;
+  position: absolute;
+  top: 1rem;
+  right: 1.75rem;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   C. By The Numbers — Animated Stat Counters (Clean Editorial White Theme)
+   -------------------------------------------------------------------------- */
+.who-numbers-white-section,
+.who-numbers-dark-section {
+  background-color: #FFFFFF;
+  color: #111827;
+  position: relative;
+  overflow: hidden;
+}
+
+.who-stat-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 1.625rem; /* ~26px (within 24px-28px range) */
+  padding: 2rem 1.75rem;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03), 0 12px 30px -4px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .who-stat-card {
+    padding: 2.25rem 2rem;
+    border-radius: 1.75rem; /* 28px */
+  }
+}
+
+.who-stat-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(51, 204, 122, 0.55);
+  box-shadow: 0 20px 40px -10px rgba(51, 204, 122, 0.12), 0 12px 24px -6px rgba(0, 0, 0, 0.08);
+}
+
+.who-stat-number {
+  font-size: 3.5rem;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  color: #111827;
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  align-items: baseline;
+}
+
+@media (min-width: 640px) {
+  .who-stat-number {
+    font-size: 4.25rem;
+  }
+}
+
+.who-stat-symbol {
+  color: #33CC7A;
+  font-weight: 600;
+  font-size: 0.88em;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+/* Odometer Rolling Digit Architecture */
+.who-odometer-col {
+  display: inline-block;
+  height: 1em;
+  line-height: 1;
+  overflow: hidden;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.who-odometer-spacer {
+  visibility: hidden;
+  opacity: 0;
+  user-select: none;
+  pointer-events: none;
+  display: inline-block;
+  line-height: 1;
+  height: 1em;
+}
+
+.who-odometer-strip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+
+.who-odometer-digit {
+  height: 1em;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  user-select: none;
+}
+
+.who-odometer-char {
+  display: inline-block;
+  height: 1em;
+  line-height: 1;
+  vertical-align: baseline;
+  user-select: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .who-odometer-strip {
+    transition: none !important;
+  }
+}
+
+.who-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #FAF5F0;
+  width: fit-content;
+}
+

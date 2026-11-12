@@ -16,6 +16,19 @@ $about_js  = $theme_dir . '/assets/js/about-hero.js';
 $who_css   = $theme_dir . '/assets/css/about-who.css';
 $who_js    = $theme_dir . '/assets/js/about-who.js';
 
+if ( ! wp_script_is( 'alpinejs', 'enqueued' ) ) {
+	wp_enqueue_script(
+		'alpinejs',
+		'https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js',
+		array(),
+		'3.14.8',
+		array(
+			'strategy'  => 'defer',
+			'in_footer' => true,
+		)
+	);
+}
+
 if ( ! wp_style_is( 'bi-about-hero', 'enqueued' ) ) {
 	wp_enqueue_style(
 		'bi-about-hero',
@@ -29,7 +42,7 @@ if ( ! wp_script_is( 'bi-about-hero', 'enqueued' ) ) {
 	wp_enqueue_script(
 		'bi-about-hero',
 		$theme_uri . '/assets/js/about-hero.js',
-		array( 'gsap' ),
+		array( 'alpinejs' ),
 		file_exists( $about_js ) ? (string) filemtime( $about_js ) : wp_get_theme()->get( 'Version' ),
 		true
 	);
@@ -137,12 +150,57 @@ if ( ! wp_style_is( 'bi-about-team', 'enqueued' ) ) {
 	);
 }
 
+if ( ! wp_script_is( 'alpinejs', 'enqueued' ) ) {
+	wp_enqueue_script(
+		'alpinejs',
+		'https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js',
+		array(),
+		'3.14.8',
+		array(
+			'strategy'  => 'defer',
+			'in_footer' => true,
+		)
+	);
+}
+
 if ( ! wp_script_is( 'bi-about-team', 'enqueued' ) ) {
 	wp_enqueue_script(
 		'bi-about-team',
 		$theme_uri . '/assets/js/about-team.js',
-		array( 'gsap' ),
+		array( 'alpinejs' ),
 		file_exists( $team_js ) ? (string) filemtime( $team_js ) : wp_get_theme()->get( 'Version' ),
+		true
+	);
+}
+
+$culture_css = $theme_dir . '/assets/css/about-culture.css';
+$culture_js  = $theme_dir . '/assets/js/about-culture.js';
+
+if ( ! wp_style_is( 'bi-about-culture', 'enqueued' ) ) {
+	wp_enqueue_style(
+		'bi-about-culture',
+		$theme_uri . '/assets/css/about-culture.css',
+		array( 'astra-child-style' ),
+		file_exists( $culture_css ) ? (string) filemtime( $culture_css ) : wp_get_theme()->get( 'Version' )
+	);
+}
+
+if ( ! wp_script_is( 'gsap-scrolltrigger', 'enqueued' ) ) {
+	wp_enqueue_script(
+		'gsap-scrolltrigger',
+		'https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js',
+		array( 'gsap' ),
+		'3.13.0',
+		true
+	);
+}
+
+if ( ! wp_script_is( 'bi-about-culture', 'enqueued' ) ) {
+	wp_enqueue_script(
+		'bi-about-culture',
+		$theme_uri . '/assets/js/about-culture.js',
+		array( 'gsap', 'gsap-scrolltrigger' ),
+		file_exists( $culture_js ) ? (string) filemtime( $culture_js ) : wp_get_theme()->get( 'Version' ),
 		true
 	);
 }
@@ -159,6 +217,12 @@ get_header();
 
 	<!-- Section 2: Who We Are & Business Metrics (Modular) -->
 	<?php get_template_part( 'template-parts/about/about-who' ); ?>
+
+	<!-- Target element id="424532" (MadeByShape reference anchor) -->
+	<div id="424532"></div>
+
+	<!-- Section: Feel the atmosphere / Team Culture Collage (Modular) -->
+	<?php get_template_part( 'template-parts/about/about-culture' ); ?>
 
 	<!-- Section 6: Our Team (Modular) -->
 	<?php get_template_part( 'template-parts/about/about-team' ); ?>

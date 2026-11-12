@@ -1,25 +1,25 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Better Insights | Start a Conversation",
+  title: "Contact Better Insights | Let's Build Something Better",
   description:
-    "Let's make something meaningful happen. Tell us about your business, your challenges, or the opportunities you're exploring. We'll help you identify the right next step.",
+    "Have an ambitious idea? Let's make it happen. From high-performance websites and intelligent AI automation to connected CRM ecosystems, we help ambitious businesses turn complex challenges into measurable digital growth.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
-    title: "Contact Better Insights | Start a Conversation",
+    title: "Contact Better Insights | Have an ambitious idea? Let's make it happen.",
     description:
-      "Let's make something meaningful happen. Tell us about your business, your challenges, or the opportunities you're exploring.",
+      "From high-performance websites and intelligent AI automation to connected CRM ecosystems, we help ambitious businesses turn complex challenges into measurable digital growth.",
     url: "https://betterinsights.in/contact",
     type: "website",
     siteName: "Better Insights",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Better Insights | Start a Conversation",
+    title: "Contact Better Insights | Let's Build Something Better",
     description:
-      "Let's make something meaningful happen. Connect with our engineering and growth leadership.",
+      "From high-performance websites and intelligent AI automation to connected CRM ecosystems, we help ambitious businesses turn complex challenges into measurable digital growth.",
   },
 };
 

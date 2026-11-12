@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import { HomeRedesign1 } from "@/components/home/HomeRedesign1";
+import { MergedHomepage } from "@/components/home/MergedHomepage";
 
 export const metadata: Metadata = {
   title: "Better Insights — Better Marketing, Better ROI",
@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  return <HomeRedesign1 />;
+  return <MergedHomepage />;
 }
+
 

@@ -12,6 +12,11 @@ export interface NavItem {
 
 export const MAIN_NAV_ITEMS: NavItem[] = [
   {
+    title: "About",
+    url: "/about",
+    megaKey: "about",
+  },
+  {
     title: "Services",
     url: "/services",
     megaKey: "what-we-do",
@@ -24,11 +29,6 @@ export const MAIN_NAV_ITEMS: NavItem[] = [
     title: "Insights",
     url: "/insights",
     megaKey: "insights",
-  },
-  {
-    title: "About",
-    url: "/about",
-    megaKey: "about",
   },
   {
     title: "Contact Us",

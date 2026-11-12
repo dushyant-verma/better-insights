@@ -58,4 +58,11 @@
   --bi-glass-dark: rgba(27, 20, 17, 0.92);
   --bi-glass-border-light: rgba(27, 20, 17, 0.08);
   --bi-glass-border-dark: rgba(250, 245, 240, 0.14);
+
+  /* Container Standard Tokens */
+  --container-max-width: 1440px;
+  --container-padding-desktop: 48px;
+  --container-padding-tablet: 32px;
+  --container-padding-mobile: 20px;
+  --container-padding: var(--container-padding-desktop);
 }

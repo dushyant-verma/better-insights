@@ -1,66 +1,26 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   CheckCircle2,
   Loader2,
   ArrowRight,
-  ArrowLeft,
-  Briefcase,
-  HelpCircle,
-  FileCheck2,
-  Newspaper,
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
   ShieldCheck,
+  AlertCircle,
   Sparkles,
 } from "lucide-react";
 
-type EnquiryCategory = "services" | "general" | "employment" | "press";
-
-const ENQUIRY_CATEGORIES: Array<{
-  id: EnquiryCategory;
-  label: string;
-  badge: string;
-  desc: string;
-  icon: React.ElementType;
-}> = [
-  {
-    id: "services",
-    label: "Services & Partnerships",
-    badge: "CLIENT ENGAGEMENT",
-    desc: "Partner with Better Insights to engineer AI systems, headless websites, CRM automations, or scale growth.",
-    icon: Briefcase,
-  },
-  {
-    id: "general",
-    label: "General Enquiry",
-    badge: "DIRECT ASSISTANCE",
-    desc: "Ask general questions about our agency, advisory capabilities, methodologies, or capabilities.",
-    icon: HelpCircle,
-  },
-  {
-    id: "employment",
-    label: "Employment Verification",
-    badge: "HR & COMPLIANCE",
-    desc: "Official background checks and employment verification for current or former team members.",
-    icon: FileCheck2,
-  },
-  {
-    id: "press",
-    label: "Media & Press",
-    badge: "COMMUNICATIONS",
-    desc: "Press inquiries, thought leadership interviews, event keynote speaking, and media features.",
-    icon: Newspaper,
-  },
-];
-
-const SERVICES_OPTIONS = [
+const SERVICE_OPTIONS = [
   "Website Development",
-  "CRM & Integrations",
   "AI & Automation",
-  "Digital Growth",
-  "Digital Transformation",
-  "Technology & Engineering",
-  "Other / Custom Advisory",
+  "CRM Development & Integration",
+  "Digital Marketing",
+  "Branding & Strategy",
+  "Other",
 ];
 
 const BUDGET_OPTIONS = [
@@ -71,772 +31,610 @@ const BUDGET_OPTIONS = [
   "Flexible / To be determined",
 ];
 
-export function ContactFormSection() {
-  const [currentStep, setCurrentStep] = useState(1);
-  const [category, setCategory] = useState<EnquiryCategory>("services");
+interface FormErrors {
+  name?: string;
+  email?: string;
+  phone?: string;
+  message?: string;
+}
 
-  // Form State
+export function ContactFormSection() {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    name: "",
     email: "",
     phone: "",
     company: "",
-    serviceRequired: "Website Development",
-    budget: "$10,000 - $25,000 / ₹8L - ₹20L",
-    projectDetails: "",
-    employeeName: "",
-    verificationDetails: "",
-    mediaOrg: "",
-    pressSubject: "",
-    pressMessage: "",
-    generalMessage: "",
-    country: "",
+    service: "Website Development",
+    budget: "",
+    message: "",
     honeypot: "",
+    bi_hp_contact: "",
   });
 
-  const [stepError, setStepError] = useState("");
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [apiError, setApiError] = useState("");
 
-  // Pre-select service from URL parameter (e.g. /contact?service=Website+Development)
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const params = new URLSearchParams(window.location.search);
-      const serviceParam = params.get("service");
-      if (serviceParam) {
-        const normalized = serviceParam.toLowerCase().replace(/[-_]/g, " ").trim();
-        const match = SERVICES_OPTIONS.find((opt) => {
-          const optLower = opt.toLowerCase();
-          return (
-            optLower === normalized ||
-            optLower.includes(normalized) ||
-            normalized.includes(optLower.split(" ")[0])
-          );
-        });
-        if (match) {
-          setCategory("services");
-          setFormData((prev) => ({ ...prev, serviceRequired: match }));
+  const validateField = (field: string, value: string): string | undefined => {
+    switch (field) {
+      case "name":
+        if (!value.trim()) return "Full name is required.";
+        if (value.trim().length < 2) return "Name must be at least 2 characters.";
+        return undefined;
+      case "email":
+        if (!value.trim()) return "Work email is required.";
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())) {
+          return "Please enter a valid business email address.";
         }
-      }
-    }
-  }, []);
-
-  const validateStep = (step: number): boolean => {
-    setStepError("");
-
-    if (step === 1) {
-      if (!category) {
-        setStepError("Please select an enquiry category.");
-        return false;
-      }
-      return true;
-    }
-
-    if (step === 2) {
-      if (!formData.firstName.trim()) {
-        setStepError("Please provide your first name.");
-        return false;
-      }
-      if (!formData.lastName.trim()) {
-        setStepError("Please provide your last name.");
-        return false;
-      }
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!formData.email.trim() || !emailRegex.test(formData.email.trim())) {
-        setStepError("Please provide a valid business email address.");
-        return false;
-      }
-      if (!formData.phone.trim() || formData.phone.trim().length < 6) {
-        setStepError("Please provide a contact phone number.");
-        return false;
-      }
-      return true;
-    }
-
-    if (step === 3) {
-      if (category === "services") {
-        if (!formData.projectDetails.trim() || formData.projectDetails.trim().length < 10) {
-          setStepError("Please share at least 10 characters describing your project parameters or challenges.");
-          return false;
+        return undefined;
+      case "phone":
+        if (value.trim() && !/^[+0-9\s\-()]{7,25}$/.test(value.trim())) {
+          return "Please enter a valid phone number.";
         }
-      } else if (category === "employment") {
-        if (!formData.employeeName.trim()) {
-          setStepError("Please provide the candidate / employee full name.");
-          return false;
-        }
-        if (!formData.verificationDetails.trim() || formData.verificationDetails.trim().length < 10) {
-          setStepError("Please describe the verification details needed.");
-          return false;
-        }
-      } else if (category === "press") {
-        if (!formData.mediaOrg.trim()) {
-          setStepError("Please enter your publication or media organization name.");
-          return false;
-        }
-        if (!formData.pressSubject.trim()) {
-          setStepError("Please provide the topic or subject of your inquiry.");
-          return false;
-        }
-        if (!formData.pressMessage.trim() || formData.pressMessage.trim().length < 10) {
-          setStepError("Please describe your press inquiry and timeline/deadline.");
-          return false;
-        }
-      } else {
-        // general
-        if (!formData.generalMessage.trim() || formData.generalMessage.trim().length < 10) {
-          setStepError("Please share your message or strategic questions (at least 10 characters).");
-          return false;
-        }
-      }
-      return true;
-    }
-
-    return true;
-  };
-
-  const handleNext = () => {
-    if (validateStep(currentStep)) {
-      setCurrentStep((prev) => Math.min(4, prev + 1));
-      // Smoothly scroll form into view if scrolled far
-      const formEl = document.getElementById("contact-form-section");
-      if (formEl) {
-        const top = formEl.getBoundingClientRect().top + window.pageYOffset - 100;
-        if (window.pageYOffset > top) {
-          window.scrollTo({ top, behavior: "smooth" });
-        }
-      }
+        return undefined;
+      case "message":
+        if (!value.trim()) return "Please describe your project or enquiry.";
+        if (value.trim().length < 10) return "Message must be at least 10 characters.";
+        return undefined;
+      default:
+        return undefined;
     }
   };
 
-  const handleBack = () => {
-    setStepError("");
-    setCurrentStep((prev) => Math.max(1, prev - 1));
+  const handleBlur = (field: string) => {
+    setTouched((prev) => ({ ...prev, [field]: true }));
+    const error = validateField(field, formData[field as keyof typeof formData]);
+    setErrors((prev) => ({ ...prev, [field]: error }));
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    if (apiError) setApiError("");
+
+    if (touched[name]) {
+      const error = validateField(name, value);
+      setErrors((prev) => ({ ...prev, [name]: error }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validateStep(3)) {
-      setCurrentStep(3);
+
+    // Mark all as touched
+    const newTouched = { name: true, email: true, phone: true, message: true };
+    setTouched(newTouched);
+
+    const nameErr = validateField("name", formData.name);
+    const emailErr = validateField("email", formData.email);
+    const phoneErr = validateField("phone", formData.phone);
+    const messageErr = validateField("message", formData.message);
+
+    const newErrors: FormErrors = {
+      ...(nameErr ? { name: nameErr } : {}),
+      ...(emailErr ? { email: emailErr } : {}),
+      ...(phoneErr ? { phone: phoneErr } : {}),
+      ...(messageErr ? { message: messageErr } : {}),
+    };
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length > 0) {
       return;
     }
 
     setSubmitting(true);
-    setStepError("");
-
-    // Prepare unified payload matching backend API requirements
-    const fullName = `${formData.firstName} ${formData.lastName}`.trim();
-    let messageBody = "";
-
-    if (category === "services") {
-      messageBody = `[Services Enquiry]\nService: ${formData.serviceRequired}\nBudget: ${formData.budget}\nCompany: ${formData.company || "Not provided"}\n\nProject Scope:\n${formData.projectDetails}`;
-    } else if (category === "employment") {
-      messageBody = `[Employment Verification Request]\nEmployee Name: ${formData.employeeName}\nRequester Organization: ${formData.company || "Not provided"}\n\nVerification Details:\n${formData.verificationDetails}`;
-    } else if (category === "press") {
-      messageBody = `[Press Inquiry]\nMedia Organization: ${formData.mediaOrg}\nSubject: ${formData.pressSubject}\n\nInquiry Details:\n${formData.pressMessage}`;
-    } else {
-      messageBody = `[General Enquiry]\nService Interest: ${formData.serviceRequired}\nCountry/Region: ${formData.country || "Not provided"}\nCompany: ${formData.company || "Not provided"}\n\nMessage:\n${formData.generalMessage}`;
-    }
-
-    const payload = {
-      name: fullName,
-      email: formData.email,
-      phone: formData.phone,
-      company: formData.company || formData.mediaOrg || "",
-      services: formData.serviceRequired,
-      budget: formData.budget,
-      message: messageBody,
-      tab: category,
-      honeypot: formData.honeypot,
-    };
+    setApiError("");
 
     try {
+      const payload = {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        company: formData.company.trim(),
+        services: formData.service,
+        budget: formData.budget || "Not specified",
+        message: formData.message.trim(),
+        tab: "project",
+        honeypot: formData.honeypot,
+        bi_hp_contact: formData.bi_hp_contact,
+      };
+
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
-      const result = await res.json();
-      if (res.ok && result.success) {
+      const data = await res.json();
+
+      if (res.ok && data.success) {
         setSubmitted(true);
       } else {
-        setStepError(result.message || "Failed to submit enquiry. Please check your entries.");
+        setApiError(
+          data.message || "Failed to submit enquiry. Please try again or reach out directly."
+        );
       }
-    } catch {
-      setStepError("An unexpected network error occurred. Please try again or reach out directly via phone or WhatsApp.");
+    } catch (err) {
+      setApiError(
+        "Network error. Please check your connection or contact us directly at contact@betterinsights.in."
+      );
     } finally {
       setSubmitting(false);
     }
   };
 
-  const handleReset = () => {
-    setSubmitted(false);
-    setCurrentStep(1);
+  const resetForm = () => {
     setFormData({
-      firstName: "",
-      lastName: "",
+      name: "",
       email: "",
       phone: "",
       company: "",
-      serviceRequired: "Website Development",
-      budget: "$10,000 - $25,000 / ₹8L - ₹20L",
-      projectDetails: "",
-      employeeName: "",
-      verificationDetails: "",
-      mediaOrg: "",
-      pressSubject: "",
-      pressMessage: "",
-      generalMessage: "",
-      country: "",
+      service: "Website Development",
+      budget: "",
+      message: "",
       honeypot: "",
+      bi_hp_contact: "",
     });
+    setErrors({});
+    setTouched({});
+    setSubmitted(false);
+    setApiError("");
   };
 
   return (
     <section
       id="contact-form-section"
-      className="py-20 sm:py-28 bg-[#FAF5F0] border-b border-black/8 select-none scroll-mt-24"
-      aria-label="Interactive Contact & Enquiry Wizard"
+      className="relative pt-12 pb-20 sm:pt-16 sm:pb-28 lg:pt-20 lg:pb-32 bg-[#FAF5F0] text-[#1B1411] overflow-hidden"
+      aria-label="Direct Project Enquiry"
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 mb-3">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white border border-black/10 text-[#1B1411]">
-              <span className="w-2 h-2 rounded-full bg-[#33CC7A]" />
-              Structured Enquiry Process
-            </span>
-          </div>
-          <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-[#1B1411] leading-tight">
-            How can we collaborate?
-          </h2>
-          <p className="mt-4 text-sm sm:text-base text-[#66574F] font-normal leading-relaxed">
-            Follow the 4 simple steps below. Our specialists review every submission and deliver actionable next steps within 24 hours.
-          </p>
-        </div>
+      {/* Subtle ambient lighting accent */}
+      <div
+        className="absolute top-12 left-1/4 -translate-x-1/2 w-[700px] h-[500px] bg-[radial-gradient(circle,rgba(51,204,122,0.05)_0%,rgba(168,85,247,0.03)_45%,transparent_70%)] blur-[120px] pointer-events-none z-0"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-10 right-10 w-[500px] h-[400px] bg-[radial-gradient(circle,rgba(51,204,122,0.04)_0%,transparent_65%)] blur-[100px] pointer-events-none z-0"
+        aria-hidden="true"
+      />
 
-        {/* Wizard Container Card */}
-        <div className="bg-white rounded-[2rem] border border-black/10 shadow-lg p-6 sm:p-10 lg:p-12 relative overflow-hidden">
-          {submitted ? (
-            /* Success Confirmation Screen */
-            <div className="text-center py-12 sm:py-16 space-y-4">
-              <div className="w-16 h-16 rounded-full bg-[#33CC7A]/15 text-[#33CC7A] flex items-center justify-center mx-auto">
-                <CheckCircle2 className="w-10 h-10" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* ========================================================================= */}
+          {/* LEFT COLUMN: HERO INFORMATION & DIRECT CONTACT CHANNELS                   */}
+          {/* ========================================================================= */}
+          <div className="lg:col-span-5 flex flex-col justify-between">
+            <div>
+              {/* Eyebrow Label */}
+              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#EEE5DC] border border-black/5 text-[#1B1411] mb-5">
+                <span className="w-2 h-2 rounded-full bg-[#33CC7A] animate-pulse" aria-hidden="true" />
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#1B1411]">
+                  Let&apos;s Build Something Better
+                </span>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-semibold text-[#1B1411] tracking-tight">
-                Enquiry Successfully Transmitted!
-              </h3>
-              <p className="text-sm sm:text-base text-[#66574F] max-w-md mx-auto leading-relaxed">
-                Thank you for reaching out to Better Insights. Our leadership and engineering specialists are reviewing your parameters and will respond within 24 business hours.
+
+              {/* Section Heading */}
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-[#1B1411] leading-[1.08] mb-6">
+                Have a project <br />
+                <span className="text-[#66574F]">in mind?</span>
+              </h2>
+
+              {/* Supporting Description */}
+              <p className="text-base sm:text-lg text-[#66574F] font-normal leading-relaxed mb-6">
+                We partner with ambitious enterprises and startups to accelerate growth through custom website development, production-grade AI automations, CRM synchronization, and technical strategy.
               </p>
-              <div className="pt-6">
-                <button
-                  type="button"
-                  onClick={handleReset}
-                  className="px-8 py-3.5 rounded-full bg-[#1B1411] hover:bg-black text-white text-xs font-bold uppercase tracking-wider transition-all"
-                >
-                  Submit Another Enquiry
-                </button>
+
+              {/* Verified Response-Time Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-white border border-black/8 text-[#66574F] text-xs font-mono font-medium shadow-sm mb-10">
+                <Clock className="w-3.5 h-3.5 text-[#33CC7A]" />
+                <span>Fast turnaround: We review all enquiries within 24 hours.</span>
               </div>
             </div>
-          ) : (
-            <div>
-              {/* Progress Steps Header */}
-              <div className="mb-8 pb-6 border-b border-black/8">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#33CC7A]">
-                    Step {currentStep} of 4
-                  </span>
-                  <span className="text-xs font-mono text-[#66574F]">
-                    {currentStep === 1 && "Select Category"}
-                    {currentStep === 2 && "Contact Details"}
-                    {currentStep === 3 && "Project Parameters"}
-                    {currentStep === 4 && "Review & Submit"}
-                  </span>
-                </div>
 
-                {/* Progress Bar */}
-                <div className="w-full h-1.5 bg-[#FAF5F0] rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-[#33CC7A] transition-all duration-500 ease-out rounded-full"
-                    style={{ width: `${(currentStep / 4) * 100}%` }}
-                  />
+            {/* Direct Contact Channels Card */}
+            <div className="space-y-4 pt-4 border-t border-black/8">
+              {/* Phone Line */}
+              <div className="p-4 rounded-2xl bg-white border border-black/8 shadow-sm flex items-start gap-4 transition-all hover:border-black/20">
+                <div className="w-10 h-10 rounded-xl bg-[#33CC7A]/15 text-[#33CC7A] flex items-center justify-center shrink-0 mt-0.5">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#66574F] block">
+                    Call / WhatsApp Line
+                  </span>
+                  <a
+                    href="tel:+919509996730"
+                    className="text-sm font-semibold text-[#1B1411] hover:text-[#33CC7A] transition-colors"
+                  >
+                    +91 950 999 6730
+                  </a>
+                  <p className="text-xs text-[#66574F]/70 font-mono mt-0.5">
+                    Mon – Fri, 9:30 AM – 6:30 PM IST
+                  </p>
                 </div>
               </div>
 
-              {/* Step Error Notice */}
-              {stepError && (
-                <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs sm:text-sm font-medium flex items-center gap-2">
-                  <span>{stepError}</span>
+              {/* Email Line */}
+              <div className="p-4 rounded-2xl bg-white border border-black/8 shadow-sm flex items-start gap-4 transition-all hover:border-black/20">
+                <div className="w-10 h-10 rounded-xl bg-[#33CC7A]/15 text-[#33CC7A] flex items-center justify-center shrink-0 mt-0.5">
+                  <Mail className="w-5 h-5" />
                 </div>
-              )}
-
-              {/* STEP 1: CATEGORY SELECTION */}
-              {currentStep === 1 && (
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-semibold text-[#1B1411] tracking-tight mb-1">
-                      Choose Your Enquiry Category
-                    </h3>
-                    <p className="text-xs sm:text-sm text-[#66574F]">
-                      Select the option that best reflects your requirements to route your request directly to the appropriate team.
-                    </p>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {ENQUIRY_CATEGORIES.map((cat) => {
-                      const IconComp = cat.icon;
-                      const isSelected = category === cat.id;
-
-                      return (
-                        <div
-                          key={cat.id}
-                          onClick={() => setCategory(cat.id)}
-                          className={`p-6 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between ${
-                            isSelected
-                              ? "border-[#33CC7A] bg-[#33CC7A]/[0.06] shadow-sm ring-2 ring-[#33CC7A]"
-                              : "border-black/10 hover:border-black/25 bg-[#FAF5F0]"
-                          }`}
-                          role="radio"
-                          aria-checked={isSelected}
-                          tabIndex={0}
-                          onKeyDown={(e) => {
-                            if (e.key === "Enter" || e.key === " ") {
-                              e.preventDefault();
-                              setCategory(cat.id);
-                            }
-                          }}
-                        >
-                          <div>
-                            <div className="flex items-center justify-between mb-4">
-                              <span className="text-[10px] font-bold uppercase tracking-wider text-[#33CC7A]">
-                                {cat.badge}
-                              </span>
-                              <div
-                                className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                                  isSelected ? "bg-[#33CC7A] text-white" : "bg-white text-[#66574F] border border-black/10"
-                                }`}
-                              >
-                                <IconComp className="w-4 h-4" />
-                              </div>
-                            </div>
-                            <h4 className="text-base font-semibold text-[#1B1411] mb-2">{cat.label}</h4>
-                            <p className="text-xs text-[#66574F] leading-relaxed font-normal">{cat.desc}</p>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
+                <div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#66574F] block">
+                    Direct Email Inquiries
+                  </span>
+                  <a
+                    href="mailto:contact@betterinsights.in"
+                    className="text-sm font-semibold text-[#1B1411] hover:text-[#33CC7A] transition-colors"
+                  >
+                    contact@betterinsights.in
+                  </a>
+                  <p className="text-xs text-[#66574F]/70 font-mono mt-0.5">
+                    Direct routing to practice leads
+                  </p>
                 </div>
-              )}
+              </div>
 
-              {/* STEP 2: CONTACT DETAILS */}
-              {currentStep === 2 && (
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-semibold text-[#1B1411] tracking-tight mb-1">
-                      Your Contact Information
-                    </h3>
-                    <p className="text-xs sm:text-sm text-[#66574F]">
-                      Tell us who we are speaking with so our specialists can address you directly.
-                    </p>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-[#1B1411]/80 mb-1.5">
-                        First Name <span className="text-[#33CC7A]">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="e.g. Gautam"
-                        value={formData.firstName}
-                        onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                        className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/10 rounded-xl text-sm text-[#1B1411] focus:outline-none focus:border-[#33CC7A] focus:ring-1 focus:ring-[#33CC7A]"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-[#1B1411]/80 mb-1.5">
-                        Last Name <span className="text-[#33CC7A]">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="e.g. Koli"
-                        value={formData.lastName}
-                        onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                        className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/10 rounded-xl text-sm text-[#1B1411] focus:outline-none focus:border-[#33CC7A] focus:ring-1 focus:ring-[#33CC7A]"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-[#1B1411]/80 mb-1.5">
-                        Work Email Address <span className="text-[#33CC7A]">*</span>
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        placeholder="name@company.com"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/10 rounded-xl text-sm text-[#1B1411] focus:outline-none focus:border-[#33CC7A] focus:ring-1 focus:ring-[#33CC7A]"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-[11px] font-bold uppercase tracking-wider text-[#1B1411]/80 mb-1.5">
-                        Phone Number <span className="text-[#33CC7A]">*</span>
-                      </label>
-                      <input
-                        type="tel"
-                        required
-                        placeholder="+91 950 999 6730"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/10 rounded-xl text-sm text-[#1B1411] focus:outline-none focus:border-[#33CC7A] focus:ring-1 focus:ring-[#33CC7A]"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-[#1B1411]/80 mb-1.5">
-                      Company / Organization Name
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="e.g. Acme Corp or Institutional Partner"
-                      value={formData.company}
-                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/10 rounded-xl text-sm text-[#1B1411] focus:outline-none focus:border-[#33CC7A] focus:ring-1 focus:ring-[#33CC7A]"
-                    />
-                  </div>
+              {/* Corporate Office */}
+              <div className="p-4 rounded-2xl bg-white border border-black/8 shadow-sm flex items-start gap-4 transition-all hover:border-black/20">
+                <div className="w-10 h-10 rounded-xl bg-[#FAF5F0] text-[#1B1411] flex items-center justify-center shrink-0 mt-0.5">
+                  <MapPin className="w-5 h-5 text-[#33CC7A]" />
                 </div>
-              )}
-
-              {/* STEP 3: PARAMETERS & REQUIREMENTS */}
-              {currentStep === 3 && (
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-semibold text-[#1B1411] tracking-tight mb-1">
-                      Project Parameters &amp; Objectives
-                    </h3>
-                    <p className="text-xs sm:text-sm text-[#66574F]">
-                      Provide specific context so our engineering and strategic leads can prepare actionable responses.
-                    </p>
-                  </div>
-
-                  {category === "services" && (
-                    <>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-[11px] font-bold uppercase tracking-wider text-[#1B1411]/80 mb-1.5">
-                            Primary Capability Required <span className="text-[#33CC7A]">*</span>
-                          </label>
-                          <select
-                            value={formData.serviceRequired}
-                            onChange={(e) => setFormData({ ...formData, serviceRequired: e.target.value })}
-                            className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/10 rounded-xl text-sm text-[#1B1411] focus:outline-none focus:border-[#33CC7A]"
-                          >
-                            {SERVICES_OPTIONS.map((opt) => (
-                              <option key={opt} value={opt}>
-                                {opt}
-                              </option>
-                            ))}
-                          </select>
-                        </div>
-
-                        <div>
-                          <label className="block text-[11px] font-bold uppercase tracking-wider text-[#1B1411]/80 mb-1.5">
-                            Expected Project Budget
-                          </label>
-                          <select
-                            value={formData.budget}
-                            onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                            className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/10 rounded-xl text-sm text-[#1B1411] focus:outline-none focus:border-[#33CC7A]"
-                          >
-                            {BUDGET_OPTIONS.map((opt) => (
-                              <option key={opt} value={opt}>
-                                {opt}
-                              </option>
-                            ))}
-                          </select>
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-[11px] font-bold uppercase tracking-wider text-[#1B1411]/80 mb-1.5">
-                          Project Scope &amp; Commercial Challenges <span className="text-[#33CC7A]">*</span>
-                        </label>
-                        <textarea
-                          rows={4}
-                          required
-                          placeholder="Tell us about your conversion bottlenecks, tech stack re-architecture, AI automation goals, or timeline..."
-                          value={formData.projectDetails}
-                          onChange={(e) => setFormData({ ...formData, projectDetails: e.target.value })}
-                          className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/10 rounded-xl text-sm text-[#1B1411] focus:outline-none focus:border-[#33CC7A]"
-                        />
-                      </div>
-                    </>
-                  )}
-
-                  {category === "employment" && (
-                    <>
-                      <div>
-                        <label className="block text-[11px] font-bold uppercase tracking-wider text-[#1B1411]/80 mb-1.5">
-                          Candidate / Employee Name <span className="text-[#33CC7A]">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          required
-                          placeholder="Full name of employee / past team member"
-                          value={formData.employeeName}
-                          onChange={(e) => setFormData({ ...formData, employeeName: e.target.value })}
-                          className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/10 rounded-xl text-sm text-[#1B1411] focus:outline-none focus:border-[#33CC7A]"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-[11px] font-bold uppercase tracking-wider text-[#1B1411]/80 mb-1.5">
-                          Verification Details &amp; Specific Inquiries <span className="text-[#33CC7A]">*</span>
-                        </label>
-                        <textarea
-                          rows={4}
-                          required
-                          placeholder="Provide the employment dates, designation, and specific verification requirements needed..."
-                          value={formData.verificationDetails}
-                          onChange={(e) => setFormData({ ...formData, verificationDetails: e.target.value })}
-                          className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/10 rounded-xl text-sm text-[#1B1411] focus:outline-none focus:border-[#33CC7A]"
-                        />
-                      </div>
-                    </>
-                  )}
-
-                  {category === "press" && (
-                    <>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-[11px] font-bold uppercase tracking-wider text-[#1B1411]/80 mb-1.5">
-                            Publication / Outlet <span className="text-[#33CC7A]">*</span>
-                          </label>
-                          <input
-                            type="text"
-                            required
-                            placeholder="e.g. Forbes, TechCrunch, Economic Times"
-                            value={formData.mediaOrg}
-                            onChange={(e) => setFormData({ ...formData, mediaOrg: e.target.value })}
-                            className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/10 rounded-xl text-sm text-[#1B1411] focus:outline-none focus:border-[#33CC7A]"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-[11px] font-bold uppercase tracking-wider text-[#1B1411]/80 mb-1.5">
-                            Subject / Topic <span className="text-[#33CC7A]">*</span>
-                          </label>
-                          <input
-                            type="text"
-                            required
-                            placeholder="e.g. AI Agency Trends Interview"
-                            value={formData.pressSubject}
-                            onChange={(e) => setFormData({ ...formData, pressSubject: e.target.value })}
-                            className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/10 rounded-xl text-sm text-[#1B1411] focus:outline-none focus:border-[#33CC7A]"
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-[11px] font-bold uppercase tracking-wider text-[#1B1411]/80 mb-1.5">
-                          Inquiry Overview &amp; Editorial Deadlines <span className="text-[#33CC7A]">*</span>
-                        </label>
-                        <textarea
-                          rows={4}
-                          required
-                          placeholder="Describe the article, interview questions, and required deadline..."
-                          value={formData.pressMessage}
-                          onChange={(e) => setFormData({ ...formData, pressMessage: e.target.value })}
-                          className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/10 rounded-xl text-sm text-[#1B1411] focus:outline-none focus:border-[#33CC7A]"
-                        />
-                      </div>
-                    </>
-                  )}
-
-                  {category === "general" && (
-                    <>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-[11px] font-bold uppercase tracking-wider text-[#1B1411]/80 mb-1.5">
-                            Service Area of Interest
-                          </label>
-                          <select
-                            value={formData.serviceRequired}
-                            onChange={(e) => setFormData({ ...formData, serviceRequired: e.target.value })}
-                            className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/10 rounded-xl text-sm text-[#1B1411] focus:outline-none focus:border-[#33CC7A]"
-                          >
-                            {SERVICES_OPTIONS.map((opt) => (
-                              <option key={opt} value={opt}>
-                                {opt}
-                              </option>
-                            ))}
-                          </select>
-                        </div>
-                        <div>
-                          <label className="block text-[11px] font-bold uppercase tracking-wider text-[#1B1411]/80 mb-1.5">
-                            Country / City
-                          </label>
-                          <input
-                            type="text"
-                            placeholder="e.g. India, United States, United Kingdom"
-                            value={formData.country}
-                            onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                            className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/10 rounded-xl text-sm text-[#1B1411] focus:outline-none focus:border-[#33CC7A]"
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-[11px] font-bold uppercase tracking-wider text-[#1B1411]/80 mb-1.5">
-                          How Can We Help You? <span className="text-[#33CC7A]">*</span>
-                        </label>
-                        <textarea
-                          rows={4}
-                          required
-                          placeholder="Tell us about your brand questions, advisory requirements, or ideas..."
-                          value={formData.generalMessage}
-                          onChange={(e) => setFormData({ ...formData, generalMessage: e.target.value })}
-                          className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/10 rounded-xl text-sm text-[#1B1411] focus:outline-none focus:border-[#33CC7A]"
-                        />
-                      </div>
-                    </>
-                  )}
+                <div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#66574F] block">
+                    Corporate Office
+                  </span>
+                  <p className="text-sm font-semibold text-[#1B1411]">
+                    Pune, Maharashtra, India
+                  </p>
+                  <p className="text-xs text-[#66574F]/70 font-mono mt-0.5">
+                    Office No. 828, Clover Hills Plaza, Undri Pisoli Rd, Kondhwa
+                  </p>
                 </div>
-              )}
+              </div>
+            </div>
+          </div>
 
-              {/* STEP 4: REVIEW & SUBMIT */}
-              {currentStep === 4 && (
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-semibold text-[#1B1411] tracking-tight mb-1">
-                      Review Your Submission
-                    </h3>
-                    <p className="text-xs sm:text-sm text-[#66574F]">
-                      Verify the details below before transmitting. You can click 'Back' to adjust any parameters.
-                    </p>
+          {/* ========================================================================= */}
+          {/* RIGHT COLUMN: DIRECT PROJECT ENQUIRY FORM                                */}
+          {/* ========================================================================= */}
+          <div className="lg:col-span-7">
+            <div className="bg-white rounded-[2rem] sm:rounded-[2.25rem] p-6 sm:p-10 lg:p-12 border border-black/8 shadow-xl shadow-black/[0.03] relative">
+              {submitted ? (
+                /* ========================================================================= */
+                /* SUCCESS CONFIRMATION STATE                                               */
+                /* ========================================================================= */
+                <div className="py-8 sm:py-12 text-center flex flex-col items-center">
+                  <div className="w-16 h-16 rounded-full bg-[#33CC7A]/15 text-[#33CC7A] flex items-center justify-center mb-6">
+                    <CheckCircle2 className="w-9 h-9 stroke-[2.2]" />
                   </div>
 
-                  {/* Summary Card */}
-                  <div className="p-6 rounded-2xl bg-[#FAF5F0] border border-black/10 space-y-4 text-xs sm:text-sm">
-                    <div className="grid grid-cols-2 gap-4 pb-4 border-b border-black/10">
-                      <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#66574F] block">
-                          Category
-                        </span>
-                        <span className="font-semibold text-[#1B1411] capitalize">{category}</span>
-                      </div>
-                      <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#66574F] block">
-                          Name
-                        </span>
-                        <span className="font-semibold text-[#1B1411]">
-                          {formData.firstName} {formData.lastName}
-                        </span>
-                      </div>
-                    </div>
+                  <span className="inline-block px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-[#33CC7A]/15 text-[#1B1411] border border-[#33CC7A]/30 mb-3">
+                    Enquiry Confirmed
+                  </span>
 
-                    <div className="grid grid-cols-2 gap-4 pb-4 border-b border-black/10">
-                      <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#66574F] block">
-                          Work Email
-                        </span>
-                        <span className="font-semibold text-[#1B1411] break-all">{formData.email}</span>
-                      </div>
-                      <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#66574F] block">
-                          Phone
-                        </span>
+                  <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[#1B1411] mb-3">
+                    Thank you, {formData.name}!
+                  </h3>
+
+                  <p className="text-sm sm:text-base text-[#66574F] max-w-md mx-auto leading-relaxed mb-8">
+                    We have received your project details. One of our technical practice leads will review your inquiry and respond within 24 business hours.
+                  </p>
+
+                  <div className="w-full max-w-md bg-[#FAF5F0] rounded-2xl p-5 border border-black/8 text-left mb-8 space-y-2.5 text-xs">
+                    <div className="flex justify-between text-[#66574F]">
+                      <span className="font-mono uppercase">Service:</span>
+                      <span className="font-semibold text-[#1B1411]">{formData.service}</span>
+                    </div>
+                    <div className="flex justify-between text-[#66574F]">
+                      <span className="font-mono uppercase">Work Email:</span>
+                      <span className="font-semibold text-[#1B1411]">{formData.email}</span>
+                    </div>
+                    {formData.phone && (
+                      <div className="flex justify-between text-[#66574F]">
+                        <span className="font-mono uppercase">Phone:</span>
                         <span className="font-semibold text-[#1B1411]">{formData.phone}</span>
                       </div>
-                    </div>
-
-                    {formData.company && (
-                      <div className="pb-4 border-b border-black/10">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#66574F] block">
-                          Organization
-                        </span>
-                        <span className="font-semibold text-[#1B1411]">{formData.company}</span>
+                    )}
+                    {formData.budget && (
+                      <div className="flex justify-between text-[#66574F]">
+                        <span className="font-mono uppercase">Budget:</span>
+                        <span className="font-semibold text-[#1B1411]">{formData.budget}</span>
                       </div>
                     )}
+                  </div>
 
-                    <div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#66574F] block mb-1">
-                        Requirements / Scope Summary
-                      </span>
-                      <p className="text-[#1B1411]/80 leading-relaxed font-normal bg-white p-3.5 rounded-xl border border-black/5 whitespace-pre-wrap">
-                        {category === "services" && formData.projectDetails}
-                        {category === "employment" && `Candidate: ${formData.employeeName}\n\n${formData.verificationDetails}`}
-                        {category === "press" && `Outlet: ${formData.mediaOrg}\nTopic: ${formData.pressSubject}\n\n${formData.pressMessage}`}
-                        {category === "general" && formData.generalMessage}
-                      </p>
+                  <button
+                    type="button"
+                    onClick={resetForm}
+                    className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#FAF5F0] text-[#1B1411] hover:bg-[#EEE5DC] text-xs font-bold uppercase tracking-wider border border-black/10 transition-all hover:scale-105 active:scale-95"
+                  >
+                    <span>Submit Another Enquiry</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+              ) : (
+                /* ========================================================================= */
+                /* ACTIVE DIRECT ENQUIRY FORM                                               */
+                /* ========================================================================= */
+                <div>
+                  <div className="mb-8">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#33CC7A] block mb-1">
+                      Direct Project Enquiry
+                    </span>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[#1B1411]">
+                      Tell us about your project
+                    </h2>
+                    <p className="text-xs sm:text-sm text-[#66574F] mt-1.5 leading-relaxed">
+                      Complete the form below and our team will get in touch with actionable recommendations.
+                    </p>
+                  </div>
+
+                  {apiError && (
+                    <div
+                      className="p-4 mb-6 rounded-2xl bg-red-50 border border-red-200 text-red-800 text-xs flex items-start gap-3"
+                      role="alert"
+                    >
+                      <AlertCircle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
+                      <span>{apiError}</span>
                     </div>
-                  </div>
+                  )}
 
-                  {/* Privacy / Security Notice */}
-                  <div className="flex items-center gap-2.5 text-xs text-[#66574F]">
-                    <ShieldCheck className="w-4 h-4 text-[#33CC7A] shrink-0" />
-                    <span>Your information is strictly protected and never shared with third parties.</span>
-                  </div>
+                  <form onSubmit={handleSubmit} noValidate className="space-y-5">
+                    {/* Honeypot Anti-Spam Fields */}
+                    <div className="hidden" aria-hidden="true">
+                      <input
+                        type="text"
+                        name="honeypot"
+                        value={formData.honeypot}
+                        onChange={handleChange}
+                        tabIndex={-1}
+                        autoComplete="off"
+                      />
+                      <input
+                        type="text"
+                        name="bi_hp_contact"
+                        value={formData.bi_hp_contact}
+                        onChange={handleChange}
+                        tabIndex={-1}
+                        autoComplete="off"
+                      />
+                    </div>
+
+                    {/* Row 1: Full Name & Work Email */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      {/* Full Name */}
+                      <div>
+                        <label
+                          htmlFor="contact-name"
+                          className="block text-xs font-semibold text-[#1B1411] uppercase tracking-wider mb-2"
+                        >
+                          Full Name <span className="text-[#33CC7A]">*</span>
+                        </label>
+                        <input
+                          id="contact-name"
+                          name="name"
+                          type="text"
+                          required
+                          value={formData.name}
+                          onChange={handleChange}
+                          onBlur={() => handleBlur("name")}
+                          placeholder="e.g. Sarah Jenkins"
+                          className={`w-full px-4 py-3.5 rounded-xl bg-[#FAF5F0] border text-sm text-[#1B1411] placeholder:text-[#66574F]/50 transition-all focus:outline-none focus:ring-2 ${
+                            touched.name && errors.name
+                              ? "border-red-300 focus:ring-red-400"
+                              : "border-black/10 focus:border-[#33CC7A] focus:ring-[#33CC7A]/20"
+                          }`}
+                        />
+                        {touched.name && errors.name && (
+                          <p className="text-xs text-red-600 mt-1.5 flex items-center gap-1 font-medium">
+                            <AlertCircle className="w-3 h-3 shrink-0" />
+                            {errors.name}
+                          </p>
+                        )}
+                      </div>
+
+                      {/* Work Email */}
+                      <div>
+                        <label
+                          htmlFor="contact-email"
+                          className="block text-xs font-semibold text-[#1B1411] uppercase tracking-wider mb-2"
+                        >
+                          Work Email <span className="text-[#33CC7A]">*</span>
+                        </label>
+                        <input
+                          id="contact-email"
+                          name="email"
+                          type="email"
+                          required
+                          value={formData.email}
+                          onChange={handleChange}
+                          onBlur={() => handleBlur("email")}
+                          placeholder="sarah@company.com"
+                          className={`w-full px-4 py-3.5 rounded-xl bg-[#FAF5F0] border text-sm text-[#1B1411] placeholder:text-[#66574F]/50 transition-all focus:outline-none focus:ring-2 ${
+                            touched.email && errors.email
+                              ? "border-red-300 focus:ring-red-400"
+                              : "border-black/10 focus:border-[#33CC7A] focus:ring-[#33CC7A]/20"
+                          }`}
+                        />
+                        {touched.email && errors.email && (
+                          <p className="text-xs text-red-600 mt-1.5 flex items-center gap-1 font-medium">
+                            <AlertCircle className="w-3 h-3 shrink-0" />
+                            {errors.email}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Row 2: Phone Number & Company Name */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      {/* Phone Number */}
+                      <div>
+                        <label
+                          htmlFor="contact-phone"
+                          className="block text-xs font-semibold text-[#1B1411] uppercase tracking-wider mb-2"
+                        >
+                          Phone Number
+                        </label>
+                        <input
+                          id="contact-phone"
+                          name="phone"
+                          type="tel"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          onBlur={() => handleBlur("phone")}
+                          placeholder="+91 98765 43210"
+                          className={`w-full px-4 py-3.5 rounded-xl bg-[#FAF5F0] border text-sm text-[#1B1411] placeholder:text-[#66574F]/50 transition-all focus:outline-none focus:ring-2 ${
+                            touched.phone && errors.phone
+                              ? "border-red-300 focus:ring-red-400"
+                              : "border-black/10 focus:border-[#33CC7A] focus:ring-[#33CC7A]/20"
+                          }`}
+                        />
+                        {touched.phone && errors.phone && (
+                          <p className="text-xs text-red-600 mt-1.5 flex items-center gap-1 font-medium">
+                            <AlertCircle className="w-3 h-3 shrink-0" />
+                            {errors.phone}
+                          </p>
+                        )}
+                      </div>
+
+                      {/* Company Name */}
+                      <div>
+                        <label
+                          htmlFor="contact-company"
+                          className="block text-xs font-semibold text-[#1B1411] uppercase tracking-wider mb-2"
+                        >
+                          Company Name <span className="text-[#66574F]/60 text-[10px] lowercase">(optional)</span>
+                        </label>
+                        <input
+                          id="contact-company"
+                          name="company"
+                          type="text"
+                          value={formData.company}
+                          onChange={handleChange}
+                          placeholder="e.g. Acme Corporation"
+                          className="w-full px-4 py-3.5 rounded-xl bg-[#FAF5F0] border border-black/10 text-sm text-[#1B1411] placeholder:text-[#66574F]/50 transition-all focus:outline-none focus:border-[#33CC7A] focus:ring-2 focus:ring-[#33CC7A]/20"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Row 3: Service Interested In & Estimated Budget */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      {/* Service Dropdown */}
+                      <div>
+                        <label
+                          htmlFor="contact-service"
+                          className="block text-xs font-semibold text-[#1B1411] uppercase tracking-wider mb-2"
+                        >
+                          Service Interested In <span className="text-[#33CC7A]">*</span>
+                        </label>
+                        <select
+                          id="contact-service"
+                          name="service"
+                          value={formData.service}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3.5 rounded-xl bg-[#FAF5F0] border border-black/10 text-sm text-[#1B1411] transition-all focus:outline-none focus:border-[#33CC7A] focus:ring-2 focus:ring-[#33CC7A]/20 cursor-pointer"
+                        >
+                          {SERVICE_OPTIONS.map((srv) => (
+                            <option key={srv} value={srv}>
+                              {srv}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      {/* Estimated Budget Dropdown */}
+                      <div>
+                        <label
+                          htmlFor="contact-budget"
+                          className="block text-xs font-semibold text-[#1B1411] uppercase tracking-wider mb-2"
+                        >
+                          Estimated Budget <span className="text-[#66574F]/60 text-[10px] lowercase">(optional)</span>
+                        </label>
+                        <select
+                          id="contact-budget"
+                          name="budget"
+                          value={formData.budget}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3.5 rounded-xl bg-[#FAF5F0] border border-black/10 text-sm text-[#1B1411] transition-all focus:outline-none focus:border-[#33CC7A] focus:ring-2 focus:ring-[#33CC7A]/20 cursor-pointer"
+                        >
+                          <option value="">Select a budget range...</option>
+                          {BUDGET_OPTIONS.map((bgt) => (
+                            <option key={bgt} value={bgt}>
+                              {bgt}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* Row 4: Project Details / Message */}
+                    <div>
+                      <label
+                        htmlFor="contact-message"
+                        className="block text-xs font-semibold text-[#1B1411] uppercase tracking-wider mb-2"
+                      >
+                        Project Details / Message <span className="text-[#33CC7A]">*</span>
+                      </label>
+                      <textarea
+                        id="contact-message"
+                        name="message"
+                        required
+                        rows={4}
+                        value={formData.message}
+                        onChange={handleChange}
+                        onBlur={() => handleBlur("message")}
+                        placeholder="Tell us about your project goals, timeline, existing tech stack, or specific challenges..."
+                        className={`w-full px-4 py-3.5 rounded-xl bg-[#FAF5F0] border text-sm text-[#1B1411] placeholder:text-[#66574F]/50 transition-all focus:outline-none focus:ring-2 resize-y ${
+                          touched.message && errors.message
+                            ? "border-red-300 focus:ring-red-400"
+                            : "border-black/10 focus:border-[#33CC7A] focus:ring-[#33CC7A]/20"
+                        }`}
+                      />
+                      {touched.message && errors.message && (
+                        <p className="text-xs text-red-600 mt-1.5 flex items-center gap-1 font-medium">
+                          <AlertCircle className="w-3 h-3 shrink-0" />
+                          {errors.message}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Row 5: Prominent Green Submission Button */}
+                    <div className="pt-2">
+                      <button
+                        type="submit"
+                        disabled={submitting}
+                        className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-9 py-4 rounded-full bg-[#33CC7A] text-[#1B1411] text-sm font-bold uppercase tracking-wider hover:bg-[#2BB86D] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-md shadow-[#33CC7A]/25 disabled:opacity-60 disabled:pointer-events-none cursor-pointer"
+                      >
+                        {submitting ? (
+                          <>
+                            <Loader2 className="w-4 h-4 animate-spin" />
+                            <span>Submitting Enquiry...</span>
+                          </>
+                        ) : (
+                          <>
+                            <span>Let&apos;s Discuss Your Project</span>
+                            <ArrowRight className="w-4 h-4" />
+                          </>
+                        )}
+                      </button>
+                    </div>
+
+                    {/* Trust & Privacy Notice */}
+                    <div className="flex items-center gap-2 pt-3 text-[11px] text-[#66574F]">
+                      <ShieldCheck className="w-3.5 h-3.5 text-[#33CC7A] shrink-0" />
+                      <span>Your information is strictly protected. We never share your data or send spam.</span>
+                    </div>
+                  </form>
                 </div>
               )}
-
-              {/* Navigation Controls */}
-              <div className="mt-8 pt-6 border-t border-black/8 flex items-center justify-between gap-4">
-                {currentStep > 1 ? (
-                  <button
-                    type="button"
-                    onClick={handleBack}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-black/15 text-[#1B1411] text-xs font-bold uppercase tracking-wider hover:bg-black/5 transition-all"
-                  >
-                    <ArrowLeft className="w-4 h-4" />
-                    <span>Back</span>
-                  </button>
-                ) : (
-                  <div />
-                )}
-
-                {currentStep < 4 ? (
-                  <button
-                    type="button"
-                    onClick={handleNext}
-                    className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-[#1B1411] hover:bg-black text-white text-xs font-bold uppercase tracking-wider transition-all hover:scale-105 shadow-md"
-                  >
-                    <span>Next Step</span>
-                    <ArrowRight className="w-4 h-4 text-[#33CC7A]" />
-                  </button>
-                ) : (
-                  <button
-                    type="button"
-                    onClick={handleSubmit}
-                    disabled={submitting}
-                    className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-[#33CC7A] hover:bg-[#2BB86D] text-[#1B1411] text-xs font-bold uppercase tracking-wider transition-all hover:scale-105 shadow-md shadow-[#33CC7A]/20 disabled:opacity-50"
-                  >
-                    {submitting ? (
-                      <>
-                        <Loader2 className="w-4 h-4 animate-spin" />
-                        <span>Transmitting...</span>
-                      </>
-                    ) : (
-                      <>
-                        <span>Submit Final Enquiry</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </>
-                    )}
-                  </button>
-                )}
-              </div>
             </div>
-          )}
+          </div>
         </div>
       </div>
     </section>

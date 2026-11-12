@@ -31,8 +31,26 @@
   animation: contactFadeInUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+.contact-delay-1 { animation-delay: 80ms; }
+.contact-delay-2 { animation-delay: 160ms; }
+.contact-delay-3 { animation-delay: 240ms; }
+.contact-delay-4 { animation-delay: 320ms; }
+.contact-delay-5 { animation-delay: 400ms; }
+
 .contact-pulse-dot {
   animation: contactPulseDot 2.4s ease-in-out infinite;
+}
+
+.contact-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(27, 20, 17, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(27, 20, 17, 0.035) 1px, transparent 1px);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 80%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 80%);
+  pointer-events: none;
 }
 
 /* --------------------------------------------------------------------------

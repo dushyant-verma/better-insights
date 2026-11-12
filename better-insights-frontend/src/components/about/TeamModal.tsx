@@ -32,20 +32,27 @@ export function TeamModal({ member, isOpen, onClose }: TeamModalProps) {
   useEffect(() => {
     if (isOpen) {
       triggerRef.current = document.activeElement as HTMLElement | null;
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
       document.body.style.overflow = "hidden";
+      if (scrollbarWidth > 0) {
+        document.body.style.paddingRight = `${scrollbarWidth}px`;
+      }
       requestAnimationFrame(() => {
         closeBtnRef.current?.focus();
       });
     } else {
       document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
       if (triggerRef.current && typeof triggerRef.current.focus === "function") {
-        triggerRef.current.focus();
+        // preventScroll avoids jumping the browser window to align with the moving card in TeamSlider
+        triggerRef.current.focus({ preventScroll: true });
         triggerRef.current = null;
       }
     }
 
     return () => {
       document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
     };
   }, [isOpen]);
 
@@ -104,12 +111,12 @@ export function TeamModal({ member, isOpen, onClose }: TeamModalProps) {
         <div className="overflow-y-auto p-6 sm:p-10 space-y-8">
           {/* Header Grid: Photo + Name/Role */}
           <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-8 pb-6 border-b border-black/10">
-            <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden shrink-0 bg-white border border-black/10 shadow-sm">
+            <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden shrink-0 bg-white border border-black/10 shadow-sm bi-team-modal-avatar">
               <Image
                 src={member.originalPhoto || member.image}
                 alt={member.name}
                 fill
-                className="object-cover object-top"
+                className="object-cover object-top rounded-full bi-team-modal-avatar-img"
                 sizes="(max-width: 640px) 112px, 144px"
               />
             </div>

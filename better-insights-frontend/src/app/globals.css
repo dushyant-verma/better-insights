@@ -13,6 +13,12 @@
 @import "../styles/home-merged.css";
 
 :root {
+  --container-max-width: 1440px;
+  --container-padding-desktop: 48px;
+  --container-padding-tablet: 32px;
+  --container-padding-mobile: 20px;
+  --container-padding: var(--container-padding-desktop);
+
   --color-bi-black: #000000;
   --color-bi-white: #FFFFFF;
   --color-bi-stone: #F3F2EF;
@@ -21,8 +27,78 @@
   --color-bi-border: #E5E5E5;
 }
 
-html:not(.lenis) {
-  scroll-behavior: smooth;
+@media (max-width: 1024px) {
+  :root {
+    --container-padding: var(--container-padding-tablet);
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --container-padding: var(--container-padding-mobile);
+  }
+}
+
+/* ==========================================================================
+   Global Content Container Standard (1440px max width with responsive side padding)
+   ========================================================================== */
+.container,
+.bi-container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding-desktop);
+  padding-right: var(--container-padding-desktop);
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .container,
+  .bi-container {
+    padding-left: var(--container-padding-tablet);
+    padding-right: var(--container-padding-tablet);
+  }
+}
+
+@media (max-width: 600px) {
+  .container,
+  .bi-container {
+    padding-left: var(--container-padding-mobile);
+    padding-right: var(--container-padding-mobile);
+  }
+}
+
+/* Align standard Tailwind max-w-7xl content wrappers to the 1440px container standard */
+.max-w-7xl {
+  max-width: var(--container-max-width) !important;
+}
+
+@media (min-width: 1025px) {
+  .max-w-7xl.mx-auto {
+    padding-left: var(--container-padding-desktop) !important;
+    padding-right: var(--container-padding-desktop) !important;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 601px) {
+  .max-w-7xl.mx-auto {
+    padding-left: var(--container-padding-tablet) !important;
+    padding-right: var(--container-padding-tablet) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .max-w-7xl.mx-auto {
+    padding-left: var(--container-padding-mobile) !important;
+    padding-right: var(--container-padding-mobile) !important;
+  }
+}
+
+
+/* Avoid global CSS scroll-behavior: smooth conflicting with GSAP ScrollTrigger pinning & scrubs */
+html {
+  scroll-behavior: auto;
 }
 
 body {
@@ -100,6 +176,16 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   Custom Cursor Global Styles (Native cursor preserved alongside fluid dot)
+   Custom Cursor Touch & Mobile Prevention
+   Completely disable and hide custom cursor on touch screens, coarse pointers,
+   and mobile/tablet devices to prevent floating circle artifacts.
    -------------------------------------------------------------------------- */
+@media (hover: none), (pointer: coarse), (max-width: 1024px) {
+  .magnetic-cursor {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+  }
+}
 

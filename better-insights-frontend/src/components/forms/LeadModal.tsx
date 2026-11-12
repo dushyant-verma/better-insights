@@ -34,7 +34,6 @@ export function LeadModal({ isOpen: propIsOpen, onClose: propOnClose }: LeadModa
     email: "",
     phone: "",
     website: "",
-    message: "",
     honeypot: "",
   });
   const [submitting, setSubmitting] = useState(false);
@@ -70,7 +69,7 @@ export function LeadModal({ isOpen: propIsOpen, onClose: propOnClose }: LeadModa
       });
     } else {
       document.body.style.overflow = "";
-      setFormData({ name: "", email: "", phone: "", website: "", message: "", honeypot: "" });
+      setFormData({ name: "", email: "", phone: "", website: "", honeypot: "" });
       setSubmitted(false);
       setErrorMsg("");
       // Return focus to trigger
@@ -270,19 +269,6 @@ export function LeadModal({ isOpen: propIsOpen, onClose: propOnClose }: LeadModa
                     className="w-full px-4 py-2.5 bg-white border border-black/15 rounded-xl text-xs sm:text-sm text-[#1B1411] placeholder-black/35 focus:outline-none focus:border-[#33CC7A] focus:ring-1 focus:ring-[#33CC7A]"
                   />
                 </div>
-              </div>
-
-              <div>
-                <label className="block text-[11px] font-bold uppercase tracking-wider text-[#1B1411]/80 mb-1">
-                  Primary Goals or Bottlenecks
-                </label>
-                <textarea
-                  rows={2}
-                  placeholder="Tell us about your target growth, website re-platforming, or automation needs..."
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-2.5 bg-white border border-black/15 rounded-xl text-xs sm:text-sm text-[#1B1411] placeholder-black/35 focus:outline-none focus:border-[#33CC7A] focus:ring-1 focus:ring-[#33CC7A]"
-                />
               </div>
 
               {errorMsg && (

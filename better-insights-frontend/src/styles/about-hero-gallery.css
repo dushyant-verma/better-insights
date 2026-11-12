@@ -1,0 +1,372 @@
+/* ==========================================================================
+   Better Insights — About Page Hero Arched Image Carousel
+   Reference Component: archedImageCarouselDesktop (MadeByShape)
+   - Full viewport height (100vh / 100svh) with deep black (#0D0D0D) background
+   - Centered headline: "Good ideas. Great people. Better outcomes."
+   - Smooth curved arch trajectory for image cards riding along circular path
+   - Compact spacing: 30 cards at 12° intervals for a continuous visual arch
+   - Rounded corners (22px), high elevation drop shadows, consistent proportions
+   - Centered brand CTA button in Better Insights header green (#33CC7A)
+   ========================================================================== */
+
+.bi-about-hero-dark {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  background-color: #0D0D0D;
+  color: #FFFFFF;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: clamp(7.5rem, 13vh, 10rem);
+  padding-bottom: clamp(2.5rem, 5vh, 3.5rem);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-sizing: border-box;
+  user-select: none;
+}
+
+@media (max-width: 768px) {
+  .bi-about-hero-dark {
+    /* Compact, balanced hero on mobile: eliminate excessive empty black height */
+    min-height: auto;
+    justify-content: flex-start;
+    padding-top: clamp(5.25rem, 11vh, 6.25rem);
+    padding-bottom: 2rem; /* ~50% reduction in bottom spacing */
+    gap: 0;
+  }
+}
+
+/* Ambient radial glow in background */
+.bi-about-hero-glow {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: clamp(500px, 75vw, 1200px);
+  height: clamp(380px, 45vw, 680px);
+  background: radial-gradient(circle, rgba(51, 204, 122, 0.06) 0%, rgba(255, 255, 255, 0.02) 40%, transparent 70%);
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   1. Large Centered Headline
+   Positioned with generous breathing room below fixed navigation
+   and clean spacing above the arched carousel below.
+   -------------------------------------------------------------------------- */
+.bi-about-hero-header {
+  position: relative;
+  z-index: 20;
+  text-align: center;
+  width: 100%;
+  max-width: var(--container-max-width, 1440px);
+  margin: 0 auto;
+  padding: 0 var(--container-padding-desktop, 48px);
+  box-sizing: border-box;
+  pointer-events: none;
+  margin-bottom: clamp(0.75rem, 1.5vw, 1.5rem);
+}
+
+@media (max-width: 1024px) {
+  .bi-about-hero-header {
+    padding: 0 var(--container-padding-tablet, 32px);
+  }
+}
+
+@media (max-width: 600px) {
+  .bi-about-hero-header {
+    padding: 0 var(--container-padding-mobile, 20px);
+  }
+}
+
+.bi-hero-title {
+  font-family: inherit;
+  font-size: clamp(2.5rem, 6.25vw, 5.75rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  color: #FFFFFF;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.85);
+  margin: 0 auto;
+  max-width: 66rem;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .bi-hero-title {
+    font-size: clamp(1.85rem, 7.8vw, 2.45rem);
+    line-height: 1.1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bi-hero-title {
+    font-size: clamp(3.75rem, 6vw, 5.75rem);
+    line-height: 1.04;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. Arched Image Carousel (Reference: archedImageCarouselDesktop - MadeByShape)
+   - Positioned lower below heading with positive top margin
+   - Displays 4 primary prominent cards across desktop with generous dimensions
+   - Curved upward/downward arch geometry with smooth wheel trajectory
+   -------------------------------------------------------------------------- */
+.bi-arched-carousel-stage {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: clamp(420px, 44vw, 580px);
+  margin-top: clamp(0.75rem, 1.8vw, 1.75rem);
+  z-index: 10;
+  cursor: grab;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.bi-arched-carousel-stage:active {
+  cursor: grabbing;
+}
+
+@media (max-width: 1024px) {
+  .bi-arched-carousel-stage {
+    height: clamp(340px, 46vw, 450px);
+    margin-top: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .bi-arched-carousel-stage {
+    height: clamp(210px, 52vw, 260px);
+    margin-top: 0.25rem;
+  }
+}
+
+/* Circular wheel that rotates smoothly */
+.bi-arched-wheel {
+  position: absolute;
+  top: clamp(15px, 2vw, 35px);
+  left: 50%;
+  width: 205vw;
+  height: 205vw;
+  margin-left: -102.5vw;
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+
+@media (max-width: 1024px) {
+  .bi-arched-wheel {
+    width: 240vw;
+    height: 240vw;
+    margin-left: -120vw;
+    top: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bi-arched-wheel {
+    width: 280vw;
+    height: 280vw;
+    margin-left: -140vw;
+    top: 10px;
+  }
+}
+
+/* Radial spoke holding an image card at the wheel's top circumference */
+.bi-arched-spoke {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: clamp(285px, 21.5vw, 375px);
+  height: 50%;
+  margin-left: calc(-1 * clamp(285px, 21.5vw, 375px) / 2);
+  transform-origin: 50% 100%;
+  transform: rotate(var(--spoke-angle, 0deg));
+  pointer-events: none;
+}
+
+@media (max-width: 1024px) {
+  .bi-arched-spoke {
+    width: clamp(225px, 25vw, 285px);
+    margin-left: calc(-1 * clamp(225px, 25vw, 285px) / 2);
+  }
+}
+
+@media (max-width: 768px) {
+  .bi-arched-spoke {
+    width: clamp(165px, 42vw, 210px);
+    margin-left: calc(-1 * clamp(165px, 42vw, 210px) / 2);
+  }
+}
+
+/* Individual photographic card on the arch: Larger, more prominent dimensions */
+.bi-arched-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 26px;
+  overflow: hidden;
+  background-color: #161719;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 26px 60px -12px rgba(0, 0, 0, 0.88);
+  pointer-events: auto;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
+}
+
+@media (max-width: 1024px) {
+  .bi-arched-card {
+    border-radius: 20px;
+  }
+}
+
+.bi-arched-card:hover {
+  transform: scale(1.05);
+  border-color: rgba(51, 204, 122, 0.5);
+  box-shadow: 0 32px 70px -10px rgba(0, 0, 0, 0.95);
+  z-index: 20;
+}
+
+.bi-arched-card__img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bi-arched-card:hover .bi-arched-card__img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 640px) {
+  .bi-arched-card {
+    border-radius: 16px;
+  }
+}
+
+/* Subtle corner tag */
+.bi-arched-card__tag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 9999px;
+  background-color: rgba(13, 13, 13, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.65rem;
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  z-index: 5;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .bi-arched-card__tag {
+    top: 0.65rem;
+    left: 0.65rem;
+    padding: 0.22rem 0.5rem;
+    font-size: 0.58rem;
+  }
+}
+
+.bi-arched-card__tag-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background-color: #33CC7A;
+  box-shadow: 0 0 6px rgba(51, 204, 122, 0.7);
+}
+
+/* --------------------------------------------------------------------------
+   3. Centered Brand CTA Button
+   Matches Better Insights Header CTA Button Identity:
+   - Primary background: #33CC7A
+   - Text color: #1B1411
+   - Rounded pill shape with small arrow icon on the right
+   -------------------------------------------------------------------------- */
+.bi-hero-cta-wrap {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .bi-hero-cta-wrap {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .bi-hero-cta-wrap {
+    margin-top: 0.65rem;
+    margin-bottom: 0;
+  }
+}
+
+.bi-hero-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 2rem;
+  background-color: #33CC7A;
+  color: #1B1411;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  border-radius: 9999px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(51, 204, 122, 0.3);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s ease,
+              background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .bi-hero-cta-btn {
+    padding: 0.72rem 1.65rem;
+    font-size: 0.875rem;
+  }
+}
+
+.bi-hero-cta-btn:hover {
+  background-color: #2bb86d;
+  color: #1B1411;
+  transform: scale(1.04);
+  box-shadow: 0 14px 34px rgba(51, 204, 122, 0.45);
+}
+
+.bi-hero-cta-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bi-hero-cta-btn:hover .bi-hero-cta-arrow {
+  transform: translate(2px, 2px);
+}
+
+/* --------------------------------------------------------------------------
+   4. Reduced Motion Preference
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .bi-arched-wheel {
+    animation: none !important;
+    transform: rotate(0deg) !important;
+  }
+}

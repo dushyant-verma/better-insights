@@ -1,0 +1,199 @@
+/**
+ * Better Insights — Connected Stacking Cards with Scroll Interaction
+ * Fixed implementation: One continuous, connected stacking-card interface
+ * with compact horizontal header rows and expanding active content panels.
+ */
+
+.bi-capabilities-section {
+  position: relative;
+  background-color: #1b1411;
+  color: #faf5f0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  user-select: none;
+  overflow: visible;
+}
+
+/* Background ambient glow */
+.bi-capabilities-ambient {
+  position: absolute;
+  top: 10%;
+  right: 6%;
+  width: clamp(380px, 48vw, 750px);
+  height: clamp(320px, 38vw, 650px);
+  background: radial-gradient(circle, rgba(51, 204, 122, 0.09) 0%, rgba(168, 85, 247, 0.04) 50%, transparent 75%);
+  filter: blur(130px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Unified Connected Deck Container
+   All cards are direct children of this single parent container.
+   -------------------------------------------------------------------------- */
+.bi-connected-deck-container {
+  position: relative;
+  width: 100%;
+  max-width: 72rem; /* 1152px */
+  margin: 0 auto;
+  z-index: 2;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* --------------------------------------------------------------------------
+   Individual Connected Card
+   Uses position: sticky with precise calculated offsets (18-24px desktop).
+   Maintains consistent rounded corners (30px desktop, 24px tablet, 20px mobile)
+   on all four corners of every card so that overlapping creates a layered
+   deck-of-cards appearance with soft, diffused depth shadows.
+   -------------------------------------------------------------------------- */
+.bi-connected-card {
+  position: sticky;
+  width: 100%;
+  background-color: #ffffff;
+  color: #1b1411;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  will-change: transform;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+
+  /* Consistent rounded corners across all cards */
+  border-radius: 30px;
+
+  /* Soft, diffused layered shadows for natural depth */
+  box-shadow:
+    0 -3px 12px rgba(0, 0, 0, 0.03),
+    0 4px 16px rgba(0, 0, 0, 0.05),
+    0 12px 30px -4px rgba(0, 0, 0, 0.09),
+    0 24px 48px -10px rgba(0, 0, 0, 0.12);
+
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Slightly elevated prominence for active card */
+.bi-connected-card--active {
+  box-shadow:
+    0 -4px 14px rgba(0, 0, 0, 0.04),
+    0 6px 20px rgba(0, 0, 0, 0.07),
+    0 16px 36px -4px rgba(0, 0, 0, 0.12),
+    0 32px 64px -12px rgba(0, 0, 0, 0.15);
+}
+
+/* Desktop sticky offsets & dimensions (18-24px stacking offset: 22px) */
+@media (min-width: 1024px) {
+  .bi-connected-card {
+    top: calc(88px + (var(--card-index) * 22px));
+    border-radius: 30px;
+    min-height: 480px;
+  }
+}
+
+/* Tablet sticky offsets & dimensions (16-18px stacking offset: 18px, 24px radius) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .bi-connected-card {
+    top: calc(78px + (var(--card-index) * 18px));
+    border-radius: 24px;
+    min-height: 460px;
+  }
+}
+
+/* Mobile sticky offsets & dimensions (12-14px stacking offset: 14px, 20px radius) */
+@media (max-width: 767px) {
+  .bi-connected-card {
+    top: calc(64px + (var(--card-index) * 14px));
+    border-radius: 20px;
+    min-height: 420px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Compact Horizontal Header Row
+   Inherits top corner radius from parent card so top corners remain rounded.
+   -------------------------------------------------------------------------- */
+.bi-connected-card-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+@media (min-width: 1024px) {
+  .bi-connected-card-header {
+    height: 64px;
+    padding: 0 2.5rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .bi-connected-card-header {
+    height: 58px;
+    padding: 0 1.75rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .bi-connected-card-header {
+    height: 50px;
+    padding: 0 1.25rem;
+  }
+}
+
+.bi-connected-card-header:hover {
+  background-color: #faf7f2;
+}
+
+/* Active header state */
+.bi-connected-card--active .bi-connected-card-header {
+  background-color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   Active Content Panel (Two-Column Layout)
+   Inherits bottom corner radius from parent card so bottom corners remain rounded.
+   -------------------------------------------------------------------------- */
+.bi-connected-card-body {
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .bi-connected-card-body {
+    padding: 2.5rem;
+    min-height: 416px; /* 480px - 64px */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .bi-connected-card-body {
+    padding: 2rem 1.75rem;
+    min-height: 402px;
+  }
+}
+
+@media (max-width: 767px) {
+  .bi-connected-card-body {
+    padding: 1.5rem 1.25rem;
+    max-height: calc(100vh - 280px);
+    overflow-y: auto;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .bi-connected-card {
+    will-change: auto;
+  }
+}

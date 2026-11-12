@@ -1,6 +1,12 @@
 /**
- * Better Insights - About Page Hero Section Motion Controller
- * Reference: OWLED Media (https://www.owledmedia.com/socials)
+ * Better Insights - About Page Hero: Arched Image Carousel
+ * Reference Component: archedImageCarouselDesktop (MadeByShape)
+ *
+ * Implements Alpine.js component: x-data="archedImageCarouselDesktop"
+ * - Smooth continuous rotation along the curved arch trajectory
+ * - Mouse drag and touch swipe interaction
+ * - Hover pause and automatic resumption
+ * - Respects prefers-reduced-motion
  *
  * @package Astra_Child
  */
@@ -8,125 +14,120 @@
 (function () {
 	"use strict";
 
-	document.addEventListener("DOMContentLoaded", function () {
-		const hero = document.querySelector(".bi-about-hero");
-		if (!hero) {
-			return;
-		}
+	window.archedImageCarouselDesktop = function () {
+		return {
+			rotation: 0,
+			speed: 0.04, // Stately rotation speed in deg per frame
+			isPaused: false,
+			isDragging: false,
+			startX: 0,
+			lastX: 0,
+			rafId: null,
+			reducedMotion: false,
 
-		if (typeof gsap === "undefined") {
-			console.warn("GSAP is required for About hero animations.");
-			return;
-		}
+			init: function () {
+				var self = this;
 
-		const prefersReducedMotion =
-			window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-		const eyebrow = hero.querySelector(".bi-about-hero__eyebrow-wrap");
-		const heading = hero.querySelector(".bi-about-hero__heading");
-		const desc = hero.querySelector(".bi-about-hero__desc");
-		const cta = hero.querySelector(".bi-about-hero__cta-wrap");
-		const visual = hero.querySelector(".bi-about-hero__visual");
-
-		// Staggered Entrance Animation for Brand Story
-		if (!prefersReducedMotion) {
-			gsap.set([eyebrow, heading, desc, cta], { autoAlpha: 0, y: 26 });
-			gsap.set(visual, { autoAlpha: 0, y: 32 });
-
-			const entranceTl = gsap.timeline({ delay: 0.1 });
-			entranceTl
-				.to(eyebrow, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" })
-				.to(heading, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, "-=0.35")
-				.to(desc, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" }, "-=0.4")
-				.to(cta, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" }, "-=0.35")
-				.to(visual, { autoAlpha: 1, y: 0, duration: 0.7, ease: "power3.out" }, "-=0.6");
-		} else {
-			gsap.set([eyebrow, heading, desc, cta, visual], { autoAlpha: 1, y: 0 });
-			return;
-		}
-
-		// Vertical Opposing Marquee Tracks (Parallax Multi-Column Collage)
-		const track1 = hero.querySelector('[data-collage-track="1"]');
-		const track2 = hero.querySelector('[data-collage-track="2"]');
-		const track3 = hero.querySelector('[data-collage-track="3"]');
-
-		const tweens = [];
-
-		// Column 1: Continuously moves Upwards (Duration: 28s)
-		if (track1) {
-			const tween1 = gsap.to(track1, {
-				yPercent: -50,
-				duration: 28,
-				ease: "none",
-				repeat: -1
-			});
-			tweens.push(tween1);
-		}
-
-		// Column 2: Continuously moves Downwards (Duration: 32s)
-		if (track2) {
-			const tween2 = gsap.fromTo(
-				track2,
-				{ yPercent: -50 },
-				{
-					yPercent: 0,
-					duration: 32,
-					ease: "none",
-					repeat: -1
+				// Check prefers-reduced-motion
+				if (window.matchMedia) {
+					var mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+					self.reducedMotion = mediaQuery.matches;
+					mediaQuery.addEventListener("change", function (e) {
+						self.reducedMotion = e.matches;
+						if (self.reducedMotion && self.rafId) {
+							cancelAnimationFrame(self.rafId);
+						} else if (!self.reducedMotion) {
+							self.startAnimation();
+						}
+					});
 				}
-			);
-			tweens.push(tween2);
-		}
 
-		// Column 3: Continuously moves Upwards at different speed (Duration: 36s)
-		if (track3) {
-			const tween3 = gsap.to(track3, {
-				yPercent: -50,
-				duration: 36,
-				ease: "none",
-				repeat: -1
-			});
-			tweens.push(tween3);
-		}
-
-		// Smooth Deceleration on Hover / Focus
-		if (visual && tweens.length) {
-			visual.addEventListener("mouseenter", function () {
-				tweens.forEach(function (tw) {
-					gsap.to(tw, { timeScale: 0.2, duration: 0.6, ease: "power1.out", overwrite: "auto" });
+				this.$nextTick(function () {
+					self.startAnimation();
 				});
-			});
+			},
 
-			visual.addEventListener("mouseleave", function () {
-				tweens.forEach(function (tw) {
-					gsap.to(tw, { timeScale: 1, duration: 0.6, ease: "power1.out", overwrite: "auto" });
-				});
-			});
-		}
-
-		// Smooth scroll for in-page contact anchor
-		const ctaLink = hero.querySelector(".bi-about-hero__cta");
-		if (ctaLink && ctaLink.getAttribute("href") === "#colophon") {
-			ctaLink.addEventListener("click", function (e) {
-				const target = document.querySelector("#colophon");
-				if (target) {
-					e.preventDefault();
-					target.scrollIntoView({ behavior: "smooth" });
+			startAnimation: function () {
+				var self = this;
+				if (this.reducedMotion) {
+					return;
 				}
-			});
-		}
 
-		// Handle tab visibility to avoid frame jumps when tab is hidden
-		document.addEventListener("visibilitychange", function () {
-			if (document.hidden) {
-				tweens.forEach(function (tw) {
-					tw.pause();
-				});
-			} else {
-				tweens.forEach(function (tw) {
-					tw.resume();
-				});
+				var step = function () {
+					if (!self.isPaused && !self.isDragging) {
+						self.rotation -= self.speed;
+
+						if (self.rotation <= -360) {
+							self.rotation += 360;
+						}
+
+						if (self.$refs.wheel) {
+							self.$refs.wheel.style.transform = "rotate(" + self.rotation + "deg)";
+						}
+					}
+					self.rafId = requestAnimationFrame(step);
+				};
+
+				if (this.rafId) {
+					cancelAnimationFrame(this.rafId);
+				}
+				this.rafId = requestAnimationFrame(step);
+			},
+
+			pause: function () {
+				this.isPaused = true;
+			},
+
+			resume: function () {
+				this.isPaused = false;
+			},
+
+			startDrag: function (e) {
+				this.isDragging = true;
+				this.startX = e.pageX || (e.touches && e.touches[0].pageX) || 0;
+				this.lastX = this.startX;
+			},
+
+			onDrag: function (e) {
+				if (!this.isDragging) {
+					return;
+				}
+				var currentX = e.pageX || (e.touches && e.touches[0].pageX) || 0;
+				var deltaX = currentX - this.lastX;
+				this.lastX = currentX;
+
+				// Convert drag distance to rotation angle
+				this.rotation += deltaX * 0.08;
+
+				if (this.rotation <= -360) {
+					this.rotation += 360;
+				} else if (this.rotation > 0) {
+					this.rotation -= 360;
+				}
+
+				if (this.$refs.wheel) {
+					this.$refs.wheel.style.transform = "rotate(" + this.rotation + "deg)";
+				}
+			},
+
+			endDrag: function () {
+				this.isDragging = false;
+			},
+
+			destroy: function () {
+				if (this.rafId) {
+					cancelAnimationFrame(this.rafId);
+				}
 			}
+		};
+	};
+
+	// Register with Alpine.js
+	if (window.Alpine) {
+		window.Alpine.data("archedImageCarouselDesktop", window.archedImageCarouselDesktop);
+	} else {
+		document.addEventListener("alpine:init", function () {
+			window.Alpine.data("archedImageCarouselDesktop", window.archedImageCarouselDesktop);
 		});
-	});
+	}
 })();
