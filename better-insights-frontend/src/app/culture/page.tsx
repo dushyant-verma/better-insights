@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { CultureHero } from "@/components/culture/CultureHero";
-import { CultureIntro } from "@/components/culture/CultureIntro";
+import { CultureWorkplace } from "@/components/culture/CultureWorkplace";
 import { CultureStats } from "@/components/culture/CultureStats";
 import { CulturePhilosophy } from "@/components/culture/CulturePhilosophy";
 import { CulturePeople } from "@/components/culture/CulturePeople";
@@ -20,8 +20,8 @@ export default function CulturePage() {
       {/* 1. Immersive Hero */}
       <CultureHero />
 
-      {/* 2. Culture Introduction */}
-      <CultureIntro />
+      {/* 2. Our People & Workplace Culture */}
+      <CultureWorkplace />
 
       {/* 3. Culture by the Numbers */}
       <CultureStats />
