@@ -3,10 +3,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, ArrowRight } from "lucide-react";
+import { ChevronDown, ArrowRight, ArrowUpRight } from "lucide-react";
 import { openMarketingPlanModal } from "@/components/forms/LeadModal";
 
 interface ServiceMenuItem {
+  title: string;
+  slug: string;
+  shortDesc: string;
+}
+
+interface AboutMenuItem {
   title: string;
   slug: string;
   shortDesc: string;
@@ -45,9 +51,33 @@ const SERVICES_LIST: ServiceMenuItem[] = [
   },
 ];
 
+const ABOUT_LIST: AboutMenuItem[] = [
+  {
+    title: "About Us",
+    slug: "/about",
+    shortDesc: "Our story, mission, ethos & executive leadership",
+  },
+  {
+    title: "Meet the Team",
+    slug: "/about#our-team",
+    shortDesc: "The strategists, engineers & creators behind BI",
+  },
+  {
+    title: "Culture & Life",
+    slug: "/culture",
+    shortDesc: "Team values, atmosphere & life inside BI",
+  },
+  {
+    title: "Clientele & Testimonials",
+    slug: "/clientele",
+    shortDesc: "Client reviews, case stories & proven outcomes",
+  },
+];
+
 export function MergedHeader() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   // Dropdown states for desktop
   const [aboutOpen, setAboutOpen] = useState(false);
@@ -62,10 +92,37 @@ export function MergedHeader() {
   const aboutItemRef = useRef<HTMLLIElement | null>(null);
   const servicesTimerRef = useRef<NodeJS.Timeout | null>(null);
   const servicesItemRef = useRef<HTMLLIElement | null>(null);
+  const headerRef = useRef<HTMLElement | null>(null);
 
-  const isHomeActive = pathname === "/" || pathname === "/home-2";
-  const isAboutActive = pathname === "/about" || pathname === "/culture";
+  const isHomeActive = pathname === "/" || pathname === "/home-2" || pathname === "/home-redesign-1";
+  const isAboutActive =
+    pathname === "/about" ||
+    pathname === "/culture" ||
+    pathname === "/team" ||
+    pathname === "/clientele";
   const isServicesActive = pathname?.startsWith("/services");
+  const isWorkActive = pathname?.startsWith("/work");
+  const isInsightsActive = pathname?.startsWith("/insights");
+  const isContactActive = pathname === "/contact";
+
+  // Scroll detection with requestAnimationFrame (Made by Shape smooth shrinking)
+  useEffect(() => {
+    let ticking = false;
+    const updateScroll = () => {
+      setIsScrolled(window.scrollY > 30);
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScroll);
+        ticking = true;
+      }
+    };
+
+    updateScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   // Close menus on route change
   useEffect(() => {
@@ -93,19 +150,15 @@ export function MergedHeader() {
       }
     };
     document.addEventListener("keydown", handleKeyDown);
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   // Click outside to close desktop dropdowns
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       const target = e.target as Node;
-      if (aboutItemRef.current && !aboutItemRef.current.contains(target)) {
+      if (headerRef.current && !headerRef.current.contains(target)) {
         setAboutOpen(false);
-      }
-      if (servicesItemRef.current && !servicesItemRef.current.contains(target)) {
         setServicesOpen(false);
       }
     };
@@ -116,29 +169,43 @@ export function MergedHeader() {
   // Hover handlers for About
   const handleAboutMouseEnter = () => {
     if (aboutTimerRef.current) clearTimeout(aboutTimerRef.current);
+    if (servicesTimerRef.current) clearTimeout(servicesTimerRef.current);
+    setServicesOpen(false);
     setAboutOpen(true);
   };
   const handleAboutMouseLeave = () => {
+    if (aboutTimerRef.current) clearTimeout(aboutTimerRef.current);
     aboutTimerRef.current = setTimeout(() => {
       setAboutOpen(false);
-    }, 150);
+    }, 180);
   };
 
   // Hover handlers for Services
   const handleServicesMouseEnter = () => {
     if (servicesTimerRef.current) clearTimeout(servicesTimerRef.current);
+    if (aboutTimerRef.current) clearTimeout(aboutTimerRef.current);
+    setAboutOpen(false);
     setServicesOpen(true);
   };
   const handleServicesMouseLeave = () => {
+    if (servicesTimerRef.current) clearTimeout(servicesTimerRef.current);
     servicesTimerRef.current = setTimeout(() => {
       setServicesOpen(false);
-    }, 150);
+    }, 180);
   };
 
   return (
-    <header className="nav" id="nav" data-8b-section="navigation">
-      <nav className="nav__bar" aria-label="Main Navigation">
-        {/* Brand Logo */}
+    <header
+      ref={headerRef}
+      className={`nav ${isScrolled ? "is-scrolled" : ""}`}
+      id="nav"
+      data-8b-section="navigation"
+    >
+      <nav
+        className={`nav__bar relative ${isScrolled ? "is-scrolled" : ""}`}
+        aria-label="Main Navigation"
+      >
+        {/* Brand Logo - Left */}
         <Link href="/" className="nav__brand" aria-label="Better Insights Homepage">
           <img
             src="/logos/better-insights-logo-6.png"
@@ -147,7 +214,7 @@ export function MergedHeader() {
           />
         </Link>
 
-        {/* Desktop Navigation Links */}
+        {/* Desktop Navigation Links - Centered */}
         <ul className="nav__links m-text-6" role="menubar">
           {/* 1. Home Link */}
           <li className="nav__item" role="none">
@@ -162,10 +229,10 @@ export function MergedHeader() {
             </Link>
           </li>
 
-          {/* 2. About Dropdown */}
+          {/* 2. About Mega Menu Dropdown */}
           <li
             ref={aboutItemRef}
-            className="nav__item relative"
+            className="nav__item !static"
             role="none"
             onMouseEnter={handleAboutMouseEnter}
             onMouseLeave={handleAboutMouseLeave}
@@ -176,6 +243,7 @@ export function MergedHeader() {
                 isAboutActive ? "is-active font-semibold text-[#1B1411]" : ""
               }`}
               onClick={() => {
+                setServicesOpen(false);
                 setAboutOpen((prev) => !prev);
               }}
               aria-haspopup="true"
@@ -191,63 +259,122 @@ export function MergedHeader() {
               />
             </button>
 
+            {/* Desktop About Mega Menu */}
             {aboutOpen && (
               <div
                 role="menu"
-                aria-label="About links"
-                className="absolute top-full left-0 mt-2 w-64 p-2 bg-white/95 backdrop-blur-xl border border-black/10 rounded-2xl shadow-[0_16px_36px_-6px_rgba(0,0,0,0.14)] z-50 animate-in fade-in slide-in-from-top-2 duration-150"
+                aria-label="About Better Insights"
+                onMouseEnter={handleAboutMouseEnter}
+                onMouseLeave={handleAboutMouseLeave}
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-3.5 w-[780px] max-w-[calc(100vw-2.5rem)] p-6 bg-white/98 backdrop-blur-2xl border border-black/8 rounded-[2rem] shadow-[0_24px_60px_-15px_rgba(0,0,0,0.12),0_8px_20px_-6px_rgba(0,0,0,0.04)] z-[950] animate-in fade-in zoom-in-95 duration-150 before:content-[''] before:absolute before:-top-3.5 before:left-0 before:right-0 before:h-3.5"
               >
-                <Link
-                  href="/about"
-                  role="menuitem"
-                  onClick={() => setAboutOpen(false)}
-                  className={`flex flex-col p-2.5 rounded-xl transition-all duration-150 ${
-                    pathname === "/about"
-                      ? "bg-[#34CC7B]/10 text-[#34CC7B]"
-                      : "hover:bg-black/5 text-[#1B1411] hover:text-[#34CC7B]"
-                  }`}
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="font-semibold text-xs sm:text-sm">About Us</span>
-                    {pathname === "/about" && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#34CC7B]" />
-                    )}
-                  </div>
-                  <span className="text-[11px] text-[#1B1411]/55 leading-tight mt-0.5">
-                    Our story, mission &amp; leadership
-                  </span>
-                </Link>
+                <div className="grid grid-cols-12 gap-6 items-stretch">
+                  {/* Left Column: Navigation Links */}
+                  <div className="col-span-7 flex flex-col justify-between pr-4 border-r border-black/6">
+                    <div>
+                      <div className="flex items-center gap-2 mb-1.5">
+                        <span className="text-[10.5px] font-bold uppercase tracking-wider text-[#1B1411]/50">
+                          Company Overview
+                        </span>
+                      </div>
+                      <h4 className="text-sm font-semibold text-[#1B1411]">
+                        Get to know Better Insights
+                      </h4>
 
-                <div className="h-px bg-black/8 my-1" />
+                      <div className="grid grid-cols-2 gap-2 mt-3.5">
+                        {ABOUT_LIST.map((item) => {
+                          const isItemActive = pathname === item.slug;
+                          return (
+                            <Link
+                              key={item.slug}
+                              href={item.slug}
+                              role="menuitem"
+                              onClick={() => setAboutOpen(false)}
+                              className={`p-3 rounded-2xl bg-black/[0.02] hover:bg-[#FAF8F5] transition-all duration-150 group border border-transparent hover:border-black/5 flex flex-col justify-between ${
+                                isItemActive ? "bg-[#34CC7B]/10 border-[#34CC7B]/20" : ""
+                              }`}
+                            >
+                              <div className="flex items-center justify-between">
+                                <span
+                                  className={`text-xs sm:text-[13px] font-semibold transition-colors ${
+                                    isItemActive
+                                      ? "text-[#34CC7B]"
+                                      : "text-[#1B1411] group-hover:text-[#34CC7B]"
+                                  }`}
+                                >
+                                  {item.title}
+                                </span>
+                                <ArrowUpRight
+                                  className={`w-3.5 h-3.5 transition-all ${
+                                    isItemActive
+                                      ? "text-[#34CC7B]"
+                                      : "text-black/30 group-hover:text-[#34CC7B] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                                  }`}
+                                />
+                              </div>
+                              <p className="text-[11px] text-[#1B1411]/60 leading-snug mt-1 line-clamp-2">
+                                {item.shortDesc}
+                              </p>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
 
-                <Link
-                  href="/culture"
-                  role="menuitem"
-                  onClick={() => setAboutOpen(false)}
-                  className={`flex flex-col p-2.5 rounded-xl transition-all duration-150 ${
-                    pathname === "/culture"
-                      ? "bg-[#34CC7B]/10 text-[#34CC7B]"
-                      : "hover:bg-black/5 text-[#1B1411] hover:text-[#34CC7B]"
-                  }`}
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="font-semibold text-xs sm:text-sm">Culture &amp; Life</span>
-                    {pathname === "/culture" && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#34CC7B]" />
-                    )}
+                    <div className="mt-3.5 pt-3 border-t border-black/6 flex items-center justify-between">
+                      <Link
+                        href="/about"
+                        onClick={() => setAboutOpen(false)}
+                        className="text-[11.5px] font-medium text-[#1B1411]/70 hover:text-[#34CC7B] transition-colors inline-flex items-center gap-1.5"
+                      >
+                        <span>Read our full agency story &amp; ethos</span>
+                        <ArrowRight className="w-3 h-3" />
+                      </Link>
+                    </div>
                   </div>
-                  <span className="text-[11px] text-[#1B1411]/55 leading-tight mt-0.5">
-                    Team values, atmosphere &amp; stories
-                  </span>
-                </Link>
+
+                  {/* Right Column: Promotional Card */}
+                  <div className="col-span-5">
+                    <div className="rounded-[1.5rem] bg-[#F7F5F0] p-4 border border-black/5 flex flex-col justify-between h-full">
+                      <div>
+                        <div className="relative h-28 w-full rounded-xl overflow-hidden mb-3">
+                          <img
+                            src="/images/culture/hero-marketing-team.jpg"
+                            alt="Better Insights Team & Culture"
+                            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                          />
+                        </div>
+                        <span className="inline-block text-[9.5px] font-bold uppercase tracking-wider text-[#34CC7B] mb-0.5">
+                          Culture &amp; People
+                        </span>
+                        <h5 className="font-semibold text-xs sm:text-[13px] text-[#1B1411] leading-snug">
+                          Empowered Minds, Proven Craft
+                        </h5>
+                        <p className="text-[11px] text-[#1B1411]/65 mt-1 leading-relaxed">
+                          We bring together senior engineers, marketers &amp; product minds
+                          passionate about delivering undeniable impact.
+                        </p>
+                      </div>
+
+                      <Link
+                        href="/culture"
+                        onClick={() => setAboutOpen(false)}
+                        className="mt-3 inline-flex items-center justify-center gap-1.5 w-full py-2 px-3 rounded-full bg-[#1B1411] hover:bg-[#34CC7B] text-white hover:text-[#1B1411] text-[11.5px] font-semibold transition-all"
+                      >
+                        <span>Explore Our Culture</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </div>
             )}
           </li>
 
-          {/* 3. Services Dropdown */}
+          {/* 3. Services Mega Menu Dropdown */}
           <li
             ref={servicesItemRef}
-            className="nav__item relative"
+            className="nav__item !static"
             role="none"
             onMouseEnter={handleServicesMouseEnter}
             onMouseLeave={handleServicesMouseLeave}
@@ -258,6 +385,7 @@ export function MergedHeader() {
                 isServicesActive ? "is-active font-semibold text-[#1B1411]" : ""
               }`}
               onClick={() => {
+                setAboutOpen(false);
                 setServicesOpen((prev) => !prev);
               }}
               aria-haspopup="true"
@@ -273,60 +401,113 @@ export function MergedHeader() {
               />
             </button>
 
-            {/* Desktop Services Dropdown Menu */}
+            {/* Desktop Services Mega Menu */}
             {servicesOpen && (
               <div
                 role="menu"
                 aria-label="All Services"
-                className="absolute top-full left-0 mt-2 w-72 p-2 bg-white/95 backdrop-blur-xl border border-black/10 rounded-2xl shadow-[0_16px_36px_-6px_rgba(0,0,0,0.14)] z-50 animate-in fade-in slide-in-from-top-2 duration-150"
+                onMouseEnter={handleServicesMouseEnter}
+                onMouseLeave={handleServicesMouseLeave}
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-3.5 w-[880px] max-w-[calc(100vw-2.5rem)] p-6 bg-white/98 backdrop-blur-2xl border border-black/8 rounded-[2rem] shadow-[0_24px_60px_-15px_rgba(0,0,0,0.12),0_8px_20px_-6px_rgba(0,0,0,0.04)] z-[950] animate-in fade-in zoom-in-95 duration-150 before:content-[''] before:absolute before:-top-3.5 before:left-0 before:right-0 before:h-3.5"
               >
-                {/* All Services Overview link */}
-                <Link
-                  href="/services"
-                  role="menuitem"
-                  onClick={() => setServicesOpen(false)}
-                  className={`flex items-center justify-between p-2.5 rounded-xl font-semibold text-xs sm:text-sm transition-all duration-150 ${
-                    pathname === "/services"
-                      ? "bg-[#34CC7B]/10 text-[#34CC7B]"
-                      : "bg-[#FAF5F0] hover:bg-[#34CC7B] hover:text-[#1B1411] text-[#1B1411]"
-                  }`}
-                >
-                  <span>All Services Overview</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-
-                <div className="h-px bg-black/8 my-1.5" />
-
-                {/* Individual Services */}
-                <div className="space-y-0.5">
-                  {SERVICES_LIST.map((srv) => {
-                    const isActive = pathname === srv.slug;
-                    return (
-                      <Link
-                        key={srv.slug}
-                        href={srv.slug}
-                        role="menuitem"
-                        onClick={() => setServicesOpen(false)}
-                        className={`flex flex-col px-3 py-2 rounded-xl transition-all duration-150 ${
-                          isActive
-                            ? "bg-[#34CC7B]/10 text-[#34CC7B]"
-                            : "hover:bg-black/5 text-[#1B1411] hover:text-[#34CC7B]"
-                        }`}
-                      >
-                        <div className="flex items-center justify-between">
-                          <span className="font-medium text-xs sm:text-sm leading-tight">
-                            {srv.title}
-                          </span>
-                          {isActive && (
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#34CC7B]" />
-                          )}
-                        </div>
-                        <span className="text-[11px] text-[#1B1411]/55 leading-tight mt-0.5">
-                          {srv.shortDesc}
+                <div className="grid grid-cols-12 gap-6 items-stretch">
+                  {/* Left Column: 6 Services in 2 Columns */}
+                  <div className="col-span-8 flex flex-col justify-between pr-4 border-r border-black/6">
+                    <div>
+                      <div className="flex items-center gap-2 mb-1.5">
+                        <span className="text-[10.5px] font-bold uppercase tracking-wider text-[#1B1411]/50">
+                          Core Capabilities
                         </span>
+                      </div>
+                      <h4 className="text-sm font-semibold text-[#1B1411]">
+                        Scalable digital solutions engineered for growth
+                      </h4>
+
+                      <div className="grid grid-cols-2 gap-2 mt-3.5">
+                        {SERVICES_LIST.map((srv) => {
+                          const isActive = pathname === srv.slug;
+                          return (
+                            <Link
+                              key={srv.slug}
+                              href={srv.slug}
+                              role="menuitem"
+                              onClick={() => setServicesOpen(false)}
+                              className={`p-3 rounded-2xl bg-black/[0.02] hover:bg-[#FAF8F5] transition-all duration-150 group border border-transparent hover:border-black/5 flex flex-col justify-between ${
+                                isActive ? "bg-[#34CC7B]/10 border-[#34CC7B]/20" : ""
+                              }`}
+                            >
+                              <div className="flex items-center justify-between">
+                                <span
+                                  className={`text-xs sm:text-[13px] font-semibold transition-colors ${
+                                    isActive
+                                      ? "text-[#34CC7B]"
+                                      : "text-[#1B1411] group-hover:text-[#34CC7B]"
+                                  }`}
+                                >
+                                  {srv.title}
+                                </span>
+                                <ArrowUpRight
+                                  className={`w-3.5 h-3.5 transition-all ${
+                                    isActive
+                                      ? "text-[#34CC7B]"
+                                      : "text-black/30 group-hover:text-[#34CC7B] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                                  }`}
+                                />
+                              </div>
+                              <p className="text-[11px] text-[#1B1411]/60 leading-snug mt-1 line-clamp-2">
+                                {srv.shortDesc}
+                              </p>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    <div className="mt-3.5 pt-3 border-t border-black/6 flex items-center justify-between">
+                      <Link
+                        href="/services"
+                        onClick={() => setServicesOpen(false)}
+                        className="text-[11.5px] font-medium text-[#1B1411]/70 hover:text-[#34CC7B] transition-colors inline-flex items-center gap-1.5"
+                      >
+                        <span>Explore all services &amp; enterprise capabilities</span>
+                        <ArrowRight className="w-3 h-3" />
                       </Link>
-                    );
-                  })}
+                    </div>
+                  </div>
+
+                  {/* Right Column: Promotional Card */}
+                  <div className="col-span-4">
+                    <div className="rounded-[1.5rem] bg-[#F7F5F0] p-4 border border-black/5 flex flex-col justify-between h-full">
+                      <div>
+                        <div className="relative h-28 w-full rounded-xl overflow-hidden mb-3">
+                          <img
+                            src="/images/culture/photo-1531403009284-440f080d1e12.jpg"
+                            alt="Digital Engineering & Growth"
+                            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                          />
+                        </div>
+                        <span className="inline-block text-[9.5px] font-bold uppercase tracking-wider text-[#34CC7B] mb-0.5">
+                          Engineering &amp; Growth
+                        </span>
+                        <h5 className="font-semibold text-xs sm:text-[13px] text-[#1B1411] leading-snug">
+                          Built to Scale Your Revenue
+                        </h5>
+                        <p className="text-[11px] text-[#1B1411]/65 mt-1 leading-relaxed">
+                          From modern web stacks to enterprise AI workflows, we engineer digital
+                          systems that deliver compounding ROI.
+                        </p>
+                      </div>
+
+                      <Link
+                        href="/services"
+                        onClick={() => setServicesOpen(false)}
+                        className="mt-3 inline-flex items-center justify-center gap-1.5 w-full py-2 px-3 rounded-full bg-[#1B1411] hover:bg-[#34CC7B] text-white hover:text-[#1B1411] text-[11.5px] font-semibold transition-all"
+                      >
+                        <span>View All Services</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
@@ -336,9 +517,11 @@ export function MergedHeader() {
           <li className="nav__item" role="none">
             <Link
               href="/work"
-              className={`m-link-2 ${pathname?.startsWith("/work") ? "is-active" : ""}`}
+              className={`m-link-2 flex items-center py-1 font-inherit ${
+                isWorkActive ? "is-active font-semibold text-[#1B1411]" : ""
+              }`}
             >
-              Our Work
+              <span>Our Work</span>
             </Link>
           </li>
 
@@ -346,9 +529,11 @@ export function MergedHeader() {
           <li className="nav__item" role="none">
             <Link
               href="/insights"
-              className={`m-link-2 ${pathname?.startsWith("/insights") ? "is-active" : ""}`}
+              className={`m-link-2 flex items-center py-1 font-inherit ${
+                isInsightsActive ? "is-active font-semibold text-[#1B1411]" : ""
+              }`}
             >
-              Insights
+              <span>Insights</span>
             </Link>
           </li>
 
@@ -356,14 +541,16 @@ export function MergedHeader() {
           <li className="nav__item" role="none">
             <Link
               href="/contact"
-              className={`m-link-2 ${pathname === "/contact" ? "is-active" : ""}`}
+              className={`m-link-2 flex items-center py-1 font-inherit ${
+                isContactActive ? "is-active font-semibold text-[#1B1411]" : ""
+              }`}
             >
-              Contact Us
+              <span>Contact Us</span>
             </Link>
           </li>
         </ul>
 
-        {/* Action Button */}
+        {/* Action Button - Right */}
         <button
           type="button"
           data-magnetic
@@ -446,28 +633,19 @@ export function MergedHeader() {
             </button>
             {mobileAboutExpanded && (
               <ul className="pl-4 mt-2 space-y-2 border-l border-white/20 text-sm">
-                <li>
-                  <Link
-                    href="/about"
-                    className={`block py-1 ${
-                      pathname === "/about" ? "text-[#34CC7B] font-semibold" : "text-white/80"
-                    }`}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/culture"
-                    className={`block py-1 ${
-                      pathname === "/culture" ? "text-[#34CC7B] font-semibold" : "text-white/80"
-                    }`}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Culture &amp; Life
-                  </Link>
-                </li>
+                {ABOUT_LIST.map((item) => (
+                  <li key={item.slug}>
+                    <Link
+                      href={item.slug}
+                      className={`block py-1 ${
+                        pathname === item.slug ? "text-[#34CC7B] font-semibold" : "text-white/80"
+                      }`}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             )}
           </li>
@@ -480,7 +658,7 @@ export function MergedHeader() {
               onClick={() => setMobileServicesExpanded((prev) => !prev)}
               aria-expanded={mobileServicesExpanded}
             >
-              <span>Services</span>
+              <span className={isServicesActive ? "text-[#34CC7B] font-semibold" : ""}>Services</span>
               <ChevronDown
                 className={`w-4 h-4 transition-transform duration-200 ${
                   mobileServicesExpanded ? "rotate-180 text-[#34CC7B]" : ""
@@ -492,7 +670,7 @@ export function MergedHeader() {
                 <li>
                   <Link
                     href="/services"
-                    className="block py-1 font-semibold text-[#33CC7A]"
+                    className="block py-1 font-semibold text-[#34CC7B]"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     All Services Overview →
@@ -519,7 +697,7 @@ export function MergedHeader() {
           <li>
             <Link
               href="/work"
-              className="m-link-2"
+              className={`m-link-2 ${isWorkActive ? "text-[#34CC7B] font-semibold" : ""}`}
               onClick={() => setMobileMenuOpen(false)}
             >
               Our Work
@@ -530,7 +708,7 @@ export function MergedHeader() {
           <li>
             <Link
               href="/insights"
-              className="m-link-2"
+              className={`m-link-2 ${isInsightsActive ? "text-[#34CC7B] font-semibold" : ""}`}
               onClick={() => setMobileMenuOpen(false)}
             >
               Insights
@@ -541,7 +719,7 @@ export function MergedHeader() {
           <li>
             <Link
               href="/contact"
-              className="m-link-2"
+              className={`m-link-2 ${isContactActive ? "text-[#34CC7B] font-semibold" : ""}`}
               onClick={() => setMobileMenuOpen(false)}
             >
               Contact Us
