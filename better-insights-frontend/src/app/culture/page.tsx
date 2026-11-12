@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { CultureHero } from "@/components/culture/CultureHero";
 import { CultureWorkplace } from "@/components/culture/CultureWorkplace";
+import { CultureEthos } from "@/components/culture/CultureEthos";
 import { CultureStats } from "@/components/culture/CultureStats";
 import { CulturePhilosophy } from "@/components/culture/CulturePhilosophy";
 import { CulturePeople } from "@/components/culture/CulturePeople";
@@ -23,22 +24,25 @@ export default function CulturePage() {
       {/* 2. Our People & Workplace Culture */}
       <CultureWorkplace />
 
-      {/* 3. Culture by the Numbers */}
+      {/* 3. Our Culture & Ethos (Editorial Layout & Brand Quote) */}
+      <CultureEthos />
+
+      {/* 4. Culture by the Numbers */}
       <CultureStats />
 
-      {/* 4. Our Philosophy */}
+      {/* 5. Our Philosophy */}
       <CulturePhilosophy />
 
-      {/* 5. Meet the People */}
+      {/* 6. Meet the People */}
       <CulturePeople onSelectMember={(member) => setSelectedMember(member)} />
 
-      {/* 6. Feel the Atmosphere (Flagship Visual Scrapbook Gallery) */}
+      {/* 7. Feel the Atmosphere (Flagship Visual Scrapbook Gallery) */}
       <CultureAtmosphere />
 
-      {/* 7. What Matters to Us (Core Values) */}
+      {/* 8. What Matters to Us (Core Values) */}
       <CultureValues />
 
-      {/* 8. Join Our Team Closing CTA */}
+      {/* 9. Join Our Team Closing CTA */}
       <CultureJoinCTA />
 
       {/* Interactive Team Member Details Modal Dialog */}
