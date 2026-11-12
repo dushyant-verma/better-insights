@@ -41,7 +41,7 @@ const LEFT_CLUSTER_PHOTOS: CollagePhoto[] = [
       mobile: { startY: 28, endY: -18 },
     },
     caption: {
-      text: "Strategy sprints in motion",
+      text: "Strategy Sprints in Motion",
       emoji: "👇",
       position: "top",
       align: "left",
@@ -60,7 +60,7 @@ const LEFT_CLUSTER_PHOTOS: CollagePhoto[] = [
       mobile: { startY: 18, endY: -12 },
     },
     caption: {
-      text: "Designing user journeys",
+      text: "Designing User Journeys",
       emoji: "👇",
       position: "top",
       align: "right",
@@ -98,7 +98,7 @@ const RIGHT_CLUSTER_PHOTOS: CollagePhoto[] = [
       mobile: { startY: 25, endY: -16 },
     },
     caption: {
-      text: "Team milestones & summits",
+      text: "Team Milestones & Summits",
       emoji: "☝️",
       position: "top",
       align: "left",
@@ -130,7 +130,7 @@ const RIGHT_CLUSTER_PHOTOS: CollagePhoto[] = [
       mobile: { startY: 46, endY: -28 },
     },
     caption: {
-      text: "Always crafting with focus",
+      text: "Crafting with Focus",
       emoji: "👇",
       position: "bottom",
       align: "left",

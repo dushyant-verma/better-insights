@@ -80,7 +80,7 @@ export function CultureWorkplace() {
   return (
     <section
       ref={sectionRef}
-      id="culture-workplace"
+      id="culture-intro"
       className="pt-20 sm:pt-28 lg:pt-32 pb-28 sm:pb-36 lg:pb-44 bg-[#0B0B0D] text-white border-t border-white/8 relative overflow-hidden select-none"
       aria-label="Our People & Workplace Culture"
     >
@@ -178,16 +178,16 @@ export function CultureWorkplace() {
             {/* Inner Green Statistic Card */}
             <div className="w-28 h-28 p-3 rounded-2xl sm:w-40 sm:h-40 sm:p-4 md:w-44 md:h-44 lg:w-52 lg:h-52 lg:p-5 xl:w-60 xl:h-60 xl:p-6 bg-[#34CC7B] flex flex-col justify-between shadow-[0_12px_32px_rgba(52,204,123,0.32)] select-none">
               <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-[#101112] leading-none [font-family:'Host_Grotesk',sans-serif]">
-                98%
+                50+
               </h3>
               <div className="text-[11px] sm:text-xs md:text-sm lg:text-base font-medium text-[#101112] leading-tight">
-                team retention
+                projects delivered
               </div>
             </div>
           </div>
 
           {/* --------------------------------------------------------------------- */}
-          {/* Card 2 – Bottom Left: 56:44 MALE:FEMALE RATIO (Dark Charcoal)        */}
+          {/* Card 2 – Bottom Left: 30+ HAPPY CLIENTS (Dark Charcoal)               */}
           {/* Outer black container extends upwards into the photo                  */}
           {/* --------------------------------------------------------------------- */}
           <div
@@ -215,16 +215,16 @@ export function CultureWorkplace() {
             {/* Inner Dark Charcoal Statistic Card */}
             <div className="w-28 h-28 p-3 rounded-2xl sm:w-40 sm:h-40 sm:p-4 md:w-44 md:h-44 lg:w-52 lg:h-52 lg:p-5 xl:w-60 xl:h-60 xl:p-6 bg-[#1A1B1F] flex flex-col justify-between border border-white/8 shadow-[0_12px_32px_rgba(0,0,0,0.6)] select-none">
               <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white leading-none [font-family:'Host_Grotesk',sans-serif]">
-                56:44
+                30+
               </h3>
               <div className="text-[11px] sm:text-xs md:text-sm lg:text-base font-medium text-[#A5A5A5] leading-tight">
-                male:female ratio
+                happy clients
               </div>
             </div>
           </div>
 
           {/* --------------------------------------------------------------------- */}
-          {/* Card 3 – Bottom Right: 16 HAPPY FACES (Dark Charcoal)                */}
+          {/* Card 3 – Bottom Right: 7+ YEARS LEADERSHIP (Dark Charcoal)            */}
           {/* Outer black container extends upwards into the photo                  */}
           {/* --------------------------------------------------------------------- */}
           <div
@@ -252,10 +252,10 @@ export function CultureWorkplace() {
             {/* Inner Dark Charcoal Statistic Card */}
             <div className="w-28 h-28 p-3 rounded-2xl sm:w-40 sm:h-40 sm:p-4 md:w-44 md:h-44 lg:w-52 lg:h-52 lg:p-5 xl:w-60 xl:h-60 xl:p-6 bg-[#222328] flex flex-col justify-between border border-white/8 shadow-[0_12px_32px_rgba(0,0,0,0.6)] select-none">
               <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white leading-none [font-family:'Host_Grotesk',sans-serif]">
-                16
+                7+
               </h3>
               <div className="text-[11px] sm:text-xs md:text-sm lg:text-base font-medium text-[#A5A5A5] leading-tight">
-                happy faces
+                years of leadership
               </div>
             </div>
           </div>

@@ -16,6 +16,16 @@ interface TeamTestimonial {
 
 const TEAM_TESTIMONIALS: TeamTestimonial[] = [
   {
+    id: "gautam-koli",
+    name: "Gautam Koli",
+    role: "Founder & Director",
+    quote:
+      "Our culture thrives on genuine trust, creative autonomy, and relentless curiosity. When people feel safe to experiment and take pride in their craft, we achieve greater insights together.",
+    avatar: "/team/gautam-koli.png",
+    photo: "/team/photos/gautam-koli-photo.jpg",
+    alt: "Gautam Koli, Founder & Director at Better Insights",
+  },
+  {
     id: "priyanka-raghuvanshi",
     name: "Priyanka Raghuvanshi",
     role: "Marketing Operations Associate",

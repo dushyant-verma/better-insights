@@ -97,12 +97,12 @@ export function CultureEthos() {
 
             {/* Editorial Heading (3-4 Lines on Desktop) */}
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[34px] xl:text-[40px] font-normal tracking-[-0.03em] text-white leading-[1.14] text-balance mb-6 [font-family:'Host_Grotesk',sans-serif]">
-              We&apos;ve created an environment where everyone feels comfortable and open, but we can have a laugh along the way
+              We&apos;ve created an environment where everyone feels comfortable, valued, and open to innovate
             </h2>
 
             {/* Supporting Paragraph */}
             <p className="text-sm sm:text-base text-[#A5A5A5] leading-relaxed font-normal mb-8">
-              We produce good work for good people, and with the idea that staff and the client will be happy throughout the full process. This in return will bring more work our way, whether that&apos;s via recommendation or further work for that client
+              We produce good work for good people, with the conviction that both our team and our partners will feel energized throughout the full process. This mutual respect in return generates extraordinary digital solutions and lasting trust.
             </p>
 
             {/* =============================================================== */}
@@ -121,7 +121,7 @@ export function CultureEthos() {
                   <path d="M0 6.646C0 3.107 2.531 1.002 4.11.032c.2-.123.416.133.262.312A8.202 8.202 0 002.92 2.777 4.023 4.023 0 110 6.647zm8.955 0c0-3.539 2.531-5.644 4.11-6.613.2-.123.416.132.263.31a8.202 8.202 0 00-1.454 2.434 4.023 4.023 0 11-2.92 3.87z" />
                 </svg>
                 <p className="text-lg sm:text-xl lg:text-[21px] font-semibold tracking-[-0.015em] text-[#101112] leading-snug [font-family:'Host_Grotesk',sans-serif]">
-                  My vision has always been to look after the clients we work with, but to also look after the staff just as much. That will get the best results for everyone.
+                  &ldquo;Our vision has always been to look after the partners we collaborate with, but to look after the craftspeople and minds building the work just as much. That respect will always generate the finest results for everyone.&rdquo;
                 </p>
               </div>
 
@@ -131,8 +131,8 @@ export function CultureEthos() {
                 <div className="flex items-center gap-3.5">
                   <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-[#101112]/20 shrink-0 bg-[#101112]/10">
                     <Image
-                      src="/team/andy-colpys.jpg"
-                      alt="Andy Colpys - Co-Founder"
+                      src="/team/gautam-koli.png"
+                      alt="Gautam Koli - Founder & Director, Better Insights"
                       fill
                       sizes="48px"
                       className="object-cover object-top"
@@ -140,10 +140,10 @@ export function CultureEthos() {
                   </div>
                   <div>
                     <h4 className="text-sm sm:text-base font-bold text-[#101112] leading-tight [font-family:'Host_Grotesk',sans-serif]">
-                      Andy Colpys
+                      Gautam Koli
                     </h4>
                     <p className="text-xs text-[#101112]/80 font-normal mt-0.5">
-                      Co-Founder
+                      Founder &amp; Director, Better Insights
                     </p>
                   </div>
                 </div>
@@ -171,13 +171,13 @@ export function CultureEthos() {
                   </svg>
 
                   <a
-                    href="https://www.linkedin.com/in/andygolpys/"
+                    href="https://www.linkedin.com/company/better-insights-bi/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#18191E] hover:bg-[#25262C] text-white text-xs font-semibold tracking-wide transition-all duration-300 shadow-md group hover:scale-105"
-                    aria-label="Follow Andy on LinkedIn"
+                    aria-label="Connect with Gautam Koli on LinkedIn"
                   >
-                    <span>Follow Andy on</span>
+                    <span>Follow on</span>
                     <svg
                       className="w-3.5 h-3.5 fill-current text-white"
                       xmlns="http://www.w3.org/2000/svg"
