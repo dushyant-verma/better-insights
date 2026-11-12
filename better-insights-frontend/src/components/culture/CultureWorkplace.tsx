@@ -4,48 +4,13 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { getGSAP } from "@/lib/gsap";
 
-/**
- * Workplace Culture Statistics
- * Reference placeholder metrics configured in a single data source for easy updates.
- */
-interface WorkplaceStat {
-  id: string;
-  value: string;
-  label: string;
-  variant: "green" | "dark";
-  positionClass: string;
-}
-
-const WORKPLACE_STATS: WorkplaceStat[] = [
-  {
-    id: "retention",
-    value: "98%",
-    label: "Team retention",
-    variant: "green",
-    positionClass: "-top-6 sm:-top-8 -right-3 sm:-right-6 lg:-right-8",
-  },
-  {
-    id: "ratio",
-    value: "56:44",
-    label: "Male:female ratio",
-    variant: "dark",
-    positionClass: "-bottom-6 sm:-bottom-8 -left-3 sm:-left-6 lg:-left-8",
-  },
-  {
-    id: "faces",
-    value: "16",
-    label: "Happy faces",
-    variant: "green",
-    positionClass: "-bottom-8 sm:-bottom-10 right-4 sm:right-10 lg:right-16",
-  },
-];
-
 export function CultureWorkplace() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const headerRef = useRef<HTMLDivElement | null>(null);
   const imageWrapperRef = useRef<HTMLDivElement | null>(null);
-  const imageInnerRef = useRef<HTMLDivElement | null>(null);
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const card1Ref = useRef<HTMLDivElement | null>(null);
+  const card2Ref = useRef<HTMLDivElement | null>(null);
+  const card3Ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -76,8 +41,8 @@ export function CultureWorkplace() {
       if (imageWrapperRef.current) {
         gsap.from(imageWrapperRef.current, {
           opacity: 0,
-          scale: 0.96,
-          y: 40,
+          scale: 0.98,
+          y: 30,
           duration: 1.1,
           ease: "power3.out",
           scrollTrigger: {
@@ -86,35 +51,21 @@ export function CultureWorkplace() {
             toggleActions: "play none none none",
           },
         });
-
-        // Subtle parallax movement on the main image
-        if (imageInnerRef.current) {
-          gsap.to(imageInnerRef.current, {
-            yPercent: 8,
-            ease: "none",
-            scrollTrigger: {
-              trigger: imageWrapperRef.current,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 1.2,
-            },
-          });
-        }
       }
 
       // 3. Floating statistic cards staggered entrance
-      const validCards = cardsRef.current.filter(Boolean);
-      if (validCards.length > 0 && imageWrapperRef.current) {
-        gsap.from(validCards, {
+      const cards = [card1Ref.current, card2Ref.current, card3Ref.current].filter(Boolean);
+      if (cards.length > 0 && imageWrapperRef.current) {
+        gsap.from(cards, {
           opacity: 0,
-          y: 28,
-          scale: 0.9,
-          stagger: 0.14,
+          y: (i: number) => (i === 0 ? -25 : 25),
+          scale: 0.92,
+          stagger: 0.12,
           duration: 0.9,
-          ease: "back.out(1.4)",
+          ease: "back.out(1.3)",
           scrollTrigger: {
             trigger: imageWrapperRef.current,
-            start: "top 72%",
+            start: "top 75%",
             toggleActions: "play none none none",
           },
         });
@@ -129,18 +80,20 @@ export function CultureWorkplace() {
   return (
     <section
       ref={sectionRef}
-      id="culture-intro"
-      className="py-24 sm:py-32 lg:py-36 bg-[#0B0B0D] text-white border-t border-white/8 relative overflow-hidden select-none"
+      id="culture-workplace"
+      className="pt-20 sm:pt-28 lg:pt-32 pb-28 sm:pb-36 lg:pb-44 bg-[#0B0B0D] text-white border-t border-white/8 relative overflow-hidden select-none"
       aria-label="Our People & Workplace Culture"
     >
       {/* Background Ambient Radial Glow */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] lg:w-[1000px] h-[500px] bg-[radial-gradient(circle,rgba(52,204,123,0.06)_0%,rgba(43,184,109,0.02)_45%,transparent_70%)] blur-[120px] pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] lg:w-[1100px] h-[550px] bg-[radial-gradient(circle,rgba(52,204,123,0.05)_0%,rgba(43,184,109,0.015)_50%,transparent_70%)] blur-[130px] pointer-events-none"
         aria-hidden="true"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* 1. Section Header: Two-column layout */}
+        {/* ========================================================================= */}
+        {/* 1. Section Header: Two-column layout                                      */}
+        {/* ========================================================================= */}
         <div
           ref={headerRef}
           className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start mb-16 sm:mb-20 lg:mb-24"
@@ -172,126 +125,141 @@ export function CultureWorkplace() {
             </p>
           </div>
         </div>
+      </div>
 
-        {/* 2. Main Image Layout with Floating Statistic Cards */}
-        <div className="relative w-full max-w-5xl lg:max-w-6xl mx-auto">
-          {/* Dominant Wide Image Container (75-85% of available width) */}
+      {/* ========================================================================= */}
+      {/* 2. Main Image Layout with 3 Floating Statistics Cards                     */}
+      {/* Wide photographic composition occupying ~92-95% width with ~4-5% outer   */}
+      {/* ========================================================================= */}
+      <div className="w-full max-w-[1560px] mx-auto px-3 sm:px-6 lg:px-10 xl:px-12 relative z-20 overflow-visible">
+        <div className="relative w-full overflow-visible">
+          
+          {/* Main Large Photographic Canvas (rounded ~24px, no dark overlay) */}
           <div
             ref={imageWrapperRef}
-            className="relative w-full md:w-[84%] mx-auto rounded-2xl sm:rounded-3xl lg:rounded-[2rem] overflow-hidden border border-white/10 bg-[#16161D] shadow-[0_24px_60px_-15px_rgba(0,0,0,0.7)] group"
+            className="relative w-full aspect-[16/10] sm:aspect-[16/9] min-h-[320px] sm:min-h-[460px] md:min-h-[520px] lg:min-h-[600px] xl:min-h-[660px] rounded-2xl sm:rounded-3xl lg:rounded-[24px] overflow-hidden bg-[#16161D] shadow-[0_25px_70px_-15px_rgba(0,0,0,0.7)] z-10"
           >
-            <div
-              ref={imageInnerRef}
-              className="relative h-[280px] sm:h-[420px] md:h-[480px] lg:h-[540px] w-full"
+            <Image
+              src="/images/culture/photo-1552664730-d307ca884978.jpg"
+              alt="Better Insights team collaborating in a comfortable and supportive creative environment"
+              fill
+              priority
+              className="object-cover object-center"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 95vw, 1500px"
+            />
+          </div>
+
+          {/* --------------------------------------------------------------------- */}
+          {/* Card 1 – Top Right: 98% TEAM RETENTION (Bright Green #34CC7B)         */}
+          {/* Outer black container extends below green card into the photo         */}
+          {/* --------------------------------------------------------------------- */}
+          <div
+            ref={card1Ref}
+            className="absolute z-20 rounded-2xl sm:rounded-3xl lg:rounded-[1.75rem] bg-[#0B0B0D] top-0 -translate-y-12 sm:-translate-y-16 lg:-translate-y-20 right-3 sm:right-12 md:right-20 lg:right-32 xl:right-44 pt-2.5 sm:pt-3.5 lg:pt-4 px-2.5 sm:px-3.5 lg:px-4 pb-5 sm:pb-7 lg:pb-9 shadow-[0_15px_40px_rgba(0,0,0,0.8)]"
+          >
+            {/* Left Inverted Concave Corner Fillet */}
+            <svg
+              className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 absolute text-[#0B0B0D] fill-current top-12 sm:top-16 lg:top-20 left-0 -mt-px ml-px -translate-x-full pointer-events-none hidden sm:block"
+              viewBox="0 0 100 100"
+              aria-hidden="true"
             >
-              <Image
-                src="/images/culture/photo-1552664730-d307ca884978.jpg"
-                alt="Better Insights team collaborating on digital creative strategy in studio"
-                fill
-                priority
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-                sizes="(max-width: 768px) 100vw, 85vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
-            </div>
+              <path d="M98.1 0h1.9v51.9h-1.9c0-27.6-22.4-50-50-50V0h50z" />
+            </svg>
 
-            {/* Desktop & Tablet Floating Overlapping Statistic Cards */}
-            <div className="hidden md:block">
-              {WORKPLACE_STATS.map((stat, idx) => {
-                const isGreen = stat.variant === "green";
-                return (
-                  <div
-                    key={stat.id}
-                    ref={(el) => {
-                      cardsRef.current[idx] = el;
-                    }}
-                    className={`absolute ${stat.positionClass} z-20 rounded-2xl lg:rounded-[1.35rem] px-6 py-4 lg:px-7 lg:py-5 transition-transform duration-300 hover:scale-105 select-none ${
-                      isGreen
-                        ? "bg-[#34CC7B] text-[#0B0B0D] shadow-[0_16px_36px_rgba(52,204,123,0.35),0_6px_16px_rgba(0,0,0,0.2)] border border-[#34CC7B]/30"
-                        : "bg-[#1E1F24] text-white border border-white/12 shadow-[0_20px_45px_rgba(0,0,0,0.65)] backdrop-blur-md"
-                    }`}
-                  >
-                    <span
-                      className={`block text-3xl sm:text-4xl lg:text-[2.75rem] font-bold tracking-tight leading-none [font-family:'Host_Grotesk',sans-serif] ${
-                        isGreen ? "text-[#0B0B0D]" : "text-white"
-                      }`}
-                    >
-                      {stat.value}
-                    </span>
-                    <span
-                      className={`block text-[11px] lg:text-xs font-semibold uppercase tracking-wider mt-1.5 ${
-                        isGreen ? "text-[#0B0B0D]/80" : "text-[#A5A5A5]"
-                      }`}
-                    >
-                      {stat.label}
-                    </span>
-                  </div>
-                );
-              })}
+            {/* Right Inverted Concave Corner Fillet */}
+            <svg
+              className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 absolute text-[#0B0B0D] fill-current top-12 sm:top-16 lg:top-20 right-0 -mt-px mr-px translate-x-full pointer-events-none hidden sm:block"
+              viewBox="0 0 100 100"
+              aria-hidden="true"
+            >
+              <path d="M51.9 0v1.9c-27.6 0-50 22.4-50 50H0V0h51.9z" />
+            </svg>
+
+            {/* Inner Green Statistic Card */}
+            <div className="w-28 h-28 p-3 rounded-2xl sm:w-40 sm:h-40 sm:p-4 md:w-44 md:h-44 lg:w-52 lg:h-52 lg:p-5 xl:w-60 xl:h-60 xl:p-6 bg-[#34CC7B] flex flex-col justify-between shadow-[0_12px_32px_rgba(52,204,123,0.32)] select-none">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-[#101112] leading-none [font-family:'Host_Grotesk',sans-serif]">
+                98%
+              </h3>
+              <div className="text-[11px] sm:text-xs md:text-sm lg:text-base font-medium text-[#101112] leading-tight">
+                team retention
+              </div>
             </div>
           </div>
 
-          {/* Supporting Side Preview Wing (Desktop Wide Screens) */}
+          {/* --------------------------------------------------------------------- */}
+          {/* Card 2 – Bottom Left: 56:44 MALE:FEMALE RATIO (Dark Charcoal)        */}
+          {/* Outer black container extends upwards into the photo                  */}
+          {/* --------------------------------------------------------------------- */}
           <div
-            className="absolute -left-12 top-1/2 -translate-y-1/2 w-24 h-48 rounded-2xl overflow-hidden opacity-30 hidden 2xl:block border border-white/10 pointer-events-none"
-            aria-hidden="true"
+            ref={card2Ref}
+            className="absolute z-20 rounded-2xl sm:rounded-3xl lg:rounded-[1.75rem] bg-[#0B0B0D] bottom-0 translate-y-12 sm:translate-y-16 lg:translate-y-20 left-3 sm:left-10 md:left-16 lg:left-24 xl:left-32 pb-2.5 sm:pb-3.5 lg:pb-4 px-2.5 sm:px-3.5 lg:px-4 pt-5 sm:pt-7 lg:pt-9 shadow-[0_15px_40px_rgba(0,0,0,0.8)]"
           >
-            <Image
-              src="/images/culture/photo-1556761175-4b46a572b786.jpg"
-              alt=""
-              fill
-              className="object-cover"
-              sizes="100px"
-            />
-          </div>
-          <div
-            className="absolute -right-12 top-1/2 -translate-y-1/2 w-24 h-48 rounded-2xl overflow-hidden opacity-30 hidden 2xl:block border border-white/10 pointer-events-none"
-            aria-hidden="true"
-          >
-            <Image
-              src="/images/culture/photo-1559136555-9303baea8ebd.jpg"
-              alt=""
-              fill
-              className="object-cover"
-              sizes="100px"
-            />
+            {/* Left Inverted Concave Corner Fillet */}
+            <svg
+              className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 absolute text-[#0B0B0D] fill-current bottom-12 sm:bottom-16 lg:bottom-20 left-0 -mb-px ml-px -translate-x-full rotate-180 pointer-events-none hidden sm:block"
+              viewBox="0 0 100 100"
+              aria-hidden="true"
+            >
+              <path d="M51.9 0v1.9c-27.6 0-50 22.4-50 50H0V0h51.9z" />
+            </svg>
+
+            {/* Right Inverted Concave Corner Fillet */}
+            <svg
+              className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 absolute text-[#0B0B0D] fill-current bottom-12 sm:bottom-16 lg:bottom-20 right-0 -mb-px mr-px translate-x-full rotate-180 pointer-events-none hidden sm:block"
+              viewBox="0 0 100 100"
+              aria-hidden="true"
+            >
+              <path d="M98.1 0h1.9v51.9h-1.9c0-27.6-22.4-50-50-50V0h50z" />
+            </svg>
+
+            {/* Inner Dark Charcoal Statistic Card */}
+            <div className="w-28 h-28 p-3 rounded-2xl sm:w-40 sm:h-40 sm:p-4 md:w-44 md:h-44 lg:w-52 lg:h-52 lg:p-5 xl:w-60 xl:h-60 xl:p-6 bg-[#1A1B1F] flex flex-col justify-between border border-white/8 shadow-[0_12px_32px_rgba(0,0,0,0.6)] select-none">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white leading-none [font-family:'Host_Grotesk',sans-serif]">
+                56:44
+              </h3>
+              <div className="text-[11px] sm:text-xs md:text-sm lg:text-base font-medium text-[#A5A5A5] leading-tight">
+                male:female ratio
+              </div>
+            </div>
           </div>
 
-          {/* Mobile-Only Clean Statistic Cards Grid (No overlap collision or overflow) */}
-          <div className="md:hidden mt-6 grid grid-cols-3 gap-2.5 px-1">
-            {WORKPLACE_STATS.map((stat, idx) => {
-              const isGreen = stat.variant === "green";
-              return (
-                <div
-                  key={stat.id}
-                  ref={(el) => {
-                    // For mobile, index offset to avoid overriding desktop refs
-                    if (!cardsRef.current[idx]) cardsRef.current[idx] = el;
-                  }}
-                  className={`rounded-xl p-3.5 flex flex-col justify-between ${
-                    isGreen
-                      ? "bg-[#34CC7B] text-[#0B0B0D] shadow-md"
-                      : "bg-[#1E1F24] text-white border border-white/10"
-                  }`}
-                >
-                  <span
-                    className={`block text-xl sm:text-2xl font-bold tracking-tight leading-none [font-family:'Host_Grotesk',sans-serif] ${
-                      isGreen ? "text-[#0B0B0D]" : "text-white"
-                    }`}
-                  >
-                    {stat.value}
-                  </span>
-                  <span
-                    className={`block text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider mt-1.5 leading-tight ${
-                      isGreen ? "text-[#0B0B0D]/80" : "text-[#A5A5A5]"
-                    }`}
-                  >
-                    {stat.label}
-                  </span>
-                </div>
-              );
-            })}
+          {/* --------------------------------------------------------------------- */}
+          {/* Card 3 – Bottom Right: 16 HAPPY FACES (Dark Charcoal)                */}
+          {/* Outer black container extends upwards into the photo                  */}
+          {/* --------------------------------------------------------------------- */}
+          <div
+            ref={card3Ref}
+            className="absolute z-20 rounded-2xl sm:rounded-3xl lg:rounded-[1.75rem] bg-[#0B0B0D] bottom-0 translate-y-16 sm:translate-y-24 lg:translate-y-28 right-3 sm:right-8 md:right-14 lg:right-20 xl:right-28 pb-2.5 sm:pb-3.5 lg:pb-4 px-2.5 sm:px-3.5 lg:px-4 pt-5 sm:pt-7 lg:pt-9 shadow-[0_15px_40px_rgba(0,0,0,0.8)]"
+          >
+            {/* Left Inverted Concave Corner Fillet */}
+            <svg
+              className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 absolute text-[#0B0B0D] fill-current bottom-16 sm:bottom-24 lg:bottom-28 left-0 -mb-px ml-px -translate-x-full rotate-180 pointer-events-none hidden sm:block"
+              viewBox="0 0 100 100"
+              aria-hidden="true"
+            >
+              <path d="M51.9 0v1.9c-27.6 0-50 22.4-50 50H0V0h51.9z" />
+            </svg>
+
+            {/* Right Inverted Concave Corner Fillet */}
+            <svg
+              className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 absolute text-[#0B0B0D] fill-current bottom-16 sm:bottom-24 lg:bottom-28 right-0 -mb-px mr-px translate-x-full rotate-180 pointer-events-none hidden sm:block"
+              viewBox="0 0 100 100"
+              aria-hidden="true"
+            >
+              <path d="M98.1 0h1.9v51.9h-1.9c0-27.6-22.4-50-50-50V0h50z" />
+            </svg>
+
+            {/* Inner Dark Charcoal Statistic Card */}
+            <div className="w-28 h-28 p-3 rounded-2xl sm:w-40 sm:h-40 sm:p-4 md:w-44 md:h-44 lg:w-52 lg:h-52 lg:p-5 xl:w-60 xl:h-60 xl:p-6 bg-[#222328] flex flex-col justify-between border border-white/8 shadow-[0_12px_32px_rgba(0,0,0,0.6)] select-none">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white leading-none [font-family:'Host_Grotesk',sans-serif]">
+                16
+              </h3>
+              <div className="text-[11px] sm:text-xs md:text-sm lg:text-base font-medium text-[#A5A5A5] leading-tight">
+                happy faces
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
     </section>
