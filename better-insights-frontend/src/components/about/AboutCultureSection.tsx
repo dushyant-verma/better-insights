@@ -2,8 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { getGSAP } from "@/lib/gsap";
 
 export function AboutCultureSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -33,7 +32,7 @@ export function AboutCultureSection() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    gsap.registerPlugin(ScrollTrigger);
+    const { gsap, ScrollTrigger } = getGSAP();
 
     const section = sectionRef.current;
     const collage = collageRef.current;
@@ -149,6 +148,15 @@ export function AboutCultureSection() {
       });
     }, section);
 
+    // ResizeObserver: auto-refresh ScrollTrigger when collage layout or card images load
+    let ro: ResizeObserver | null = null;
+    if (typeof ResizeObserver !== "undefined") {
+      ro = new ResizeObserver(() => {
+        ScrollTrigger.refresh();
+      });
+      ro.observe(collage);
+    }
+
     // Staggered ScrollTrigger refresh to ensure calculations after fonts/images render
     const t1 = setTimeout(() => {
       ScrollTrigger.refresh();
@@ -170,6 +178,7 @@ export function AboutCultureSection() {
       clearTimeout(t2);
       clearTimeout(t3);
       window.removeEventListener("load", handleLoad);
+      ro?.disconnect();
       ctx.revert();
     };
   }, []);

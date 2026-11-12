@@ -3,8 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Sparkles, CheckCircle2 } from "lucide-react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { getGSAP } from "@/lib/gsap";
 import { RollingStatNumber } from "@/components/ui/RollingStatNumber";
 
 interface StatItem {
@@ -83,7 +82,7 @@ export function WhoWeAreRedesign() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    gsap.registerPlugin(ScrollTrigger);
+    const { gsap, ScrollTrigger } = getGSAP();
 
     const container = containerRef.current;
     if (!container) return;
