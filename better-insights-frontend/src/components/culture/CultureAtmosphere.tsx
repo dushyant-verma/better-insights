@@ -1,21 +1,17 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getGSAP } from "@/lib/gsap";
 import "@/styles/about-culture.css";
 
-interface CollagePhoto {
+interface ClusterCard {
   id: string;
   src: string;
   alt: string;
   wrapperClass: string;
   cardRotation: string;
-  parallax: {
-    desktop: { startY: number; endY: number };
-    tablet: { startY: number; endY: number };
-    mobile: { startY: number; endY: number };
-  };
   caption?: {
     text: string;
     emoji: string;
@@ -24,140 +20,252 @@ interface CollagePhoto {
   };
 }
 
-// -----------------------------------------------------------------------------
-// Left Cluster (3 Overlapping Photos)
-// -----------------------------------------------------------------------------
-const LEFT_CLUSTER_PHOTOS: CollagePhoto[] = [
-  // 1. Medium-sized image positioned towards upper-left (Midground layer)
-  {
-    id: "left-1",
-    src: "/images/culture/hero-marketing-team.jpg",
-    alt: "Better Insights team collaborating on digital sprint strategy in our studio",
-    wrapperClass: "w-[58%] sm:w-[56%] lg:w-[58%] aspect-[4/3] top-[8%] left-[2%] z-10",
-    cardRotation: "-rotate-[4deg]",
-    parallax: {
-      desktop: { startY: 110, endY: -70 },
-      tablet: { startY: 60, endY: -40 },
-      mobile: { startY: 28, endY: -18 },
-    },
-    caption: {
-      text: "Strategy Sprints in Motion",
-      emoji: "👇",
-      position: "top",
-      align: "left",
-    },
-  },
-  // 2. Image positioned towards upper-middle/right (Background layer)
-  {
-    id: "left-2",
-    src: "/images/culture/photo-1531403009284-440f080d1e12.jpg",
-    alt: "Wireframing and user experience architecture design",
-    wrapperClass: "w-[52%] sm:w-[50%] lg:w-[52%] aspect-[4/3] top-[4%] left-[44%] z-5",
-    cardRotation: "rotate-[3.5deg]",
-    parallax: {
-      desktop: { startY: 70, endY: -45 },
-      tablet: { startY: 38, endY: -25 },
-      mobile: { startY: 18, endY: -12 },
-    },
-    caption: {
-      text: "Designing User Journeys",
-      emoji: "👇",
-      position: "top",
-      align: "right",
-    },
-  },
-  // 3. Larger photograph positioned towards lower-middle (Foreground layer)
-  {
-    id: "left-3",
-    src: "/images/culture/photo-1556761175-4b46a572b786.jpg",
-    alt: "Cross-functional team discussing solutions around conference table",
-    wrapperClass: "w-[64%] sm:w-[62%] lg:w-[64%] aspect-[16/11] top-[38%] left-[16%] z-20",
-    cardRotation: "-rotate-[5deg]",
-    parallax: {
-      desktop: { startY: 180, endY: -120 },
-      tablet: { startY: 95, endY: -65 },
-      mobile: { startY: 42, endY: -26 },
-    },
-  },
-];
+interface ImageCluster {
+  id: string;
+  title: string;
+  widthClass: string;
+  cards: ClusterCard[];
+}
 
 // -----------------------------------------------------------------------------
-// Right Cluster (4 Overlapping Photos)
+// 5 Distinct Editorial Clusters (12 Images Total)
+// Organically arranged with overlapping cards, varying aspect ratios,
+// subtle rotations, and pointing emoji captions.
 // -----------------------------------------------------------------------------
-const RIGHT_CLUSTER_PHOTOS: CollagePhoto[] = [
-  // 1. Photograph positioned towards middle-left of right cluster (Midground layer)
+const ATMOSPHERE_CLUSTERS: ImageCluster[] = [
+  // ---------------------------------------------------------------------------
+  // Cluster 1: Strategy & Discovery (3 Overlapping Photos)
+  // ---------------------------------------------------------------------------
   {
-    id: "right-1",
-    src: "/images/culture/photo-1515187029135-18ee286d815b.jpg",
-    alt: "Team milestones, celebrations, and collaborative energy",
-    wrapperClass: "w-[54%] sm:w-[52%] lg:w-[54%] aspect-[4/3] top-[14%] left-[2%] z-10",
-    cardRotation: "-rotate-[2.5deg]",
-    parallax: {
-      desktop: { startY: 100, endY: -65 },
-      tablet: { startY: 55, endY: -35 },
-      mobile: { startY: 25, endY: -16 },
-    },
-    caption: {
-      text: "Team Milestones & Summits",
-      emoji: "☝️",
-      position: "top",
-      align: "left",
-    },
+    id: "cluster-1",
+    title: "Strategy & Discovery",
+    widthClass: "w-[84vw] sm:w-[540px] md:w-[580px] lg:w-[640px] xl:w-[680px]",
+    cards: [
+      {
+        id: "c1-card-1",
+        src: "/images/culture/hero-marketing-team.jpg",
+        alt: "Better Insights team collaborating on digital sprint strategy in our studio",
+        wrapperClass: "w-[56%] sm:w-[52%] aspect-[4/3] top-[10%] left-[2%] z-10",
+        cardRotation: "-rotate-[3.5deg]",
+        caption: {
+          text: "Strategy Sprints in Motion",
+          emoji: "👇",
+          position: "top",
+          align: "left",
+        },
+      },
+      {
+        id: "c1-card-2",
+        src: "/images/culture/photo-1531403009284-440f080d1e12.jpg",
+        alt: "Wireframing and user experience architecture design",
+        wrapperClass: "w-[50%] sm:w-[46%] aspect-[4/3] top-[6%] left-[46%] z-5",
+        cardRotation: "rotate-[3.5deg]",
+        caption: {
+          text: "Designing User Journeys",
+          emoji: "👇",
+          position: "top",
+          align: "right",
+        },
+      },
+      {
+        id: "c1-card-3",
+        src: "/images/culture/photo-1556761175-4b46a572b786.jpg",
+        alt: "Cross-functional team discussing solutions around conference table",
+        wrapperClass: "w-[62%] sm:w-[58%] aspect-[16/11] top-[42%] left-[18%] z-20",
+        cardRotation: "-rotate-[4.5deg]",
+      },
+    ],
   },
-  // 2. Photograph positioned towards upper-right (Background layer)
+
+  // ---------------------------------------------------------------------------
+  // Cluster 2: Focus & Engineering (2 Overlapping Photos)
+  // ---------------------------------------------------------------------------
   {
-    id: "right-2",
-    src: "/images/culture/photo-1553877522-43269d4ea984.jpg",
-    alt: "Product engineers working with focused craft and precision",
-    wrapperClass: "w-[48%] sm:w-[46%] lg:w-[48%] aspect-[3/4] top-[4%] left-[48%] z-5",
-    cardRotation: "rotate-[5.5deg]",
-    parallax: {
-      desktop: { startY: 65, endY: -40 },
-      tablet: { startY: 35, endY: -22 },
-      mobile: { startY: 16, endY: -10 },
-    },
+    id: "cluster-2",
+    title: "Focus & Engineering",
+    widthClass: "w-[80vw] sm:w-[420px] md:w-[460px] lg:w-[500px] xl:w-[540px]",
+    cards: [
+      {
+        id: "c2-card-1",
+        src: "/images/culture/photo-1553877522-43269d4ea984.jpg",
+        alt: "Product engineers working with focused craft and precision",
+        wrapperClass: "w-[50%] sm:w-[46%] aspect-[3/4] top-[10%] left-[2%] z-10",
+        cardRotation: "rotate-[4deg]",
+        caption: {
+          text: "Behind the Pixels",
+          emoji: "☝️",
+          position: "top",
+          align: "left",
+        },
+      },
+      {
+        id: "c2-card-2",
+        src: "/images/culture/photo-1552664730-d307ca884978.jpg",
+        alt: "Interactive whiteboard workshop and strategic roadmap planning",
+        wrapperClass: "w-[58%] sm:w-[56%] aspect-[4/3] top-[40%] left-[32%] z-20",
+        cardRotation: "-rotate-[3deg]",
+        caption: {
+          text: "Whiteboard Architecture",
+          emoji: "👇",
+          position: "bottom",
+          align: "right",
+        },
+      },
+    ],
   },
-  // 3. Photograph positioned towards lower-middle (Foreground layer)
+
+  // ---------------------------------------------------------------------------
+  // Cluster 3: Milestones & Community (3 Overlapping Photos)
+  // ---------------------------------------------------------------------------
   {
-    id: "right-3",
-    src: "/images/culture/photo-1551836022-d5d88e9218df.jpg",
-    alt: "Creative specialist focusing on visual design details",
-    wrapperClass: "w-[50%] sm:w-[48%] lg:w-[50%] aspect-[3/4] top-[42%] left-[16%] z-20",
-    cardRotation: "rotate-[2.5deg]",
-    parallax: {
-      desktop: { startY: 200, endY: -130 },
-      tablet: { startY: 110, endY: -70 },
-      mobile: { startY: 46, endY: -28 },
-    },
-    caption: {
-      text: "Crafting with Focus",
-      emoji: "👇",
-      position: "bottom",
-      align: "left",
-    },
+    id: "cluster-3",
+    title: "Milestones & Community",
+    widthClass: "w-[84vw] sm:w-[540px] md:w-[600px] lg:w-[660px] xl:w-[700px]",
+    cards: [
+      {
+        id: "c3-card-1",
+        src: "/images/culture/photo-1515187029135-18ee286d815b.jpg",
+        alt: "Team milestones, celebrations, and collaborative energy",
+        wrapperClass: "w-[52%] sm:w-[48%] aspect-[4/3] top-[10%] left-[2%] z-10",
+        cardRotation: "-rotate-[2.5deg]",
+        caption: {
+          text: "Team Milestones & Summits",
+          emoji: "☝️",
+          position: "top",
+          align: "left",
+        },
+      },
+      {
+        id: "c3-card-2",
+        src: "/images/culture/photo-1551836022-d5d88e9218df.jpg",
+        alt: "Creative specialist focusing on visual design details",
+        wrapperClass: "w-[46%] sm:w-[42%] aspect-[3/4] top-[38%] left-[24%] z-20",
+        cardRotation: "rotate-[3deg]",
+        caption: {
+          text: "Crafting with Focus",
+          emoji: "👇",
+          position: "bottom",
+          align: "left",
+        },
+      },
+      {
+        id: "c3-card-3",
+        src: "/images/culture/photo-1559136555-9303baea8ebd.jpg",
+        alt: "Team exploring new tech patterns in studio lounge",
+        wrapperClass: "w-[46%] sm:w-[44%] aspect-[3/4] top-[12%] left-[52%] z-15",
+        cardRotation: "-rotate-[4.5deg]",
+        caption: {
+          text: "Always Exploring",
+          emoji: "☝️",
+          position: "top",
+          align: "right",
+        },
+      },
+    ],
   },
-  // 4. Photograph positioned towards lower-right (Mid-foreground layer)
+
+  // ---------------------------------------------------------------------------
+  // Cluster 4: Curiosity & Standups (2 Overlapping Photos)
+  // ---------------------------------------------------------------------------
   {
-    id: "right-4",
-    src: "/images/culture/photo-1559136555-9303baea8ebd.jpg",
-    alt: "Team exploring new tech patterns in studio lounge",
-    wrapperClass: "w-[50%] sm:w-[48%] lg:w-[50%] aspect-[3/4] top-[36%] left-[46%] z-15",
-    cardRotation: "-rotate-[4.5deg]",
-    parallax: {
-      desktop: { startY: 135, endY: -85 },
-      tablet: { startY: 70, endY: -45 },
-      mobile: { startY: 30, endY: -18 },
-    },
+    id: "cluster-4",
+    title: "Curiosity & Standups",
+    widthClass: "w-[80vw] sm:w-[420px] md:w-[460px] lg:w-[500px] xl:w-[540px]",
+    cards: [
+      {
+        id: "c4-card-1",
+        src: "/images/culture/photo-1573496359142-b8d87734a5a2.jpg",
+        alt: "Creative thinkers fostering genuine collaboration and open dialogue",
+        wrapperClass: "w-[54%] sm:w-[50%] aspect-[4/3] top-[12%] left-[4%] z-15",
+        cardRotation: "rotate-[3.5deg]",
+        caption: {
+          text: "Curiosity in Action",
+          emoji: "☝️",
+          position: "top",
+          align: "left",
+        },
+      },
+      {
+        id: "c4-card-2",
+        src: "/images/culture/photo-1573497491765-dccce02b29df.jpg",
+        alt: "Product squad aligning on deliverable sprint goals",
+        wrapperClass: "w-[58%] sm:w-[56%] aspect-[16/10] top-[42%] left-[32%] z-20",
+        cardRotation: "-rotate-[3.5deg]",
+        caption: {
+          text: "Sprint Standups",
+          emoji: "👇",
+          position: "bottom",
+          align: "right",
+        },
+      },
+    ],
+  },
+
+  // ---------------------------------------------------------------------------
+  // Cluster 5: Impact & Real Results (2 Overlapping Photos)
+  // ---------------------------------------------------------------------------
+  {
+    id: "cluster-5",
+    title: "Impact & Real Results",
+    widthClass: "w-[80vw] sm:w-[440px] md:w-[480px] lg:w-[520px] xl:w-[560px]",
+    cards: [
+      {
+        id: "c5-card-1",
+        src: "/images/culture/photo-1573164713988-8665fc963095.jpg",
+        alt: "Delivering business impact and measurable client ROI",
+        wrapperClass: "w-[54%] sm:w-[50%] aspect-[4/3] top-[10%] left-[2%] z-15",
+        cardRotation: "-rotate-[2.5deg]",
+        caption: {
+          text: "Turning Ideas into Reality",
+          emoji: "🚀",
+          position: "top",
+          align: "left",
+        },
+      },
+      {
+        id: "c5-card-2",
+        src: "/images/culture/photo-1573497019940-1c28c88b4f3e.jpg",
+        alt: "Executive leadership and client partnership reviews",
+        wrapperClass: "w-[48%] sm:w-[44%] aspect-[3/4] top-[36%] left-[38%] z-20",
+        cardRotation: "rotate-[4deg]",
+        caption: {
+          text: "Client Partnerships",
+          emoji: "👇",
+          position: "bottom",
+          align: "right",
+        },
+      },
+    ],
   },
 ];
-
-const ALL_PHOTOS = [...LEFT_CLUSTER_PHOTOS, ...RIGHT_CLUSTER_PHOTOS];
 
 export function CultureAtmosphere() {
   const sectionRef = useRef<HTMLElement>(null);
-  const galleryRef = useRef<HTMLDivElement>(null);
-  const photoRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const trackWrapperRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const progressBarRef = useRef<HTMLDivElement>(null);
 
+  // Mobile swipeable indicator states
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const handleMobileScroll = () => {
+    if (!trackWrapperRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = trackWrapperRef.current;
+    setCanScrollLeft(scrollLeft > 15);
+    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 15);
+  };
+
+  const scrollByAmount = (direction: "left" | "right") => {
+    if (!trackWrapperRef.current) return;
+    const distance = window.innerWidth * 0.75;
+    trackWrapperRef.current.scrollBy({
+      left: direction === "left" ? -distance : distance,
+      behavior: "smooth",
+    });
+  };
+
+  // GSAP ScrollTrigger Setup: Pinned Horizontal Scrubbing on Desktop/Tablet
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -166,143 +274,144 @@ export function CultureAtmosphere() {
 
     const { gsap, ScrollTrigger } = getGSAP();
     const section = sectionRef.current;
-    const gallery = galleryRef.current;
-    if (!section || !gallery) return;
+    const track = trackRef.current;
+    const progressBar = progressBarRef.current;
+
+    if (!section || !track) return;
 
     const ctx = gsap.context(() => {
-      // 1. Heading and Intro Entrance Reveal
-      gsap.fromTo(
-        section.querySelectorAll(".bi-culture-intro__eyebrow, .bi-culture-intro__title, .bi-culture-intro__desc"),
-        {
-          opacity: 0,
-          y: 28,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.9,
-          stagger: 0.1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
-
-      // 2. Responsive Scroll-Driven Layered Parallax Scrub
       const mm = gsap.matchMedia();
 
-      // Desktop: Full layered parallax with deep vertical separation
-      mm.add("(min-width: 1024px)", () => {
+      // =======================================================================
+      // Desktop & Tablet: Pinned Horizontal Scroll
+      // Section pins in place, header stays fixed at top, track scrolls X
+      // =======================================================================
+      mm.add("(min-width: 768px) and (min-height: 560px)", () => {
+        // 1. Initial entrance reveal for header elements
+        gsap.fromTo(
+          section.querySelectorAll(".atmosphere-header-item"),
+          {
+            opacity: 0,
+            y: 24,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.12,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: section,
+              start: "top 85%",
+              once: true,
+            },
+          }
+        );
+
+        // 2. Dynamic Scroll Distance Calculation
+        const getScrollDistance = () => {
+          if (!track) return 0;
+          return Math.max(0, track.scrollWidth - window.innerWidth + 120);
+        };
+
+        const getPinDuration = () => {
+          return Math.max(1600, getScrollDistance() * 1.15);
+        };
+
+        // 3. Master Pinned Horizontal Scrub Timeline
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: section,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 1.2,
+            start: "top top",
+            end: () => `+=${getPinDuration()}`,
+            pin: true,
+            scrub: 1,
+            anticipatePin: 1,
             invalidateOnRefresh: true,
           },
         });
 
-        ALL_PHOTOS.forEach((photo, idx) => {
-          const el = photoRefs.current[idx];
-          if (!el) return;
+        // Translate the track horizontally from 0 to -getScrollDistance()
+        tl.to(
+          track,
+          {
+            x: () => -getScrollDistance(),
+            ease: "none",
+            duration: 1,
+          },
+          0
+        );
 
-          const { startY, endY } = photo.parallax.desktop;
-
-          // Progressive opacity reveal in the first 25% of scroll
-          tl.fromTo(
-            el,
-            { opacity: 0.15 },
-            { opacity: 1, duration: 0.25, ease: "power1.out" },
+        // Progress bar scrub at the bottom
+        if (progressBar) {
+          tl.to(
+            progressBar,
+            {
+              scaleX: 1,
+              ease: "none",
+              duration: 1,
+            },
             0
           );
+        }
 
-          // Continuous upward layered parallax drift across full scroll progress
-          tl.fromTo(
-            el,
-            { y: startY },
-            { y: endY, duration: 1, ease: "none" },
+        // Floating parallax & subtle tilt shifts on alternating cards during horizontal travel
+        const cards = track.querySelectorAll(".atmosphere-card");
+        cards.forEach((card, idx) => {
+          const isOdd = idx % 2 === 1;
+          tl.to(
+            card,
+            {
+              y: isOdd ? -20 : 20,
+              ease: "none",
+              duration: 1,
+            },
             0
           );
         });
+
+        return () => {
+          tl.kill();
+        };
       });
 
-      // Tablet: Proportional parallax with preserved composition
-      mm.add("(min-width: 768px) and (max-width: 1023px)", () => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: section,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 1.1,
-            invalidateOnRefresh: true,
-          },
-        });
-
-        ALL_PHOTOS.forEach((photo, idx) => {
-          const el = photoRefs.current[idx];
-          if (!el) return;
-
-          const { startY, endY } = photo.parallax.tablet;
-
-          tl.fromTo(
-            el,
-            { opacity: 0.2 },
-            { opacity: 1, duration: 0.25, ease: "power1.out" },
-            0
-          );
-
-          tl.fromTo(
-            el,
-            { y: startY },
-            { y: endY, duration: 1, ease: "none" },
-            0
-          );
-        });
-      });
-
-      // Mobile: Gentle parallax motion optimized for touch viewports
-      mm.add("(max-width: 767px)", () => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: section,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 0.8,
-            invalidateOnRefresh: true,
-          },
-        });
-
-        ALL_PHOTOS.forEach((photo, idx) => {
-          const el = photoRefs.current[idx];
-          if (!el) return;
-
-          const { startY, endY } = photo.parallax.mobile;
-
-          tl.fromTo(
-            el,
-            { opacity: 0.3 },
-            { opacity: 1, duration: 0.25, ease: "power1.out" },
-            0
-          );
-
-          tl.fromTo(
-            el,
-            { y: startY },
-            { y: endY, duration: 1, ease: "none" },
-            0
+      // =======================================================================
+      // Mobile / Compact Viewports: Natural vertical flow + entrance reveals
+      // =======================================================================
+      mm.add("(max-width: 767px), (max-height: 559px)", () => {
+        const cards = track.querySelectorAll(".atmosphere-card");
+        cards.forEach((card) => {
+          gsap.fromTo(
+            card,
+            { opacity: 0.4, scale: 0.94 },
+            {
+              opacity: 1,
+              scale: 1,
+              duration: 0.6,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: card,
+                start: "top 92%",
+                once: true,
+              },
+            }
           );
         });
       });
     }, section);
 
-    // Staggered ScrollTrigger refreshes to ensure calculations lock in after images and fonts settle
-    const t1 = setTimeout(() => ScrollTrigger.refresh(), 200);
-    const t2 = setTimeout(() => ScrollTrigger.refresh(), 600);
-    const t3 = setTimeout(() => ScrollTrigger.refresh(), 1200);
+    // ResizeObserver: auto-refresh calculations when photos or fonts finish settling
+    let ro: ResizeObserver | null = null;
+    if (typeof ResizeObserver !== "undefined") {
+      ro = new ResizeObserver(() => {
+        ScrollTrigger.refresh();
+      });
+      ro.observe(track);
+    }
+
+    const t1 = setTimeout(() => ScrollTrigger.refresh(), 250);
+    const t2 = setTimeout(() => ScrollTrigger.refresh(), 800);
+    const t3 = setTimeout(() => ScrollTrigger.refresh(), 1500);
 
     const handleLoad = () => ScrollTrigger.refresh();
     window.addEventListener("load", handleLoad);
@@ -312,6 +421,7 @@ export function CultureAtmosphere() {
       clearTimeout(t2);
       clearTimeout(t3);
       window.removeEventListener("load", handleLoad);
+      if (ro) ro.disconnect();
       ctx.revert();
     };
   }, []);
@@ -320,171 +430,171 @@ export function CultureAtmosphere() {
     <section
       ref={sectionRef}
       id="culture-atmosphere"
-      className="bi-culture-section select-none relative overflow-hidden bg-[#0d0c12]"
+      className="relative w-full bg-[#0d0c12] select-none md:h-screen md:min-h-[640px] md:max-h-[1080px] md:flex md:flex-col md:justify-between overflow-hidden py-14 sm:py-20 md:py-0"
       aria-labelledby="bi-culture-title"
     >
       {/* Background Ambient Radial Glow */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] lg:w-[1100px] h-[550px] bg-[radial-gradient(circle,rgba(52,204,123,0.06)_0%,rgba(43,184,109,0.015)_50%,transparent_70%)] blur-[130px] pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] lg:w-[1200px] h-[550px] bg-[radial-gradient(circle,rgba(203,252,107,0.06)_0%,rgba(203,252,107,0.015)_50%,transparent_70%)] blur-[140px] pointer-events-none"
         aria-hidden="true"
       />
 
-      <div className="bi-culture-container relative z-10">
-        {/* ================================================================= */}
-        {/* 1. Preserved Section Header                                       */}
-        {/* ================================================================= */}
-        <header className="bi-culture-intro mb-12 sm:mb-16 lg:mb-20">
-          <div className="bi-culture-intro__heading-wrap">
-            <span className="bi-culture-intro__eyebrow">Our Culture &amp; People</span>
-            <h2 id="bi-culture-title" className="bi-culture-intro__title">
+      {/* ===================================================================== */}
+      {/* 1. Stationary Header (Fixed at top of pinned section on desktop)      */}
+      {/* ===================================================================== */}
+      <header className="bi-culture-container pt-8 sm:pt-12 md:pt-16 lg:pt-20 pb-4 shrink-0 relative z-20">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-12">
+          {/* Eyebrow & Title */}
+          <div className="atmosphere-header-item">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 mb-3 sm:mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B] animate-pulse" />
+              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#CBFC6B]">
+                Our Culture &amp; People
+              </span>
+            </div>
+            <h2
+              id="bi-culture-title"
+              className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light text-white tracking-[-0.035em] [font-family:'Host_Grotesk',sans-serif] leading-[1.08]"
+            >
               Feel the atmosphere.
             </h2>
           </div>
 
-          <div className="bi-culture-intro__desc-wrap">
-            <p className="bi-culture-intro__desc">
+          {/* Introductory Paragraph */}
+          <div className="max-w-xl atmosphere-header-item">
+            <p className="text-sm sm:text-base lg:text-[17px] text-[#A5A5A5] font-normal leading-relaxed">
               Behind every great digital experience is a team of curious minds, creative thinkers and problem solvers. At Better Insights, we bring strategy, design and technology together to create meaningful digital experiences and build things that make a difference.
             </p>
           </div>
-        </header>
+        </div>
 
-        {/* ================================================================= */}
-        {/* 2. Scattered Photo Collage (Two Distinct Clusters with Parallax)  */}
-        {/* ================================================================= */}
-        <div
-          ref={galleryRef}
-          className="relative w-full min-h-[720px] lg:min-h-[760px] xl:min-h-[820px] pb-16 sm:pb-20"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-14 xl:gap-24 items-center">
-            
-            {/* --------------------------------------------------------------- */}
-            {/* Left Cluster: 3 Overlapping Photographs                         */}
-            {/* --------------------------------------------------------------- */}
-            <div className="relative w-full h-[500px] sm:h-[600px] lg:h-[680px] xl:h-[720px]">
-              {LEFT_CLUSTER_PHOTOS.map((item, idx) => {
-                return (
-                  <div
-                    key={item.id}
-                    ref={(el) => {
-                      photoRefs.current[idx] = el;
-                    }}
-                    className={`absolute overflow-visible ${item.wrapperClass}`}
-                  >
-                    <div
-                      className={`relative w-full h-full rounded-[14px] sm:rounded-[18px] overflow-visible ${item.cardRotation} group transition-transform duration-500 hover:scale-105 hover:z-30`}
-                    >
-                      {/* Caption Decoration with Emoji */}
-                      {item.caption && (
-                        <div
-                          className={`absolute z-30 pointer-events-none flex flex-col items-center ${
-                            item.caption.position === "top"
-                              ? "-top-12 sm:-top-14"
-                              : "-bottom-14 sm:-bottom-16"
-                          } ${
-                            item.caption.align === "left"
-                              ? "left-2 sm:left-4"
-                              : item.caption.align === "right"
-                              ? "right-2 sm:right-4"
-                              : "left-1/2 -translate-x-1/2"
-                          }`}
-                        >
-                          {item.caption.position === "bottom" && (
-                            <span className="text-xl sm:text-2xl mb-0.5 filter drop-shadow">
-                              {item.caption.emoji}
-                            </span>
-                          )}
-                          <span className="text-xs sm:text-sm font-light text-[#CCCCCC] tracking-tight whitespace-nowrap text-center filter drop-shadow [font-family:'Host_Grotesk',sans-serif]">
-                            {item.caption.text}
-                          </span>
-                          {item.caption.position === "top" && (
-                            <span className="text-xl sm:text-2xl mt-0.5 filter drop-shadow">
-                              {item.caption.emoji}
-                            </span>
-                          )}
-                        </div>
-                      )}
-
-                      {/* Image Container with Rounded Corners & Soft Border */}
-                      <div className="relative w-full h-full rounded-[14px] sm:rounded-[18px] overflow-hidden bg-[#181622] border border-white/10 shadow-[0_16px_40px_-10px_rgba(0,0,0,0.7)] group-hover:border-[#CBFC6B]/40 transition-colors duration-300">
-                        <Image
-                          src={item.src}
-                          alt={item.alt}
-                          fill
-                          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 420px"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* --------------------------------------------------------------- */}
-            {/* Right Cluster: 4 Overlapping Photographs                        */}
-            {/* --------------------------------------------------------------- */}
-            <div className="relative w-full h-[500px] sm:h-[600px] lg:h-[680px] xl:h-[720px]">
-              {RIGHT_CLUSTER_PHOTOS.map((item, idx) => {
-                const globalIdx = LEFT_CLUSTER_PHOTOS.length + idx;
-                return (
-                  <div
-                    key={item.id}
-                    ref={(el) => {
-                      photoRefs.current[globalIdx] = el;
-                    }}
-                    className={`absolute overflow-visible ${item.wrapperClass}`}
-                  >
-                    <div
-                      className={`relative w-full h-full rounded-[14px] sm:rounded-[18px] overflow-visible ${item.cardRotation} group transition-transform duration-500 hover:scale-105 hover:z-30`}
-                    >
-                      {/* Caption Decoration with Emoji */}
-                      {item.caption && (
-                        <div
-                          className={`absolute z-30 pointer-events-none flex flex-col items-center ${
-                            item.caption.position === "top"
-                              ? "-top-12 sm:-top-14"
-                              : "-bottom-14 sm:-bottom-16"
-                          } ${
-                            item.caption.align === "left"
-                              ? "left-2 sm:left-4"
-                              : item.caption.align === "right"
-                              ? "right-2 sm:right-4"
-                              : "left-1/2 -translate-x-1/2"
-                          }`}
-                        >
-                          {item.caption.position === "bottom" && (
-                            <span className="text-xl sm:text-2xl mb-0.5 filter drop-shadow">
-                              {item.caption.emoji}
-                            </span>
-                          )}
-                          <span className="text-xs sm:text-sm font-light text-[#CCCCCC] tracking-tight whitespace-nowrap text-center filter drop-shadow [font-family:'Host_Grotesk',sans-serif]">
-                            {item.caption.text}
-                          </span>
-                          {item.caption.position === "top" && (
-                            <span className="text-xl sm:text-2xl mt-0.5 filter drop-shadow">
-                              {item.caption.emoji}
-                            </span>
-                          )}
-                        </div>
-                      )}
-
-                      {/* Image Container with Rounded Corners & Soft Border */}
-                      <div className="relative w-full h-full rounded-[14px] sm:rounded-[18px] overflow-hidden bg-[#181622] border border-white/10 shadow-[0_16px_40px_-10px_rgba(0,0,0,0.7)] group-hover:border-[#CBFC6B]/40 transition-colors duration-300">
-                        <Image
-                          src={item.src}
-                          alt={item.alt}
-                          fill
-                          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 420px"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
+        {/* Mobile Navigation Controls */}
+        <div className="flex items-center justify-between mt-6 md:hidden">
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => scrollByAmount("left")}
+              disabled={!canScrollLeft}
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#CBFC6B] hover:text-[#101112] transition-all cursor-pointer"
+              aria-label="Scroll gallery left"
+            >
+              <ArrowLeft className="w-4 h-4" />
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollByAmount("right")}
+              disabled={!canScrollRight}
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#CBFC6B] hover:text-[#101112] transition-all cursor-pointer"
+              aria-label="Scroll gallery right"
+            >
+              <ArrowRight className="w-4 h-4" />
+            </button>
           </div>
+          <span className="text-xs text-white/50 font-light">Swipe to view more</span>
+        </div>
+      </header>
+
+      {/* ===================================================================== */}
+      {/* 2. Horizontal Photographic Gallery Track                              */}
+      {/* Pinned horizontal travel on Desktop / Native touch swipe on Mobile   */}
+      {/* ===================================================================== */}
+      <div
+        ref={trackWrapperRef}
+        onScroll={handleMobileScroll}
+        className="relative w-full md:flex-1 md:min-h-0 md:flex md:items-center overflow-x-auto md:overflow-hidden scroll-smooth snap-x snap-mandatory no-scrollbar touch-pan-x py-6 md:py-0 z-10"
+      >
+        <div
+          ref={trackRef}
+          className="flex flex-row items-center gap-10 sm:gap-14 md:gap-16 lg:gap-24 xl:gap-28 w-max pl-5 sm:pl-10 md:pl-16 lg:pl-24 pr-12 sm:pr-20 md:pr-28 lg:pr-44 will-change-transform"
+        >
+          {ATMOSPHERE_CLUSTERS.map((cluster) => {
+            return (
+              <div
+                key={cluster.id}
+                className={`relative shrink-0 snap-center h-[420px] sm:h-[460px] md:h-[480px] lg:h-[510px] xl:h-[540px] ${cluster.widthClass}`}
+                aria-label={cluster.title}
+              >
+                {cluster.cards.map((card) => {
+                  return (
+                    <div
+                      key={card.id}
+                      className={`absolute overflow-visible ${card.wrapperClass}`}
+                    >
+                      <div
+                        className={`atmosphere-card relative w-full h-full rounded-[14px] sm:rounded-[18px] overflow-visible ${card.cardRotation} group transition-transform duration-500 hover:scale-105 hover:z-30`}
+                      >
+                        {/* Caption Decoration with Emoji */}
+                        {card.caption && (
+                          <div
+                            className={`absolute z-30 pointer-events-none flex flex-col items-center ${
+                              card.caption.position === "top"
+                                ? "-top-12 sm:-top-14"
+                                : "-bottom-14 sm:-bottom-16"
+                            } ${
+                              card.caption.align === "left"
+                                ? "left-2 sm:left-4"
+                                : card.caption.align === "right"
+                                ? "right-2 sm:right-4"
+                                : "left-1/2 -translate-x-1/2"
+                            }`}
+                          >
+                            {card.caption.position === "bottom" && (
+                              <span className="text-xl sm:text-2xl mb-0.5 filter drop-shadow">
+                                {card.caption.emoji}
+                              </span>
+                            )}
+                            <span className="text-xs sm:text-sm font-light text-[#CCCCCC] tracking-tight whitespace-nowrap text-center filter drop-shadow [font-family:'Host_Grotesk',sans-serif]">
+                              {card.caption.text}
+                            </span>
+                            {card.caption.position === "top" && (
+                              <span className="text-xl sm:text-2xl mt-0.5 filter drop-shadow">
+                                {card.caption.emoji}
+                              </span>
+                            )}
+                          </div>
+                        )}
+
+                        {/* Image Container with Rounded Corners & Soft Border */}
+                        <div className="relative w-full h-full rounded-[14px] sm:rounded-[18px] overflow-hidden bg-[#181622] border border-white/10 shadow-[0_16px_40px_-10px_rgba(0,0,0,0.7)] group-hover:border-[#CBFC6B]/40 transition-colors duration-300">
+                          <Image
+                            src={card.src}
+                            alt={card.alt}
+                            fill
+                            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                            sizes="(max-width: 640px) 80vw, (max-width: 1024px) 45vw, 400px"
+                            loading="lazy"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* ===================================================================== */}
+      {/* 3. Pinned Scroll Progress Indicator (Bottom of pinned screen)         */}
+      {/* ===================================================================== */}
+      <div className="bi-culture-container pb-5 sm:pb-6 pt-2 shrink-0 relative z-20 hidden md:flex items-center justify-between text-xs text-white/40">
+        <div className="flex items-center gap-3">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B] animate-pulse" />
+          <span className="tracking-widest uppercase text-[10px] text-white/60 font-mono">
+            Scroll down to explore gallery
+          </span>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <span className="text-[10px] text-white/40 font-mono">01</span>
+          <div className="w-36 h-[2px] bg-white/10 rounded-full overflow-hidden">
+            <div
+              ref={progressBarRef}
+              className="h-full bg-[#CBFC6B] w-full origin-left scale-x-0 will-change-transform"
+            />
+          </div>
+          <span className="text-[10px] text-white/40 font-mono">05</span>
         </div>
       </div>
     </section>
