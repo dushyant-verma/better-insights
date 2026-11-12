@@ -272,3 +272,4 @@ export function CultureBlogSlider({ initialPosts }: CultureBlogSliderProps) {
     </section>
   );
 }
+
