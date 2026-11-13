@@ -30,7 +30,7 @@ const FLOATING_CARDS: FloatingCard[] = [
   {
     src: "/images/culture/photo-1515187029135-18ee286d815b.jpg",
     alt: "Creative strategy whiteboard session",
-    className: "top-[1%] right-[2.5%] xl:right-[10.5%] w-[155px] md:w-[180px] xl:w-[205px]",
+    className: "top-[1%] right-[2.5%] xl:right-[11.5%] w-[125px] md:w-[140px] xl:w-[165px]",
     aspectClass: "aspect-[3/4]",
     rotation: "rotate-2",
     parallaxSpeed: -50,
@@ -58,7 +58,7 @@ const FLOATING_CARDS: FloatingCard[] = [
   {
     src: "/images/culture/photo-1552664730-d307ca884978.jpg",
     alt: "Strategic growth workshop",
-    className: "bottom-[7%] left-[4%] xl:left-[7%] w-[155px] md:w-[175px] xl:w-[200px]",
+    className: "bottom-[7%] left-[12%] xl:left-[7%] w-[125px] md:w-[135px] xl:w-[150px]",
     aspectClass: "aspect-[3/4]",
     rotation: "-rotate-2",
     parallaxSpeed: -40,
@@ -67,7 +67,7 @@ const FLOATING_CARDS: FloatingCard[] = [
   {
     src: "/images/culture/photo-1551836022-d5d88e9218df.jpg",
     alt: "Team presentation and knowledge sharing",
-    className: "bottom-[3%] left-[41%] xl:left-[43%] w-[170px] md:w-[195px] xl:w-[220px] hidden lg:block",
+    className: "bottom-[0%] left-[41%] xl:left-[43%] w-[170px] md:w-[195px] xl:w-[200px] hidden lg:block",
     aspectClass: "aspect-[4/3]",
     rotation: "rotate-1",
     parallaxSpeed: 30,

@@ -181,7 +181,7 @@ export function CultureTeamSlider() {
               {/* Profile Thumbnails Row */}
               <div>
                 <div
-                  className="flex items-center gap-2.5 sm:gap-3.5 mb-8 sm:mb-12 overflow-x-auto pb-1 scrollbar-none"
+                  className="flex items-center gap-2.5 sm:gap-3.5 mb-8 sm:mb-12 overflow-x-auto p-1 scrollbar-none"
                   role="tablist"
                   aria-label="Team member profiles"
                 >
@@ -196,8 +196,8 @@ export function CultureTeamSlider() {
                         aria-label={`Select testimonial from ${member.name}`}
                         onClick={() => setActiveIndex(idx)}
                         className={`relative w-12 h-12 sm:w-14 sm:h-14 lg:w-[58px] lg:h-[58px] rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 shrink-0 focus:outline-none ${isActive
-                            ? "border-[2.5px] border-[#101112] shadow-sm scale-105"
-                            : "border-[2.5px] border-transparent opacity-60 hover:opacity-100 hover:scale-105"
+                          ? "border-[2.5px] border-[#101112] shadow-sm scale-105"
+                          : "border-[2.5px] border-transparent opacity-60 hover:opacity-100 hover:scale-105"
                           }`}
                       >
                         <Image

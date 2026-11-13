@@ -27,6 +27,9 @@ export default async function CulturePage() {
       {/* 3. Our Culture & Ethos (Editorial Layout & Brand Quote) */}
       <CultureEthos />
 
+      {/* 7. Feel the Atmosphere (Flagship Visual Scrapbook Gallery) */}
+      <CultureAtmosphere />
+
       {/* 4. What's Important to Us (Sticky Left + Stacked Cards Scroll Animation) */}
       <CultureStackedCards />
 
@@ -36,11 +39,8 @@ export default async function CulturePage() {
       {/* 6. Blog Slider – A bit about our culture */}
       <CultureBlogSlider initialPosts={posts} />
 
-      {/* 7. Feel the Atmosphere (Flagship Visual Scrapbook Gallery) */}
-      <CultureAtmosphere />
-
       {/* 8. Join Our Team Closing CTA */}
-      <CultureJoinCTA />
+      {/* <CultureJoinCTA /> */}
     </div>
   );
 }

@@ -1251,10 +1251,10 @@
     position: relative;
     z-index: 52;
     transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                max-width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                padding 0.3s ease,
-                box-shadow 0.3s ease,
-                background-color 0.3s ease;
+      max-width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      padding 0.3s ease,
+      box-shadow 0.3s ease,
+      background-color 0.3s ease;
   }
 
   /* Scrolled shrinking state */
@@ -1273,6 +1273,7 @@
       max-width: 100%;
       padding: 0.4rem 0.5rem 0.4rem 1rem;
     }
+
     #nav.is-scrolled .nav__bar,
     #nav .nav__bar.is-scrolled {
       width: 100%;
@@ -2519,7 +2520,7 @@
   }
 
   #h2-contact .contact__title .m-dot {
-    background: #34cc7b;
+    background: #ffffff;
   }
 
   #h2-contact .contact__grid {

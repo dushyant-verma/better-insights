@@ -133,7 +133,7 @@ export function CultureWorkplace() {
       {/* ========================================================================= */}
       <div className="w-full max-w-[1560px] mx-auto px-3 sm:px-6 lg:px-10 xl:px-12 relative z-20 overflow-visible">
         <div className="relative w-full overflow-visible">
-          
+
           {/* Main Large Photographic Canvas (rounded ~24px, no dark overlay) */}
           <div
             ref={imageWrapperRef}
@@ -155,7 +155,7 @@ export function CultureWorkplace() {
           {/* --------------------------------------------------------------------- */}
           <div
             ref={card1Ref}
-            className="absolute z-20 rounded-2xl sm:rounded-3xl lg:rounded-[1.75rem] bg-[#0B0B0D] top-0 -translate-y-12 sm:-translate-y-16 lg:-translate-y-20 right-3 sm:right-12 md:right-20 lg:right-32 xl:right-44 pt-2.5 sm:pt-3.5 lg:pt-4 px-2.5 sm:px-3.5 lg:px-4 pb-5 sm:pb-7 lg:pb-9 shadow-[0_15px_40px_rgba(0,0,0,0.8)]"
+            className="absolute z-20 rounded-2xl sm:rounded-3xl lg:rounded-[1.75rem] bg-[#0B0B0D] top-0 -translate-y-12 sm:-translate-y-16 lg:-translate-y-20 right-3 sm:right-12 md:right-20 lg:right-32 xl:right-44 pt-2.5 sm:pt-3.5 lg:pt-4 px-2.5 sm:px-3.5 lg:px-4 pb-5 sm:pb-7 lg:pb-5 shadow-[0_15px_40px_rgba(0,0,0,0.8)]"
           >
             {/* Left Inverted Concave Corner Fillet */}
             <svg
@@ -192,7 +192,7 @@ export function CultureWorkplace() {
           {/* --------------------------------------------------------------------- */}
           <div
             ref={card2Ref}
-            className="absolute z-20 rounded-2xl sm:rounded-3xl lg:rounded-[1.75rem] bg-[#0B0B0D] bottom-0 translate-y-12 sm:translate-y-16 lg:translate-y-20 left-3 sm:left-10 md:left-16 lg:left-24 xl:left-32 pb-2.5 sm:pb-3.5 lg:pb-4 px-2.5 sm:px-3.5 lg:px-4 pt-5 sm:pt-7 lg:pt-9 shadow-[0_15px_40px_rgba(0,0,0,0.8)]"
+            className="absolute z-20 rounded-2xl sm:rounded-3xl lg:rounded-[1.75rem] bg-[#0B0B0D] bottom-0 translate-y-12 sm:translate-y-16 lg:translate-y-20 left-3 sm:left-10 md:left-16 lg:left-24 xl:left-32 pb-2.5 sm:pb-3.5 lg:pb-4 px-2.5 sm:px-3.5 lg:px-4 pt-5 sm:pt-7 lg:pt-5 shadow-[0_15px_40px_rgba(0,0,0,0.8)]"
           >
             {/* Left Inverted Concave Corner Fillet */}
             <svg
@@ -229,7 +229,7 @@ export function CultureWorkplace() {
           {/* --------------------------------------------------------------------- */}
           <div
             ref={card3Ref}
-            className="absolute z-20 rounded-2xl sm:rounded-3xl lg:rounded-[1.75rem] bg-[#0B0B0D] bottom-0 translate-y-16 sm:translate-y-24 lg:translate-y-28 right-3 sm:right-8 md:right-14 lg:right-20 xl:right-28 pb-2.5 sm:pb-3.5 lg:pb-4 px-2.5 sm:px-3.5 lg:px-4 pt-5 sm:pt-7 lg:pt-9 shadow-[0_15px_40px_rgba(0,0,0,0.8)]"
+            className="absolute z-20 rounded-2xl sm:rounded-3xl lg:rounded-[1.75rem] bg-[#0B0B0D] bottom-0 translate-y-16 sm:translate-y-24 lg:translate-y-28 right-3 sm:right-8 md:right-14 lg:right-20 xl:right-28 pb-2.5 sm:pb-3.5 lg:pb-4 px-2.5 sm:px-3.5 lg:px-4 pt-5 sm:pt-7 lg:pt-5 shadow-[0_15px_40px_rgba(0,0,0,0.8)]"
           >
             {/* Left Inverted Concave Corner Fillet */}
             <svg
