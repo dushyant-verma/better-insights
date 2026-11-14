@@ -2,13 +2,16 @@
 
 import React, { useState } from "react";
 import { CareersHero } from "@/components/careers/CareersHero";
-import { CareersPhilosophy } from "@/components/careers/CareersPhilosophy";
-import { CareersDisciplines } from "@/components/careers/CareersDisciplines";
+import { CultureTeamSlider } from "@/components/culture/CultureTeamSlider";
+import { CultureAtmosphere } from "@/components/culture/CultureAtmosphere";
 import { CareersOpenPositions } from "@/components/careers/CareersOpenPositions";
-import { CareersProcess } from "@/components/careers/CareersProcess";
-import { CareersApplicationForm } from "@/components/careers/CareersApplicationForm";
-import { CareersCTA } from "@/components/careers/CareersCTA";
+import { CareersBenefits } from "@/components/careers/CareersBenefits";
+import { TeamSlider } from "@/components/about/TeamSlider";
+import { TeamModal, TeamMemberData } from "@/components/about/TeamModal";
+import { TEAM_MEMBERS } from "@/data/teamData";
+import { CultureBlogSlider } from "@/components/culture/CultureBlogSlider";
 import { CareerModal } from "@/components/forms/CareerModal";
+import "@/styles/culture-page.css";
 import "@/styles/careers.css";
 
 export default function CareersPage() {
@@ -19,54 +22,54 @@ export default function CareersPage() {
     department: string;
   } | null>(null);
 
-  // When a user clicks "Apply Now" on any job card:
+  const [selectedMember, setSelectedMember] = useState<TeamMemberData | null>(null);
+
+  // When a user clicks any open position:
   const handleSelectRole = (role: { id: string; title: string; department: string }) => {
     setSelectedRole(role);
     setModalOpen(true);
   };
 
-  // When user clicks "Send Your Application" from closing CTA
-  const handleOpenApplicationModal = () => {
-    setSelectedRole({
-      id: "general-application",
-      title: "General / Open Application",
-      department: "Leadership & Growth",
-    });
-    setModalOpen(true);
-  };
-
   return (
-    <main className="min-h-screen bg-[#F3F2EF] text-black">
-      {/* Section 1: Careers Hero */}
+    <main className="min-h-screen bg-[#0E0F10] text-white">
+      {/* 1. Careers Hero & 2. Horizontally Scrolling Team Gallery */}
       <CareersHero />
 
-      {/* Section 2: Why Work With Us / Philosophy */}
-      <CareersPhilosophy />
+      {/* 3. Our Team – Testimonials with Two-Column Intro */}
+      <CultureTeamSlider showLifeIntro={true} />
 
-      {/* Section 3: Practice Disciplines */}
-      <CareersDisciplines />
+      {/* 4. Feel the Atmosphere – Flagship Visual Scrapbook Gallery */}
+      <CultureAtmosphere />
 
-      {/* Section 4: Verified Open Positions */}
+      {/* 5. Open Positions – Job Listings & Stay on the Boss's Radar Promotional Card */}
       <CareersOpenPositions onSelectRole={handleSelectRole} />
 
-      {/* Section 5: Candidate Journey / Process */}
-      <CareersProcess />
+      {/* 6. Benefits Section – A little more than just a workplace */}
+      <CareersBenefits />
 
-      {/* Section 6: On-Page Application Form */}
-      <CareersApplicationForm
-        selectedRole={selectedRole}
-        onClearSelectedRole={() => setSelectedRole(null)}
+      {/* 7. Our Team – Multiple personalities, No egos Interactive Showcase */}
+      <TeamSlider
+        members={TEAM_MEMBERS}
+        onSelectMember={(member) => setSelectedMember(member)}
+        ctaHref="#open-positions"
       />
 
-      {/* Section 7: Closing CTA */}
-      <CareersCTA onOpenApplication={handleOpenApplicationModal} />
+      {/* 8. Blog Showcase – A bit about our culture Carousel */}
+      <CultureBlogSlider />
 
-      {/* Quick Application Modal (Popup) */}
+      {/* Quick Application Modal (Popup for applying to open roles) */}
       <CareerModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         defaultPosition={selectedRole?.title || ""}
         defaultDepartment={selectedRole?.department || ""}
+      />
+
+      {/* Team Member Details Modal Dialog */}
+      <TeamModal
+        member={selectedMember}
+        isOpen={!!selectedMember}
+        onClose={() => setSelectedMember(null)}
       />
     </main>
   );

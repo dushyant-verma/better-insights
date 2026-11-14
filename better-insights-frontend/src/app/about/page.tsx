@@ -10,6 +10,7 @@ import { TEAM_MEMBERS } from "@/data/teamData";
 import { StackingCapabilitiesCards } from "@/components/about/StackingCapabilitiesCards";
 import { WhoWeAreRedesign } from "@/components/about/WhoWeAreRedesign";
 import { openMarketingPlanModal } from "@/components/forms/LeadModal";
+import { BlobButton } from "@/components/ui/BlobButton";
 import "@/styles/about.css";
 
 const CAPABILITIES = [
@@ -125,7 +126,7 @@ export default function AboutPage() {
             <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#66574F] block mb-3">
               Delivery Framework
             </span>
-            <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-5xl font-semibold sm:font-bold tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
               Four stages to predictable scale
             </h2>
           </div>
@@ -140,7 +141,7 @@ export default function AboutPage() {
                   <div className="text-3xl font-mono font-bold text-[#66574F] mb-4">
                     {st.step}
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#33CC7A] block mb-2">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#CBFC6B] block mb-2">
                     {st.phase}
                   </span>
                   <h3 className="text-lg font-semibold tracking-tight text-[#1B1411] mb-3">
@@ -182,14 +183,14 @@ export default function AboutPage() {
           <div className="bg-[#1B1411] text-[#FAF5F0] rounded-[2rem] sm:rounded-[2.5rem] p-8 sm:p-14 lg:p-16 relative overflow-hidden shadow-2xl text-center">
             {/* Ambient Accent Glow */}
             <div
-              className="absolute -bottom-40 right-1/4 w-[600px] h-[400px] bg-[#33CC7A]/[0.12] blur-[150px] rounded-full pointer-events-none"
+              className="absolute -bottom-40 right-1/4 w-[600px] h-[400px] bg-[#CBFC6B]/[0.12] blur-[150px] rounded-full pointer-events-none"
               aria-hidden="true"
             />
 
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#33CC7A] block mb-4">
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#CBFC6B] block mb-4">
               Start Your Transformation
             </span>
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-light lg:font-normal tracking-[-0.035em] text-[#FAF5F0] max-w-3xl mx-auto leading-[1.05] [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-semibold sm:font-bold tracking-[-0.035em] text-[#FAF5F0] max-w-3xl mx-auto leading-[1.05] [font-family:'Host_Grotesk',sans-serif]">
               Ready to build what’s next?
             </h2>
             <p className="mt-6 text-base sm:text-lg text-[#B8ABA3] max-w-2xl mx-auto leading-relaxed font-normal">
@@ -198,14 +199,13 @@ export default function AboutPage() {
             </p>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <button
-                type="button"
+              <BlobButton
                 onClick={() => openMarketingPlanModal()}
-                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#33CC7A] text-[#1B1411] text-xs font-bold uppercase tracking-wider hover:bg-[#2BB86D] transition-all hover:scale-105 shadow-lg shadow-[#33CC7A]/20 cursor-pointer"
+                size="lg"
+                icon="arrow-up-right"
               >
-                <span>Get Marketing Plan</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
+                Get Marketing Plan
+              </BlobButton>
               <Link
                 href="/work"
                 className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-white/10 hover:bg-white/20 text-[#FAF5F0] text-xs font-bold uppercase tracking-wider transition-all border border-white/15 hover:scale-105"

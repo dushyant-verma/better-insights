@@ -5,6 +5,7 @@ import Link from "next/link";
 import "@/styles/home-merged.css";
 import { MergedHeader } from "@/components/navigation/MergedHeader";
 import { Footer } from "@/components/layout/Footer";
+import { BlobButton } from "@/components/ui/BlobButton";
 
 export function MergedHomepage() {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -1553,7 +1554,7 @@ export function MergedHomepage() {
                 </div>
                 <label className="m-text-6">A few words about the project<textarea className="m-field" name="message" rows={3} required></textarea></label>
                 <div className="contact__actions">
-                  <button data-magnetic className="m-btn" type="submit"><span className="m-btn__label">Send message</span></button>
+                  <BlobButton type="submit" size="md" icon="arrow-up-right">Send message</BlobButton>
                   <p className="m-text contact__status" role="status" aria-live="polite" data-success="Thank you. Our marketing team will review your enquiry and reply within 24 hours." data-error="Please add your name, a valid email, and details about your marketing goals."></p>
                 </div>
               </form>
@@ -1646,7 +1647,7 @@ export function MergedHomepage() {
                 <h2 className="m-text-3" id="calls-title" data-8b-motion="captionIn">Marketing infrastructure built to perform.</h2>
                 <div className="calls__head-copy">
                   <p className="m-text-4 calls__lead">Digital campaigns and high-converting web experiences that capture attention and turn engagement into measurable growth.</p>
-                  <Link className="m-btn" href="/contact"><span className="m-btn__label">Get Marketing Plan</span><span className="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></Link>
+                  <BlobButton href="/contact" size="md" icon="arrow-up-right">Get Marketing Plan</BlobButton>
                 </div>
               </div>
               <div className="calls__grid">
@@ -2016,8 +2017,10 @@ export function MergedHomepage() {
               <div className="start__copy">
                 <h2 className="m-text-3" id="start-title">Ready to scale your digital growth?</h2>
                 <p className="m-text-4">Get in touch today to explore how Better Insights can transform your brand&apos;s digital presence and marketing ROI.</p>
-                <div className="start__actions">
-                  <Link className="m-btn" href="/contact"><span className="m-btn__label">Get Marketing Plan</span><span className="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></Link>
+                <div className="start__actions" style={{ display: "flex", alignItems: "center", gap: "1.5rem", flexWrap: "wrap" }}>
+                  <BlobButton href="/contact" size="lg" icon="arrow-up-right">
+                    Get Marketing Plan
+                  </BlobButton>
                   <Link className="m-link m-text-6" href="/work">Explore Our Work</Link>
                 </div>
               </div>
@@ -2045,7 +2048,7 @@ export function MergedHomepage() {
                 <div className="m-field"><label className="m-field__label" htmlFor="contact-name">Your name</label><input className="m-field__input" id="contact-name" name="name" type="text" autoComplete="name" required /></div>
                 <div className="m-field"><label className="m-field__label" htmlFor="contact-email">Email</label><input className="m-field__input" id="contact-email" name="email" type="email" autoComplete="email" required /></div>
                 <div className="m-field"><label className="m-field__label" htmlFor="contact-message">How can we help?</label><textarea className="m-field__input" id="contact-message" name="message" rows={4} required></textarea></div>
-                <button data-magnetic className="m-btn-2" type="submit"><span className="m-btn__label">Send Enquiry</span><span className="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></button>
+                <BlobButton type="submit" size="md" icon="arrow-up-right">Send Enquiry</BlobButton>
                 <p className="contact__status m-text-8" role="status" aria-live="polite"></p>
               </form>
             </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowUpRight, MessageSquare, Compass } from "lucide-react";
+import { BlobButton } from "@/components/ui/BlobButton";
 
 export function PortfolioCTA() {
   return (
@@ -10,21 +11,21 @@ export function PortfolioCTA() {
           
           {/* Subtle background glow */}
           <div 
-            className="absolute -top-24 -right-24 w-80 h-80 bg-[#33CC7A]/15 rounded-full blur-3xl pointer-events-none" 
+            className="absolute -top-24 -right-24 w-80 h-80 bg-[#CBFC6B]/15 rounded-full blur-3xl pointer-events-none" 
             aria-hidden="true" 
           />
           <div 
-            className="absolute -bottom-24 -left-24 w-80 h-80 bg-[#33CC7A]/10 rounded-full blur-3xl pointer-events-none" 
+            className="absolute -bottom-24 -left-24 w-80 h-80 bg-[#CBFC6B]/10 rounded-full blur-3xl pointer-events-none" 
             aria-hidden="true" 
           />
 
           <div className="relative z-10 max-w-2xl mx-auto space-y-6">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white text-xs font-semibold tracking-wide border border-white/15">
-              <span className="w-2 h-2 rounded-full bg-[#33CC7A]" />
+              <span className="w-2 h-2 rounded-full bg-[#CBFC6B]" />
               <span>Next steps</span>
             </span>
 
-            <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-white leading-tight [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-5xl font-semibold sm:font-bold tracking-[-0.03em] text-white leading-tight [font-family:'Host_Grotesk',sans-serif]">
               Have a project in mind?
             </h2>
 
@@ -33,13 +34,13 @@ export function PortfolioCTA() {
             </p>
 
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
+              <BlobButton
                 href="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#33CC7A] hover:bg-[#28a764] text-[#1B1411] text-sm font-semibold rounded-full transition-all shadow-md"
+                size="lg"
+                icon="arrow-up-right"
               >
-                <span>Start a project</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
+                Start a project
+              </BlobButton>
 
               <Link
                 href="/insights"

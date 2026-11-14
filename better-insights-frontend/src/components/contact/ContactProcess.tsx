@@ -34,7 +34,7 @@ export function ContactProcess() {
           <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#66574F] block mb-3">
             Workflow &amp; Discovery
           </span>
-          <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
+          <h2 className="text-3xl sm:text-5xl font-semibold sm:font-bold tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
             What happens next?
           </h2>
           <p className="mt-4 text-base text-[#66574F] font-normal leading-relaxed">
@@ -56,7 +56,7 @@ export function ContactProcess() {
                     <span className="text-xs font-mono font-bold px-3 py-1 bg-[#EEE5DC] text-[#1B1411] rounded-full">
                       Stage {s.step}
                     </span>
-                    <div className="w-10 h-10 rounded-2xl bg-[#33CC7A]/15 text-[#33CC7A] flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-2xl bg-[#CBFC6B]/15 text-[#CBFC6B] flex items-center justify-center">
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>

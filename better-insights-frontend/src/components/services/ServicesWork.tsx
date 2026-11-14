@@ -40,11 +40,11 @@ export function ServicesWork({
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white border border-black/10 text-[#1B1411]">
-                <span className="w-2 h-2 rounded-full bg-[#33CC7A]" />
+                <span className="w-2 h-2 rounded-full bg-[#CBFC6B]" />
                 Verified impact
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-5xl font-semibold sm:font-bold tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
               {title}
             </h2>
             <p className="mt-4 text-base sm:text-lg text-[#1B1411]/70 font-normal leading-relaxed">
@@ -54,7 +54,7 @@ export function ServicesWork({
 
           <Link
             href="/work"
-            className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[#1B1411] text-white text-xs font-semibold uppercase tracking-wider hover:bg-[#33CC7A] hover:text-[#1B1411] transition-all shrink-0 self-start md:self-auto group"
+            className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[#1B1411] text-white text-xs font-semibold uppercase tracking-wider hover:bg-[#CBFC6B] hover:text-[#1B1411] transition-all shrink-0 self-start md:self-auto group"
           >
             <span>View all case studies</span>
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -66,7 +66,7 @@ export function ServicesWork({
           {projects.map((project) => (
             <div
               key={project.id}
-              className="bg-white rounded-[1.75rem] border border-black/10 overflow-hidden flex flex-col justify-between hover:border-[#33CC7A]/40 transition-all hover:shadow-lg group"
+              className="bg-white rounded-[1.75rem] border border-black/10 overflow-hidden flex flex-col justify-between hover:border-[#CBFC6B]/40 transition-all hover:shadow-lg group"
             >
               <div>
                 <Link
@@ -92,7 +92,7 @@ export function ServicesWork({
                   <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[#1B1411]/50 block mb-2">
                     {project.clientName}
                   </span>
-                  <h3 className="text-xl font-semibold tracking-tight text-[#1B1411] mb-3 group-hover:text-[#33CC7A] transition-colors leading-snug [font-family:'Host_Grotesk',sans-serif]">
+                  <h3 className="text-xl font-semibold tracking-tight text-[#1B1411] mb-3 group-hover:text-[#CBFC6B] transition-colors leading-snug [font-family:'Host_Grotesk',sans-serif]">
                     <Link href={`/work/${project.slug}`}>
                       {project.title.split(":")[0]}
                     </Link>
@@ -116,7 +116,7 @@ export function ServicesWork({
 
                 <Link
                   href={`/work/${project.slug}`}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#1B1411] group-hover:text-[#33CC7A] transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#1B1411] group-hover:text-[#CBFC6B] transition-colors"
                 >
                   <span>Case study</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />

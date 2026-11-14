@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowUpRight, ArrowUp, Sparkles, BookOpen, Layers } from "lucide-react";
+import { BlobButton } from "@/components/ui/BlobButton";
 
 export function ContactCTA() {
   const scrollToForm = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -22,19 +23,19 @@ export function ContactCTA() {
         <div className="bg-[#1B1411] text-[#FAF5F0] rounded-[2rem] sm:rounded-[2.5rem] p-8 sm:p-14 lg:p-16 relative overflow-hidden shadow-2xl">
           {/* Ambient Depth Accent */}
           <div
-            className="absolute -top-32 right-1/4 w-[600px] h-[400px] bg-[#33CC7A]/[0.12] blur-[140px] rounded-full pointer-events-none"
+            className="absolute -top-32 right-1/4 w-[600px] h-[400px] bg-[#CBFC6B]/[0.12] blur-[140px] rounded-full pointer-events-none"
             aria-hidden="true"
           />
           
           <div className="max-w-3xl">
             {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-[#33CC7A] text-xs font-bold uppercase tracking-[0.18em] mb-6">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-[#CBFC6B] text-xs font-bold uppercase tracking-[0.18em] mb-6">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Let&apos;s Build Together</span>
             </div>
 
             {/* Headline */}
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-light lg:font-normal tracking-[-0.035em] text-[#FAF5F0] leading-[1.04] mb-6 [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-semibold sm:font-bold tracking-[-0.035em] text-[#FAF5F0] leading-[1.04] mb-6 [font-family:'Host_Grotesk',sans-serif]">
               Your next big idea starts <br />
               <span className="text-[#B8ABA3]">with a conversation.</span>
             </h2>
@@ -46,14 +47,14 @@ export function ContactCTA() {
 
             {/* Actions */}
             <div className="flex flex-wrap items-center gap-4 mb-10">
-              <a
+              <BlobButton
                 href="#contact-form-section"
                 onClick={scrollToForm}
-                className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#33CC7A] text-[#1B1411] text-xs font-bold uppercase tracking-wider rounded-full hover:bg-[#2BB86D] hover:scale-105 active:scale-95 transition-all shadow-lg shadow-[#33CC7A]/20"
+                size="lg"
+                icon="arrow-down"
               >
-                <span>Let&apos;s Talk</span>
-                <ArrowUp className="w-4 h-4" />
-              </a>
+                Let&apos;s Talk
+              </BlobButton>
 
               <Link
                 href="/work"
@@ -67,12 +68,12 @@ export function ContactCTA() {
             {/* Quick Links Strip */}
             <div className="pt-8 border-t border-white/10 flex flex-wrap items-center gap-6 text-xs text-[#B8ABA3]">
               <Link href="/insights" className="inline-flex items-center gap-1.5 hover:text-[#FAF5F0] transition-colors">
-                <BookOpen className="w-3.5 h-3.5 text-[#33CC7A]" />
+                <BookOpen className="w-3.5 h-3.5 text-[#CBFC6B]" />
                 <span>Explore Strategic Insights &rarr;</span>
               </Link>
 
               <Link href="/our-clientele" className="inline-flex items-center gap-1.5 hover:text-[#FAF5F0] transition-colors">
-                <Layers className="w-3.5 h-3.5 text-[#33CC7A]" />
+                <Layers className="w-3.5 h-3.5 text-[#CBFC6B]" />
                 <span>Browse Clientele Directory &rarr;</span>
               </Link>
             </div>

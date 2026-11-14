@@ -27,6 +27,7 @@ import { ServicesWork } from "@/components/services/ServicesWork";
 import { ServicesFaq } from "@/components/services/ServicesFaq";
 import { ServicesCTA } from "@/components/services/ServicesCTA";
 import { openMarketingPlanModal } from "@/components/forms/LeadModal";
+import { BlobButton } from "@/components/ui/BlobButton";
 
 interface SingleServiceTemplateProps {
   service: ServiceItem;
@@ -110,7 +111,7 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
         </div>
 
         {/* Ambient Subtle Glow */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-r from-[#34CC7B]/20 via-[#2BB86D]/14 to-[#33CC7A]/08 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-r from-[#CBFC6B]/20 via-[#CBFC6B]/14 to-[#CBFC6B]/08 rounded-full blur-[130px] pointer-events-none" />
 
         {/* Organic Blobs in Bottom-Right Corner (Overlapping, soft-edged, cropped) */}
         <div
@@ -122,7 +123,7 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
           aria-hidden="true"
         />
         <div
-          className="absolute -bottom-16 right-6 sm:-bottom-20 sm:right-10 w-[220px] h-[220px] sm:w-[300px] sm:h-[300px] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(51,204,122,0.08)_0%,rgba(51,204,122,0.02)_45%,transparent_70%)] blur-[45px] sm:blur-[65px] pointer-events-none z-10"
+          className="absolute -bottom-16 right-6 sm:-bottom-20 sm:right-10 w-[220px] h-[220px] sm:w-[300px] sm:h-[300px] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(203, 252, 107,0.08)_0%,rgba(203, 252, 107,0.02)_45%,transparent_70%)] blur-[45px] sm:blur-[65px] pointer-events-none z-10"
           aria-hidden="true"
         />
 
@@ -157,14 +158,14 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
             <div className="lg:col-span-7">
               {/* Category Eyebrow Pill */}
               <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white/10 text-white border border-white/15 backdrop-blur-md mb-6">
-                <span className="w-2 h-2 rounded-full bg-[#33CC7A] animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-[#CBFC6B] animate-pulse" />
                 <span>
                   {service.eyebrow} &bull; {service.categoryTag}
                 </span>
               </div>
 
               {/* Service Headline */}
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light lg:font-normal tracking-[-0.035em] text-white leading-[1.05] mb-6 [font-family:'Host_Grotesk',sans-serif]">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.035em] text-white leading-[1.05] mb-6 [font-family:'Host_Grotesk',sans-serif]">
                 {service.heroHeadline}
               </h1>
 
@@ -175,14 +176,13 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
 
               {/* Primary & Secondary Action CTAs */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8">
-                <button
-                  type="button"
+                <BlobButton
                   onClick={() => openMarketingPlanModal()}
-                  className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-[#33CC7A] hover:bg-[#28a764] text-[#1B1411] font-semibold text-sm transition-all duration-300 shadow-xl shadow-black/30 group hover:scale-[1.03] cursor-pointer"
+                  size="lg"
+                  icon="arrow-up-right"
                 >
-                  <span>Discuss Your Project</span>
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </button>
+                  Discuss Your Project
+                </BlobButton>
 
                 <a
                   href="#relevant-work"
@@ -197,15 +197,15 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
               {/* Trust Indicators */}
               <div className="flex flex-wrap items-center gap-6 pt-6 border-t border-white/15 text-xs text-white/70 font-medium">
                 <span className="inline-flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#33CC7A]" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#CBFC6B]" />
                   Verified Case Studies
                 </span>
                 <span className="inline-flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#33CC7A]" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#CBFC6B]" />
                   Full Code &amp; Data Ownership
                 </span>
                 <span className="inline-flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#33CC7A]" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#CBFC6B]" />
                   Direct Lead Partner Strategy
                 </span>
               </div>
@@ -228,14 +228,14 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
                   {/* Top-Right Active Status Pill */}
                   <div className="absolute top-4 right-4">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-[11px] font-semibold text-white">
-                      <span className="w-2 h-2 rounded-full bg-[#33CC7A] animate-pulse" />
+                      <span className="w-2 h-2 rounded-full bg-[#CBFC6B] animate-pulse" />
                       Production Architecture
                     </span>
                   </div>
 
                   {/* Bottom Information Overlay */}
                   <div className="absolute bottom-4 left-4 right-4 text-left">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#33CC7A] block mb-1">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#CBFC6B] block mb-1">
                       {service.categoryTag}
                     </span>
                     <h3 className="text-base sm:text-lg font-semibold text-white leading-snug [font-family:'Host_Grotesk',sans-serif]">
@@ -252,7 +252,7 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
                   </div>
                   <div className="p-3 rounded-xl bg-white/5 border border-white/10">
                     <span className="text-[10px] text-white/50 block font-medium">Attribution</span>
-                    <span className="text-xs sm:text-sm font-semibold text-[#33CC7A]">100% Measurable ROI</span>
+                    <span className="text-xs sm:text-sm font-semibold text-[#CBFC6B]">100% Measurable ROI</span>
                   </div>
                 </div>
               </div>
@@ -273,7 +273,7 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
                 Strategic Friction Diagnosed
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-5xl font-semibold sm:font-bold tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
               Challenges we eliminate.
             </h2>
             <p className="mt-4 text-base sm:text-lg text-[#1B1411]/70 font-normal leading-relaxed">
@@ -285,7 +285,7 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
             {service.challenges.map((c) => (
               <div
                 key={c.id}
-                className="bg-white rounded-[1.75rem] border border-black/10 p-8 sm:p-10 flex flex-col justify-between hover:border-[#33CC7A]/40 transition-all shadow-xs"
+                className="bg-white rounded-[1.75rem] border border-black/10 p-8 sm:p-10 flex flex-col justify-between hover:border-[#CBFC6B]/40 transition-all shadow-xs"
               >
                 <div>
                   <div className="flex items-center gap-2.5 mb-4">
@@ -318,9 +318,9 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-black/10 bg-[#33CC7A]/[0.08] -mx-8 -mb-10 sm:-mx-10 sm:-mb-10 p-6 sm:p-8 rounded-b-[1.75rem] border-t border-[#33CC7A]/20">
+                <div className="pt-4 border-t border-black/10 bg-[#CBFC6B]/[0.08] -mx-8 -mb-10 sm:-mx-10 sm:-mb-10 p-6 sm:p-8 rounded-b-[1.75rem] border-t border-[#CBFC6B]/20">
                   <span className="text-[10px] font-semibold uppercase tracking-wider text-[#1B1411] block mb-1 flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3 h-3 text-[#33CC7A]" />
+                    <CheckCircle2 className="w-3 h-3 text-[#CBFC6B]" />
                     Our Engineered Solution:
                   </span>
                   <p className="text-xs sm:text-sm text-[#1B1411] font-medium leading-relaxed">
@@ -341,11 +341,11 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
           <div className="max-w-3xl mb-14 sm:mb-16">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-[#FAF5F0] border border-black/10 text-[#1B1411]">
-                <span className="w-2 h-2 rounded-full bg-[#33CC7A]" />
+                <span className="w-2 h-2 rounded-full bg-[#CBFC6B]" />
                 Engineering Discipline
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-5xl font-semibold sm:font-bold tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
               How we approach {service.title.toLowerCase()}.
             </h2>
             <p className="mt-4 text-base sm:text-lg text-[#1B1411]/70 font-normal leading-relaxed">
@@ -359,14 +359,14 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
               return (
                 <div
                   key={pillar.step}
-                  className="bg-[#FAF5F0] rounded-[1.75rem] border border-black/10 p-8 flex flex-col justify-between hover:border-[#33CC7A]/60 transition-all hover:shadow-md group"
+                  className="bg-[#FAF5F0] rounded-[1.75rem] border border-black/10 p-8 flex flex-col justify-between hover:border-[#CBFC6B]/60 transition-all hover:shadow-md group"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-6">
                       <span className="font-mono text-xs font-bold text-[#1B1411] bg-white px-2.5 py-1 rounded-md border border-black/10">
                         {pillar.step}
                       </span>
-                      <div className="w-9 h-9 rounded-xl bg-white border border-black/10 flex items-center justify-center text-[#1B1411] group-hover:text-[#33CC7A] transition-colors">
+                      <div className="w-9 h-9 rounded-xl bg-white border border-black/10 flex items-center justify-center text-[#1B1411] group-hover:text-[#CBFC6B] transition-colors">
                         <IconComp className="w-4 h-4" />
                       </div>
                     </div>
@@ -403,11 +403,11 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
           <div className="max-w-3xl mb-14 sm:mb-16">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white border border-black/10 text-[#1B1411]">
-                <span className="w-2 h-2 rounded-full bg-[#33CC7A]" />
+                <span className="w-2 h-2 rounded-full bg-[#CBFC6B]" />
                 Specialized Scope
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-5xl font-semibold sm:font-bold tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
               Services &amp; capabilities.
             </h2>
             <p className="mt-4 text-base sm:text-lg text-[#1B1411]/70 font-normal leading-relaxed">
@@ -419,7 +419,7 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
             {service.capabilities.map((cap) => (
               <div
                 key={cap.number}
-                className="bg-white rounded-[1.75rem] border border-black/10 p-8 sm:p-10 flex flex-col justify-between hover:border-[#33CC7A]/40 transition-all shadow-xs"
+                className="bg-white rounded-[1.75rem] border border-black/10 p-8 sm:p-10 flex flex-col justify-between hover:border-[#CBFC6B]/40 transition-all shadow-xs"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -447,7 +447,7 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
                   <ul className="space-y-2">
                     {cap.deliverables.map((d, i) => (
                       <li key={i} className="text-xs text-[#1B1411]/85 flex items-center gap-2 font-medium">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#33CC7A] shrink-0" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#CBFC6B] shrink-0" />
                         <span>{d}</span>
                       </li>
                     ))}
@@ -464,17 +464,17 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
           =================================================================== */}
       <section className="py-20 sm:py-28 bg-[linear-gradient(145deg,#0A0818_0%,#150D2E_45%,#0F0A24_80%,#080611_100%)] text-white border-b border-black/10 select-none relative overflow-hidden">
         {/* Subtle ambient emerald green depth */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-r from-[#34CC7B]/18 via-[#2BB86D]/10 to-transparent rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-r from-[#CBFC6B]/18 via-[#CBFC6B]/10 to-transparent rounded-full blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mb-14 sm:mb-16">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white/10 text-white border border-white/15">
-                <span className="w-2 h-2 rounded-full bg-[#33CC7A]" />
+                <span className="w-2 h-2 rounded-full bg-[#CBFC6B]" />
                 Predictable Roadmap
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-white leading-tight [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-5xl font-semibold sm:font-bold tracking-[-0.03em] text-white leading-tight [font-family:'Host_Grotesk',sans-serif]">
               Our process: discover to optimize.
             </h2>
             <p className="mt-4 text-base sm:text-lg text-white/75 font-normal leading-relaxed">
@@ -486,11 +486,11 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
             {service.process.map((p) => (
               <div
                 key={p.step}
-                className="bg-white/5 backdrop-blur-md rounded-[1.75rem] border border-white/10 p-8 flex flex-col justify-between hover:border-[#33CC7A]/60 transition-all hover:bg-white/[0.08]"
+                className="bg-white/5 backdrop-blur-md rounded-[1.75rem] border border-white/10 p-8 flex flex-col justify-between hover:border-[#CBFC6B]/60 transition-all hover:bg-white/[0.08]"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-sm font-bold text-[#33CC7A] bg-[#33CC7A]/15 px-2.5 py-1 rounded-md border border-[#33CC7A]/30">
+                    <span className="font-mono text-sm font-bold text-[#CBFC6B] bg-[#CBFC6B]/15 px-2.5 py-1 rounded-md border border-[#CBFC6B]/30">
                       {p.step}
                     </span>
                     <span className="text-[10px] font-semibold uppercase tracking-wider text-white/50">
@@ -516,7 +516,7 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
                   <ul className="space-y-1.5">
                     {p.deliverables.map((d, i) => (
                       <li key={i} className="text-xs text-white/85 flex items-center gap-1.5 font-medium">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A] shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B] shrink-0" />
                         <span>{d}</span>
                       </li>
                     ))}
@@ -549,11 +549,11 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 mb-3">
                 <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white border border-black/10 text-[#1B1411]">
-                  <span className="w-2 h-2 rounded-full bg-[#33CC7A]" />
+                  <span className="w-2 h-2 rounded-full bg-[#CBFC6B]" />
                   Measurable ROI
                 </span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight mb-6 [font-family:'Host_Grotesk',sans-serif]">
+              <h2 className="text-3xl sm:text-5xl font-semibold sm:font-bold tracking-[-0.03em] text-[#1B1411] leading-tight mb-6 [font-family:'Host_Grotesk',sans-serif]">
                 Benefits &amp; business outcomes.
               </h2>
               <p className="text-base sm:text-lg text-[#1B1411]/70 font-normal leading-relaxed mb-8">
@@ -564,9 +564,9 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
                 {service.overview.coreOutcomes.map((outcome, idx) => (
                   <div
                     key={idx}
-                    className="p-5 rounded-2xl bg-white border border-black/10 flex items-start gap-4 shadow-2xs hover:border-[#33CC7A]/40 transition-colors"
+                    className="p-5 rounded-2xl bg-white border border-black/10 flex items-start gap-4 shadow-2xs hover:border-[#CBFC6B]/40 transition-colors"
                   >
-                    <div className="w-8 h-8 rounded-xl bg-[#33CC7A]/15 text-[#33CC7A] flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
+                    <div className="w-8 h-8 rounded-xl bg-[#CBFC6B]/15 text-[#CBFC6B] flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
                       <TrendingUp className="w-4 h-4" />
                     </div>
                     <div>
@@ -585,7 +585,7 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
             {/* Right: Who Benefits Most Card */}
             <div className="lg:col-span-5 bg-white rounded-[1.75rem] border border-black/10 p-8 sm:p-10 shadow-xs">
               <div className="flex items-center gap-2.5 mb-6">
-                <div className="w-8 h-8 rounded-lg bg-[#FAF5F0] flex items-center justify-center text-[#33CC7A]">
+                <div className="w-8 h-8 rounded-lg bg-[#FAF5F0] flex items-center justify-center text-[#CBFC6B]">
                   <Layers className="w-4 h-4" />
                 </div>
                 <h3 className="text-xs font-semibold uppercase tracking-wider text-[#1B1411]/70">
@@ -607,7 +607,7 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
                     key={idx}
                     className="p-3.5 rounded-xl bg-[#FAF5F0] border border-black/5 text-xs text-[#1B1411]/85 font-medium flex items-start gap-3 shadow-2xs"
                   >
-                    <span className="w-4 h-4 rounded-full bg-[#33CC7A]/20 text-[#1B1411] font-bold text-[9px] flex items-center justify-center shrink-0 mt-0.5">
+                    <span className="w-4 h-4 rounded-full bg-[#CBFC6B]/20 text-[#1B1411] font-bold text-[9px] flex items-center justify-center shrink-0 mt-0.5">
                       {idx + 1}
                     </span>
                     <span>{target}</span>
@@ -616,14 +616,14 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
               </ul>
 
               <div className="pt-6 border-t border-black/10 text-center">
-                <button
-                  type="button"
+                <BlobButton
                   onClick={() => openMarketingPlanModal()}
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#33CC7A] hover:bg-[#28a764] text-[#1B1411] text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-300 shadow-md cursor-pointer"
+                  size="md"
+                  fullWidth
+                  icon="arrow-up-right"
                 >
-                  <span>Request Architectural Consultation</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </button>
+                  Request Architectural Consultation
+                </BlobButton>
               </div>
             </div>
           </div>
@@ -657,11 +657,11 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
           <div className="max-w-3xl mb-12 sm:mb-16">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white border border-black/10 text-[#1B1411]">
-                <span className="w-2 h-2 rounded-full bg-[#33CC7A]" />
+                <span className="w-2 h-2 rounded-full bg-[#CBFC6B]" />
                 Complementary Solutions
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-5xl font-semibold sm:font-bold tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
               Related services.
             </h2>
             <p className="mt-4 text-base sm:text-lg text-[#1B1411]/70 font-normal leading-relaxed">
@@ -673,7 +673,7 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
             {relatedServices.map((rel) => (
               <div
                 key={rel.id}
-                className="bg-white rounded-[1.75rem] border border-black/10 overflow-hidden flex flex-col justify-between hover:border-[#33CC7A]/40 transition-all hover:shadow-md group"
+                className="bg-white rounded-[1.75rem] border border-black/10 overflow-hidden flex flex-col justify-between hover:border-[#CBFC6B]/40 transition-all hover:shadow-md group"
               >
                 <div>
                   <Link
@@ -696,7 +696,7 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
                   </Link>
 
                   <div className="p-6 sm:p-8">
-                    <h3 className="text-xl font-semibold tracking-tight text-[#1B1411] mb-2 group-hover:text-[#33CC7A] transition-colors [font-family:'Host_Grotesk',sans-serif]">
+                    <h3 className="text-xl font-semibold tracking-tight text-[#1B1411] mb-2 group-hover:text-[#CBFC6B] transition-colors [font-family:'Host_Grotesk',sans-serif]">
                       <Link href={`/services/${rel.slug}`}>{rel.title}</Link>
                     </h3>
                     <p className="text-xs sm:text-sm text-[#1B1411]/70 font-normal leading-relaxed mb-6 line-clamp-3">
@@ -708,7 +708,7 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
                 <div className="p-6 sm:p-8 pt-0">
                   <Link
                     href={`/services/${rel.slug}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#1B1411] group-hover:text-[#33CC7A] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#1B1411] group-hover:text-[#CBFC6B] transition-colors"
                   >
                     <span>Explore service</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />

@@ -6,7 +6,7 @@
    - Smooth curved arch trajectory for image cards riding along circular path
    - Compact spacing: 30 cards at 12° intervals for a continuous visual arch
    - Rounded corners (22px), high elevation drop shadows, consistent proportions
-   - Centered brand CTA button in Better Insights header green (#33CC7A)
+   - Centered brand CTA button in Better Insights header green (#CBFC6B)
    ========================================================================== */
 
 .bi-about-hero-dark {
@@ -34,7 +34,8 @@
     min-height: auto;
     justify-content: flex-start;
     padding-top: clamp(5.25rem, 11vh, 6.25rem);
-    padding-bottom: 2rem; /* ~50% reduction in bottom spacing */
+    padding-bottom: 2rem;
+    /* ~50% reduction in bottom spacing */
     gap: 0;
   }
 }
@@ -47,7 +48,7 @@
   transform: translate(-50%, 0);
   width: clamp(500px, 75vw, 1200px);
   height: clamp(380px, 45vw, 680px);
-  background: radial-gradient(circle, rgba(51, 204, 122, 0.06) 0%, rgba(255, 255, 255, 0.02) 40%, transparent 70%);
+  background: radial-gradient(circle, rgba(203, 252, 107, 0.06) 0%, rgba(255, 255, 255, 0.02) 40%, transparent 70%);
   filter: blur(120px);
   pointer-events: none;
   z-index: 1;
@@ -121,11 +122,15 @@
   width: 100%;
   overflow: hidden;
   height: clamp(420px, 44vw, 580px);
-  margin-top: clamp(0.75rem, 1.8vw, 1.75rem);
+  margin-top: clamp(-7.25rem, -5.8vw, -5.25rem);
   z-index: 10;
   cursor: grab;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.bi-hero-cta-wrap {
+  margin-top: -2rem !important;
 }
 
 .bi-arched-carousel-stage:active {
@@ -216,8 +221,8 @@
   pointer-events: auto;
   cursor: pointer;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.4s ease,
-              border-color 0.4s ease;
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
 }
 
 @media (max-width: 1024px) {
@@ -228,7 +233,7 @@
 
 .bi-arched-card:hover {
   transform: scale(1.05);
-  border-color: rgba(51, 204, 122, 0.5);
+  border-color: rgba(203, 252, 107, 0.5);
   box-shadow: 0 32px 70px -10px rgba(0, 0, 0, 0.95);
   z-index: 20;
 }
@@ -284,14 +289,14 @@
   width: 5px;
   height: 5px;
   border-radius: 9999px;
-  background-color: #33CC7A;
-  box-shadow: 0 0 6px rgba(51, 204, 122, 0.7);
+  background-color: #CBFC6B;
+  box-shadow: 0 0 6px rgba(203, 252, 107, 0.7);
 }
 
 /* --------------------------------------------------------------------------
    3. Centered Brand CTA Button
    Matches Better Insights Header CTA Button Identity:
-   - Primary background: #33CC7A
+   - Primary background: #CBFC6B
    - Text color: #1B1411
    - Rounded pill shape with small arrow icon on the right
    -------------------------------------------------------------------------- */
@@ -322,7 +327,7 @@
   align-items: center;
   gap: 0.65rem;
   padding: 0.85rem 2rem;
-  background-color: #33CC7A;
+  background-color: #CBFC6B;
   color: #1B1411;
   font-size: 0.9375rem;
   font-weight: 600;
@@ -330,10 +335,10 @@
   border-radius: 9999px;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 8px 24px rgba(51, 204, 122, 0.3);
+  box-shadow: 0 8px 24px rgba(203, 252, 107, 0.3);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.3s ease,
-              background-color 0.3s ease;
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
 }
 
 @media (max-width: 768px) {
@@ -344,10 +349,10 @@
 }
 
 .bi-hero-cta-btn:hover {
-  background-color: #2bb86d;
+  background-color: #CBFC6B;
   color: #1B1411;
   transform: scale(1.04);
-  box-shadow: 0 14px 34px rgba(51, 204, 122, 0.45);
+  box-shadow: 0 14px 34px rgba(203, 252, 107, 0.45);
 }
 
 .bi-hero-cta-arrow {

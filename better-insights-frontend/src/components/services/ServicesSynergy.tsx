@@ -61,11 +61,11 @@ export function ServicesSynergy() {
         <div className="max-w-3xl mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 mb-3">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white border border-black/10 text-[#1B1411]">
-              <span className="w-2 h-2 rounded-full bg-[#33CC7A]" />
+              <span className="w-2 h-2 rounded-full bg-[#CBFC6B]" />
               Ecosystem synergy
             </span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
+          <h2 className="text-3xl sm:text-5xl font-semibold sm:font-bold tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
             How our services work together.
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#1B1411]/70 font-normal leading-relaxed">
@@ -83,18 +83,18 @@ export function ServicesSynergy() {
             return (
               <div
                 key={idx}
-                className="bg-white rounded-[1.75rem] border border-black/10 p-8 sm:p-10 flex flex-col justify-between hover:border-[#33CC7A]/40 transition-all hover:shadow-md"
+                className="bg-white rounded-[1.75rem] border border-black/10 p-8 sm:p-10 flex flex-col justify-between hover:border-[#CBFC6B]/40 transition-all hover:shadow-md"
               >
                 <div>
                   {/* Visual Node Connection Bar */}
                   <div className="flex items-center gap-3 mb-6">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#FAF5F0] border border-black/10 text-[#1B1411]">
-                      <FromIcon className="w-3.5 h-3.5 text-[#33CC7A]" />
+                      <FromIcon className="w-3.5 h-3.5 text-[#CBFC6B]" />
                       {syn.from}
                     </span>
                     <ArrowRight className="w-4 h-4 text-[#1B1411]/40" />
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#FAF5F0] border border-black/10 text-[#1B1411]">
-                      <ToIcon className="w-3.5 h-3.5 text-[#33CC7A]" />
+                      <ToIcon className="w-3.5 h-3.5 text-[#CBFC6B]" />
                       {syn.to}
                     </span>
                   </div>

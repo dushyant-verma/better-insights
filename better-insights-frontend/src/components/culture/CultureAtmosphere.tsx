@@ -395,7 +395,7 @@ export function CultureAtmosphere() {
     >
       {/* Background Ambient Radial Glow */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] lg:w-[1200px] h-[550px] bg-[radial-gradient(circle,rgba(52,204,123,0.06)_0%,rgba(43,184,109,0.015)_50%,transparent_70%)] blur-[140px] pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] lg:w-[1200px] h-[550px] bg-[radial-gradient(circle,rgba(203, 252, 107,0.06)_0%,rgba(203, 252, 107,0.015)_50%,transparent_70%)] blur-[140px] pointer-events-none"
         aria-hidden="true"
       />
 
@@ -407,8 +407,8 @@ export function CultureAtmosphere() {
           {/* Eyebrow & Title */}
           <div className="atmosphere-header-item">
             <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-white/[0.05] border border-white/10 mb-2 sm:mb-3 md:mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#34CC7B] animate-pulse" />
-              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.16em] sm:tracking-[0.18em] text-[#34CC7B]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B] animate-pulse" />
+              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.16em] sm:tracking-[0.18em] text-[#CBFC6B]">
                 Our Culture &amp; People
               </span>
             </div>
@@ -489,7 +489,7 @@ export function CultureAtmosphere() {
                         )}
 
                         {/* Image Container with Rounded Corners & Soft Border */}
-                        <div className="relative w-full h-full rounded-[14px] sm:rounded-[18px] overflow-hidden bg-[#181622] border border-white/10 shadow-[0_16px_40px_-10px_rgba(0,0,0,0.7)] group-hover:border-[#34CC7B]/40 transition-colors duration-300">
+                        <div className="relative w-full h-full rounded-[14px] sm:rounded-[18px] overflow-hidden bg-[#181622] border border-white/10 shadow-[0_16px_40px_-10px_rgba(0,0,0,0.7)] group-hover:border-[#CBFC6B]/40 transition-colors duration-300">
                           <Image
                             src={card.src}
                             alt={card.alt}
@@ -514,7 +514,7 @@ export function CultureAtmosphere() {
       {/* ===================================================================== */}
       <div className="bi-culture-container pb-3 sm:pb-5 md:pb-6 pt-1 sm:pt-2 shrink-0 relative z-20 flex items-center justify-between text-xs text-white/40">
         <div className="flex items-center gap-2 sm:gap-3">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#34CC7B] animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B] animate-pulse" />
           <span className="tracking-widest uppercase text-[9px] sm:text-[10px] text-white/60 font-mono">
             Scroll down to explore gallery
           </span>
@@ -525,7 +525,7 @@ export function CultureAtmosphere() {
           <div className="w-24 sm:w-36 h-[2px] bg-white/10 rounded-full overflow-hidden">
             <div
               ref={progressBarRef}
-              className="h-full bg-[#34CC7B] w-full origin-left scale-x-0 will-change-transform"
+              className="h-full bg-[#CBFC6B] w-full origin-left scale-x-0 will-change-transform"
             />
           </div>
           <span className="text-[9px] sm:text-[10px] text-white/40 font-mono">05</span>

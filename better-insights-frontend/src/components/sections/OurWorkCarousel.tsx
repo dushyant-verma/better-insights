@@ -66,7 +66,7 @@ export function OurWorkCarousel() {
             <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-black/50 block mb-3">
               Our Work
             </span>
-            <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-black leading-tight [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-5xl font-semibold sm:font-bold tracking-[-0.03em] text-black leading-tight [font-family:'Host_Grotesk',sans-serif]">
               Extraordinary digital experiences.<br />Measurable business results.
             </h2>
           </div>
@@ -123,7 +123,7 @@ export function OurWorkCarousel() {
               </span>
             </div>
 
-            <h3 className="text-2xl sm:text-3xl font-light lg:font-normal tracking-[-0.025em] text-black leading-snug [font-family:'Host_Grotesk',sans-serif]">
+            <h3 className="text-2xl sm:text-3xl font-semibold tracking-[-0.025em] text-black leading-snug [font-family:'Host_Grotesk',sans-serif]">
               {current.title}
             </h3>
 

@@ -48,7 +48,7 @@ export function ClienteleDirectory() {
           <div>
             <div className="inline-flex items-center gap-2 mb-2">
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white border border-black/10 text-[#1B1411]">
-                <span className="w-2 h-2 rounded-full bg-[#33CC7A]" />
+                <span className="w-2 h-2 rounded-full bg-[#CBFC6B]" />
                 Directory &amp; ecosystem
               </span>
             </div>
@@ -102,7 +102,7 @@ export function ClienteleDirectory() {
             return (
               <div
                 key={client.name}
-                className="bg-white rounded-[1.5rem] border border-black/10 p-6 flex flex-col justify-between shadow-2xs hover:shadow-lg hover:border-[#33CC7A]/40 transition-all group"
+                className="bg-white rounded-[1.5rem] border border-black/10 p-6 flex flex-col justify-between shadow-2xs hover:shadow-lg hover:border-[#CBFC6B]/40 transition-all group"
               >
                 <div>
                   {/* Logo Container */}
@@ -124,13 +124,13 @@ export function ClienteleDirectory() {
                       {client.industry}
                     </span>
                     {client.caseStudySlug && (
-                      <span className="px-2 py-0.5 rounded-full bg-[#33CC7A]/15 text-[#1B1411] text-[9px] font-bold uppercase tracking-wider">
+                      <span className="px-2 py-0.5 rounded-full bg-[#CBFC6B]/15 text-[#1B1411] text-[9px] font-bold uppercase tracking-wider">
                         Case study
                       </span>
                     )}
                   </div>
 
-                  <h3 className="text-base font-semibold tracking-tight text-[#1B1411] group-hover:text-[#33CC7A] transition-colors [font-family:'Host_Grotesk',sans-serif]">
+                  <h3 className="text-base font-semibold tracking-tight text-[#1B1411] group-hover:text-[#CBFC6B] transition-colors [font-family:'Host_Grotesk',sans-serif]">
                     {client.name}
                   </h3>
 
@@ -146,7 +146,7 @@ export function ClienteleDirectory() {
                   {client.caseStudySlug ? (
                     <Link
                       href={`/work/${client.caseStudySlug}`}
-                      className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-[#1B1411] group-hover:text-[#33CC7A] transition-colors"
+                      className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-[#1B1411] group-hover:text-[#CBFC6B] transition-colors"
                     >
                       <span>Read case study</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />

@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { InnerPageHero } from "@/components/hero/InnerPageHero";
+import { BlobButton } from "@/components/ui/BlobButton";
 import {
   Globe,
   Briefcase,
@@ -156,7 +157,7 @@ export default function SitemapPage() {
           <div className="bg-white rounded-[1.75rem] border border-black/10 p-6 sm:p-8 shadow-2xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-2xl bg-[#FAF5F0] flex items-center justify-center shrink-0 text-[#1B1411]">
-                <FileCode className="w-6 h-6 text-[#33CC7A]" />
+                <FileCode className="w-6 h-6 text-[#CBFC6B]" />
               </div>
               <div>
                 <h2 className="text-base sm:text-lg font-semibold tracking-[-0.02em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] flex items-center gap-2">
@@ -176,7 +177,7 @@ export default function SitemapPage() {
               href="/sitemap.xml"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#1B1411] text-white text-xs font-semibold rounded-full hover:bg-[#33CC7A] hover:text-[#1B1411] transition-all shrink-0 shadow-sm"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#1B1411] text-white text-xs font-semibold rounded-full hover:bg-[#CBFC6B] hover:text-[#1B1411] transition-all shrink-0 shadow-sm"
             >
               <span>View XML Sitemap</span>
               <ExternalLink className="w-4 h-4" />
@@ -191,7 +192,7 @@ export default function SitemapPage() {
                 <div key={idx} className="space-y-6">
                   <div className="flex items-center gap-3 border-b border-black/10 pb-4">
                     <div className="w-8 h-8 rounded-full bg-[#1B1411] text-white flex items-center justify-center shrink-0">
-                      <IconComponent className="w-4 h-4 text-[#33CC7A]" />
+                      <IconComponent className="w-4 h-4 text-[#CBFC6B]" />
                     </div>
                     <div>
                       <h2 className="text-lg sm:text-xl font-medium tracking-[-0.02em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif]">
@@ -208,14 +209,14 @@ export default function SitemapPage() {
                       <Link
                         key={itemIdx}
                         href={item.href}
-                        className="group bg-white rounded-[1.25rem] border border-black/10 p-5 hover:border-[#33CC7A]/40 hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+                        className="group bg-white rounded-[1.25rem] border border-black/10 p-5 hover:border-[#CBFC6B]/40 hover:shadow-md transition-all duration-200 flex flex-col justify-between"
                       >
                         <div>
                           <div className="flex items-center justify-between gap-2 mb-1.5">
-                            <span className="text-sm font-semibold text-[#1B1411] group-hover:text-[#33CC7A] transition-colors [font-family:'Host_Grotesk',sans-serif]">
+                            <span className="text-sm font-semibold text-[#1B1411] group-hover:text-[#CBFC6B] transition-colors [font-family:'Host_Grotesk',sans-serif]">
                               {item.label}
                             </span>
-                            <ChevronRight className="w-4 h-4 text-[#1B1411]/40 group-hover:text-[#33CC7A] group-hover:translate-x-0.5 transition-all" />
+                            <ChevronRight className="w-4 h-4 text-[#1B1411]/40 group-hover:text-[#CBFC6B] group-hover:translate-x-0.5 transition-all" />
                           </div>
                           <p className="text-xs text-[#1B1411]/60 leading-relaxed font-normal">
                             {item.desc}
@@ -235,15 +236,15 @@ export default function SitemapPage() {
           {/* Quick Inquiries / Contact Section */}
           <div className="bg-[#1B1411] text-white rounded-[1.75rem] sm:rounded-[2.25rem] p-8 sm:p-12 border border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 relative overflow-hidden shadow-xl">
             <div 
-              className="absolute -top-24 -right-24 w-80 h-80 bg-[#33CC7A]/10 rounded-full blur-3xl pointer-events-none" 
+              className="absolute -top-24 -right-24 w-80 h-80 bg-[#CBFC6B]/10 rounded-full blur-3xl pointer-events-none" 
               aria-hidden="true" 
             />
             <div className="relative z-10 space-y-2 max-w-xl">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-[11px] font-semibold border border-white/10">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
                 Direct Communications
               </span>
-              <h3 className="text-2xl sm:text-3xl font-light sm:font-normal tracking-[-0.03em] text-white [font-family:'Host_Grotesk',sans-serif]">
+              <h3 className="text-2xl sm:text-3xl font-semibold tracking-[-0.03em] text-white [font-family:'Host_Grotesk',sans-serif]">
                 Can&apos;t find what you are looking for?
               </h3>
               <p className="text-xs sm:text-sm text-white/70 leading-relaxed font-normal">
@@ -252,12 +253,13 @@ export default function SitemapPage() {
               </p>
             </div>
             <div className="relative z-10 flex flex-wrap items-center gap-3 shrink-0">
-              <Link
+              <BlobButton
                 href="/contact"
-                className="px-6 py-3 bg-[#33CC7A] text-[#1B1411] text-xs font-semibold rounded-full hover:bg-[#28a764] transition-all shadow-sm"
+                size="md"
+                icon="arrow-up-right"
               >
                 Contact Strategy Desk
-              </Link>
+              </BlobButton>
               <a
                 href="mailto:contact@betterinsights.in"
                 className="px-6 py-3 bg-white/10 text-white text-xs font-semibold rounded-full hover:bg-white/20 transition-all border border-white/10"

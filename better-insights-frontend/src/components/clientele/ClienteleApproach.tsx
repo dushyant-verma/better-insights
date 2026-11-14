@@ -37,7 +37,7 @@ export function ClienteleApproach() {
         <div className="max-w-3xl mx-auto text-center mb-16">
           <div className="inline-flex items-center gap-2 mb-2">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white border border-black/10 text-[#1B1411]">
-              <span className="w-2 h-2 rounded-full bg-[#33CC7A]" />
+              <span className="w-2 h-2 rounded-full bg-[#CBFC6B]" />
               Collaboration model
             </span>
           </div>
@@ -56,7 +56,7 @@ export function ClienteleApproach() {
             return (
               <div
                 key={item.step}
-                className="bg-white rounded-[1.75rem] p-8 border border-black/10 flex flex-col justify-between shadow-2xs hover:shadow-md hover:border-[#33CC7A]/40 transition-all"
+                className="bg-white rounded-[1.75rem] p-8 border border-black/10 flex flex-col justify-between shadow-2xs hover:shadow-md hover:border-[#CBFC6B]/40 transition-all"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
@@ -77,7 +77,7 @@ export function ClienteleApproach() {
                   </p>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-black/5 text-[10px] font-semibold uppercase tracking-wider text-[#33CC7A]">
+                <div className="mt-8 pt-4 border-t border-black/5 text-[10px] font-semibold uppercase tracking-wider text-[#CBFC6B]">
                   Shared ownership
                 </div>
               </div>

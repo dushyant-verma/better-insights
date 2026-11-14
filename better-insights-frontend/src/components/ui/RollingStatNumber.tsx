@@ -106,7 +106,7 @@ export function RollingStatNumber({
         })}
       </div>
       {symbol && (
-        <span className="who-stat-symbol text-[#33CC7A] ml-0.5 sm:ml-1" aria-hidden="true">
+        <span className="who-stat-symbol text-[#CBFC6B] ml-0.5 sm:ml-1" aria-hidden="true">
           {symbol}
         </span>
       )}

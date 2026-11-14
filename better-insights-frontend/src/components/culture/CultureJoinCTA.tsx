@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { ArrowRight, Sparkles, MessageSquare, ArrowUpRight } from "lucide-react";
 import { openMarketingPlanModal } from "@/components/forms/LeadModal";
+import { BlobButton } from "@/components/ui/BlobButton";
 
 export function CultureJoinCTA() {
   return (
@@ -15,22 +16,22 @@ export function CultureJoinCTA() {
         <div className="relative rounded-[2.5rem] sm:rounded-[3rem] bg-[#141419] text-white p-8 sm:p-14 lg:p-20 overflow-hidden shadow-2xl text-center border border-white/10">
           {/* Ambient Accent Radial Glow */}
           <div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[radial-gradient(circle,rgba(52,204,123,0.15)_0%,transparent_70%)] blur-[130px] pointer-events-none"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[radial-gradient(circle,rgba(203, 252, 107,0.15)_0%,transparent_70%)] blur-[130px] pointer-events-none"
             aria-hidden="true"
           />
 
           <div className="relative z-10 max-w-3xl mx-auto">
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 mb-6">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white/5 text-[#34CC7B] border border-white/10">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white/5 text-[#CBFC6B] border border-white/10">
                 <Sparkles className="w-3.5 h-3.5" />
                 Join Our Collective
               </span>
             </div>
 
             {/* Headline */}
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-light lg:font-normal tracking-[-0.035em] text-white leading-[1.05] mb-6 [font-family:'Host_Grotesk',sans-serif]">
-              Great people make <span className="text-[#34CC7B]">better things happen.</span>
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-semibold sm:font-bold tracking-[-0.035em] text-white leading-[1.05] mb-6 [font-family:'Host_Grotesk',sans-serif]">
+              Great people make <span className="text-[#CBFC6B]">better things happen.</span>
             </h2>
 
             {/* Supporting Copy */}
@@ -41,13 +42,13 @@ export function CultureJoinCTA() {
 
             {/* Actions */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
+              <BlobButton
                 href="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#34CC7B] hover:bg-[#2BB86D] text-[#101112] font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-xl shadow-[#34CC7B]/25 hover:scale-105"
+                size="lg"
+                icon="arrow-up-right"
               >
-                <span>Let&apos;s Connect</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+                Let&apos;s Connect
+              </BlobButton>
 
               <Link
                 href="/careers"

@@ -61,11 +61,11 @@ export function ServicesFaq({
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 mb-3">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white border border-black/10 text-[#1B1411]">
-              <span className="w-2 h-2 rounded-full bg-[#33CC7A]" />
+              <span className="w-2 h-2 rounded-full bg-[#CBFC6B]" />
               Clarity &amp; transparency
             </span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
+          <h2 className="text-3xl sm:text-5xl font-semibold sm:font-bold tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
             {title}
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#1B1411]/70 font-normal leading-relaxed">
@@ -91,14 +91,14 @@ export function ServicesFaq({
                   aria-expanded={isOpen}
                   aria-controls={panelId}
                   onClick={() => toggleFaq(index)}
-                  className="w-full py-6 px-6 sm:px-8 text-left flex items-center justify-between gap-4 focus-visible:outline-2 focus-visible:outline-[#33CC7A] focus-visible:outline-offset-2 transition-colors hover:bg-black/[0.02]"
+                  className="w-full py-6 px-6 sm:px-8 text-left flex items-center justify-between gap-4 focus-visible:outline-2 focus-visible:outline-[#CBFC6B] focus-visible:outline-offset-2 transition-colors hover:bg-black/[0.02]"
                 >
                   <span className="text-base sm:text-lg font-semibold text-[#1B1411] leading-snug [font-family:'Host_Grotesk',sans-serif]">
                     {faq.question}
                   </span>
                   <div
                     className={`w-8 h-8 rounded-full border border-black/10 flex items-center justify-center shrink-0 transition-transform duration-300 ${
-                      isOpen ? "rotate-180 bg-[#33CC7A] text-[#1B1411] border-[#33CC7A]" : "bg-[#FAF5F0] text-[#1B1411]/70"
+                      isOpen ? "rotate-180 bg-[#CBFC6B] text-[#1B1411] border-[#CBFC6B]" : "bg-[#FAF5F0] text-[#1B1411]/70"
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />

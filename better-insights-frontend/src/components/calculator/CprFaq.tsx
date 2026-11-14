@@ -29,7 +29,7 @@ export function CprFaq() {
         <div className="text-center max-w-2xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 mb-2">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white border border-black/10 text-[#1B1411]">
-              <span className="w-2 h-2 rounded-full bg-[#33CC7A]" />
+              <span className="w-2 h-2 rounded-full bg-[#CBFC6B]" />
               Methodology &amp; standards
             </span>
           </div>
@@ -49,7 +49,7 @@ export function CprFaq() {
               className="bg-white rounded-[1.25rem] p-6 sm:p-8 border border-black/10 shadow-2xs"
             >
               <h3 className="text-base sm:text-lg font-semibold tracking-tight text-[#1B1411] mb-3 flex items-start gap-3 [font-family:'Host_Grotesk',sans-serif]">
-                <span className="font-mono text-[#33CC7A] text-xs font-bold mt-1">0{idx + 1}.</span>
+                <span className="font-mono text-[#CBFC6B] text-xs font-bold mt-1">0{idx + 1}.</span>
                 <span>{item.q}</span>
               </h3>
               <p className="text-xs sm:text-sm text-[#1B1411]/75 leading-relaxed font-normal pl-7">

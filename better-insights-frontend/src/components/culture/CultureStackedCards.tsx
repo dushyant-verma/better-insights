@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { getGSAP } from "@/lib/gsap";
+import { BlobButton } from "@/components/ui/BlobButton";
 
 interface StackedCardItem {
   id: string;
@@ -190,7 +191,7 @@ export function CultureStackedCards() {
     >
       {/* Subtle Ambient Radial Glow */}
       <div
-        className="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[radial-gradient(circle,rgba(52,204,123,0.05)_0%,rgba(43,184,109,0.015)_50%,transparent_70%)] blur-[120px] pointer-events-none"
+        className="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[radial-gradient(circle,rgba(203, 252, 107,0.05)_0%,rgba(203, 252, 107,0.015)_50%,transparent_70%)] blur-[120px] pointer-events-none"
         aria-hidden="true"
       />
 
@@ -208,24 +209,24 @@ export function CultureStackedCards() {
           >
             {/* Small Eyebrow Label with Brand Green Dot */}
             <div className="inline-flex items-center gap-2 mb-4 sm:mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#34CC7B]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
               <span className="text-xs sm:text-sm font-medium tracking-normal text-[#A5A5A5]">
                 What&apos;s important to us
               </span>
             </div>
 
             {/* Editorial Heading */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[42px] xl:text-[50px] font-light lg:font-normal tracking-[-0.035em] text-white leading-[1.1] text-balance max-w-md mb-8 lg:mb-10 [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[42px] xl:text-[50px] font-semibold sm:font-bold tracking-[-0.035em] text-white leading-[1.1] text-balance max-w-md mb-8 lg:mb-10 [font-family:'Host_Grotesk',sans-serif]">
               We&apos;re proud of the culture we&apos;ve created
             </h2>
 
             {/* CTA Button: 'I like the sound of it' */}
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-white/8 hover:bg-white/12 text-white border border-white/12 hover:border-[#34CC7B]/40 text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 group shadow-lg hover:scale-105"
+              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-white/8 hover:bg-white/12 text-white border border-white/12 hover:border-[#CBFC6B]/40 text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 group shadow-lg hover:scale-105"
             >
               <span>I like the sound of it</span>
-              <div className="w-6 h-6 rounded-full bg-white/10 group-hover:bg-[#34CC7B] flex items-center justify-center transition-colors duration-300">
+              <div className="w-6 h-6 rounded-full bg-white/10 group-hover:bg-[#CBFC6B] flex items-center justify-center transition-colors duration-300">
                 <ArrowUpRight className="w-3.5 h-3.5 text-white group-hover:text-[#101112] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </div>
             </Link>
@@ -290,13 +291,13 @@ export function CultureStackedCards() {
 
                     {/* Centered Bottom Pill Badge Button */}
                     <div className="absolute bottom-4 sm:bottom-5 left-0 w-full flex justify-center z-20 pointer-events-auto">
-                      <Link
+                      <BlobButton
                         href="/contact"
-                        className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#34CC7B] hover:bg-[#2BB86D] text-[#101112] text-xs sm:text-sm font-bold tracking-tight shadow-xl shadow-[#34CC7B]/25 transition-transform duration-300 hover:scale-105"
+                        size="sm"
+                        icon="arrow-up-right"
                       >
-                        <span>{card.badge}</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
-                      </Link>
+                        {card.badge}
+                      </BlobButton>
                     </div>
                   </div>
                 </div>

@@ -4,6 +4,7 @@ import React, { useState, useId, useCallback } from "react";
 import Link from "next/link";
 import { PullCordLamp } from "@/components/ui/pull-cord-lamp";
 import { openMarketingPlanModal } from "@/components/forms/LeadModal";
+import { BlobButton } from "@/components/ui/BlobButton";
 import { 
   Cpu, 
   TrendingUp, 
@@ -210,7 +211,7 @@ const CAPABILITIES = [
     href: "/ai-solutions",
     icon: Cpu,
     tag: "Intelligence",
-    color: "#33cc7a",
+    color: "#CBFC6B",
     unlockLevel: 75
   },
   {
@@ -332,9 +333,9 @@ export function InteractiveGrowthSection() {
           opacity: illuminationFactor,
           background: isLampOn 
             ? `radial-gradient(circle 850px at 85% 12%, rgba(253, 224, 71, 0.14), transparent 70%),
-               radial-gradient(circle 900px at 50% 55%, rgba(51, 204, 122, ${0.04 + normalizedValue * 0.08}), transparent 80%),
+               radial-gradient(circle 900px at 50% 55%, rgba(203, 252, 107, ${0.04 + normalizedValue * 0.08}), transparent 80%),
                radial-gradient(circle 600px at 15% 85%, rgba(108, 60, 255, ${0.03 + normalizedValue * 0.05}), transparent 75%)`
-            : `radial-gradient(circle 600px at 50% 50%, rgba(51, 204, 122, ${normalizedValue * 0.04}), transparent 80%)`
+            : `radial-gradient(circle 600px at 50% 50%, rgba(203, 252, 107, ${normalizedValue * 0.04}), transparent 80%)`
         }}
       />
 
@@ -518,9 +519,9 @@ export function InteractiveGrowthSection() {
                   marginTop: "8px",
                   padding: "16px 20px",
                   borderRadius: "var(--radius-3)",
-                  background: "rgba(51, 204, 122, 0.08)",
-                  border: "1px solid rgba(51, 204, 122, 0.25)",
-                  color: "#33cc7a",
+                  background: "rgba(203, 252, 107, 0.08)",
+                  border: "1px solid rgba(203, 252, 107, 0.25)",
+                  color: "#CBFC6B",
                   fontFamily: "var(--font-2)",
                   fontSize: "14px",
                   fontWeight: 600,
@@ -547,7 +548,7 @@ export function InteractiveGrowthSection() {
                       {isChallenge ? (
                         <AlertCircle style={{ width: "16px", height: "16px", color: "#f59e0b", flexShrink: 0 }} />
                       ) : (
-                        <CheckCircle2 style={{ width: "16px", height: "16px", color: "#33cc7a", flexShrink: 0 }} />
+                        <CheckCircle2 style={{ width: "16px", height: "16px", color: "#CBFC6B", flexShrink: 0 }} />
                       )}
                       <h4 className="growth__item-title">
                         {item.title}
@@ -618,14 +619,14 @@ export function InteractiveGrowthSection() {
                   strokeDasharray={prefersReducedMotion ? "none" : "4 4"}
                   className={prefersReducedMotion ? "" : "animate-pulse"}
                 />
-                <circle cx="12.5" cy="50" r="3" fill="#33cc7a" fillOpacity="0.8" />
+                <circle cx="12.5" cy="50" r="3" fill="#CBFC6B" fillOpacity="0.8" />
                 <circle cx="37.5" cy="50" r="3" fill="#3b82f6" fillOpacity="0.8" />
                 <circle cx="62.5" cy="50" r="3" fill="#8b5cf6" fillOpacity="0.8" />
                 <circle cx="87.5" cy="50" r="3" fill="#f59e0b" fillOpacity="0.8" />
 
                 <defs>
                   <linearGradient id="circuit-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#33cc7a" stopOpacity="0.5" />
+                    <stop offset="0%" stopColor="#CBFC6B" stopOpacity="0.5" />
                     <stop offset="33%" stopColor="#3b82f6" stopOpacity="0.7" />
                     <stop offset="66%" stopColor="#8b5cf6" stopOpacity="0.7" />
                     <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.5" />
@@ -651,8 +652,8 @@ export function InteractiveGrowthSection() {
                     <div 
                       className="growth__pillar-icon"
                       style={{ 
-                        backgroundColor: isUnlocked ? "rgba(51, 204, 122, 0.12)" : "rgba(255, 255, 255, 0.05)",
-                        color: isUnlocked ? "#33cc7a" : "var(--color-2)"
+                        backgroundColor: isUnlocked ? "rgba(203, 252, 107, 0.12)" : "rgba(255, 255, 255, 0.05)",
+                        color: isUnlocked ? "#CBFC6B" : "var(--color-2)"
                       }}
                     >
                       <Icon style={{ width: "22px", height: "22px" }} />
@@ -698,16 +699,16 @@ export function InteractiveGrowthSection() {
             Let&apos;s identify the opportunities that matter most to your business and build a practical plan for sustainable growth.
           </p>
 
-          <button
-            type="button"
-            data-magnetic
-            onClick={handleCtaClick}
-            aria-label="Open consultation modal: Let's build your growth plan"
-            className="m-btn"
-          >
-            <span className="m-btn__label">LET&apos;S BUILD YOUR GROWTH PLAN ↗</span>
-            <span className="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span>
-          </button>
+          <div className="pt-2">
+            <BlobButton
+              onClick={handleCtaClick}
+              size="lg"
+              icon="arrow-up-right"
+              ariaLabel="Open consultation modal: Let's build your growth plan"
+            >
+              Let&apos;s Build Your Growth Plan
+            </BlobButton>
+          </div>
         </div>
       </div>
 

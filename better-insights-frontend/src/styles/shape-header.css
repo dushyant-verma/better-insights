@@ -1,0 +1,418 @@
+/* ==========================================================================
+   MadeByShape-Inspired Header & Mega Menu Styles for Better Insights
+   Strictly scoped to .shape-header and .shape-mega-menu
+   Preserves all existing CSS rules intact
+   ========================================================================== */
+
+#nav.shape-header {
+  position: fixed;
+  z-index: 950;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding-inline: 0;
+  pointer-events: none;
+  transition: top 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    padding 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#nav.shape-header.is-scrolled {
+  top: 1rem;
+  padding-inline: 1.25rem;
+}
+
+#nav.shape-header .shape-nav__bar {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 100%;
+  backdrop-filter: blur(10px);
+  margin-inline: auto;
+  border-radius: 0;
+  background: #111113;
+  border: none !important;
+  color: #ffffff;
+  padding: 1.1rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    max-width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    padding 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-radius 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#nav.shape-header.is-scrolled .shape-nav__bar {
+  width: 94%;
+  max-width: 1080px;
+  border-radius: 9999px;
+
+  background: rgb(38 40 44 / 80%);
+  backdrop-filter: blur(10px);
+
+  -webkit-backdrop-filter: blur(10px);
+
+  border: none !important;
+
+  padding: 0.9rem 1.45rem .9rem 1.45rem;
+
+  isolation: isolate;
+  transform: translateZ(0);
+}
+
+@media (max-width: 1023px) {
+  #nav.shape-header {
+    top: 0;
+    padding-inline: 0;
+  }
+
+  #nav.shape-header.is-scrolled {
+    top: 0.5rem;
+    padding-inline: 0.75rem;
+  }
+
+  #nav.shape-header .shape-nav__bar {
+    padding: 0.85rem 1.25rem;
+    border: none !important;
+  }
+
+  #nav.shape-header.is-scrolled .shape-nav__bar {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.65rem 1rem;
+    border-radius: 9999px;
+    border: none !important;
+  }
+}
+
+/* White Logo Image Filter */
+.shape-logo-white {
+  filter: brightness(0) invert(1);
+  -webkit-filter: brightness(0) invert(1);
+  display: block;
+}
+
+/* Nav Item Link Styling */
+.shape-nav__link {
+  position: relative;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0;
+  text-decoration: none;
+}
+
+.shape-nav__link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background-color: #ffffff;
+  border-radius: 1px;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.22s ease;
+}
+
+.shape-nav__link:hover {
+  color: #ffffff;
+}
+
+.shape-nav__link:hover::after {
+  opacity: 0.7;
+  transform: scaleX(1);
+}
+
+.shape-nav__link.is-active {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.shape-nav__link.is-active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Services Badge */
+.shape-services-badge {
+  position: absolute;
+  top: -7px;
+  right: -13px;
+  background-color: #CBFC6B;
+  color: #111113;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 2.5px 4.5px;
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+/* Start a Project CTA Button Animation */
+.shape-cta-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.shape-cta-filter-wrap {
+  display: inline-flex;
+  align-items: center;
+}
+
+.shape-cta-pill {
+  background-color: #CBFC6B;
+  color: #111113;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.55rem 1.15rem 0.55rem 1.35rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  transition: background-color 0.25s ease;
+}
+
+.shape-cta-blob {
+  background-color: #CBFC6B;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  margin-left: -0.5rem;
+  flex-shrink: 0;
+  transform: translateX(0);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.25s ease;
+}
+
+.shape-cta-btn:hover .shape-cta-blob {
+  transform: translateX(0.65rem);
+}
+
+.shape-cta-arrow-wrap {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) translateX(0);
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  color: #111113;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shape-cta-btn:hover .shape-cta-arrow-wrap {
+  transform: translateY(-50%) translateX(0.65rem);
+}
+
+.shape-cta-arrow-icon {
+  width: 0.95rem;
+  height: 0.95rem;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shape-cta-btn:hover .shape-cta-arrow-icon {
+  transform: rotate(45deg);
+}
+
+/* Mega Menus Container - Exact rgb(26 27 30) Background */
+.shape-mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0.75rem;
+  background-color: rgb(26, 27, 30) !important;
+  background: rgb(26, 27, 30) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.75rem;
+  box-shadow: 0 30px 70px -10px rgba(0, 0, 0, 0.7), 0 10px 25px rgba(0, 0, 0, 0.4);
+  padding: 1.5rem 1.65rem;
+  color: #ffffff;
+  z-index: 960;
+  animation: shapeMegaFade 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Tailwind equivalent support for dark mode */
+.dark .dark\:bg-grayDark-500,
+.dark\:bg-grayDark-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(26, 27, 30, var(--tw-bg-opacity)) !important;
+}
+
+/* Safe hover buffer before menu */
+.shape-mega-menu::before {
+  content: "";
+  position: absolute;
+  top: -0.75rem;
+  left: 0;
+  right: 0;
+  height: 0.75rem;
+}
+
+@keyframes shapeMegaFade {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Pointer arrow */
+.shape-menu-pointer {
+  position: absolute;
+  top: -6px;
+  width: 12px;
+  height: 12px;
+  background-color: rgb(26, 27, 30) !important;
+  background: rgb(26, 27, 30) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  transform: rotate(45deg);
+}
+
+/* Menu Item Link */
+.shape-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0.95rem;
+  border-radius: 1rem;
+  background: transparent;
+  text-decoration: none;
+  transition: background-color 0.18s ease, transform 0.18s ease;
+  border: 1px solid transparent;
+}
+
+.shape-menu-item:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.shape-menu-item.is-item-active {
+  background: rgba(203, 252, 107, 0.08);
+  border-color: rgba(203, 252, 107, 0.2);
+}
+
+.shape-menu-item .shape-item-arrow {
+  opacity: 0;
+  transform: translate(-3px, 3px);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #CBFC6B;
+}
+
+.shape-menu-item:hover .shape-item-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Card Promo Styling with Pure Black Internal Background */
+.shape-promo-card {
+  background: #000000 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  transition: border-color 0.25s ease;
+}
+
+.shape-promo-card:hover {
+  border-color: rgba(203, 252, 107, 0.3);
+}
+
+/* Fullscreen Invisible Click Catcher: Transparent, no dark/grey tint, dismisses menu on click */
+.shape-blur-backdrop {
+  position: fixed;
+  inset: 0;
+  background: transparent !important;
+  z-index: 940;
+  pointer-events: auto;
+}
+
+/* Smooth transition for full-page content blur on hover */
+main,
+#main,
+footer,
+.footer,
+.merged-homepage-wrapper > main,
+.merged-homepage-wrapper > footer {
+  transition: filter 0.3s cubic-bezier(0.16, 1, 0.3, 1), -webkit-filter 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Entire Website Background Blur on Hover (Matches MadeByShape Reference) */
+body.mega-menu-open main,
+body.mega-menu-open #main,
+body.mega-menu-open footer,
+body.mega-menu-open .footer,
+body.mega-menu-open .merged-homepage-wrapper > main,
+body.mega-menu-open .merged-homepage-wrapper > footer {
+  filter: blur(10px) !important;
+  -webkit-filter: blur(10px) !important;
+  pointer-events: none;
+}
+
+/* Ensure navigation and mega menus remain sharp and clear */
+#nav.shape-header,
+.shape-header,
+.shape-mega-menu {
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
+/* Video Showreel Modal */
+.shape-video-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.shape-video-modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  background: #141416;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+}

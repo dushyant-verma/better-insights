@@ -60,7 +60,7 @@ export function ClientLogoWall() {
         <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-black/50 block mb-2">
           Trusted by Businesses That Move Forward
         </span>
-        <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-black leading-tight [font-family:'Host_Grotesk',sans-serif]">
+        <h2 className="text-3xl sm:text-5xl font-semibold sm:font-bold tracking-[-0.03em] text-black leading-tight [font-family:'Host_Grotesk',sans-serif]">
           Building Digital Experiences<br />
           <span className="text-black/50">That Create Impact.</span>
         </h2>

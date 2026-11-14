@@ -71,7 +71,7 @@ export default async function TermsAndConditionsPage() {
       <section className="py-20 sm:py-28 bg-[#FAF5F0] select-none">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
-            className="bg-white rounded-[1.75rem] p-8 sm:p-14 border border-black/10 shadow-2xs leading-relaxed text-sm sm:text-base text-[#1B1411]/80 font-normal space-y-6 [&>h2]:text-xl sm:[&>h2]:text-2xl [&>h2]:font-semibold [&>h2]:tracking-[-0.03em] [&>h2]:[font-family:'Host_Grotesk',sans-serif] [&>h2]:text-[#1B1411] [&>h2]:mt-8 [&>h2]:mb-3 [&>p]:leading-relaxed [&>p]:mb-4 [&>ul]:list-disc [&>ul]:pl-6 [&_a]:text-[#1B1411] [&_a]:underline hover:[&_a]:text-[#33CC7A]"
+            className="bg-white rounded-[1.75rem] p-8 sm:p-14 border border-black/10 shadow-2xs leading-relaxed text-sm sm:text-base text-[#1B1411]/80 font-normal space-y-6 [&>h2]:text-xl sm:[&>h2]:text-2xl [&>h2]:font-semibold [&>h2]:tracking-[-0.03em] [&>h2]:[font-family:'Host_Grotesk',sans-serif] [&>h2]:text-[#1B1411] [&>h2]:mt-8 [&>h2]:mb-3 [&>p]:leading-relaxed [&>p]:mb-4 [&>ul]:list-disc [&>ul]:pl-6 [&_a]:text-[#1B1411] [&_a]:underline hover:[&_a]:text-[#CBFC6B]"
             dangerouslySetInnerHTML={{ __html: content }}
           />
         </div>

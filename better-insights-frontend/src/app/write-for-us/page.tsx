@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { InnerPageHero } from "@/components/hero/InnerPageHero";
+import { BlobButton } from "@/components/ui/BlobButton";
 import {
   CheckCircle2,
   XCircle,
@@ -76,14 +77,14 @@ export default function WriteForUsPage() {
       <section className="bg-[#1B1411] border-b border-white/10 py-5 text-white text-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <span className="w-2 h-2 rounded-full bg-[#33CC7A] animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-[#CBFC6B] animate-pulse" />
             <span className="text-white/80">
               Direct pitch to: <code className="bg-white/10 px-2.5 py-1 rounded-full text-white font-mono">editor.betterinsights@gmail.com</code>
             </span>
           </div>
           <a
             href="mailto:editor.betterinsights@gmail.com?subject=Guest%20Blogging%20on%20Better%20Insights"
-            className="inline-flex items-center gap-2 px-5 py-2 bg-white text-[#1B1411] font-semibold text-xs rounded-full hover:bg-[#33CC7A] hover:text-[#1B1411] transition-all"
+            className="inline-flex items-center gap-2 px-5 py-2 bg-white text-[#1B1411] font-semibold text-xs rounded-full hover:bg-[#CBFC6B] hover:text-[#1B1411] transition-all"
           >
             <Mail className="w-3.5 h-3.5" />
             <span>Email Editorial Pitch</span>
@@ -101,7 +102,7 @@ export default function WriteForUsPage() {
             <div className="bg-white rounded-[1.75rem] border border-black/10 p-8 shadow-2xs flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-semibold bg-[#FAF5F0] text-[#1B1411] border border-black/10">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
                   <span>What We Accept</span>
                 </div>
                 <h3 className="text-xl font-semibold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif]">
@@ -163,7 +164,7 @@ export default function WriteForUsPage() {
             <div className="bg-white rounded-[1.75rem] border border-black/10 p-8 shadow-2xs flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-semibold bg-[#FAF5F0] text-[#1B1411] border border-black/10">
-                  <Clock className="w-3.5 h-3.5 text-[#33CC7A]" />
+                  <Clock className="w-3.5 h-3.5 text-[#CBFC6B]" />
                   <span>Submission Process</span>
                 </div>
                 <h3 className="text-xl font-semibold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif]">
@@ -198,7 +199,7 @@ export default function WriteForUsPage() {
             <div className="lg:col-span-5 space-y-6">
               <div className="bg-white rounded-[1.75rem] border border-black/10 p-8 sm:p-10 shadow-2xs space-y-4">
                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF5F0] text-[#1B1411] text-[11px] font-semibold border border-black/10">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
                   Editorial Collaboration
                 </span>
                 <h3 className="text-2xl font-semibold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif]">
@@ -210,7 +211,7 @@ export default function WriteForUsPage() {
                 <div className="pt-2">
                   <a
                     href="mailto:editor.betterinsights@gmail.com?subject=Guest%20Blogging%20on%20Better%20Insights"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-[#1B1411] text-white text-xs font-semibold rounded-full hover:bg-[#33CC7A] hover:text-[#1B1411] transition-all shadow-sm"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-[#1B1411] text-white text-xs font-semibold rounded-full hover:bg-[#CBFC6B] hover:text-[#1B1411] transition-all shadow-sm"
                   >
                     <Mail className="w-4 h-4" />
                     <span>Email Editorial Team</span>
@@ -220,11 +221,11 @@ export default function WriteForUsPage() {
 
               <div className="bg-[#1B1411] text-white rounded-[1.75rem] border border-white/10 p-8 space-y-3 relative overflow-hidden shadow-xl">
                 <div 
-                  className="absolute -top-24 -right-24 w-60 h-60 bg-[#33CC7A]/10 rounded-full blur-2xl pointer-events-none" 
+                  className="absolute -top-24 -right-24 w-60 h-60 bg-[#CBFC6B]/10 rounded-full blur-2xl pointer-events-none" 
                   aria-hidden="true" 
                 />
                 <div className="relative z-10 flex items-center gap-2 text-white/60 text-xs font-semibold">
-                  <Sparkles className="w-4 h-4 text-[#33CC7A]" />
+                  <Sparkles className="w-4 h-4 text-[#CBFC6B]" />
                   <span>Author Benefits</span>
                 </div>
                 <h4 className="relative z-10 text-base font-semibold tracking-tight text-white [font-family:'Host_Grotesk',sans-serif]">What You Gain as an Author</h4>
@@ -238,7 +239,7 @@ export default function WriteForUsPage() {
             <div className="lg:col-span-7 bg-white rounded-[1.75rem] border border-black/10 p-8 sm:p-12 shadow-2xs">
               {submitted ? (
                 <div className="text-center py-12 space-y-4">
-                  <CheckCircle2 className="w-14 h-14 text-emerald-600 mx-auto" />
+                  <CheckCircle2 className="w-14 h-14 text-[#CBFC6B] mx-auto" />
                   <h3 className="text-2xl font-bold tracking-tight text-black">Editorial Pitch Received</h3>
                   <p className="text-xs sm:text-sm text-black/70 max-w-md mx-auto leading-relaxed">
                     Thank you for your interest in contributing to Better Insights. Our editorial team reviews submissions within 5 business days. If selected, we will reply with editorial feedback and next steps.
@@ -258,7 +259,7 @@ export default function WriteForUsPage() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="border-b border-black/10 pb-4 mb-2">
                     <h3 className="text-lg font-semibold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] flex items-center gap-2">
-                      <Send className="w-4 h-4 text-[#33CC7A]" />
+                      <Send className="w-4 h-4 text-[#CBFC6B]" />
                       <span>Online Pitch Form</span>
                     </h3>
                     <p className="text-xs text-[#1B1411]/60 mt-1">
@@ -277,7 +278,7 @@ export default function WriteForUsPage() {
                         placeholder="e.g. Vikram Malhotra"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/15 rounded-xl text-xs text-[#1B1411] placeholder-black/30 focus:outline-none focus:border-[#33CC7A]"
+                        className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/15 rounded-xl text-xs text-[#1B1411] placeholder-black/30 focus:outline-none focus:border-[#CBFC6B]"
                       />
                     </div>
                     <div>
@@ -290,7 +291,7 @@ export default function WriteForUsPage() {
                         placeholder="e.g. author@company.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/15 rounded-xl text-xs text-[#1B1411] placeholder-black/30 focus:outline-none focus:border-[#33CC7A]"
+                        className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/15 rounded-xl text-xs text-[#1B1411] placeholder-black/30 focus:outline-none focus:border-[#CBFC6B]"
                       />
                     </div>
                   </div>
@@ -304,7 +305,7 @@ export default function WriteForUsPage() {
                       placeholder="https://linkedin.com/in/... or personal blog"
                       value={formData.portfolio}
                       onChange={(e) => setFormData({ ...formData, portfolio: e.target.value })}
-                      className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/15 rounded-xl text-xs text-[#1B1411] placeholder-black/30 focus:outline-none focus:border-[#33CC7A]"
+                      className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/15 rounded-xl text-xs text-[#1B1411] placeholder-black/30 focus:outline-none focus:border-[#CBFC6B]"
                     />
                   </div>
 
@@ -318,7 +319,7 @@ export default function WriteForUsPage() {
                       placeholder="e.g. Architecting Autonomous Support Agents with Sub-Second Latency"
                       value={formData.pitch}
                       onChange={(e) => setFormData({ ...formData, pitch: e.target.value })}
-                      className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/15 rounded-xl text-xs text-[#1B1411] placeholder-black/30 focus:outline-none focus:border-[#33CC7A]"
+                      className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/15 rounded-xl text-xs text-[#1B1411] placeholder-black/30 focus:outline-none focus:border-[#CBFC6B]"
                     />
                   </div>
 
@@ -331,29 +332,23 @@ export default function WriteForUsPage() {
                       placeholder="Describe the problem, the core solution/framework, and the concrete takeaway for the reader..."
                       value={formData.outline}
                       onChange={(e) => setFormData({ ...formData, outline: e.target.value })}
-                      className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/15 rounded-xl text-xs text-[#1B1411] placeholder-black/30 focus:outline-none focus:border-[#33CC7A] resize-none"
+                      className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/15 rounded-xl text-xs text-[#1B1411] placeholder-black/30 focus:outline-none focus:border-[#CBFC6B] resize-none"
                     />
                   </div>
 
                   {errorMsg && <p className="text-xs text-rose-600 font-medium">{errorMsg}</p>}
 
-                  <button
+                  <BlobButton
                     type="submit"
                     disabled={submitting}
-                    className="w-full py-3.5 bg-[#33CC7A] text-[#1B1411] text-xs font-semibold rounded-full hover:bg-[#28a764] transition-all flex items-center justify-center gap-2 shadow-md disabled:opacity-50"
+                    loading={submitting}
+                    fullWidth
+                    size="md"
+                    icon="arrow-right"
+                    ariaLabel={submitting ? "Submitting Pitch..." : "Submit Editorial Pitch"}
                   >
-                    {submitting ? (
-                      <>
-                        <Loader2 className="w-4 h-4 animate-spin" />
-                        <span>Submitting Pitch...</span>
-                      </>
-                    ) : (
-                      <>
-                        <span>Submit Editorial Pitch</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </>
-                    )}
-                  </button>
+                    {submitting ? "Submitting Pitch..." : "Submit Editorial Pitch"}
+                  </BlobButton>
                 </form>
               )}
             </div>

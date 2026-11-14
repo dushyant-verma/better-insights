@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { X, CheckCircle2, Loader2, ArrowRight, Phone, MessageSquare, ExternalLink } from "lucide-react";
+import { BlobButton } from "@/components/ui/BlobButton";
 
 interface LeadModalProps {
   isOpen?: boolean;
@@ -162,7 +163,7 @@ export function LeadModal({ isOpen: propIsOpen, onClose: propOnClose }: LeadModa
           type="button"
           data-magnetic
           onClick={handleClose}
-          className="absolute top-5 right-5 p-2 text-black/50 hover:text-black rounded-full hover:bg-black/5 transition-colors focus:outline-none focus:ring-2 focus:ring-[#33CC7A]"
+          className="absolute top-5 right-5 p-2 text-black/50 hover:text-black rounded-full hover:bg-black/5 transition-colors focus:outline-none focus:ring-2 focus:ring-[#CBFC6B]"
           aria-label="Close dialog"
         >
           <X className="w-5 h-5" />
@@ -170,7 +171,7 @@ export function LeadModal({ isOpen: propIsOpen, onClose: propOnClose }: LeadModa
 
         {submitted ? (
           <div className="text-center py-8 space-y-4">
-            <div className="w-14 h-14 rounded-full bg-[#33CC7A]/15 text-[#33CC7A] flex items-center justify-center mx-auto">
+            <div className="w-14 h-14 rounded-full bg-[#CBFC6B]/15 text-[#CBFC6B] flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-8 h-8" />
             </div>
             <h3 className="text-2xl font-semibold text-[#1B1411] tracking-tight">
@@ -190,7 +191,7 @@ export function LeadModal({ isOpen: propIsOpen, onClose: propOnClose }: LeadModa
         ) : (
           <div>
             <div className="inline-flex items-center gap-2 mb-2">
-              <span className="w-2 h-2 rounded-full bg-[#33CC7A]" />
+              <span className="w-2 h-2 rounded-full bg-[#CBFC6B]" />
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#66574F]">
                 Growth Strategy &amp; Audit
               </span>
@@ -216,7 +217,7 @@ export function LeadModal({ isOpen: propIsOpen, onClose: propOnClose }: LeadModa
 
               <div>
                 <label className="block text-[11px] font-bold uppercase tracking-wider text-[#1B1411]/80 mb-1">
-                  Full Name <span className="text-[#33CC7A]">*</span>
+                  Full Name <span className="text-[#CBFC6B]">*</span>
                 </label>
                 <input
                   ref={firstInputRef}
@@ -225,13 +226,13 @@ export function LeadModal({ isOpen: propIsOpen, onClose: propOnClose }: LeadModa
                   placeholder="e.g. Rahul Sharma"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-2.5 bg-white border border-black/15 rounded-xl text-xs sm:text-sm text-[#1B1411] placeholder-black/35 focus:outline-none focus:border-[#33CC7A] focus:ring-1 focus:ring-[#33CC7A]"
+                  className="w-full px-4 py-2.5 bg-white border border-black/15 rounded-xl text-xs sm:text-sm text-[#1B1411] placeholder-black/35 focus:outline-none focus:border-[#CBFC6B] focus:ring-1 focus:ring-[#CBFC6B]"
                 />
               </div>
 
               <div>
                 <label className="block text-[11px] font-bold uppercase tracking-wider text-[#1B1411]/80 mb-1">
-                  Business Email <span className="text-[#33CC7A]">*</span>
+                  Business Email <span className="text-[#CBFC6B]">*</span>
                 </label>
                 <input
                   type="email"
@@ -239,14 +240,14 @@ export function LeadModal({ isOpen: propIsOpen, onClose: propOnClose }: LeadModa
                   placeholder="name@company.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-2.5 bg-white border border-black/15 rounded-xl text-xs sm:text-sm text-[#1B1411] placeholder-black/35 focus:outline-none focus:border-[#33CC7A] focus:ring-1 focus:ring-[#33CC7A]"
+                  className="w-full px-4 py-2.5 bg-white border border-black/15 rounded-xl text-xs sm:text-sm text-[#1B1411] placeholder-black/35 focus:outline-none focus:border-[#CBFC6B] focus:ring-1 focus:ring-[#CBFC6B]"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block text-[11px] font-bold uppercase tracking-wider text-[#1B1411]/80 mb-1">
-                    Phone Number <span className="text-[#33CC7A]">*</span>
+                    Phone Number <span className="text-[#CBFC6B]">*</span>
                   </label>
                   <input
                     type="tel"
@@ -254,7 +255,7 @@ export function LeadModal({ isOpen: propIsOpen, onClose: propOnClose }: LeadModa
                     placeholder="+91 950 999 6730"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-white border border-black/15 rounded-xl text-xs sm:text-sm text-[#1B1411] placeholder-black/35 focus:outline-none focus:border-[#33CC7A] focus:ring-1 focus:ring-[#33CC7A]"
+                    className="w-full px-4 py-2.5 bg-white border border-black/15 rounded-xl text-xs sm:text-sm text-[#1B1411] placeholder-black/35 focus:outline-none focus:border-[#CBFC6B] focus:ring-1 focus:ring-[#CBFC6B]"
                   />
                 </div>
                 <div>
@@ -266,7 +267,7 @@ export function LeadModal({ isOpen: propIsOpen, onClose: propOnClose }: LeadModa
                     placeholder="https://company.com"
                     value={formData.website}
                     onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-white border border-black/15 rounded-xl text-xs sm:text-sm text-[#1B1411] placeholder-black/35 focus:outline-none focus:border-[#33CC7A] focus:ring-1 focus:ring-[#33CC7A]"
+                    className="w-full px-4 py-2.5 bg-white border border-black/15 rounded-xl text-xs sm:text-sm text-[#1B1411] placeholder-black/35 focus:outline-none focus:border-[#CBFC6B] focus:ring-1 focus:ring-[#CBFC6B]"
                   />
                 </div>
               </div>
@@ -277,24 +278,19 @@ export function LeadModal({ isOpen: propIsOpen, onClose: propOnClose }: LeadModa
                 </p>
               )}
 
-              <button
-                type="submit"
-                data-magnetic
-                disabled={submitting}
-                className="w-full mt-3 py-3.5 bg-[#1B1411] hover:bg-black text-white text-xs font-bold uppercase tracking-widest rounded-xl transition-all flex items-center justify-center gap-2 disabled:opacity-50 shadow-md hover:shadow-lg"
-              >
-                {submitting ? (
-                  <>
-                    <Loader2 className="w-4 h-4 animate-spin text-[#33CC7A]" />
-                    <span>Preparing Roadmap...</span>
-                  </>
-                ) : (
-                  <>
-                    <span>Request Marketing Plan</span>
-                    <ArrowRight className="w-4 h-4 text-[#33CC7A]" />
-                  </>
-                )}
-              </button>
+              <div className="pt-2">
+                <BlobButton
+                  type="submit"
+                  disabled={submitting}
+                  loading={submitting}
+                  fullWidth
+                  size="md"
+                  icon="arrow-up-right"
+                  ariaLabel={submitting ? "Preparing Roadmap..." : "Request Marketing Plan"}
+                >
+                  {submitting ? "Preparing Roadmap..." : "Request Marketing Plan"}
+                </BlobButton>
+              </div>
             </form>
 
             {/* Direct Contact Options (WordPress Child Theme Verified) */}
@@ -307,7 +303,7 @@ export function LeadModal({ isOpen: propIsOpen, onClose: propOnClose }: LeadModa
                   href="tel:+919509996730"
                   className="flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-white border border-black/10 hover:border-black/25 text-[#1B1411] text-xs font-semibold transition-all hover:bg-black/[0.02]"
                 >
-                  <Phone className="w-3.5 h-3.5 text-[#33CC7A]" />
+                  <Phone className="w-3.5 h-3.5 text-[#CBFC6B]" />
                   <span>Request a Call</span>
                 </a>
 

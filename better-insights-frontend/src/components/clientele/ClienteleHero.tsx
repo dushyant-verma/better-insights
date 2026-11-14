@@ -31,7 +31,7 @@ export function ClienteleHero() {
         aria-hidden="true"
       />
       <div
-        className="absolute -bottom-16 right-6 sm:-bottom-20 sm:right-10 w-[220px] h-[220px] sm:w-[300px] sm:h-[300px] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(51,204,122,0.07)_0%,rgba(51,204,122,0.02)_45%,transparent_70%)] blur-[45px] sm:blur-[65px] pointer-events-none"
+        className="absolute -bottom-16 right-6 sm:-bottom-20 sm:right-10 w-[220px] h-[220px] sm:w-[300px] sm:h-[300px] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(203, 252, 107,0.07)_0%,rgba(203, 252, 107,0.02)_45%,transparent_70%)] blur-[45px] sm:blur-[65px] pointer-events-none"
         aria-hidden="true"
       />
 
@@ -40,7 +40,7 @@ export function ClienteleHero() {
         {/* Eyebrow badge */}
         <div className="mb-6 flex flex-wrap items-center gap-3">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white border border-black/10 text-[#1B1411]">
-            <span className="w-2 h-2 rounded-full bg-[#33CC7A]" />
+            <span className="w-2 h-2 rounded-full bg-[#CBFC6B]" />
             Our clientele &amp; partners
           </span>
           <span className="text-xs font-semibold uppercase tracking-wider text-[#1B1411]/50">
@@ -64,7 +64,7 @@ export function ClienteleHero() {
           <a
             href="#clientele-directory"
             onClick={scrollToDirectory}
-            className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-[#33CC7A] hover:bg-[#28a764] text-[#1B1411] text-sm font-semibold rounded-full transition-all shadow-md"
+            className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-[#CBFC6B] hover:bg-[#CBFC6B] text-[#1B1411] text-sm font-semibold rounded-full transition-all shadow-md"
           >
             <span>Explore clientele</span>
             <ArrowDown className="w-4 h-4 animate-bounce" />

@@ -101,7 +101,7 @@ export function TeamModal({ member, isOpen, onClose }: TeamModalProps) {
           type="button"
           data-magnetic
           onClick={handleClose}
-          className="absolute top-4 right-4 z-20 p-2 text-black/60 hover:text-black rounded-full bg-white/80 hover:bg-white shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-[#33CC7A]"
+          className="absolute top-4 right-4 z-20 p-2 text-black/60 hover:text-black rounded-full bg-white/80 hover:bg-white shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-[#CBFC6B]"
           aria-label="Close team member profile"
         >
           <X className="w-5 h-5" />
@@ -122,7 +122,7 @@ export function TeamModal({ member, isOpen, onClose }: TeamModalProps) {
             </div>
 
             <div className="flex-1">
-              <span className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#33CC7A]/15 text-[#1B1411] border border-[#33CC7A]/30 mb-2">
+              <span className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#CBFC6B]/15 text-[#1B1411] border border-[#CBFC6B]/30 mb-2">
                 {member.department}
               </span>
               <h2 id="bi-team-modal-name" className="text-2xl sm:text-4xl font-semibold tracking-tight text-[#1B1411]">
@@ -141,7 +141,7 @@ export function TeamModal({ member, isOpen, onClose }: TeamModalProps) {
                   className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#1B1411] text-white hover:bg-black text-xs font-semibold uppercase tracking-wider transition-all"
                 >
                   <span>Connect on LinkedIn</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#33CC7A]" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#CBFC6B]" />
                 </a>
               </div>
             </div>
@@ -150,8 +150,8 @@ export function TeamModal({ member, isOpen, onClose }: TeamModalProps) {
           {/* Experience Highlight (if available) */}
           {member.experience && (
             <div className="p-4 rounded-xl bg-white border border-black/8 flex items-start gap-3">
-              <div className="w-8 h-8 rounded-lg bg-[#33CC7A]/15 text-[#1B1411] flex items-center justify-center shrink-0 mt-0.5">
-                <Briefcase className="w-4 h-4 text-[#33CC7A]" />
+              <div className="w-8 h-8 rounded-lg bg-[#CBFC6B]/15 text-[#1B1411] flex items-center justify-center shrink-0 mt-0.5">
+                <Briefcase className="w-4 h-4 text-[#CBFC6B]" />
               </div>
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-[#66574F] block">
@@ -167,7 +167,7 @@ export function TeamModal({ member, isOpen, onClose }: TeamModalProps) {
           {/* Full Biography */}
           <div className="space-y-4">
             <h3 className="text-sm font-bold uppercase tracking-wider text-[#1B1411] flex items-center gap-2">
-              <Award className="w-4 h-4 text-[#33CC7A]" />
+              <Award className="w-4 h-4 text-[#CBFC6B]" />
               <span>About &amp; Background</span>
             </h3>
             <div className="space-y-3.5 text-xs sm:text-sm text-[#1B1411]/85 leading-relaxed font-normal">

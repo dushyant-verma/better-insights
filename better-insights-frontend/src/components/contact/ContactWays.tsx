@@ -13,7 +13,7 @@ export function ContactWays() {
           <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#66574F] block mb-3">
             Direct Communication
           </span>
-          <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
+          <h2 className="text-3xl sm:text-5xl font-semibold sm:font-bold tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
             Connect with our leadership
           </h2>
           <p className="mt-4 text-base text-[#66574F] font-normal leading-relaxed">
@@ -28,10 +28,10 @@ export function ContactWays() {
             {/* Call / WhatsApp */}
             <li>
               <div className="flex items-center gap-2 mb-1">
-                <Phone className="w-4 h-4 text-[#33CC7A] shrink-0" />
+                <Phone className="w-4 h-4 text-[#CBFC6B] shrink-0" />
                 <p className="contact__way-label text-[#66574F]">Call / Phone Line</p>
               </div>
-              <a href="tel:+919509996730" className="contact__way-value text-[#1B1411] hover:text-[#33CC7A] transition-colors">
+              <a href="tel:+919509996730" className="contact__way-value text-[#1B1411] hover:text-[#CBFC6B] transition-colors">
                 +91 950 999 6730
               </a>
               <span className="text-xs text-[#66574F]/70 font-mono">Mon – Fri, 9:30 AM – 6:30 PM IST</span>
@@ -40,10 +40,10 @@ export function ContactWays() {
             {/* Email */}
             <li>
               <div className="flex items-center gap-2 mb-1">
-                <Mail className="w-4 h-4 text-[#33CC7A] shrink-0" />
+                <Mail className="w-4 h-4 text-[#CBFC6B] shrink-0" />
                 <p className="contact__way-label text-[#66574F]">Email Inquiries</p>
               </div>
-              <a href="mailto:contact@betterinsights.in" className="contact__way-value text-[#1B1411] hover:text-[#33CC7A] transition-colors">
+              <a href="mailto:contact@betterinsights.in" className="contact__way-value text-[#1B1411] hover:text-[#CBFC6B] transition-colors">
                 contact@betterinsights.in
               </a>
               <span className="text-xs text-[#66574F]/70 font-mono">Direct routing to practice leads</span>
@@ -52,7 +52,7 @@ export function ContactWays() {
             {/* Corporate Office */}
             <li>
               <div className="flex items-center gap-2 mb-1">
-                <MapPin className="w-4 h-4 text-[#33CC7A] shrink-0" />
+                <MapPin className="w-4 h-4 text-[#CBFC6B] shrink-0" />
                 <p className="contact__way-label text-[#66574F]">Corporate Office</p>
               </div>
               <address className="contact__way-value text-[#1B1411] not-italic">
@@ -75,12 +75,12 @@ export function ContactWays() {
             className="contact-card p-6 bg-white rounded-[1.75rem] border border-black/8 flex items-center justify-between group shadow-sm hover:border-black/20 hover:shadow-md transition-all duration-300"
           >
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-[#33CC7A]/15 text-[#1B1411] flex items-center justify-center shrink-0">
-                <MessageSquare className="w-5 h-5 text-[#33CC7A]" />
+              <div className="w-12 h-12 rounded-2xl bg-[#CBFC6B]/15 text-[#1B1411] flex items-center justify-center shrink-0">
+                <MessageSquare className="w-5 h-5 text-[#CBFC6B]" />
               </div>
               <div>
                 <span className="text-[10px] font-mono uppercase tracking-widest text-[#66574F] block">Instant Chat</span>
-                <span className="text-sm font-semibold text-[#1B1411] group-hover:text-[#33CC7A] transition-colors">WhatsApp Us Directly</span>
+                <span className="text-sm font-semibold text-[#1B1411] group-hover:text-[#CBFC6B] transition-colors">WhatsApp Us Directly</span>
               </div>
             </div>
             <span className="text-xs font-mono text-[#66574F] group-hover:translate-x-1 transition-transform">&rarr;</span>
@@ -89,7 +89,7 @@ export function ContactWays() {
           {/* Full Address Details */}
           <div className="p-6 bg-white rounded-[1.75rem] border border-black/8 flex items-start gap-4 shadow-sm">
             <div className="w-12 h-12 rounded-2xl bg-[#FAF5F0] text-[#1B1411] flex items-center justify-center shrink-0 mt-0.5">
-              <Globe className="w-5 h-5 text-[#33CC7A]" />
+              <Globe className="w-5 h-5 text-[#CBFC6B]" />
             </div>
             <div>
               <span className="text-[10px] font-mono uppercase tracking-widest text-[#66574F] block">Registered Address</span>
@@ -102,7 +102,7 @@ export function ContactWays() {
           {/* Business Hours */}
           <div className="p-6 bg-white rounded-[1.75rem] border border-black/8 flex items-start gap-4 shadow-sm sm:col-span-2 lg:col-span-1">
             <div className="w-12 h-12 rounded-2xl bg-[#FAF5F0] text-[#1B1411] flex items-center justify-center shrink-0 mt-0.5">
-              <Clock className="w-5 h-5 text-[#33CC7A]" />
+              <Clock className="w-5 h-5 text-[#CBFC6B]" />
             </div>
             <div>
               <span className="text-[10px] font-mono uppercase tracking-widest text-[#66574F] block">Operational Hours</span>

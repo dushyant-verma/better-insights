@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
+import { BlobButton } from "@/components/ui/BlobButton";
 
 interface ArchedCard {
   id: string;
@@ -295,31 +296,17 @@ export function AboutHeroGallery() {
         </div>
       </div>
 
-      {/* 3. Centered Brand CTA Button (Matches BI Header Button Identity #33CC7A) */}
+      {/* 3. Centered Brand CTA Button (Matches BI Header Button Identity #CBFC6B) */}
       <div className="bi-hero-cta-wrap">
-        <a
+        <BlobButton
           href="#who-we-are"
           onClick={handleScrollDown}
-          className="bi-hero-cta-btn group"
-          aria-label="Learn about us - Scroll to who we are"
+          size="lg"
+          icon="arrow-down"
+          ariaLabel="Learn about us - Scroll to who we are"
         >
-          <span className="bi-hero-cta-btn__text">Learn about us</span>
-          <span className="bi-hero-cta-arrow" aria-hidden="true">
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="7" y1="17" x2="17" y2="17" />
-              <polyline points="7 17 17 17 17 7" />
-            </svg>
-          </span>
-        </a>
+          Learn about us
+        </BlobButton>
       </div>
     </section>
   );

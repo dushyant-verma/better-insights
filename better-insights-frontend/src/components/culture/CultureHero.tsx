@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { ArrowDown } from "lucide-react";
 import { getGSAP } from "@/lib/gsap";
+import { BlobButton } from "@/components/ui/BlobButton";
 
 interface FloatingCard {
   src: string;
@@ -161,7 +162,7 @@ export function CultureHero() {
     >
       {/* Subtle Ambient Radial Lighting */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] sm:w-[900px] h-[450px] sm:h-[600px] bg-[radial-gradient(circle,rgba(52,204,123,0.09)_0%,rgba(43,184,109,0.03)_45%,transparent_70%)] blur-[120px] pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] sm:w-[900px] h-[450px] sm:h-[600px] bg-[radial-gradient(circle,rgba(203, 252, 107,0.09)_0%,rgba(203, 252, 107,0.03)_45%,transparent_70%)] blur-[120px] pointer-events-none"
         aria-hidden="true"
       />
 
@@ -199,14 +200,14 @@ export function CultureHero() {
       >
         {/* Eyebrow Label: • Culture at Better Insights */}
         <div className="inline-flex items-center justify-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-md mb-6 sm:mb-8 shadow-sm">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#34CC7B] animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B] animate-pulse" />
           <span className="text-xs font-semibold tracking-wider text-white/90 uppercase">
             Culture at Better Insights
           </span>
         </div>
 
         {/* Master Heading: A curious bunch of thinkers & makers that love what we do */}
-        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.5rem] font-light lg:font-normal tracking-[-0.035em] text-white leading-[1.04] sm:leading-[1.02] max-w-3xl lg:max-w-4xl mx-auto [font-family:'Host_Grotesk',sans-serif]">
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.5rem] font-semibold sm:font-bold tracking-[-0.035em] text-white leading-[1.04] sm:leading-[1.02] max-w-3xl lg:max-w-4xl mx-auto [font-family:'Host_Grotesk',sans-serif]">
           A curious bunch{" "}
           <br className="hidden sm:inline" />
           of thinkers &amp; makers{" "}
@@ -221,15 +222,15 @@ export function CultureHero() {
 
         {/* Rounded CTA Button: Explore Our Culture */}
         <div className="mt-8 sm:mt-10">
-          <a
+          <BlobButton
             href="#culture-intro"
             onClick={handleScrollToIntro}
-            className="inline-flex items-center gap-2.5 px-8 py-3.5 sm:py-4 rounded-full bg-[#34CC7B] hover:bg-[#2BB86D] text-[#101112] font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-200 hover:scale-105 shadow-[0_10px_30px_rgba(52,204,123,0.3)] cursor-pointer"
-            aria-label="Explore our culture - scroll to culture details"
+            size="lg"
+            icon="arrow-down"
+            ariaLabel="Explore our culture - scroll to culture details"
           >
-            <span>Explore Our Culture</span>
-            <ArrowDown className="w-4 h-4" />
-          </a>
+            Explore Our Culture
+          </BlobButton>
         </div>
 
         {/* Mobile-Only Organic Asymmetric Floating Photo Cluster (Kept safely beneath CTA) */}

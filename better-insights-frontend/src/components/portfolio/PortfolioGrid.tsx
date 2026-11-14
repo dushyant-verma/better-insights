@@ -39,11 +39,11 @@ export function PortfolioGrid() {
     <section id="portfolio-grid" className="py-20 sm:py-28 bg-[#FAF5F0] select-none scroll-mt-20 relative overflow-hidden">
       {/* Ambient Depth Accents */}
       <div 
-        className="absolute top-12 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-[#33CC7A]/[0.05] via-transparent to-transparent blur-[120px] pointer-events-none" 
+        className="absolute top-12 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-[#CBFC6B]/[0.05] via-transparent to-transparent blur-[120px] pointer-events-none" 
         aria-hidden="true" 
       />
       <div 
-        className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-gradient-to-tr from-[#33CC7A]/[0.04] to-transparent blur-[140px] pointer-events-none" 
+        className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-gradient-to-tr from-[#CBFC6B]/[0.04] to-transparent blur-[140px] pointer-events-none" 
         aria-hidden="true" 
       />
 
@@ -54,11 +54,11 @@ export function PortfolioGrid() {
           <div>
             <div className="inline-flex items-center gap-2 mb-2">
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white border border-black/10 text-[#1B1411]">
-                <span className="w-2 h-2 rounded-full bg-[#33CC7A]" />
+                <span className="w-2 h-2 rounded-full bg-[#CBFC6B]" />
                 Portfolio &amp; solutions
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-5xl font-semibold sm:font-bold tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
               Featured case studies
             </h2>
           </div>
@@ -113,7 +113,7 @@ export function PortfolioGrid() {
             return (
               <article
                 key={project.slug}
-                className="bg-white rounded-[1.75rem] border border-black/10 overflow-hidden shadow-xs hover:shadow-2xl hover:border-[#33CC7A]/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative"
+                className="bg-white rounded-[1.75rem] border border-black/10 overflow-hidden shadow-xs hover:shadow-2xl hover:border-[#CBFC6B]/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative"
               >
                 <div>
                   {/* Project Image & Badges */}
@@ -148,7 +148,7 @@ export function PortfolioGrid() {
                     {primaryMetric && (
                       <div className="absolute bottom-4 left-4">
                         <div className="px-3.5 py-1.5 bg-[#1B1411]/90 backdrop-blur-md text-white rounded-xl shadow-md border border-white/10 flex items-center gap-2">
-                          <span className="text-xs sm:text-sm font-bold text-[#33CC7A]">
+                          <span className="text-xs sm:text-sm font-bold text-[#CBFC6B]">
                             {primaryMetric.value}
                           </span>
                           <span className="text-[10px] text-white/70 font-medium">
@@ -165,7 +165,7 @@ export function PortfolioGrid() {
                       {project.clientName}
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-[#1B1411] leading-snug group-hover:text-[#33CC7A] transition-colors [font-family:'Host_Grotesk',sans-serif]">
+                    <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-[#1B1411] leading-snug group-hover:text-[#CBFC6B] transition-colors [font-family:'Host_Grotesk',sans-serif]">
                       <Link href={`/work/${project.slug}`}>
                         {project.title}
                       </Link>
@@ -193,7 +193,7 @@ export function PortfolioGrid() {
                 <div className="p-6 sm:p-8 pt-0">
                   <Link
                     href={`/work/${project.slug}`}
-                    className="pt-4 border-t border-black/10 flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-[#1B1411] group-hover:text-[#33CC7A] transition-colors"
+                    className="pt-4 border-t border-black/10 flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-[#1B1411] group-hover:text-[#CBFC6B] transition-colors"
                   >
                     <span>View case study</span>
                     <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

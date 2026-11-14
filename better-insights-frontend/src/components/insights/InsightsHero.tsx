@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowDown } from "lucide-react";
+import { BlobButton } from "@/components/ui/BlobButton";
 
 export function InsightsHero() {
   const scrollToFeed = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -34,7 +35,7 @@ export function InsightsHero() {
         aria-hidden="true"
       />
       <div
-        className="absolute -bottom-16 right-6 sm:-bottom-20 sm:right-10 w-[220px] h-[220px] sm:w-[300px] sm:h-[300px] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(51,204,122,0.07)_0%,rgba(51,204,122,0.02)_45%,transparent_70%)] blur-[45px] sm:blur-[65px] pointer-events-none"
+        className="absolute -bottom-16 right-6 sm:-bottom-20 sm:right-10 w-[220px] h-[220px] sm:w-[300px] sm:h-[300px] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(203, 252, 107,0.07)_0%,rgba(203, 252, 107,0.02)_45%,transparent_70%)] blur-[45px] sm:blur-[65px] pointer-events-none"
         aria-hidden="true"
       />
 
@@ -42,14 +43,14 @@ export function InsightsHero() {
         <div className="max-w-4xl">
           {/* Eyebrow Pill Tag */}
           <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#EEE5DC] border border-black/5 text-[#1B1411] mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#33CC7A] animate-pulse" aria-hidden="true" />
+            <span className="w-2 h-2 rounded-full bg-[#CBFC6B] animate-pulse" aria-hidden="true" />
             <span className="text-[11px] font-bold uppercase tracking-[0.18em]">
               Ideas &amp; Perspectives
             </span>
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light lg:font-normal tracking-[-0.035em] text-[#1B1411] leading-[1.04] mb-6 [font-family:'Host_Grotesk',sans-serif]">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-[-0.035em] text-[#1B1411] leading-[1.04] mb-6 [font-family:'Host_Grotesk',sans-serif]">
             Ideas that move <br className="hidden sm:inline" />
             <span className="text-[#66574F]">businesses forward.</span>
           </h1>
@@ -61,14 +62,14 @@ export function InsightsHero() {
 
           {/* Quick Jump CTA */}
           <div className="flex flex-wrap items-center gap-4">
-            <a
+            <BlobButton
               href="#bi-insights-feed"
               onClick={scrollToFeed}
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#33CC7A] text-[#1B1411] text-xs font-bold uppercase tracking-wider rounded-full hover:bg-[#2BB86D] hover:scale-105 active:scale-95 transition-all shadow-md shadow-[#33CC7A]/20"
+              size="lg"
+              icon="arrow-down"
             >
-              <span>Browse All Insights</span>
-              <ArrowDown className="w-4 h-4 animate-bounce" />
-            </a>
+              Browse All Insights
+            </BlobButton>
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 px-6 py-3.5 bg-transparent hover:bg-black/5 text-[#1B1411] text-xs font-bold uppercase tracking-wider rounded-full border border-black/15 transition-all"

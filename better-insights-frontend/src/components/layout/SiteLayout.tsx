@@ -38,6 +38,28 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <>
+      {/* Global SVG Gooey Filter for MadeByShape CTA Buttons */}
+      <svg
+        width="0"
+        height="0"
+        className="absolute hidden pointer-events-none"
+        colorInterpolationFilters="sRGB"
+        aria-hidden="true"
+      >
+        <defs>
+          <filter id="biButtonFilter">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+            <feColorMatrix
+              in="blur"
+              mode="matrix"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+              result="goo"
+            />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+          </filter>
+        </defs>
+      </svg>
+
       <MagneticCursor
         magneticFactor={0.25}
         lerpAmount={0.14}

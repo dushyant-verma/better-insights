@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { BlobButton } from "@/components/ui/BlobButton";
 import { ArrowLeft, Home, Search } from "lucide-react";
 
 export const metadata = {
@@ -12,15 +13,15 @@ export default function NotFound() {
     <div className="min-h-[80vh] flex items-center justify-center pt-32 pb-20 px-4 bg-[linear-gradient(135deg,#FAF7F4_0%,#FAF5F0_45%,#FAF5F0_85%,#F3F9F5_100%)] text-[#1B1411] select-none relative overflow-hidden">
       {/* Subtle ambient lighting */}
       <div 
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 w-96 h-96 bg-[radial-gradient(circle,rgba(52,204,123,0.07)_0%,transparent_70%)] rounded-full blur-3xl pointer-events-none" 
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 w-96 h-96 bg-[radial-gradient(circle,rgba(203, 252, 107,0.07)_0%,transparent_70%)] rounded-full blur-3xl pointer-events-none" 
         aria-hidden="true" 
       />
       <div className="max-w-lg w-full text-center p-8 sm:p-12 bg-white rounded-[1.75rem] border border-black/10 shadow-2xs space-y-6 relative z-10">
         <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF5F0] text-[#1B1411] text-[11px] font-semibold border border-black/10 mx-auto">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
           Error 404
         </span>
-        <h1 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.035em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif]">
+        <h1 className="text-3xl sm:text-5xl font-bold tracking-[-0.035em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif]">
           Page Not Found
         </h1>
         <p className="text-xs sm:text-sm text-[#1B1411]/60 leading-relaxed font-normal">
@@ -28,13 +29,13 @@ export default function NotFound() {
         </p>
 
         <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <Link
+          <BlobButton
             href="/"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#33CC7A] text-[#1B1411] text-xs font-semibold rounded-full hover:bg-[#28a764] transition-all hover:scale-105 shadow-sm"
+            size="md"
+            icon="arrow-up-right"
           >
-            <Home className="w-4 h-4" />
-            <span>Return Home</span>
-          </Link>
+            Return Home
+          </BlobButton>
           <Link
             href="/insights"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white text-[#1B1411] text-xs font-semibold rounded-full hover:bg-black/5 transition-colors border border-black/10 shadow-2xs"

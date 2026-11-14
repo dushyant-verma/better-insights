@@ -95,7 +95,7 @@ export function StackingCapabilitiesCards({ capabilities }: StackingCapabilities
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 sm:mb-16">
           <div>
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#33CC7A] block mb-3">
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#CBFC6B] block mb-3">
               Full-Lifecycle Solutions
             </span>
             <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-[#FAF5F0] leading-tight">
@@ -105,10 +105,10 @@ export function StackingCapabilitiesCards({ capabilities }: StackingCapabilities
           <div>
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#FAF5F0] hover:text-[#33CC7A] transition-colors group"
+              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#FAF5F0] hover:text-[#CBFC6B] transition-colors group"
             >
               <span>View All Services</span>
-              <ArrowRight className="w-4 h-4 text-[#33CC7A] group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 text-[#CBFC6B] group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
         </div>
@@ -149,21 +149,21 @@ export function StackingCapabilitiesCards({ capabilities }: StackingCapabilities
                   aria-label={`View ${cap.title}`}
                 >
                   <div className="flex items-center gap-3 sm:gap-6 min-w-0">
-                    <span className="font-mono text-sm sm:text-base lg:text-lg font-bold text-[#33CC7A] w-6 sm:w-8 shrink-0">
+                    <span className="font-mono text-sm sm:text-base lg:text-lg font-bold text-[#CBFC6B] w-6 sm:w-8 shrink-0">
                       {cap.number}
                     </span>
                     <span className="w-px h-4 bg-black/10 shrink-0" aria-hidden="true" />
-                    <h3 className="text-sm sm:text-base lg:text-lg font-semibold tracking-tight text-[#1B1411] truncate group-hover:text-[#2BB86D] transition-colors">
+                    <h3 className="text-sm sm:text-base lg:text-lg font-semibold tracking-tight text-[#1B1411] truncate group-hover:text-[#CBFC6B] transition-colors">
                       {cap.title}
                     </h3>
                   </div>
 
                   <div className="flex items-center gap-3 shrink-0">
                     <span className="hidden md:inline-flex items-center gap-1.5 px-3 py-1 rounded-[14px] text-[10px] font-mono uppercase tracking-wider font-bold bg-[#FAF5F0] text-[#66574F] border border-black/5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
                       <span>DOMAIN // 0{index + 1}</span>
                     </span>
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#FAF5F0] border border-black/8 flex items-center justify-center text-[#1B1411] group-hover:border-[#33CC7A] group-hover:bg-[#33CC7A] group-hover:text-white transition-all">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#FAF5F0] border border-black/8 flex items-center justify-center text-[#1B1411] group-hover:border-[#CBFC6B] group-hover:bg-[#CBFC6B] group-hover:text-white transition-all">
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </div>
                   </div>
@@ -176,7 +176,7 @@ export function StackingCapabilitiesCards({ capabilities }: StackingCapabilities
                     <div className="lg:col-span-7 flex flex-col justify-between">
                       <div>
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-[14px] bg-[#FAF5F0] border border-black/8 text-[11px] font-bold uppercase tracking-wider text-[#66574F] mb-3 sm:mb-4">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
                           <span>Core Capability // {cap.number}</span>
                         </div>
 
@@ -193,7 +193,7 @@ export function StackingCapabilitiesCards({ capabilities }: StackingCapabilities
                           {cap.badges.map((b) => (
                             <span
                               key={b}
-                              className="px-3 py-1 rounded-[14px] text-xs font-semibold bg-[#FAF5F0] border border-black/8 text-[#1B1411] hover:border-[#33CC7A]/50 transition-colors"
+                              className="px-3 py-1 rounded-[14px] text-xs font-semibold bg-[#FAF5F0] border border-black/8 text-[#1B1411] hover:border-[#CBFC6B]/50 transition-colors"
                             >
                               {b}
                             </span>
@@ -208,7 +208,7 @@ export function StackingCapabilitiesCards({ capabilities }: StackingCapabilities
                           className="inline-flex items-center gap-2.5 px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-[#1B1411] text-[#FAF5F0] text-xs font-bold uppercase tracking-wider hover:bg-black transition-all hover:scale-105 shadow-md group/btn"
                         >
                           <span>Explore Service</span>
-                          <ArrowUpRight className="w-4 h-4 text-[#33CC7A] group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                          <ArrowUpRight className="w-4 h-4 text-[#CBFC6B] group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                         </Link>
                       </div>
                     </div>
@@ -226,11 +226,11 @@ export function StackingCapabilitiesCards({ capabilities }: StackingCapabilities
                           />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center bg-[#FAF5F0] text-[#66574F]">
-                            <Sparkles className="w-10 h-10 text-[#33CC7A]" />
+                            <Sparkles className="w-10 h-10 text-[#CBFC6B]" />
                           </div>
                         )}
                         <div className="absolute top-3.5 left-3.5 inline-flex items-center gap-1.5 px-3 py-1 rounded-[12px] bg-white/85 backdrop-blur-md text-[10px] font-mono uppercase tracking-wider text-[#1B1411] font-bold shadow-sm">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
                           <span>Enterprise Verified</span>
                         </div>
                       </div>

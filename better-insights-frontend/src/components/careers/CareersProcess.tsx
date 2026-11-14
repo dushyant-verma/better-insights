@@ -37,7 +37,7 @@ export function CareersProcess() {
         <div className="max-w-3xl mb-16">
           <div className="inline-flex items-center gap-2 mb-3">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white border border-black/10 text-[#1B1411]">
-              <span className="w-2 h-2 rounded-full bg-[#33CC7A]" />
+              <span className="w-2 h-2 rounded-full bg-[#CBFC6B]" />
               Candidate journey
             </span>
           </div>
@@ -56,7 +56,7 @@ export function CareersProcess() {
             return (
               <div
                 key={item.step}
-                className="p-8 bg-white rounded-[1.75rem] border border-black/10 flex flex-col justify-between shadow-2xs hover:shadow-md hover:border-[#33CC7A]/40 transition-all"
+                className="p-8 bg-white rounded-[1.75rem] border border-black/10 flex flex-col justify-between shadow-2xs hover:shadow-md hover:border-[#CBFC6B]/40 transition-all"
               >
                 <div>
                   <div className="flex items-center justify-between mb-8">
@@ -78,7 +78,7 @@ export function CareersProcess() {
                 </div>
 
                 <div className="pt-6 mt-6 border-t border-black/5">
-                  <span className="text-[10px] font-semibold uppercase tracking-wider text-[#33CC7A]">
+                  <span className="text-[10px] font-semibold uppercase tracking-wider text-[#CBFC6B]">
                     Transparent evaluation
                   </span>
                 </div>

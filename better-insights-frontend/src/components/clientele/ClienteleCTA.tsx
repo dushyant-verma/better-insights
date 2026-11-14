@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { BlobButton } from "@/components/ui/BlobButton";
 import { ArrowUpRight, MessageSquare, Briefcase } from "lucide-react";
 
 export function ClienteleCTA() {
@@ -10,17 +11,17 @@ export function ClienteleCTA() {
           
           {/* Subtle background glow */}
           <div 
-            className="absolute -top-24 -left-24 w-80 h-80 bg-[#33CC7A]/15 rounded-full blur-3xl pointer-events-none" 
+            className="absolute -top-24 -left-24 w-80 h-80 bg-[#CBFC6B]/15 rounded-full blur-3xl pointer-events-none" 
             aria-hidden="true" 
           />
           <div 
-            className="absolute -bottom-24 -right-24 w-80 h-80 bg-[#33CC7A]/10 rounded-full blur-3xl pointer-events-none" 
+            className="absolute -bottom-24 -right-24 w-80 h-80 bg-[#CBFC6B]/10 rounded-full blur-3xl pointer-events-none" 
             aria-hidden="true" 
           />
 
           <div className="relative z-10 max-w-2xl mx-auto space-y-6">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white text-xs font-semibold tracking-wide border border-white/15">
-              <span className="w-2 h-2 rounded-full bg-[#33CC7A]" />
+              <span className="w-2 h-2 rounded-full bg-[#CBFC6B]" />
               <span>Initiate dialogue</span>
             </span>
 
@@ -33,13 +34,13 @@ export function ClienteleCTA() {
             </p>
 
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
+              <BlobButton
                 href="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#33CC7A] hover:bg-[#28a764] text-[#1B1411] text-sm font-semibold rounded-full transition-all shadow-md"
+                size="md"
+                icon="arrow-up-right"
               >
-                <span>Start a conversation</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
+                Start a conversation
+              </BlobButton>
 
               <Link
                 href="/work"

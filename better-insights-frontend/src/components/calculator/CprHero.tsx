@@ -17,21 +17,21 @@ export function CprHero() {
     <section className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 bg-[linear-gradient(135deg,#FAF8F5_0%,#FAF5F0_45%,#FAF5F0_80%,#F3F9F5_100%)] border-b border-black/10 select-none overflow-hidden">
       {/* Subtle Ambient Glow Behind Content */}
       <div
-        className="absolute -top-32 left-1/3 -translate-x-1/2 w-[700px] h-[450px] bg-[radial-gradient(circle,rgba(52,204,123,0.08)_0%,rgba(43,184,109,0.04)_50%,transparent_75%)] blur-[120px] rounded-full pointer-events-none"
+        className="absolute -top-32 left-1/3 -translate-x-1/2 w-[700px] h-[450px] bg-[radial-gradient(circle,rgba(203, 252, 107,0.08)_0%,rgba(203, 252, 107,0.04)_50%,transparent_75%)] blur-[120px] rounded-full pointer-events-none"
         aria-hidden="true"
       />
 
       {/* Organic Blobs in Bottom-Right Corner (Overlapping, soft-edged, cropped) */}
       <div
-        className="absolute -bottom-24 -right-16 sm:-bottom-32 sm:-right-20 w-[420px] h-[420px] sm:w-[560px] sm:h-[560px] rounded-full bg-[radial-gradient(circle_at_40%_40%,rgba(52,204,123,0.14)_0%,rgba(43,184,109,0.07)_45%,rgba(34,167,98,0.02)_70%,transparent_85%)] blur-[50px] sm:blur-[70px] pointer-events-none"
+        className="absolute -bottom-24 -right-16 sm:-bottom-32 sm:-right-20 w-[420px] h-[420px] sm:w-[560px] sm:h-[560px] rounded-full bg-[radial-gradient(circle_at_40%_40%,rgba(203, 252, 107,0.14)_0%,rgba(203, 252, 107,0.07)_45%,rgba(203, 252, 107,0.02)_70%,transparent_85%)] blur-[50px] sm:blur-[70px] pointer-events-none"
         aria-hidden="true"
       />
       <div
-        className="absolute -bottom-8 right-24 sm:-bottom-12 sm:right-40 w-[300px] h-[300px] sm:w-[420px] sm:h-[420px] rounded-full bg-[radial-gradient(circle_at_45%_45%,rgba(52,204,123,0.10)_0%,rgba(43,184,109,0.04)_50%,transparent_75%)] blur-[40px] sm:blur-[60px] pointer-events-none"
+        className="absolute -bottom-8 right-24 sm:-bottom-12 sm:right-40 w-[300px] h-[300px] sm:w-[420px] sm:h-[420px] rounded-full bg-[radial-gradient(circle_at_45%_45%,rgba(203, 252, 107,0.10)_0%,rgba(203, 252, 107,0.04)_50%,transparent_75%)] blur-[40px] sm:blur-[60px] pointer-events-none"
         aria-hidden="true"
       />
       <div
-        className="absolute -bottom-16 right-6 sm:-bottom-20 sm:right-10 w-[220px] h-[220px] sm:w-[300px] sm:h-[300px] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(51,204,122,0.07)_0%,rgba(51,204,122,0.02)_45%,transparent_70%)] blur-[45px] sm:blur-[65px] pointer-events-none"
+        className="absolute -bottom-16 right-6 sm:-bottom-20 sm:right-10 w-[220px] h-[220px] sm:w-[300px] sm:h-[300px] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(203, 252, 107,0.07)_0%,rgba(203, 252, 107,0.02)_45%,transparent_70%)] blur-[45px] sm:blur-[65px] pointer-events-none"
         aria-hidden="true"
       />
 
@@ -40,7 +40,7 @@ export function CprHero() {
         {/* Eyebrow badge */}
         <div className="mb-6 flex flex-wrap items-center gap-3">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white border border-black/10 text-[#1B1411]">
-            <span className="w-2 h-2 rounded-full bg-[#33CC7A]" />
+            <span className="w-2 h-2 rounded-full bg-[#CBFC6B]" />
             Resources &amp; calculators
           </span>
           <span className="text-xs font-semibold uppercase tracking-wider text-[#1B1411]/50">
@@ -64,7 +64,7 @@ export function CprHero() {
           <a
             href="#cpr-calculator-app"
             onClick={scrollToCalculator}
-            className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-[#33CC7A] hover:bg-[#28a764] text-[#1B1411] text-sm font-semibold rounded-full transition-all shadow-md"
+            className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-[#CBFC6B] hover:bg-[#CBFC6B] text-[#1B1411] text-sm font-semibold rounded-full transition-all shadow-md"
           >
             <span>Start calculating</span>
             <ArrowDown className="w-4 h-4 animate-bounce" />

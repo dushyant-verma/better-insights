@@ -44,11 +44,11 @@ export function ServicesApproach() {
         <div className="max-w-3xl mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 mb-3">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white border border-black/10 text-[#1B1411]">
-              <span className="w-2 h-2 rounded-full bg-[#33CC7A]" />
+              <span className="w-2 h-2 rounded-full bg-[#CBFC6B]" />
               Execution framework
             </span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
+          <h2 className="text-3xl sm:text-5xl font-semibold sm:font-bold tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
             Our approach: from ambition to execution.
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#1B1411]/70 font-normal leading-relaxed">
@@ -64,7 +64,7 @@ export function ServicesApproach() {
             return (
               <div
                 key={stage.step}
-                className="bg-white rounded-[1.75rem] border border-black/10 p-6 sm:p-8 flex flex-col justify-between hover:border-[#33CC7A]/40 transition-all hover:shadow-md"
+                className="bg-white rounded-[1.75rem] border border-black/10 p-6 sm:p-8 flex flex-col justify-between hover:border-[#CBFC6B]/40 transition-all hover:shadow-md"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -76,7 +76,7 @@ export function ServicesApproach() {
                     </div>
                   </div>
 
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[#33CC7A] block mb-1">
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[#CBFC6B] block mb-1">
                     Stage {stage.step}
                   </span>
                   <h3 className="text-xl font-semibold tracking-tight text-[#1B1411] mb-2 [font-family:'Host_Grotesk',sans-serif]">
@@ -97,7 +97,7 @@ export function ServicesApproach() {
                   <ul className="space-y-1.5">
                     {stage.deliverables.map((d) => (
                       <li key={d} className="text-xs text-[#1B1411]/75 flex items-center gap-1.5 font-medium">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A] shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B] shrink-0" />
                         <span>{d}</span>
                       </li>
                     ))}

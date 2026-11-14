@@ -8,8 +8,8 @@
   position: relative;
   background-color: #1B1411;
   background-image: 
-    radial-gradient(circle at 20% 15%, rgba(51, 204, 122, 0.08) 0%, transparent 40%),
-    radial-gradient(circle at 80% 85%, rgba(51, 204, 122, 0.05) 0%, transparent 45%);
+    radial-gradient(circle at 20% 15%, rgba(203, 252, 107, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 80% 85%, rgba(203, 252, 107, 0.05) 0%, transparent 45%);
 }
 
 .services-grid-overlay {
@@ -42,7 +42,7 @@
   border: 1px solid rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  color: #33CC7A;
+  color: #CBFC6B;
 }
 
 .service-pill-badge-dark {
@@ -74,7 +74,7 @@
 .service-overview-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 40px -15px rgba(27, 20, 17, 0.08);
-  border-color: rgba(51, 204, 122, 0.4);
+  border-color: rgba(203, 252, 107, 0.4);
 }
 
 .service-dark-card {
@@ -88,8 +88,8 @@
 
 .service-dark-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(51, 204, 122, 0.4);
-  box-shadow: 0 20px 40px -15px rgba(51, 204, 122, 0.15);
+  border-color: rgba(203, 252, 107, 0.4);
+  box-shadow: 0 20px 40px -15px rgba(203, 252, 107, 0.15);
 }
 
 /* Image Zoom on Card Hover */
@@ -109,7 +109,7 @@
 
 /* Accessibility Focus Ring */
 .service-focus-ring:focus-visible {
-  outline: 2px solid #33CC7A;
+  outline: 2px solid #CBFC6B;
   outline-offset: 3px;
 }
 

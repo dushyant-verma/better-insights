@@ -123,3 +123,58 @@
     transform: none !important;
   }
 }
+
+/* ==========================================================================
+   MadeByShape-Style Careers Horizontal Scrolling Gallery
+   ========================================================================== */
+.careers-gallery-wrap {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+  cursor: grab;
+  padding: 0.5rem 0;
+}
+
+.careers-gallery-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 1.25rem;
+  animation: careersInfiniteScroll 40s linear infinite;
+  will-change: transform;
+}
+
+@media (min-width: 640px) {
+  .careers-gallery-track {
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .careers-gallery-track {
+    gap: 1.75rem;
+    animation-duration: 48s;
+  }
+}
+
+.careers-gallery-wrap:hover .careers-gallery-track {
+  animation-play-state: paused;
+}
+
+@keyframes careersInfiniteScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .careers-gallery-track {
+    animation: none !important;
+    overflow-x: auto;
+    width: auto;
+  }
+}

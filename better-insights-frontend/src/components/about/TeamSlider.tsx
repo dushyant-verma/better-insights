@@ -5,16 +5,22 @@ import Image from "next/image";
 import Link from "next/link";
 import { Plus, ArrowUpRight } from "lucide-react";
 import { TeamMemberData } from "./TeamModal";
+import { BlobButton } from "@/components/ui/BlobButton";
 
 interface TeamSliderProps {
   members: TeamMemberData[];
   onSelectMember: (member: TeamMemberData) => void;
+  ctaHref?: string;
 }
 
 // Subtle vertical offsets to create the premium wavy / staggered carousel rhythm
 const STAGGER_OFFSETS = [14, -18, 10, -14, 16, -10, 12, -16, 8];
 
-export function TeamSlider({ members, onSelectMember }: TeamSliderProps) {
+export function TeamSlider({
+  members,
+  onSelectMember,
+  ctaHref = "/careers",
+}: TeamSliderProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
@@ -248,17 +254,17 @@ export function TeamSlider({ members, onSelectMember }: TeamSliderProps) {
     >
       {/* Background ambient radial glow */}
       <div
-        className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-[radial-gradient(circle,rgba(199,255,98,0.04)_0%,rgba(255,255,255,0.015)_45%,transparent_70%)] blur-[120px] pointer-events-none z-0"
+        className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-[radial-gradient(circle,rgba(203,252,107,0.04)_0%,rgba(255,255,255,0.015)_45%,transparent_70%)] blur-[120px] pointer-events-none z-0"
         aria-hidden="true"
       />
 
       {/* 1. SECTION INTRODUCTION (MadeByShape Reference Style) */}
       <div className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-12 text-center mb-12 sm:mb-16">
         <div className="inline-flex items-center gap-2 text-xs sm:text-[13px] font-semibold uppercase tracking-[0.14em] text-white/70 mb-4">
-          <span className="text-[#C7FF62] text-lg leading-none">•</span>
+          <span className="text-[#CBFC6B] text-lg leading-none">•</span>
           <span>Our Team</span>
         </div>
-        <h2 className="text-4xl sm:text-6xl lg:text-7xl font-normal tracking-[-0.035em] text-white leading-[1.05] max-w-4xl mx-auto">
+        <h2 className="text-4xl sm:text-6xl lg:text-7xl font-semibold sm:font-bold tracking-[-0.035em] text-white leading-[1.05] max-w-4xl mx-auto">
           Multiple personalities,<br />
           No egos.
         </h2>
@@ -327,7 +333,7 @@ export function TeamSlider({ members, onSelectMember }: TeamSliderProps) {
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
                         aria-label={`${member.name} on LinkedIn`}
-                        className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/60 hover:bg-[#34cc7b] text-white hover:text-[#0D0D0D] backdrop-blur-md flex items-center justify-center transition-all duration-300 shadow-md group/in"
+                        className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/60 hover:bg-[#CBFC6B] text-white hover:text-[#0D0D0D] backdrop-blur-md flex items-center justify-center transition-all duration-300 shadow-md group/in"
                       >
                         <span className="font-bold text-[11px] font-sans">in</span>
                       </a>
@@ -340,7 +346,7 @@ export function TeamSlider({ members, onSelectMember }: TeamSliderProps) {
                         e.stopPropagation();
                         onSelectMember(member);
                       }}
-                      className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#34cc7b] text-[#0D0D0D] flex items-center justify-center shadow-md transition-all duration-300 group-hover:scale-110 group-hover:rotate-90 hover:bg-[#2bb86d]"
+                      className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#CBFC6B] text-[#0D0D0D] flex items-center justify-center shadow-md transition-all duration-300 group-hover:scale-110 group-hover:rotate-90 hover:bg-[#CBFC6B]"
                       aria-label={`Open details for ${member.name}`}
                     >
                       <Plus className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
@@ -414,14 +420,14 @@ export function TeamSlider({ members, onSelectMember }: TeamSliderProps) {
 
       {/* 3. CENTERED LIME-GREEN PILL CTA BUTTON (MadeByShape Reference) */}
       <div className="relative z-10 flex justify-center mt-12 sm:mt-16">
-        <Link
-          href="/careers"
-          className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-[#34cc7b] text-[#0D0D0D] text-[15px] font-semibold rounded-full shadow-[0_8px_24px_rgba(199,255,98,0.28)] hover:bg-[#34cc7b] hover:scale-105 hover:shadow-[0_14px_34px_rgba(199,255,98,0.42)] transition-all duration-300"
-          aria-label="Meet the whole Team - Explore Better Insights Careers"
+        <BlobButton
+          href={ctaHref}
+          size="lg"
+          icon="arrow-up-right"
+          ariaLabel="Meet the whole Team - Explore Better Insights Careers"
         >
-          <span>Join Our Team</span>
-          <ArrowUpRight className="w-4 h-4 stroke-[2.5]" aria-hidden="true" />
-        </Link>
+          Join Our Team
+        </BlobButton>
       </div>
     </section>
   );

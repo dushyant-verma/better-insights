@@ -7,6 +7,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { WPPost, WPCategory } from "@/types/wordpress";
 import { Calendar, Clock, ArrowUpRight, Filter, ChevronRight } from "lucide-react";
 import { resolvePostImageUrl } from "@/lib/wordpress/images";
+import { BlobButton } from "@/components/ui/BlobButton";
 
 interface InsightsExplorerProps {
   initialPosts: WPPost[];
@@ -80,10 +81,10 @@ export function InsightsExplorer({
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
             <div className="flex items-center gap-2 text-[#66574F] text-xs font-mono mb-2">
-              <Filter className="w-3.5 h-3.5 text-[#33CC7A]" />
+              <Filter className="w-3.5 h-3.5 text-[#CBFC6B]" />
               <span className="uppercase tracking-widest font-semibold">Browse Archive</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-4xl font-semibold sm:font-bold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif]">
               Latest insights
             </h2>
           </div>
@@ -224,7 +225,7 @@ function PostCard({ post }: { post: WPPost }) {
         <div className="p-6 sm:p-7">
           <div className="flex items-center justify-between text-[11px] font-mono text-[#66574F]/70 mb-3">
             <div className="flex items-center gap-1.5">
-              <Calendar className="w-3.5 h-3.5 text-[#33CC7A]" />
+              <Calendar className="w-3.5 h-3.5 text-[#CBFC6B]" />
               <span>{date}</span>
             </div>
             <div className="flex items-center gap-1">
@@ -233,7 +234,7 @@ function PostCard({ post }: { post: WPPost }) {
             </div>
           </div>
 
-          <h3 className="text-lg font-semibold text-[#1B1411] leading-snug group-hover:text-[#33CC7A] transition-colors">
+          <h3 className="text-lg font-semibold text-[#1B1411] leading-snug group-hover:text-[#CBFC6B] transition-colors">
             <Link href={`/insights/${post.slug}`}>
               {title}
             </Link>
@@ -246,13 +247,13 @@ function PostCard({ post }: { post: WPPost }) {
       </div>
 
       <div className="p-6 sm:p-7 pt-0 border-t border-black/5 mt-4 flex items-center justify-between">
-        <Link
+        <BlobButton
           href={`/insights/${post.slug}`}
-          className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#1B1411] group-hover:text-[#33CC7A] transition-colors"
+          size="sm"
+          icon="arrow-up-right"
         >
-          <span>Read Perspective</span>
-          <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </Link>
+          Read Article
+        </BlobButton>
       </div>
     </article>
   );

@@ -20,6 +20,7 @@ import {
   Calendar,
   Briefcase
 } from "lucide-react";
+import { BlobButton } from "@/components/ui/BlobButton";
 import type { Metadata } from "next";
 import "@/styles/portfolio.css";
 
@@ -96,7 +97,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
         <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
           <div className="flex flex-wrap items-center gap-2.5">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-[#1B1411] text-[11px] font-semibold border border-black/10 shadow-2xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
               {project.category}
             </span>
             <span className="px-3.5 py-1 rounded-full bg-white border border-black/10 text-[#1B1411] text-[11px] font-semibold shadow-2xs">
@@ -114,7 +115,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
           )}
         </div>
 
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light lg:font-normal tracking-[-0.035em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-[1.05] mb-6">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.035em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-[1.05] mb-6">
           {project.title}
         </h1>
 
@@ -155,10 +156,10 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
           <div className="case-split-grid">
             <div>
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF5F0] text-[#1B1411] text-[11px] font-semibold border border-black/10 mb-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
                 01 / Context
               </span>
-              <h2 className="text-2xl sm:text-3xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-tight">
+              <h2 className="text-2xl sm:text-3xl font-semibold sm:font-bold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-tight">
                 Client &amp; Project Overview
               </h2>
             </div>
@@ -206,16 +207,16 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
           <div className="case-split-grid">
             <div>
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF5F0] text-[#1B1411] text-[11px] font-semibold border border-black/10 mb-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
                 02 / Challenge
               </span>
-              <h2 className="text-2xl sm:text-3xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-tight">
+              <h2 className="text-2xl sm:text-3xl font-semibold sm:font-bold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-tight">
                 The Business Challenge
               </h2>
             </div>
 
             <div>
-              <div className="p-6 sm:p-8 bg-[#FAF5F0] rounded-2xl border-l-4 border-[#33CC7A] text-sm sm:text-base text-[#1B1411]/80 font-normal leading-relaxed">
+              <div className="p-6 sm:p-8 bg-[#FAF5F0] rounded-2xl border-l-4 border-[#CBFC6B] text-sm sm:text-base text-[#1B1411]/80 font-normal leading-relaxed">
                 {project.challenge}
               </div>
             </div>
@@ -227,10 +228,10 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
           <div className="case-split-grid">
             <div>
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF5F0] text-[#1B1411] text-[11px] font-semibold border border-black/10 mb-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
                 03 / Goals
               </span>
-              <h2 className="text-2xl sm:text-3xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-tight">
+              <h2 className="text-2xl sm:text-3xl font-semibold sm:font-bold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-tight">
                 Strategic Objectives
               </h2>
             </div>
@@ -256,10 +257,10 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
           <div className="case-split-grid">
             <div>
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF5F0] text-[#1B1411] text-[11px] font-semibold border border-black/10 mb-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
                 04 / Approach
               </span>
-              <h2 className="text-2xl sm:text-3xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-tight">
+              <h2 className="text-2xl sm:text-3xl font-semibold sm:font-bold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-tight">
                 Our Strategy &amp; Approach
               </h2>
             </div>
@@ -274,10 +275,10 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
           <div className="pt-8 border-t border-black/10 case-split-grid">
             <div>
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF5F0] text-[#1B1411] text-[11px] font-semibold border border-black/10 mb-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
                 05 / Solution
               </span>
-              <h2 className="text-2xl sm:text-3xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-tight">
+              <h2 className="text-2xl sm:text-3xl font-semibold sm:font-bold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-tight">
                 Solution &amp; Implementation
               </h2>
             </div>
@@ -298,7 +299,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
                       key={svc}
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#FAF5F0] border border-black/10 rounded-full text-xs font-semibold text-[#1B1411]"
                     >
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#33CC7A]" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#CBFC6B]" />
                       <span>{svc}</span>
                     </span>
                   ))}
@@ -313,15 +314,15 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
         {project.metrics && project.metrics.length > 0 && (
           <section className="bg-[#1B1411] text-white rounded-[1.75rem] sm:rounded-[2.25rem] p-8 sm:p-12 lg:p-16 shadow-xl border border-white/10 relative overflow-hidden">
             <div 
-              className="absolute -top-24 -right-24 w-80 h-80 bg-[#33CC7A]/10 rounded-full blur-3xl pointer-events-none" 
+              className="absolute -top-24 -right-24 w-80 h-80 bg-[#CBFC6B]/10 rounded-full blur-3xl pointer-events-none" 
               aria-hidden="true" 
             />
             <div className="relative z-10 max-w-2xl mb-10">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-[11px] font-semibold border border-white/10 mb-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
                 06 / Impact
               </span>
-              <h2 className="text-3xl sm:text-4xl font-light lg:font-normal tracking-[-0.03em] text-white [font-family:'Host_Grotesk',sans-serif] leading-tight">
+              <h2 className="text-3xl sm:text-4xl font-semibold sm:font-bold tracking-[-0.03em] text-white [font-family:'Host_Grotesk',sans-serif] leading-tight">
                 Measurable Business Results
               </h2>
               <p className="text-xs sm:text-sm text-white/70 mt-2">
@@ -332,7 +333,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
             <div className="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
               {project.metrics.map((metric, idx) => (
                 <div key={idx} className="p-6 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm">
-                  <div className="text-3xl sm:text-4xl font-semibold font-mono text-[#33CC7A] mb-2">
+                  <div className="text-3xl sm:text-4xl font-semibold font-mono text-[#CBFC6B] mb-2">
                     {metric.value}
                   </div>
                   <div className="text-xs text-white/70 font-medium">
@@ -350,16 +351,16 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
             <div className="flex items-center justify-between mb-8">
               <div>
                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-[#1B1411] text-[11px] font-semibold border border-black/10 shadow-2xs mb-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
                   07 / More Work
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif]">
+                <h2 className="text-2xl sm:text-3xl font-semibold sm:font-bold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif]">
                   Related Client Success Stories
                 </h2>
               </div>
               <Link
                 href="/work"
-                className="text-xs font-semibold text-[#1B1411] hover:text-[#33CC7A] hidden sm:inline-flex items-center gap-1 transition-colors"
+                className="text-xs font-semibold text-[#1B1411] hover:text-[#CBFC6B] hidden sm:inline-flex items-center gap-1 transition-colors"
               >
                 <span>View All Projects</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -392,7 +393,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
                       <div className="text-[11px] font-semibold uppercase tracking-wider text-[#1B1411]/50 mb-2">
                         {rel.clientName}
                       </div>
-                      <h3 className="text-lg font-semibold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-snug group-hover:text-[#33CC7A] transition-colors">
+                      <h3 className="text-lg font-semibold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-snug group-hover:text-[#CBFC6B] transition-colors">
                         <Link href={`/work/${rel.slug}`}>
                           {rel.title}
                         </Link>
@@ -406,7 +407,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
                   <div className="p-6 sm:p-8 pt-0">
                     <Link
                       href={`/work/${rel.slug}`}
-                      className="pt-4 border-t border-black/10 flex items-center justify-between text-xs font-semibold text-[#1B1411] group-hover:text-[#33CC7A] transition-colors"
+                      className="pt-4 border-t border-black/10 flex items-center justify-between text-xs font-semibold text-[#1B1411] group-hover:text-[#CBFC6B] transition-colors"
                     >
                       <span>Read The Story</span>
                       <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -421,12 +422,12 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
         {/* 08 / CONTACT CTA STRIP */}
         <div className="p-8 sm:p-14 bg-[#1B1411] text-white rounded-[1.75rem] sm:rounded-[2.25rem] flex flex-col sm:flex-row sm:items-center justify-between gap-6 shadow-xl border border-white/10 relative overflow-hidden">
           <div 
-            className="absolute -top-24 -right-24 w-80 h-80 bg-[#33CC7A]/10 rounded-full blur-3xl pointer-events-none" 
+            className="absolute -top-24 -right-24 w-80 h-80 bg-[#CBFC6B]/10 rounded-full blur-3xl pointer-events-none" 
             aria-hidden="true" 
           />
           <div className="relative z-10">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-[11px] font-semibold border border-white/10 mb-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
               Ready to create measurable impact?
             </span>
             <h3 className="text-xl sm:text-3xl font-semibold tracking-[-0.03em] text-white [font-family:'Host_Grotesk',sans-serif] leading-tight">
@@ -438,13 +439,13 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
           </div>
 
           <div className="relative z-10 flex flex-wrap items-center gap-3 shrink-0">
-            <Link
+            <BlobButton
               href="/contact"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#33CC7A] text-[#1B1411] text-xs font-semibold rounded-full hover:bg-[#28a764] transition-all hover:scale-105 shadow-md portfolio-focus-ring"
+              size="md"
+              icon="arrow-up-right"
             >
-              <span>Start A Conversation</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
+              Start A Conversation
+            </BlobButton>
 
             <Link
               href="/work"

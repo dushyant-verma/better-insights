@@ -38,16 +38,16 @@ export function CultureStats() {
     >
       {/* Background Accent Glow */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[radial-gradient(circle,rgba(52,204,123,0.1)_0%,transparent_70%)] blur-[120px] pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[radial-gradient(circle,rgba(203, 252, 107,0.1)_0%,transparent_70%)] blur-[120px] pointer-events-none"
         aria-hidden="true"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-2xl mb-12 sm:mb-16">
-          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#34CC7B] block mb-3">
+          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#CBFC6B] block mb-3">
             Impact &amp; Growth
           </span>
-          <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-white leading-tight [font-family:'Host_Grotesk',sans-serif]">
+          <h2 className="text-3xl sm:text-5xl font-semibold sm:font-bold tracking-[-0.03em] text-white leading-tight [font-family:'Host_Grotesk',sans-serif]">
             Culture by the numbers.
           </h2>
           <p className="mt-3 text-sm sm:text-base text-[#A5A5A5] font-normal leading-relaxed">
@@ -63,14 +63,14 @@ export function CultureStats() {
             return (
               <div
                 key={i}
-                className="group p-8 rounded-[1.75rem] bg-[#15151A] border border-white/10 hover:border-[#34CC7B]/40 hover:bg-[#191920] transition-all duration-300 flex flex-col justify-between shadow-xl"
+                className="group p-8 rounded-[1.75rem] bg-[#15151A] border border-white/10 hover:border-[#CBFC6B]/40 hover:bg-[#191920] transition-all duration-300 flex flex-col justify-between shadow-xl"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <span className="text-4xl sm:text-5xl font-semibold text-white tracking-tight [font-family:'Host_Grotesk',sans-serif] group-hover:text-[#34CC7B] transition-colors">
+                    <span className="text-4xl sm:text-5xl font-semibold text-white tracking-tight [font-family:'Host_Grotesk',sans-serif] group-hover:text-[#CBFC6B] transition-colors">
                       {stat.number}
                     </span>
-                    <div className="w-10 h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#34CC7B] group-hover:scale-110 transition-transform">
+                    <div className="w-10 h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#CBFC6B] group-hover:scale-110 transition-transform">
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
@@ -83,7 +83,7 @@ export function CultureStats() {
                 </div>
 
                 <div className="pt-6 mt-6 border-t border-white/5 flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#34CC7B]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
                   <span className="text-[10px] uppercase font-bold tracking-wider text-white/50">
                     Verified BI Record
                   </span>

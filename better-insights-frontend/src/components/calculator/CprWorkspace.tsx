@@ -170,7 +170,7 @@ export function CprWorkspace() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 mb-10 border-b border-black/10">
           <div>
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-[#1B1411] text-[11px] font-semibold border border-black/10 shadow-2xs mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
               Campaign Modeling
             </span>
             <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif]">
@@ -207,7 +207,7 @@ export function CprWorkspace() {
               onClick={handleLoadSample}
               className="inline-flex items-center gap-1.5 px-4 py-2 bg-white hover:bg-[#1B1411] hover:text-white text-[#1B1411] text-xs font-semibold rounded-full transition-all border border-black/10 shadow-2xs cpr-focus-ring"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#33CC7A]" />
+              <Sparkles className="w-3.5 h-3.5 text-[#CBFC6B]" />
               <span>Load Sample</span>
             </button>
 
@@ -276,14 +276,14 @@ export function CprWorkspace() {
                     placeholder="e.g. Brand Intent"
                     value={kw.name}
                     onChange={(e) => handleUpdateField(kw.id, "name", e.target.value)}
-                    className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/15 rounded-xl text-xs font-medium text-[#1B1411] placeholder-black/30 focus:outline-none focus:border-[#33CC7A] transition-colors cpr-focus-ring"
+                    className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/15 rounded-xl text-xs font-medium text-[#1B1411] placeholder-black/30 focus:outline-none focus:border-[#CBFC6B] transition-colors cpr-focus-ring"
                   />
                 </div>
 
                 {/* 2. Search Volume */}
                 <div className="lg:col-span-1">
                   <label htmlFor={`volume-${kw.id}`} className="block text-[10px] font-semibold uppercase tracking-wider text-[#1B1411]/60 mb-2">
-                    Search Volume <span className="text-[#33CC7A] font-bold">*</span>
+                    Search Volume <span className="text-[#CBFC6B] font-bold">*</span>
                   </label>
                   <input
                     type="number"
@@ -293,14 +293,14 @@ export function CprWorkspace() {
                     placeholder="10,000"
                     value={kw.searchVolume}
                     onChange={(e) => handleUpdateField(kw.id, "searchVolume", e.target.value === "" ? "" : Number(e.target.value))}
-                    className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/15 rounded-xl text-xs font-mono font-medium text-[#1B1411] placeholder-black/30 focus:outline-none focus:border-[#33CC7A] transition-colors cpr-focus-ring"
+                    className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/15 rounded-xl text-xs font-mono font-medium text-[#1B1411] placeholder-black/30 focus:outline-none focus:border-[#CBFC6B] transition-colors cpr-focus-ring"
                   />
                 </div>
 
                 {/* 3. CPC */}
                 <div className="lg:col-span-1">
                   <label htmlFor={`cpc-${kw.id}`} className="block text-[10px] font-semibold uppercase tracking-wider text-[#1B1411]/60 mb-2">
-                    CPC ({activeCurrency.symbol}) <span className="text-[#33CC7A] font-bold">*</span>
+                    CPC ({activeCurrency.symbol}) <span className="text-[#CBFC6B] font-bold">*</span>
                   </label>
                   <input
                     type="number"
@@ -310,7 +310,7 @@ export function CprWorkspace() {
                     placeholder="15.50"
                     value={kw.cpc}
                     onChange={(e) => handleUpdateField(kw.id, "cpc", e.target.value === "" ? "" : Number(e.target.value))}
-                    className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/15 rounded-xl text-xs font-mono font-medium text-[#1B1411] placeholder-black/30 focus:outline-none focus:border-[#33CC7A] transition-colors cpr-focus-ring"
+                    className="w-full px-4 py-3 bg-[#FAF5F0] border border-black/15 rounded-xl text-xs font-mono font-medium text-[#1B1411] placeholder-black/30 focus:outline-none focus:border-[#CBFC6B] transition-colors cpr-focus-ring"
                   />
                 </div>
 
@@ -327,7 +327,7 @@ export function CprWorkspace() {
                     step="0.1"
                     value={kw.ctr}
                     onChange={(e) => handleUpdateField(kw.id, "ctr", Number(e.target.value))}
-                    className="w-full cpr-slider cursor-pointer py-2 accent-[#33CC7A]"
+                    className="w-full cpr-slider cursor-pointer py-2 accent-[#CBFC6B]"
                   />
                 </div>
 
@@ -344,7 +344,7 @@ export function CprWorkspace() {
                     step="0.5"
                     value={kw.conversionRate}
                     onChange={(e) => handleUpdateField(kw.id, "conversionRate", Number(e.target.value))}
-                    className="w-full cpr-slider cursor-pointer py-2 accent-[#33CC7A]"
+                    className="w-full cpr-slider cursor-pointer py-2 accent-[#CBFC6B]"
                   />
                 </div>
 
@@ -373,7 +373,7 @@ export function CprWorkspace() {
                   </div>
                   <div className="p-3 bg-[#1B1411] text-white rounded-xl shadow-sm">
                     <span className="text-[9px] uppercase font-bold text-white/50 block">Effective CPR</span>
-                    <span className="text-sm font-bold font-mono text-[#33CC7A] mt-0.5 block">
+                    <span className="text-sm font-bold font-mono text-[#CBFC6B] mt-0.5 block">
                       {activeCurrency.symbol}{kw.results.cpr.toFixed(2)}
                     </span>
                   </div>
@@ -387,7 +387,7 @@ export function CprWorkspace() {
             <button
               type="button"
               onClick={handleAddKeyword}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white text-[#1B1411] border border-black/15 text-xs font-semibold rounded-full hover:border-[#33CC7A] transition-all shadow-2xs cpr-focus-ring"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white text-[#1B1411] border border-black/15 text-xs font-semibold rounded-full hover:border-[#CBFC6B] transition-all shadow-2xs cpr-focus-ring"
             >
               <Plus className="w-4 h-4" />
               <span>Add Keyword</span>
@@ -396,7 +396,7 @@ export function CprWorkspace() {
             <button
               type="submit"
               disabled={isCalculating}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#33CC7A] text-[#1B1411] text-xs font-semibold rounded-full hover:bg-[#28a764] transition-all shadow-md hover:scale-[1.02] cpr-focus-ring disabled:opacity-50"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#CBFC6B] text-[#1B1411] text-xs font-semibold rounded-full hover:bg-[#CBFC6B] transition-all shadow-md hover:scale-[1.02] cpr-focus-ring disabled:opacity-50"
             >
               <Calculator className="w-4 h-4" />
               <span>{isCalculating ? "Calculating..." : "Calculate All Results"}</span>

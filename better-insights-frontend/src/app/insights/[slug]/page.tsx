@@ -5,8 +5,10 @@ import { notFound } from "next/navigation";
 import { getPostBySlug, getPosts } from "@/lib/wordpress/api";
 import { resolvePostImageUrl } from "@/lib/wordpress/images";
 import { ReadingProgress } from "@/components/insights/ReadingProgress";
-import { TableOfContents, TOCItem } from "@/components/insights/TableOfContents";
-import { ShareButtons } from "@/components/insights/ShareButtons";
+import { SingleBlogHero } from "@/components/insights/SingleBlogHero";
+import { BlogTableOfContents, TOCItem } from "@/components/insights/BlogTableOfContents";
+import { BlogSocialShare } from "@/components/insights/BlogSocialShare";
+import { BlogArticleContent } from "@/components/insights/BlogArticleContent";
 import { 
   Calendar, 
   User, 
@@ -17,6 +19,7 @@ import {
   Sparkles,
   BookOpen
 } from "lucide-react";
+import { BlobButton } from "@/components/ui/BlobButton";
 import type { Metadata } from "next";
 import "@/styles/insights.css";
 
@@ -181,6 +184,13 @@ export default async function InsightDetailPage({
 
   const articleUrl = `https://betterinsights.in/insights/${slug}`;
 
+  const rawAuthor = post._embedded?.author?.[0];
+  const authorPayload = {
+    name: rawAuthor?.name || authorName,
+    role: rawAuthor?.description || "",
+    image: rawAuthor?.avatar_urls?.["96"] || rawAuthor?.avatar_urls?.["48"] || "",
+  };
+
   return (
     <>
       {/* Pinned Reading Progress Bar */}
@@ -192,183 +202,87 @@ export default async function InsightDetailPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <article className="min-h-screen bg-[linear-gradient(180deg,#FAF8F5_0%,#FAF8F5_28%,#FAF5F0_100%)] text-[#1B1411] select-none pt-28 sm:pt-36 pb-24 relative overflow-hidden">
-        {/* Ambient Subtle Radial Glow */}
+      <article className="min-h-screen bg-[#0E0F10] text-[#E5E5E5] select-none pb-24 relative">
+        {/* Ambient Subtle Lime Glow in Background */}
         <div
-          className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-[radial-gradient(circle,rgba(52,204,123,0.07)_0%,transparent_70%)] blur-[120px] rounded-full pointer-events-none"
+          className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-[radial-gradient(circle,rgba(203,252,107,0.06)_0%,transparent_70%)] blur-[140px] rounded-full pointer-events-none"
           aria-hidden="true"
         />
-        
-        {/* Breadcrumb Navigation & Top Metadata */}
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-          <nav aria-label="Breadcrumb" className="mb-6">
-            <ol className="flex flex-wrap items-center gap-1.5 text-xs text-[#1B1411]/50 font-mono">
-              <li>
-                <Link href="/" className="hover:text-[#1B1411] transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li aria-hidden="true">
-                <ChevronRight className="w-3.5 h-3.5" />
-              </li>
-              <li>
-                <Link href="/insights" className="hover:text-[#1B1411] transition-colors">
-                  Insights
-                </Link>
-              </li>
-              {categorySlug && (
-                <>
-                  <li aria-hidden="true">
-                    <ChevronRight className="w-3.5 h-3.5" />
-                  </li>
-                  <li>
-                    <Link
-                      href={`/insights?category=${categorySlug}`}
-                      className="hover:text-[#1B1411] transition-colors"
-                    >
-                      {categoryName.replace(/&amp;/g, "&")}
-                    </Link>
-                  </li>
-                </>
-              )}
-            </ol>
-          </nav>
 
-          <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-black/10">
-            <Link
-              href="/insights"
-              className="inline-flex items-center gap-2 text-xs font-semibold text-[#1B1411]/70 hover:text-[#1B1411] transition-colors bi-focus-ring"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span>Back to All Insights</span>
-            </Link>
+        {/* 1. Asymmetric MadeByShape-style Hero Section with Organic Blob Cut-out */}
+        <SingleBlogHero
+          title={rawTitle}
+          featuredImage={featuredImage}
+          readTime={readTime}
+          categoryName={categoryName}
+          categorySlug={categorySlug}
+          date={post.date}
+          author={authorPayload}
+          articleUrl={articleUrl}
+        />
 
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-[#1B1411] text-[11px] font-semibold border border-black/10 shadow-2xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
-                {categoryName.replace(/&amp;/g, "&")}
-              </span>
-              <ShareButtons url={articleUrl} title={displayTitle} />
-            </div>
-          </div>
-        </div>
-
-        {/* Article Header */}
-        <header className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
-          <h1
-            className="text-3xl sm:text-5xl lg:text-6xl font-light lg:font-normal tracking-[-0.035em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-[1.05] mb-6"
-            dangerouslySetInnerHTML={{ __html: rawTitle }}
-          />
-
-          {rawExcerpt && (
-            <p className="text-base sm:text-xl text-[#1B1411]/70 font-normal leading-relaxed mb-8 max-w-3xl border-l-2 border-[#33CC7A] pl-4">
-              {rawExcerpt}
-            </p>
-          )}
-
-          {/* Metadata Row */}
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-[#1B1411]/60 pt-4">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-full bg-[#1B1411] text-white text-[10px] font-semibold flex items-center justify-center">
-                BI
-              </div>
-              <span className="font-semibold text-[#1B1411]/80">{authorName}</span>
-            </div>
-
-            <div className="flex items-center gap-1.5 font-mono">
-              <Calendar className="w-3.5 h-3.5 text-black/40" />
-              <time dateTime={post.date}>{dateFormatted}</time>
-            </div>
-
-            <div className="flex items-center gap-1.5 font-mono">
-              <Clock className="w-3.5 h-3.5 text-black/40" />
-              <span>{readTime} min read</span>
-            </div>
-          </div>
-        </header>
-
-        {/* Featured Image */}
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-14">
-          <div className="relative aspect-[16/9] w-full rounded-[1.75rem] overflow-hidden bg-black/5 border border-black/10 shadow-xl">
-            <Image
-              src={featuredImage}
-              alt={displayTitle}
-              fill
-              priority
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 1100px"
-            />
-          </div>
-        </div>
-
-        {/* Main Content Area with Table of Contents Layout */}
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-start gap-12">
+        {/* 2. Main 3-Column Editorial Content Area (Reference: MadeByShape) */}
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mt-10 lg:mt-16">
+          <div className="flex flex-col lg:flex-row items-start justify-between gap-8 lg:gap-12 xl:gap-16 relative">
             
             {/* Left Column: Sticky Table of Contents */}
-            {tocItems.length >= 2 && <TableOfContents items={tocItems} />}
+            {tocItems.length >= 1 ? (
+              <aside className="w-full lg:w-64 xl:w-72 shrink-0 lg:sticky lg:top-28 lg:self-start z-10">
+                <BlogTableOfContents items={tocItems} readTime={readTime} />
+              </aside>
+            ) : null}
 
-            {/* Right Column: Article Prose */}
-            <div className="flex-1 w-full max-w-3xl">
-              <div
-                className="bg-white rounded-[1.75rem] p-7 sm:p-12 lg:p-14 border border-black/10 shadow-2xs bi-prose"
-                dangerouslySetInnerHTML={{ __html: processedHtml }}
+            {/* Centre Column: Main Blog Article Content */}
+            <main className="w-full flex-1 max-w-3xl lg:max-w-[760px] xl:max-w-[800px]">
+              <BlogArticleContent
+                html={processedHtml}
+                date={post.date}
+                excerpt={rawExcerpt}
+                author={authorPayload}
               />
 
-              {/* Author / Consultancy Footer Card */}
-              <div className="mt-12 p-8 bg-white rounded-[1.75rem] border border-black/10 shadow-2xs flex flex-col sm:flex-row items-center sm:items-start gap-6">
-                <div className="w-16 h-16 rounded-full bg-[#1B1411] text-white flex items-center justify-center font-bold text-xl shrink-0 shadow-md">
-                  BI
-                </div>
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#1B1411]/40">
-                      Author Profile
-                    </span>
-                  </div>
-                  <h4 className="text-base font-semibold tracking-tight text-[#1B1411] [font-family:'Host_Grotesk',sans-serif]">
-                    Published by {authorName}
-                  </h4>
-                  <p className="text-xs sm:text-sm text-[#1B1411]/60 mt-2 leading-relaxed">
-                    Better Insights is an artificial intelligence, digital growth strategy, and engineering consultancy helping forward-thinking enterprises design and scale what&apos;s next.
-                  </p>
-                </div>
-              </div>
-
               {/* Article Bottom Actions */}
-              <div className="mt-8 flex items-center justify-between pb-8 border-b border-black/10">
+              <div className="mt-12 flex flex-wrap items-center justify-between gap-4 pb-8 border-b border-white/10">
                 <Link
                   href="/insights"
-                  className="inline-flex items-center gap-2 text-xs font-semibold text-[#1B1411] hover:text-[#33CC7A] transition-colors bi-focus-ring"
+                  className="inline-flex items-center gap-2 text-xs font-semibold text-neutral-300 hover:text-[#CBFC6B] transition-colors bi-focus-ring"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   <span>Browse All Articles</span>
                 </Link>
 
-                <ShareButtons url={articleUrl} title={displayTitle} />
+                {/* Mobile / Tablet Horizontal Social Share Bar */}
+                <div className="block lg:hidden">
+                  <BlogSocialShare url={articleUrl} title={displayTitle} layout="horizontal" />
+                </div>
               </div>
-            </div>
+            </main>
+
+            {/* Right Column: Sticky Social Sharing Icons (Desktop) */}
+            <aside className="hidden lg:block w-12 xl:w-16 shrink-0 lg:sticky lg:top-28 lg:self-start z-10">
+              <BlogSocialShare url={articleUrl} title={displayTitle} layout="vertical" />
+            </aside>
 
           </div>
         </div>
 
-        {/* Related Articles Section */}
+        {/* 3. Related Articles Section */}
         {relatedPosts.length > 0 && (
-          <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 pt-16 border-t border-black/10">
+          <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mt-24 pt-16 border-t border-white/10">
             <div className="flex items-center justify-between mb-8">
               <div>
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-[#1B1411] text-[11px] font-semibold border border-black/10 shadow-2xs mb-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 text-[#CBFC6B] text-[11px] font-semibold border border-white/10 mb-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
                   Keep Exploring
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-semibold tracking-[-0.03em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif]">
+                <h3 className="text-2xl sm:text-3xl font-semibold tracking-[-0.03em] text-white [font-family:'Host_Grotesk',sans-serif]">
                   Related Perspectives
                 </h3>
               </div>
 
               <Link
                 href="/insights"
-                className="text-xs font-semibold text-[#1B1411] hover:text-[#33CC7A] transition-colors flex items-center gap-1"
+                className="text-xs font-semibold text-neutral-300 hover:text-[#CBFC6B] transition-colors flex items-center gap-1"
               >
                 <span>View Archive</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -388,10 +302,10 @@ export default async function InsightDetailPage({
                   <Link
                     key={rel.id}
                     href={`/insights/${rel.slug}`}
-                    className="bi-insight-card bg-white rounded-[1.75rem] border border-black/10 overflow-hidden shadow-2xs hover:shadow-xl hover:border-black/20 transition-all flex flex-col justify-between group"
+                    className="bi-insight-card bg-[#141518] rounded-[1.75rem] border border-white/10 overflow-hidden shadow-xl hover:shadow-2xl hover:border-[#CBFC6B]/40 transition-all flex flex-col justify-between group"
                   >
                     <div>
-                      <div className="relative aspect-[16/10] w-full bg-black/5 overflow-hidden">
+                      <div className="relative aspect-[16/10] w-full bg-neutral-900 overflow-hidden">
                         <Image
                           src={relImage}
                           alt={relTitle}
@@ -400,20 +314,20 @@ export default async function InsightDetailPage({
                           sizes="(max-width: 768px) 100vw, 33vw"
                         />
                         <div className="absolute top-3 left-3">
-                          <span className="px-2.5 py-0.5 bg-white/95 text-[#1B1411] text-[9px] font-semibold rounded-full shadow-sm">
+                          <span className="px-2.5 py-0.5 bg-black/70 backdrop-blur-md text-[#CBFC6B] text-[10px] font-semibold rounded-full border border-white/10">
                             {relCat.replace(/&amp;/g, "&")}
                           </span>
                         </div>
                       </div>
 
                       <div className="p-5">
-                        <h4 className="text-sm font-semibold tracking-[-0.02em] text-[#1B1411] [font-family:'Host_Grotesk',sans-serif] leading-snug group-hover:text-[#33CC7A] transition-colors line-clamp-2">
+                        <h4 className="text-sm font-semibold tracking-[-0.02em] text-white [font-family:'Host_Grotesk',sans-serif] leading-snug group-hover:text-[#CBFC6B] transition-colors line-clamp-2">
                           {relTitle}
                         </h4>
                       </div>
                     </div>
 
-                    <div className="px-5 pb-5 pt-1 flex items-center justify-between text-[11px] font-semibold text-[#1B1411] group-hover:text-[#33CC7A] transition-colors">
+                    <div className="px-5 pb-5 pt-1 flex items-center justify-between text-[11px] font-semibold text-neutral-400 group-hover:text-[#CBFC6B] transition-colors">
                       <span>Read Article</span>
                       <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </div>
@@ -424,33 +338,33 @@ export default async function InsightDetailPage({
           </section>
         )}
 
-        {/* Bottom Conversion / Consultation CTA */}
-        <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
-          <div className="bg-[#1B1411] text-white rounded-[1.75rem] sm:rounded-[2.25rem] p-8 sm:p-12 lg:p-16 border border-white/10 shadow-xl relative overflow-hidden">
+        {/* 4. Bottom Conversion / Consultation CTA */}
+        <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mt-24">
+          <div className="bg-gradient-to-br from-[#16171B] to-[#0E0F10] text-white rounded-[1.75rem] sm:rounded-[2.25rem] p-8 sm:p-12 lg:p-16 border border-white/10 shadow-2xl relative overflow-hidden">
             <div 
-              className="absolute -top-24 -right-24 w-80 h-80 bg-[#33CC7A]/10 rounded-full blur-3xl pointer-events-none" 
+              className="absolute -top-24 -right-24 w-80 h-80 bg-[#CBFC6B]/10 rounded-full blur-3xl pointer-events-none" 
               aria-hidden="true" 
             />
             
             <div className="relative z-10 max-w-2xl">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-[11px] font-semibold border border-white/10 mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
                 Let&apos;s Build What&apos;s Next
               </span>
               <h3 className="text-2xl sm:text-4xl font-semibold tracking-[-0.03em] text-white [font-family:'Host_Grotesk',sans-serif] leading-tight mb-4">
                 Ready to translate strategic insights into measurable growth?
               </h3>
-              <p className="text-xs sm:text-sm text-white/70 leading-relaxed font-normal mb-8">
+              <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed font-normal mb-8">
                 Connect with our team to discuss how AI automation, modern architecture, and customer conversion strategy can transform your business.
               </p>
               
-              <Link
+              <BlobButton
                 href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#33CC7A] text-[#1B1411] text-xs font-semibold rounded-full hover:bg-[#28a764] hover:gap-3 transition-all shadow-md bi-focus-ring"
+                size="md"
+                icon="arrow-up-right"
               >
-                <span>Start a Conversation</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
+                Start a Conversation
+              </BlobButton>
             </div>
           </div>
         </section>

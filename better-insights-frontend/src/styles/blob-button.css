@@ -1,0 +1,216 @@
+/* ==========================================================================
+   Global MadeByShape-Inspired CTA Button & Detachable Blob Hover Animation
+   ========================================================================== */
+
+.bi-blob-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+}
+
+.bi-blob-btn:disabled,
+.bi-blob-btn[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Gooey filter container: fuses the text pill with the resting circle blob */
+.bi-blob-btn-filter {
+  display: inline-flex;
+  align-items: center;
+  filter: url(#biButtonFilter);
+  isolation: isolate;
+}
+
+/* Main Pill containing button label */
+.bi-blob-btn-pill {
+  background-color: #CBFC6B !important;
+  color: #111113 !important;
+  font-family: 'Host Grotesk', var(--font-noto-sans), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+/* Detachable Circle Blob */
+.bi-blob-btn-blob {
+  background-color: #CBFC6B !important;
+  border-radius: 9999px;
+  flex-shrink: 0;
+  transform: translateX(0);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s ease;
+}
+
+/* Arrow Wrapper sits outside the SVG filter to keep the icon crisp and pixel-sharp */
+.bi-blob-btn-arrow-wrap {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) translateX(0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  color: #111113 !important;
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bi-blob-btn-arrow-icon {
+  display: block;
+  stroke-width: 2.5;
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   Hover Animation: Detach Blob & Animate Arrow Icon
+   ========================================================================== */
+
+.bi-blob-btn:hover .bi-blob-btn-blob {
+  transform: translateX(var(--bi-blob-offset, 0.65rem));
+}
+
+.bi-blob-btn:hover .bi-blob-btn-arrow-wrap {
+  transform: translateY(-50%) translateX(var(--bi-blob-offset, 0.65rem));
+}
+
+.bi-blob-btn:hover .bi-blob-btn-arrow-icon {
+  transform: rotate(var(--bi-arrow-rotate, 45deg));
+}
+
+.bi-blob-btn[data-arrow="down"]:hover .bi-blob-btn-arrow-icon {
+  transform: translateY(3px);
+}
+
+.bi-blob-btn[data-arrow="right"]:hover .bi-blob-btn-arrow-icon {
+  transform: translateX(3px);
+}
+
+.bi-blob-btn:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================================================
+   Size Variants
+   ========================================================================== */
+
+/* Medium / Default (Matching Header CTA) */
+.bi-blob-btn--md {
+  --bi-blob-offset: 0.65rem;
+  --bi-arrow-rotate: 45deg;
+}
+.bi-blob-btn--md .bi-blob-btn-pill {
+  font-size: 0.875rem;
+  line-height: 1.25;
+  padding: 0.55rem 1.15rem 0.55rem 1.35rem;
+}
+.bi-blob-btn--md .bi-blob-btn-blob {
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-left: -0.5rem;
+}
+.bi-blob-btn--md .bi-blob-btn-arrow-wrap {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+.bi-blob-btn--md .bi-blob-btn-arrow-icon {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+/* Large / Hero & Main CTAs */
+.bi-blob-btn--lg {
+  --bi-blob-offset: 0.75rem;
+  --bi-arrow-rotate: 45deg;
+}
+.bi-blob-btn--lg .bi-blob-btn-pill {
+  font-size: 0.9375rem;
+  line-height: 1.25;
+  padding: 0.75rem 1.45rem 0.75rem 1.65rem;
+  font-weight: 600;
+}
+.bi-blob-btn--lg .bi-blob-btn-blob {
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-left: -0.6rem;
+}
+.bi-blob-btn--lg .bi-blob-btn-arrow-wrap {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+.bi-blob-btn--lg .bi-blob-btn-arrow-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+/* Small / Compact Cards & Secondary CTAs */
+.bi-blob-btn--sm {
+  --bi-blob-offset: 0.5rem;
+  --bi-arrow-rotate: 45deg;
+}
+.bi-blob-btn--sm .bi-blob-btn-pill {
+  font-size: 0.8125rem;
+  line-height: 1.2;
+  padding: 0.45rem 0.95rem 0.45rem 1.1rem;
+  font-weight: 600;
+}
+.bi-blob-btn--sm .bi-blob-btn-blob {
+  width: 1.95rem;
+  height: 1.95rem;
+  margin-left: -0.45rem;
+}
+.bi-blob-btn--sm .bi-blob-btn-arrow-wrap {
+  width: 1.95rem;
+  height: 1.95rem;
+}
+.bi-blob-btn--sm .bi-blob-btn-arrow-icon {
+  width: 0.85rem;
+  height: 0.85rem;
+}
+
+/* Full Width (Mobile Drawer / Forms) */
+.bi-blob-btn--full {
+  width: 100%;
+}
+.bi-blob-btn--full .bi-blob-btn-filter {
+  width: 100%;
+}
+.bi-blob-btn--full .bi-blob-btn-pill {
+  flex: 1;
+  justify-content: center;
+}
+
+/* Loading State */
+.bi-blob-btn.is-loading {
+  cursor: wait;
+}
+.bi-blob-btn.is-loading .bi-blob-btn-arrow-icon {
+  animation: bi-spin 1s linear infinite;
+}
+
+@keyframes bi-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

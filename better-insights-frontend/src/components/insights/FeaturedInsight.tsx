@@ -6,6 +6,7 @@ import Link from "next/link";
 import { WPPost } from "@/types/wordpress";
 import { ArrowUpRight, Calendar, Clock, Sparkles } from "lucide-react";
 import { resolvePostImageUrl } from "@/lib/wordpress/images";
+import { BlobButton } from "@/components/ui/BlobButton";
 
 interface FeaturedInsightProps {
   post: WPPost;
@@ -43,7 +44,7 @@ export function FeaturedInsight({ post }: FeaturedInsightProps) {
         
         {/* Section Header Eyebrow */}
         <div className="flex items-center gap-2 mb-6">
-          <Sparkles className="w-4 h-4 text-[#33CC7A]" />
+          <Sparkles className="w-4 h-4 text-[#CBFC6B]" />
           <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#66574F]">
             Featured Perspective
           </span>
@@ -89,7 +90,7 @@ export function FeaturedInsight({ post }: FeaturedInsightProps) {
                 </div>
 
                 {/* Title */}
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight group-hover:text-[#33CC7A] transition-colors [font-family:'Host_Grotesk',sans-serif]">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold sm:font-bold tracking-[-0.03em] text-[#1B1411] leading-tight group-hover:text-[#CBFC6B] transition-colors [font-family:'Host_Grotesk',sans-serif]">
                   <Link href={`/insights/${post.slug}`}>
                     {title}
                   </Link>
@@ -109,13 +110,13 @@ export function FeaturedInsight({ post }: FeaturedInsightProps) {
 
               {/* Action Link */}
               <div className="mt-8 pt-6 border-t border-black/8 flex items-center justify-between">
-                <Link
+                <BlobButton
                   href={`/insights/${post.slug}`}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#33CC7A] text-[#1B1411] text-xs font-bold uppercase tracking-wider rounded-full hover:bg-[#2BB86D] transition-all shadow-sm"
+                  size="md"
+                  icon="arrow-up-right"
                 >
-                  <span>Read Article</span>
-                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </Link>
+                  Read Article
+                </BlobButton>
                 <span className="text-[11px] font-semibold text-[#66574F] uppercase tracking-wider">
                   Full Analysis &rarr;
                 </span>

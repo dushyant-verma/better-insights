@@ -77,7 +77,15 @@ const TEAM_TESTIMONIALS: TeamTestimonial[] = [
   },
 ];
 
-export function CultureTeamSlider() {
+interface CultureTeamSliderProps {
+  showLifeIntro?: boolean;
+  className?: string;
+}
+
+export function CultureTeamSlider({
+  showLifeIntro = false,
+  className = "",
+}: CultureTeamSliderProps = {}) {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const activeMember = TEAM_TESTIMONIALS[activeIndex];
 
@@ -142,12 +150,43 @@ export function CultureTeamSlider() {
     <section
       ref={sectionRef}
       id="culture-team-testimonials"
-      className="py-20 sm:py-28 lg:py-32 bg-[#0B0B0D] text-white border-t border-white/8 relative overflow-hidden select-none"
+      className={`py-20 sm:py-28 lg:py-32 bg-[#0E0F10] text-white relative overflow-hidden select-none ${className}`}
       aria-label="Our Team Testimonials"
       onKeyDown={handleKeyDown}
       tabIndex={0}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* ================================================================= */}
+        {/* 0. Introductory Two-Column Section (When showLifeIntro is true)  */}
+        {/* ================================================================= */}
+        {showLifeIntro && (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start mb-20 sm:mb-24 lg:mb-28">
+            {/* Left Column: Eyebrow + Large Heading */}
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 mb-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-white/90" />
+                <span className="text-sm font-light text-white/90 tracking-wide [font-family:'Host_Grotesk',sans-serif]">
+                  Life at Better Insights
+                </span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-medium tracking-[-0.03em] text-white leading-[1.08] [font-family:'Host_Grotesk',sans-serif]">
+                A home away from home, a place where you can be who you want to be
+              </h2>
+            </div>
+
+            {/* Right Column: Two Editorial Paragraphs */}
+            <div className="lg:col-span-5 lg:pt-4 space-y-4 sm:space-y-5 text-sm sm:text-base text-white/70 leading-relaxed font-normal">
+              <p>
+                We want all our team members to feel comfortable with whom they work with, in the environment they work, and with the clients we collaborate with. Our staff are trusted on their capabilities, and are given freedom to be creative.
+              </p>
+              <p>
+                Better Insights is a family of humans who are talented, trustworthy, and experienced. We give honest advice to clients, and honest feedback internally to help our quality of work reach new levels each year.
+              </p>
+            </div>
+          </div>
+        )}
+
         {/* ================================================================= */}
         {/* 1. Section Header (Center-Aligned)                                */}
         {/* ================================================================= */}
@@ -161,7 +200,7 @@ export function CultureTeamSlider() {
           </div>
 
           {/* Main Display Heading */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[50px] font-normal tracking-[-0.03em] text-white leading-[1.12] [font-family:'Host_Grotesk',sans-serif] text-balance">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[50px] font-semibold tracking-[-0.03em] text-white leading-[1.12] [font-family:'Host_Grotesk',sans-serif] text-balance">
             Don&apos;t take our word for it, hear it from them
           </h2>
         </div>
@@ -171,7 +210,7 @@ export function CultureTeamSlider() {
         {/* ================================================================= */}
         <div
           ref={cardRef}
-          className="relative w-full bg-[#34CC7B] text-[#101112] rounded-[24px] sm:rounded-[32px] lg:rounded-[36px] p-6 sm:p-10 lg:p-12 xl:p-14 shadow-[0_30px_70px_rgba(52,204,123,0.25)] overflow-hidden"
+          className="relative w-full bg-[#CBFC6B] text-[#101112] rounded-[24px] sm:rounded-[32px] lg:rounded-[36px] p-6 sm:p-10 lg:p-12 xl:p-14 shadow-[0_30px_70px_rgba(203, 252, 107,0.25)] overflow-hidden"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
             {/* ------------------------------------------------------------- */}
@@ -258,6 +297,16 @@ export function CultureTeamSlider() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 35vw"
                   className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                 />
+
+                {/* Circular Play Button matching MadeByShape reference */}
+                <div
+                  className="absolute bottom-4 right-4 sm:bottom-5 sm:right-5 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#CBFC6B] text-[#101112] flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 pointer-events-none"
+                  aria-hidden="true"
+                >
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 fill-current ml-0.5" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
               </div>
             </div>
           </div>

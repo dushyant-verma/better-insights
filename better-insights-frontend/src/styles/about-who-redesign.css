@@ -34,7 +34,7 @@
   width: 6px;
   height: 6px;
   border-radius: 9999px;
-  background-color: #33CC7A;
+  background-color: #CBFC6B;
 }
 
 .who-hero-card {
@@ -99,13 +99,13 @@
 }
 
 .who-culture-testimonial-card {
-  background-color: #C7FF65;
+  background-color: #CBFC6B;
   color: #101112;
   border-radius: 1.75rem;
   padding: 2.25rem 2rem;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 20px 45px -10px rgba(199, 255, 101, 0.22);
+  box-shadow: 0 20px 45px -10px rgba(203, 252, 107, 0.22);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -118,7 +118,7 @@
 
 .who-culture-testimonial-card:hover {
   transform: translateY(-4px) scale(1.008);
-  box-shadow: 0 30px 60px -15px rgba(199, 255, 101, 0.32);
+  box-shadow: 0 30px 60px -15px rgba(203, 252, 107, 0.32);
 }
 
 .who-culture-quote-mark {
@@ -166,8 +166,8 @@
 
 .who-stat-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(51, 204, 122, 0.55);
-  box-shadow: 0 20px 40px -10px rgba(51, 204, 122, 0.12), 0 12px 24px -6px rgba(0, 0, 0, 0.08);
+  border-color: rgba(203, 252, 107, 0.55);
+  box-shadow: 0 20px 40px -10px rgba(203, 252, 107, 0.12), 0 12px 24px -6px rgba(0, 0, 0, 0.08);
 }
 
 .who-stat-number {
@@ -188,7 +188,7 @@
 }
 
 .who-stat-symbol {
-  color: #33CC7A;
+  color: #CBFC6B;
   font-weight: 600;
   font-size: 0.88em;
   line-height: 1;

@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { ChevronRight, ArrowRight } from "lucide-react";
+import { BlobButton } from "@/components/ui/BlobButton";
 import { cn } from "@/lib/utils";
 
 interface InnerPageHeroProps {
@@ -43,8 +44,8 @@ export function InnerPageHero({
         className={cn(
           "absolute -top-32 left-1/3 -translate-x-1/2 w-[700px] h-[450px] blur-[120px] rounded-full pointer-events-none",
           isDark
-            ? "bg-[radial-gradient(circle,rgba(52,204,123,0.10)_0%,rgba(43,184,109,0.03)_50%,transparent_75%)]"
-            : "bg-[radial-gradient(circle,rgba(52,204,123,0.08)_0%,rgba(43,184,109,0.02)_50%,transparent_75%)]"
+            ? "bg-[radial-gradient(circle,rgba(203, 252, 107,0.10)_0%,rgba(203, 252, 107,0.03)_50%,transparent_75%)]"
+            : "bg-[radial-gradient(circle,rgba(203, 252, 107,0.08)_0%,rgba(203, 252, 107,0.02)_50%,transparent_75%)]"
         )}
         aria-hidden="true"
       />
@@ -54,8 +55,8 @@ export function InnerPageHero({
         className={cn(
           "absolute -bottom-24 -right-16 sm:-bottom-32 sm:-right-20 w-[420px] h-[420px] sm:w-[560px] sm:h-[560px] rounded-full blur-[50px] sm:blur-[70px] pointer-events-none",
           isDark
-            ? "bg-[radial-gradient(circle_at_40%_40%,rgba(52,204,123,0.09)_0%,rgba(43,184,109,0.03)_45%,transparent_75%)]"
-            : "bg-[radial-gradient(circle_at_40%_40%,rgba(52,204,123,0.08)_0%,rgba(238,229,220,0.6)_45%,transparent_85%)]"
+            ? "bg-[radial-gradient(circle_at_40%_40%,rgba(203, 252, 107,0.09)_0%,rgba(203, 252, 107,0.03)_45%,transparent_75%)]"
+            : "bg-[radial-gradient(circle_at_40%_40%,rgba(203, 252, 107,0.08)_0%,rgba(238,229,220,0.6)_45%,transparent_85%)]"
         )}
         aria-hidden="true"
       />
@@ -63,7 +64,7 @@ export function InnerPageHero({
         className={cn(
           "absolute -bottom-8 right-24 sm:-bottom-12 sm:right-40 w-[300px] h-[300px] sm:w-[420px] sm:h-[420px] rounded-full blur-[40px] sm:blur-[60px] pointer-events-none",
           isDark
-            ? "bg-[radial-gradient(circle_at_45%_45%,rgba(52,204,123,0.07)_0%,transparent_75%)]"
+            ? "bg-[radial-gradient(circle_at_45%_45%,rgba(203, 252, 107,0.07)_0%,transparent_75%)]"
             : "bg-[radial-gradient(circle_at_45%_45%,rgba(238,229,220,0.5)_0%,transparent_75%)]"
         )}
         aria-hidden="true"
@@ -72,8 +73,8 @@ export function InnerPageHero({
         className={cn(
           "absolute -bottom-16 right-6 sm:-bottom-20 sm:right-10 w-[220px] h-[220px] sm:w-[300px] sm:h-[300px] rounded-full blur-[45px] sm:blur-[65px] pointer-events-none",
           isDark
-            ? "bg-[radial-gradient(circle_at_50%_50%,rgba(52,204,123,0.08)_0%,rgba(52,204,123,0.02)_45%,transparent_70%)]"
-            : "bg-[radial-gradient(circle_at_50%_50%,rgba(52,204,123,0.07)_0%,rgba(52,204,123,0.02)_45%,transparent_70%)]"
+            ? "bg-[radial-gradient(circle_at_50%_50%,rgba(203, 252, 107,0.08)_0%,rgba(203, 252, 107,0.02)_45%,transparent_70%)]"
+            : "bg-[radial-gradient(circle_at_50%_50%,rgba(203, 252, 107,0.07)_0%,rgba(203, 252, 107,0.02)_45%,transparent_70%)]"
         )}
         aria-hidden="true"
       />
@@ -116,7 +117,7 @@ export function InnerPageHero({
         {/* Eyebrow Pill Tag */}
         {eyebrow && (
           <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#EEE5DC] text-[#1B1411] border border-black/5 w-fit mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#33CC7A] animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-[#CBFC6B] animate-pulse" />
             <span className="text-[11px] font-bold tracking-[0.18em] uppercase">
               {eyebrow}
             </span>
@@ -147,13 +148,13 @@ export function InnerPageHero({
         {/* Optional Primary CTA */}
         {cta && (
           <div className="mt-8">
-            <Link
+            <BlobButton
               href={cta.href}
-              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#33CC7A] text-[#1B1411] text-xs font-bold uppercase tracking-wider hover:bg-[#2BB86D] transition-all duration-300 hover:scale-[1.03] shadow-md shadow-[#33CC7A]/20"
+              size="md"
+              icon="arrow-up-right"
             >
-              <span>{cta.label}</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+              {cta.label}
+            </BlobButton>
           </div>
         )}
 

@@ -58,7 +58,7 @@ export function ResourceCenter({ posts }: ResourceCenterProps) {
             <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-black/50 block mb-3">
               Resource Center
             </span>
-            <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-black leading-tight [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-5xl font-semibold sm:font-bold tracking-[-0.03em] text-black leading-tight [font-family:'Host_Grotesk',sans-serif]">
               More to explore.
             </h2>
           </div>

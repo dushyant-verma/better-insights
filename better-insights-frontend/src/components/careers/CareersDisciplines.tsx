@@ -57,7 +57,7 @@ export function CareersDisciplines() {
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white border border-black/10 text-[#1B1411]">
-                <span className="w-2 h-2 rounded-full bg-[#33CC7A]" />
+                <span className="w-2 h-2 rounded-full bg-[#CBFC6B]" />
                 Practice disciplines
               </span>
             </div>
@@ -81,7 +81,7 @@ export function CareersDisciplines() {
             return (
               <div
                 key={d.title}
-                className="p-8 bg-white rounded-[1.75rem] border border-black/10 flex flex-col justify-between shadow-2xs hover:shadow-lg hover:border-[#33CC7A]/40 transition-all group"
+                className="p-8 bg-white rounded-[1.75rem] border border-black/10 flex flex-col justify-between shadow-2xs hover:shadow-lg hover:border-[#CBFC6B]/40 transition-all group"
               >
                 <div>
                   <div className="w-12 h-12 rounded-2xl bg-[#1B1411] text-white flex items-center justify-center mb-6 shadow-xs">
@@ -104,7 +104,7 @@ export function CareersDisciplines() {
 
                   <Link
                     href={d.href}
-                    className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-[#1B1411] group-hover:text-[#33CC7A] transition-colors"
+                    className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-[#1B1411] group-hover:text-[#CBFC6B] transition-colors"
                   >
                     <span>View practice</span>
                     <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

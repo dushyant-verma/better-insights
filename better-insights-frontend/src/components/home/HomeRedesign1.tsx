@@ -5,6 +5,7 @@ import Link from "next/link";
 import "@/styles/home-redesign-1.css";
 import { MergedHeader } from "@/components/navigation/MergedHeader";
 import { Footer } from "@/components/layout/Footer";
+import { BlobButton } from "@/components/ui/BlobButton";
 import { openMarketingPlanModal } from "@/components/forms/LeadModal";
 import { PanelsTopLeft, TrendingUp, Workflow } from "lucide-react";
 import { InteractiveGrowthSection } from "@/components/home/InteractiveGrowthSection";
@@ -1198,10 +1199,13 @@ export function HomeRedesign1() {
                   <li><svg viewBox="0 0 16 16" aria-hidden="true"><path className="hero__tick" d="M3 8.5l3 3 7-7"/></svg>Custom AI & CRM engineering</li>
                 </ul>
                 <div className="hero__actions">
-                  <button type="button" data-magnetic className="m-btn" onClick={() => openMarketingPlanModal()}>
-                    <span className="m-btn__label">Get Marketing Plan</span>
-                    <span className="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span>
-                  </button>
+                  <BlobButton
+                    onClick={() => openMarketingPlanModal()}
+                    size="md"
+                    icon="arrow-up-right"
+                  >
+                    Get Marketing Plan
+                  </BlobButton>
                   <Link className="m-link m-text-6" href="/work">
                     Explore Our Work
                   </Link>
@@ -1232,14 +1236,14 @@ export function HomeRedesign1() {
                     <svg className="listen__growth-svg" viewBox="0 0 400 120" preserveAspectRatio="none">
                       <defs>
                         <linearGradient id="growthAreaGrad" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stopColor="#33CC7A" stopOpacity="0.32" />
-                          <stop offset="65%" stopColor="#33CC7A" stopOpacity="0.06" />
-                          <stop offset="100%" stopColor="#33CC7A" stopOpacity="0" />
+                          <stop offset="0%" stopColor="#CBFC6B" stopOpacity="0.32" />
+                          <stop offset="65%" stopColor="#CBFC6B" stopOpacity="0.06" />
+                          <stop offset="100%" stopColor="#CBFC6B" stopOpacity="0" />
                         </linearGradient>
                         <linearGradient id="growthLineGrad" x1="0" y1="0" x2="1" y2="0">
-                          <stop offset="0%" stopColor="#33CC7A" stopOpacity="0.4" />
-                          <stop offset="50%" stopColor="#33CC7A" stopOpacity="0.85" />
-                          <stop offset="100%" stopColor="#33CC7A" stopOpacity="1" />
+                          <stop offset="0%" stopColor="#CBFC6B" stopOpacity="0.4" />
+                          <stop offset="50%" stopColor="#CBFC6B" stopOpacity="0.85" />
+                          <stop offset="100%" stopColor="#CBFC6B" stopOpacity="1" />
                         </linearGradient>
                       </defs>
                       <path
@@ -1253,8 +1257,8 @@ export function HomeRedesign1() {
                         strokeWidth="2.5"
                         strokeLinecap="round"
                       />
-                      <circle cx="400" cy="10" r="3.5" fill="#33CC7A" />
-                      <circle cx="400" cy="10" r="7.5" fill="#33CC7A" fillOpacity="0.35" />
+                      <circle cx="400" cy="10" r="3.5" fill="#CBFC6B" />
+                      <circle cx="400" cy="10" r="7.5" fill="#CBFC6B" fillOpacity="0.35" />
                     </svg>
 
                     {/* Upward Compounding Growth Bars */}
@@ -1747,7 +1751,7 @@ export function HomeRedesign1() {
                 </div>
                 <label className="m-text-6">A few words about the project<textarea className="m-field" name="message" rows={3} required></textarea></label>
                 <div className="contact__actions">
-                  <button className="m-btn" type="submit"><span className="m-btn__label">Send message</span></button>
+                  <BlobButton type="submit" size="md" icon="arrow-up-right">Send message</BlobButton>
                   <p className="m-text contact__status" role="status" aria-live="polite" data-success="Thank you. Our marketing team will review your enquiry and reply within 24 hours." data-error="Please add your name, a valid email, and details about your marketing goals."></p>
                 </div>
               </form>
@@ -1840,7 +1844,7 @@ export function HomeRedesign1() {
                 <h2 className="m-text-3" id="calls-title" data-8b-motion="captionIn">Marketing infrastructure built to perform.</h2>
                 <div className="calls__head-copy">
                   <p className="m-text-4 calls__lead">Digital campaigns and high-converting web experiences that capture attention and turn engagement into measurable growth.</p>
-                  <Link className="m-btn" href="/contact"><span className="m-btn__label">Get Marketing Plan</span><span className="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></Link>
+                  <BlobButton href="/contact" size="md" icon="arrow-up-right">Get Marketing Plan</BlobButton>
                 </div>
               </div>
               <div className="calls__grid">
@@ -2210,8 +2214,8 @@ export function HomeRedesign1() {
               <div className="start__copy">
                 <h2 className="m-text-3" id="start-title">Ready to scale your digital growth?</h2>
                 <p className="m-text-4">Get in touch today to explore how Better Insights can transform your brand&apos;s digital presence and marketing ROI.</p>
-                <div className="start__actions">
-                  <Link className="m-btn" href="/contact"><span className="m-btn__label">Get Marketing Plan</span><span className="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></Link>
+                <div className="start__actions" style={{ display: "flex", alignItems: "center", gap: "1.5rem", flexWrap: "wrap" }}>
+                  <BlobButton href="/contact" size="lg" icon="arrow-up-right">Get Marketing Plan</BlobButton>
                   <Link className="m-link m-text-6" href="/work">Explore Our Work</Link>
                 </div>
               </div>
@@ -2239,7 +2243,7 @@ export function HomeRedesign1() {
                 <div className="m-field"><label className="m-field__label" htmlFor="contact-name">Your name</label><input className="m-field__input" id="contact-name" name="name" type="text" autoComplete="name" required /></div>
                 <div className="m-field"><label className="m-field__label" htmlFor="contact-email">Email</label><input className="m-field__input" id="contact-email" name="email" type="email" autoComplete="email" required /></div>
                 <div className="m-field"><label className="m-field__label" htmlFor="contact-message">How can we help?</label><textarea className="m-field__input" id="contact-message" name="message" rows={4} required></textarea></div>
-                <button className="m-btn-2" type="submit"><span className="m-btn__label">Send Enquiry</span><span className="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></button>
+                <BlobButton type="submit" size="md" icon="arrow-up-right">Send Enquiry</BlobButton>
                 <p className="contact__status m-text-8" role="status" aria-live="polite"></p>
               </form>
             </div>

@@ -24,7 +24,7 @@ export function PressRecognition() {
           <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-black/50 block mb-3">
             Media &amp; Editorial Recognition
           </span>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-light lg:font-normal tracking-[-0.03em] text-black leading-tight [font-family:'Host_Grotesk',sans-serif]">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-semibold sm:font-bold tracking-[-0.03em] text-black leading-tight [font-family:'Host_Grotesk',sans-serif]">
             We have helped brands earn trust, visibility, and media attention.
           </h2>
           <p className="mt-4 text-xs sm:text-sm text-black/70 leading-relaxed max-w-2xl mx-auto">

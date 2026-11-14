@@ -77,7 +77,7 @@ export function ClienteleStories() {
           <div>
             <div className="inline-flex items-center gap-2 mb-2">
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white border border-black/10 text-[#1B1411]">
-                <span className="w-2 h-2 rounded-full bg-[#33CC7A]" />
+                <span className="w-2 h-2 rounded-full bg-[#CBFC6B]" />
                 Collaborations in action
               </span>
             </div>
@@ -91,7 +91,7 @@ export function ClienteleStories() {
 
           <Link
             href="/work"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#1B1411] text-white text-xs font-semibold uppercase tracking-wider hover:bg-[#33CC7A] hover:text-[#1B1411] transition-all self-start md:self-auto group shadow-xs"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#1B1411] text-white text-xs font-semibold uppercase tracking-wider hover:bg-[#CBFC6B] hover:text-[#1B1411] transition-all self-start md:self-auto group shadow-xs"
           >
             <span>Explore all case studies</span>
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -103,7 +103,7 @@ export function ClienteleStories() {
           {FEATURED_STORIES.map((story) => (
             <div
               key={story.slug}
-              className="bg-white rounded-[1.75rem] p-8 border border-black/10 flex flex-col justify-between shadow-xs hover:shadow-xl hover:border-[#33CC7A]/40 transition-all group"
+              className="bg-white rounded-[1.75rem] p-8 border border-black/10 flex flex-col justify-between shadow-xs hover:shadow-xl hover:border-[#CBFC6B]/40 transition-all group"
             >
               <div>
                 {/* Header row: logo & metric */}
@@ -128,7 +128,7 @@ export function ClienteleStories() {
                   {story.industry}
                 </span>
 
-                <h3 className="text-xl font-semibold tracking-tight text-[#1B1411] leading-snug group-hover:text-[#33CC7A] transition-colors [font-family:'Host_Grotesk',sans-serif]">
+                <h3 className="text-xl font-semibold tracking-tight text-[#1B1411] leading-snug group-hover:text-[#CBFC6B] transition-colors [font-family:'Host_Grotesk',sans-serif]">
                   {story.client}
                 </h3>
 
@@ -153,7 +153,7 @@ export function ClienteleStories() {
               <div className="mt-8 pt-4 border-t border-black/5">
                 <Link
                   href={`/work/${story.slug}`}
-                  className="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-[#1B1411] group-hover:text-[#33CC7A] transition-colors"
+                  className="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-[#1B1411] group-hover:text-[#CBFC6B] transition-colors"
                 >
                   <span>Read the case study</span>
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

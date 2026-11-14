@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowUpRight, Send, Sparkles } from "lucide-react";
+import { BlobButton } from "@/components/ui/BlobButton";
 
 interface CareersCTAProps {
   onOpenApplication: () => void;
@@ -16,14 +17,14 @@ export function CareersCTA({ onOpenApplication }: CareersCTAProps) {
         <div className="bg-[#1B1411] text-white rounded-[2rem] sm:rounded-[2.5rem] p-8 sm:p-14 lg:p-20 relative overflow-hidden shadow-2xl">
           {/* Ambient Depth Grid & Glow */}
           <div 
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-r from-[#33CC7A]/15 via-[#33CC7A]/10 to-transparent rounded-full blur-[100px] pointer-events-none" 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-r from-[#CBFC6B]/15 via-[#CBFC6B]/10 to-transparent rounded-full blur-[100px] pointer-events-none" 
             aria-hidden="true" 
           />
           
           <div className="max-w-3xl">
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-white/90 text-xs font-semibold tracking-wide mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#33CC7A]" />
+              <span className="w-2 h-2 rounded-full bg-[#CBFC6B]" />
               <span>Shape what&apos;s next</span>
             </div>
 
@@ -40,14 +41,13 @@ export function CareersCTA({ onOpenApplication }: CareersCTAProps) {
 
             {/* Actions */}
             <div className="flex flex-wrap items-center gap-4">
-              <button
-                type="button"
+              <BlobButton
                 onClick={onOpenApplication}
-                className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#33CC7A] hover:bg-[#28a764] text-[#1B1411] text-sm font-semibold rounded-full transition-all shadow-xl"
+                size="lg"
+                icon="arrow-up-right"
               >
-                <span>Send your application</span>
-                <Send className="w-4 h-4" />
-              </button>
+                Send your application
+              </BlobButton>
 
               <Link
                 href="/about"

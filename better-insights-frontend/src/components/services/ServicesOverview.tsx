@@ -27,11 +27,11 @@ export function ServicesOverview({ id = "services-overview" }: ServicesOverviewP
         <div className="max-w-3xl mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 mb-3">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white border border-black/10 text-[#1B1411]">
-              <span className="w-2 h-2 rounded-full bg-[#33CC7A]" />
+              <span className="w-2 h-2 rounded-full bg-[#CBFC6B]" />
               Core capabilities
             </span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
+          <h2 className="text-3xl sm:text-5xl font-semibold sm:font-bold tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
             Comprehensive digital capabilities built for scale.
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#1B1411]/70 font-normal leading-relaxed">
@@ -49,7 +49,7 @@ export function ServicesOverview({ id = "services-overview" }: ServicesOverviewP
             return (
               <div
                 key={service.id}
-                className="bg-white rounded-[1.75rem] border border-black/10 p-6 sm:p-10 lg:p-12 hover:border-[#33CC7A]/40 transition-all shadow-xs"
+                className="bg-white rounded-[1.75rem] border border-black/10 p-6 sm:p-10 lg:p-12 hover:border-[#CBFC6B]/40 transition-all shadow-xs"
               >
                 <div
                   className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center ${
@@ -59,7 +59,7 @@ export function ServicesOverview({ id = "services-overview" }: ServicesOverviewP
                   {/* Content Column */}
                   <div className={`lg:col-span-7 ${isReversed ? "lg:order-2" : "lg:order-1"}`}>
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-9 h-9 rounded-xl bg-[#FAF5F0] border border-black/10 flex items-center justify-center text-[#33CC7A] shadow-xs">
+                      <div className="w-9 h-9 rounded-xl bg-[#FAF5F0] border border-black/10 flex items-center justify-center text-[#CBFC6B] shadow-xs">
                         <Icon className="w-5 h-5" />
                       </div>
                       <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[#1B1411]/50">
@@ -70,7 +70,7 @@ export function ServicesOverview({ id = "services-overview" }: ServicesOverviewP
                     <h3 className="text-2xl sm:text-4xl font-semibold tracking-tight text-[#1B1411] mb-4 [font-family:'Host_Grotesk',sans-serif]">
                       <Link
                         href={`/services/${service.slug}`}
-                        className="hover:text-[#33CC7A] transition-colors"
+                        className="hover:text-[#CBFC6B] transition-colors"
                       >
                         {service.title}
                       </Link>
@@ -88,7 +88,7 @@ export function ServicesOverview({ id = "services-overview" }: ServicesOverviewP
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                         {service.capabilities.slice(0, 4).map((cap) => (
                           <div key={cap.number} className="flex items-start gap-2 text-xs sm:text-sm text-[#1B1411]/80">
-                            <CheckCircle2 className="w-4 h-4 text-[#33CC7A] shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-4 h-4 text-[#CBFC6B] shrink-0 mt-0.5" />
                             <span>{cap.title}</span>
                           </div>
                         ))}
@@ -99,7 +99,7 @@ export function ServicesOverview({ id = "services-overview" }: ServicesOverviewP
                     <div className="flex flex-wrap items-center gap-4">
                       <Link
                         href={`/services/${service.slug}`}
-                        className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#1B1411] text-white text-xs font-semibold uppercase tracking-wider hover:bg-[#33CC7A] hover:text-[#1B1411] transition-all group shadow-xs"
+                        className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#1B1411] text-white text-xs font-semibold uppercase tracking-wider hover:bg-[#CBFC6B] hover:text-[#1B1411] transition-all group shadow-xs"
                       >
                         <span>Explore service</span>
                         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -132,7 +132,7 @@ export function ServicesOverview({ id = "services-overview" }: ServicesOverviewP
                         <span className="text-xs font-mono font-bold uppercase tracking-wider bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
                           {service.categoryTag}
                         </span>
-                        <span className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-[#33CC7A] group-hover:text-[#1B1411] transition-colors">
+                        <span className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-[#CBFC6B] group-hover:text-[#1B1411] transition-colors">
                           <ArrowUpRight className="w-4 h-4" />
                         </span>
                       </div>

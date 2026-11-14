@@ -36,14 +36,14 @@ export function CprResultsDashboard({
   // Efficiency rating assessment
   let efficiencyBadge = {
     label: "Moderate Unit Economics",
-    color: "bg-[#33CC7A] text-[#1B1411]",
+    color: "bg-[#CBFC6B] text-[#1B1411]",
     note: "Your CPR reflects healthy paid media efficiency with solid conversion headroom.",
   };
 
   if (totals.blendedConversionRate >= 10 && totals.blendedCTR >= 5) {
     efficiencyBadge = {
       label: "High Performance Campaign",
-      color: "bg-[#33CC7A] text-[#1B1411]",
+      color: "bg-[#CBFC6B] text-[#1B1411]",
       note: "Exceptional CTR and conversion velocity yielding an ultra-efficient CPR.",
     };
   } else if (totals.blendedConversionRate < 4) {
@@ -79,21 +79,21 @@ Calculated via Better Insights CPR Calculator: http://localhost:3000/cpr-tool`;
       <div className="bg-[#1B1411] text-white rounded-[1.75rem] sm:rounded-[2.25rem] p-8 sm:p-12 lg:p-14 shadow-xl border border-white/10 relative overflow-hidden">
         {/* Subtle emerald glow */}
         <div 
-          className="absolute -top-24 -right-24 w-80 h-80 bg-[#33CC7A]/10 rounded-full blur-3xl pointer-events-none" 
+          className="absolute -top-24 -right-24 w-80 h-80 bg-[#CBFC6B]/10 rounded-full blur-3xl pointer-events-none" 
           aria-hidden="true" 
         />
 
         <div className="relative z-10">
           <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-[11px] font-semibold border border-white/10">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
               <span>Campaign Aggregate Telemetry</span>
             </span>
 
             <button
               type="button"
               onClick={handleCopySummary}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-[#33CC7A] hover:text-[#1B1411] text-white text-xs font-semibold rounded-full transition-all border border-white/15"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-[#CBFC6B] hover:text-[#1B1411] text-white text-xs font-semibold rounded-full transition-all border border-white/15"
             >
               {copied ? (
                 <>
@@ -244,7 +244,7 @@ Calculated via Better Insights CPR Calculator: http://localhost:3000/cpr-tool`;
                 <td className="py-4 px-3">{totals.blendedConversionRate}%</td>
                 <td className="py-4 px-3">{totals.totalConversions.toLocaleString()}</td>
                 <td className="py-4 px-3">{currency.symbol}{totals.totalSpent.toLocaleString()}</td>
-                <td className="py-4 pl-3 text-right text-sm text-[#33CC7A] font-extrabold">
+                <td className="py-4 pl-3 text-right text-sm text-[#CBFC6B] font-extrabold">
                   {currency.symbol}{totals.overallCPR.toFixed(2)}
                 </td>
               </tr>
@@ -256,7 +256,7 @@ Calculated via Better Insights CPR Calculator: http://localhost:3000/cpr-tool`;
       {/* 3. Strategic Optimization Recommendations */}
       <div className="bg-white rounded-[1.75rem] p-8 sm:p-10 border border-black/10 shadow-2xs">
         <div className="flex items-start gap-4">
-          <div className="w-10 h-10 rounded-2xl bg-[#1B1411] text-[#33CC7A] flex items-center justify-center shrink-0 shadow-sm">
+          <div className="w-10 h-10 rounded-2xl bg-[#1B1411] text-[#CBFC6B] flex items-center justify-center shrink-0 shadow-sm">
             <Lightbulb className="w-5 h-5" />
           </div>
           <div className="space-y-3">

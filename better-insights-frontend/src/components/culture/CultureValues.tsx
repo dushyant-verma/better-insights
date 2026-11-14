@@ -56,7 +56,7 @@ export function CultureValues() {
           <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#66574F] block mb-3">
             Core Principles
           </span>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-light lg:font-normal tracking-[-0.03em] text-[#171717] leading-tight [font-family:'Host_Grotesk',sans-serif]">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-semibold sm:font-bold tracking-[-0.03em] text-[#171717] leading-tight [font-family:'Host_Grotesk',sans-serif]">
             What matters to us.
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#66574F] font-normal leading-relaxed">
@@ -92,7 +92,7 @@ export function CultureValues() {
                     </div>
 
                     {/* Icon Bottom Right */}
-                    <div className="absolute bottom-4 right-4 w-9 h-9 rounded-full bg-[#34CC7B] text-[#171717] flex items-center justify-center shadow-lg">
+                    <div className="absolute bottom-4 right-4 w-9 h-9 rounded-full bg-[#CBFC6B] text-[#171717] flex items-center justify-center shadow-lg">
                       <Icon className="w-4 h-4" />
                     </div>
                   </div>
@@ -102,7 +102,7 @@ export function CultureValues() {
                     <h3 className="text-xl font-semibold tracking-tight text-[#171717] mb-1.5 [font-family:'Host_Grotesk',sans-serif]">
                       {val.title}
                     </h3>
-                    <span className="text-xs font-semibold text-[#34CC7B] block mb-3">
+                    <span className="text-xs font-semibold text-[#CBFC6B] block mb-3">
                       {val.tagline}
                     </span>
                     <p className="text-xs sm:text-sm text-[#66574F] leading-relaxed font-normal">
@@ -113,7 +113,7 @@ export function CultureValues() {
 
                 <div className="p-6 pt-0">
                   <div className="pt-4 border-t border-black/5 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#34CC7B]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
                     <span className="text-[10px] uppercase font-bold tracking-wider text-[#66574F]/70">
                       Better Insights Value
                     </span>

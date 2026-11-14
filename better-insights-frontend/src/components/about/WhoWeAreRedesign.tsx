@@ -138,7 +138,7 @@ export function WhoWeAreRedesign() {
                 <span className="who-intro-badge__dot" />
                 <span>Who We Are</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-light lg:font-normal tracking-[-0.03em] text-[#1B1411] leading-[1.08] [font-family:'Host_Grotesk',sans-serif]">
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-semibold sm:font-bold tracking-[-0.03em] text-[#1B1411] leading-[1.08] [font-family:'Host_Grotesk',sans-serif]">
                 A team of thinkers, creators &amp; digital problem solvers.
               </h2>
             </div>
@@ -172,7 +172,7 @@ export function WhoWeAreRedesign() {
 
             {/* Floating Editorial Badge (MadeByShape style) */}
             <div className="who-floating-badge flex items-center gap-3 sm:gap-4">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#1B1411] text-[#33CC7A] flex items-center justify-center shrink-0 shadow-sm">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#1B1411] text-[#CBFC6B] flex items-center justify-center shrink-0 shadow-sm">
                 <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
@@ -210,7 +210,7 @@ export function WhoWeAreRedesign() {
                   />
                   {/* Subtle glassmorphic tag */}
                   <div className="absolute top-5 left-5 who-pill-tag !bg-black/40 !backdrop-blur-md !border-white/10">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#C7FF65]" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#CBFC6B]" />
                     <span>Cross-Disciplinary Pods</span>
                   </div>
                 </div>
@@ -221,14 +221,14 @@ export function WhoWeAreRedesign() {
             <div className="lg:col-span-5 flex flex-col justify-center gap-6 sm:gap-7 lg:gap-8">
               {/* A. Section Label */}
               <div className="inline-flex items-center gap-2.5 who-reveal-item">
-                <span className="w-2 h-2 rounded-full bg-[#34cc7b] shadow-[0_0_8px_rgba(199,255,101,0.6)]" />
-                <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-[#34cc7b]">
+                <span className="w-2 h-2 rounded-full bg-[#CBFC6B] shadow-[0_0_8px_rgba(203,252,107,0.6)]" />
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-[#CBFC6B]">
                   Our Culture
                 </span>
               </div>
 
               {/* B. Main Heading */}
-              <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-light lg:font-normal tracking-[-0.03em] text-[#FFFFFF] leading-[1.15] who-reveal-item [font-family:'Host_Grotesk',sans-serif]">
+              <h2 className="text-2xl sm:text-4xl lg:text-[40px] font-semibold sm:font-bold tracking-[-0.03em] text-[#FFFFFF] leading-[1.15] who-reveal-item [font-family:'Host_Grotesk',sans-serif]">
                 We&apos;ve created an environment where everyone feels comfortable, valued, and open.
               </h2>
 
@@ -277,20 +277,20 @@ export function WhoWeAreRedesign() {
       >
         {/* Subtle ambient light gradient glow */}
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[450px] bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(51,204,122,0.05),transparent_70%)] pointer-events-none"
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[450px] bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(203, 252, 107,0.05),transparent_70%)] pointer-events-none"
           aria-hidden="true"
         />
 
         <div className="bi-container relative z-10">
           <div className="max-w-3xl mb-14 sm:mb-16 who-reveal-item">
             {/* Eyebrow Label with Green Accent Indicator */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-bold uppercase tracking-[0.14em] bg-[#33CC7A]/10 text-[#111827] border border-[#33CC7A]/25 mb-4 shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-[#33CC7A] shadow-[0_0_8px_rgba(51,204,122,0.6)]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-bold uppercase tracking-[0.14em] bg-[#CBFC6B]/10 text-[#111827] border border-[#CBFC6B]/25 mb-4 shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-[#CBFC6B] shadow-[0_0_8px_rgba(203, 252, 107,0.6)]" />
               <span>BY THE NUMBERS</span>
             </div>
 
             {/* Dark Charcoal Modern Heading */}
-            <h2 className="text-3xl sm:text-5xl lg:text-[46px] font-light lg:font-normal tracking-[-0.03em] text-[#111827] leading-[1.12] mb-4 [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-5xl lg:text-[46px] font-semibold sm:font-bold tracking-[-0.03em] text-[#111827] leading-[1.12] mb-4 [font-family:'Host_Grotesk',sans-serif]">
               Measurable momentum, verified track record.
             </h2>
 
@@ -306,7 +306,7 @@ export function WhoWeAreRedesign() {
             {STATS_DATA.map((item, idx) => (
               <div
                 key={idx}
-                className="who-stat-card who-reveal-item group flex flex-col justify-between h-full bg-white border border-black/8 rounded-[24px] sm:rounded-[26px] lg:rounded-[28px] p-7 sm:p-8 lg:p-9 shadow-[0_4px_20px_-2px_rgba(0,0,0,0.03),0_12px_30px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(51,204,122,0.12),0_12px_24px_-6px_rgba(0,0,0,0.08)] hover:border-[#33CC7A]/55 hover:-translate-y-1.5 transition-all duration-350 ease-out"
+                className="who-stat-card who-reveal-item group flex flex-col justify-between h-full bg-white border border-black/8 rounded-[24px] sm:rounded-[26px] lg:rounded-[28px] p-7 sm:p-8 lg:p-9 shadow-[0_4px_20px_-2px_rgba(0,0,0,0.03),0_12px_30px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(203, 252, 107,0.12),0_12px_24px_-6px_rgba(0,0,0,0.08)] hover:border-[#CBFC6B]/55 hover:-translate-y-1.5 transition-all duration-350 ease-out"
               >
                 <div>
                   <div className="mb-4">
@@ -318,7 +318,7 @@ export function WhoWeAreRedesign() {
                       className="text-[#111827]"
                     />
                   </div>
-                  <h3 className="text-base sm:text-lg lg:text-xl font-bold tracking-tight text-[#111827] mb-2 transition-colors duration-300 group-hover:text-[#33CC7A]">
+                  <h3 className="text-base sm:text-lg lg:text-xl font-bold tracking-tight text-[#111827] mb-2 transition-colors duration-300 group-hover:text-[#CBFC6B]">
                     {item.label}
                   </h3>
                   <p className="text-xs sm:text-sm text-[#6B7280] leading-relaxed font-normal">
@@ -327,8 +327,8 @@ export function WhoWeAreRedesign() {
                 </div>
                 <div className="mt-6 sm:mt-8 pt-4 border-t border-black/8 flex items-center justify-between text-[11px] font-mono">
                   <span className="text-[#9CA3AF] tracking-wider uppercase font-medium">METRIC // 0{idx + 1}</span>
-                  <span className="text-[#33CC7A] font-bold tracking-wider uppercase flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#33CC7A]" />
+                  <span className="text-[#CBFC6B] font-bold tracking-wider uppercase flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
                     VERIFIED
                   </span>
                 </div>
