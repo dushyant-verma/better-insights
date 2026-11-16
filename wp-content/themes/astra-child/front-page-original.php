@@ -36,7 +36,7 @@ if ( ! wp_script_is( 'bi-home', 'enqueued' ) ) {
 
 get_header();
 
-// Dynamically resolve upload video URLs
+// Dynamically resolve upload video URLss
 $upload_dir      = wp_upload_dir();
 $upload_base_url = rtrim( $upload_dir['baseurl'], '/' );
 $video_1_url     = $upload_base_url . '/2026/10/Banner-Video01.mp4';

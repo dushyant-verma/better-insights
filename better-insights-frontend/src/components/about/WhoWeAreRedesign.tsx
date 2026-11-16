@@ -234,7 +234,7 @@ export function WhoWeAreRedesign() {
 
               {/* C. Supporting Description */}
               <p className="text-base sm:text-lg text-[#A3A3A3] font-normal leading-relaxed who-reveal-item">
-                We produce good work for good people, with the conviction that both our team and our clients will feel energized throughout the entire delivery cycle. This transparency builds compounding trust and long-standing partnerships.
+                We produce good work for good people, with the conviction that both our team and our clients will feel energized throughout the entire delivery process. This transparency builds compounding trust and long-standing partnerships.
               </p>
 
               {/* D. Testimonial Card (Prominent Lime-Green Panel) */}
