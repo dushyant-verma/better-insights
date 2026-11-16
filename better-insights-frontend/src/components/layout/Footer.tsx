@@ -220,15 +220,10 @@ export function Footer({ onOpenLeadModal }: FooterProps) {
 
               {/* Navigation Columns Group (2-column on mobile, display:contents on desktop) */}
               <div className="shape-footer-nav-group">
-                {/* Explore Navigation */}
-                <nav className="shape-footer-nav-col" aria-label="Explore navigation">
-                  <h3 className="shape-footer-col-header">Explore</h3>
+                {/* Column 2: Learn */}
+                <nav className="shape-footer-nav-col" aria-label="Learn navigation">
+                  <h3 className="shape-footer-col-header">Learn</h3>
                   <ul className="shape-footer-nav-list">
-                    <li>
-                      <Link href="/" className="shape-footer-nav-link">
-                        Home
-                      </Link>
-                    </li>
                     <li>
                       <Link href="/about" className="shape-footer-nav-link">
                         About
@@ -240,14 +235,18 @@ export function Footer({ onOpenLeadModal }: FooterProps) {
                       </Link>
                     </li>
                     <li>
-                      <Link href="/work" className="shape-footer-nav-link">
-                        Work
-                        <span className="shape-new-badge">NEW</span>
+                      <Link href="/our-clientele" className="shape-footer-nav-link">
+                        Testimonials
                       </Link>
                     </li>
                     <li>
-                      <Link href="/our-clientele" className="shape-footer-nav-link">
-                        Testimonials
+                      <Link href="/services" className="shape-footer-nav-link">
+                        Processes
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/services#faqs" className="shape-footer-nav-link">
+                        FAQs
                       </Link>
                     </li>
                     <li>
@@ -258,38 +257,39 @@ export function Footer({ onOpenLeadModal }: FooterProps) {
                   </ul>
                 </nav>
 
-                {/* Services Navigation */}
-                <nav className="shape-footer-nav-col" aria-label="Services navigation">
-                  <h3 className="shape-footer-col-header">Services</h3>
+                {/* Column 3: Explore */}
+                <nav className="shape-footer-nav-col" aria-label="Explore navigation">
+                  <h3 className="shape-footer-col-header">Explore</h3>
                   <ul className="shape-footer-nav-list">
                     <li>
-                      <Link href="/services/website-development" className="shape-footer-nav-link">
-                        Website Development
+                      <Link href="/" className="shape-footer-nav-link">
+                        Home
                       </Link>
                     </li>
                     <li>
-                      <Link href="/services/crm-integrations" className="shape-footer-nav-link">
-                        CRM &amp; Integrations
+                      <Link href="/work" className="shape-footer-nav-link">
+                        Work
+                        <span className="shape-new-badge">NEW</span>
                       </Link>
                     </li>
                     <li>
-                      <Link href="/services/ai-automation" className="shape-footer-nav-link">
-                        AI &amp; Automation
+                      <Link href="/services" className="shape-footer-nav-link">
+                        Services
                       </Link>
                     </li>
                     <li>
-                      <Link href="/services/digital-growth" className="shape-footer-nav-link">
-                        Digital Growth &amp; SEO
+                      <Link href="/careers" className="shape-footer-nav-link">
+                        Careers
                       </Link>
                     </li>
                     <li>
-                      <Link href="/services/digital-transformation" className="shape-footer-nav-link">
-                        Digital Transformation
+                      <Link href="/our-clientele" className="shape-footer-nav-link">
+                        Clientele
                       </Link>
                     </li>
                     <li>
-                      <Link href="/services/technology-engineering" className="shape-footer-nav-link">
-                        Technology Engineering
+                      <Link href="/contact" className="shape-footer-nav-link">
+                        Contact
                       </Link>
                     </li>
                   </ul>
