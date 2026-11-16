@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Star, Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import { BlobButton } from "@/components/ui/BlobButton";
 import { openMarketingPlanModal } from "@/components/forms/LeadModal";
 import "@/styles/shape-footer.css";
@@ -126,7 +126,7 @@ export function Footer({ onOpenLeadModal }: FooterProps) {
           </div>
 
           {/* =================================================================
-              TOP-RIGHT 'SEND ME BACK UP' CORNER CUTOUT (Exact MadeByShape)
+              TOP-RIGHT 'SEND ME BACK UP' CORNER CUTOUT (Desktop >= 1024px)
               ================================================================= */}
           <div className="shape-corner-cutout-topright">
             {/* Left Fillet */}
@@ -151,16 +151,58 @@ export function Footer({ onOpenLeadModal }: FooterProps) {
           </div>
 
           {/* =================================================================
-              TOP 4-COLUMN CONTENT SECTION (Indented to clear Top-Left Cutout)
+              MOBILE BOTTOM-LEFT BRAND LOGO (< 1024px)
+              ================================================================= */}
+          <div className="shape-mobile-bottom-logo" aria-hidden="true">
+            <span className="shape-mobile-wordmark">
+              Better Insights<span className="text-[#CBFC6B]">.</span>
+            </span>
+          </div>
+
+          {/* =================================================================
+              MOBILE BOTTOM-RIGHT 'SEND ME BACK UP' CUTOUT (< 1024px)
+              ================================================================= */}
+          <div className="shape-corner-cutout-bottomright">
+            {/* Inverted Fillet Left */}
+            <svg
+              className="shape-bottomright-fillet-left"
+              viewBox="0 0 100 100"
+              aria-hidden="true"
+            >
+              <path d="M51.9 0v1.9c-27.6 0-50 22.4-50 50H0V0h51.9z" fill="currentColor" />
+            </svg>
+
+            {/* Inverted Fillet Top */}
+            <svg
+              className="shape-bottomright-fillet-top"
+              viewBox="0 0 100 100"
+              aria-hidden="true"
+            >
+              <path d="M51.9 0v1.9c-27.6 0-50 22.4-50 50H0V0h51.9z" fill="currentColor" />
+            </svg>
+
+            <button
+              type="button"
+              onClick={handleBackToTop}
+              className="shape-back-to-top-link"
+              aria-label="Scroll back to top"
+            >
+              <span>Sh*t I&apos;ve gone too far, send me back up</span>
+              <span className="animate-bounce inline-block">👆</span>
+            </button>
+          </div>
+
+          {/* =================================================================
+              TOP CONTENT SECTION (Indented to clear Top-Left Cutout)
               ================================================================= */}
           <div className="shape-footer-top-section">
             <div className="shape-footer-grid">
               {/* Column 1: CTA pitch & Reviews */}
               <div className="shape-footer-pitch-col">
                 <h2 id="footer-pitch-heading" className="shape-footer-pitch-title">
-                  Do you like
+                  Ready to build
                   <br />
-                  what you see?
+                  something better?
                 </h2>
 
                 <div className="shape-footer-cta-row">
@@ -173,87 +215,88 @@ export function Footer({ onOpenLeadModal }: FooterProps) {
                   >
                     Start a project
                   </BlobButton>
-
-
                 </div>
               </div>
 
-              {/* Column 2: Learn */}
-              <nav className="shape-footer-nav-col" aria-label="Learn navigation">
-                <h3 className="shape-footer-col-header">Learn</h3>
-                <ul className="shape-footer-nav-list">
-                  <li>
-                    <Link href="/about" className="shape-footer-nav-link">
-                      About
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/culture" className="shape-footer-nav-link">
-                      Culture
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/our-clientele" className="shape-footer-nav-link">
-                      Testimonials
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/services" className="shape-footer-nav-link">
-                      Processes
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/services#faqs" className="shape-footer-nav-link">
-                      FAQs
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/insights" className="shape-footer-nav-link">
-                      Blog
-                    </Link>
-                  </li>
-                </ul>
-              </nav>
+              {/* Navigation Columns Group (2-column on mobile, display:contents on desktop) */}
+              <div className="shape-footer-nav-group">
+                {/* Explore Navigation */}
+                <nav className="shape-footer-nav-col" aria-label="Explore navigation">
+                  <h3 className="shape-footer-col-header">Explore</h3>
+                  <ul className="shape-footer-nav-list">
+                    <li>
+                      <Link href="/" className="shape-footer-nav-link">
+                        Home
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/about" className="shape-footer-nav-link">
+                        About
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/culture" className="shape-footer-nav-link">
+                        Culture
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/work" className="shape-footer-nav-link">
+                        Work
+                        <span className="shape-new-badge">NEW</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/our-clientele" className="shape-footer-nav-link">
+                        Testimonials
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/insights" className="shape-footer-nav-link">
+                        Blog
+                      </Link>
+                    </li>
+                  </ul>
+                </nav>
 
-              {/* Column 3: Explore */}
-              <nav className="shape-footer-nav-col" aria-label="Explore navigation">
-                <h3 className="shape-footer-col-header">Explore</h3>
-                <ul className="shape-footer-nav-list">
-                  <li>
-                    <Link href="/" className="shape-footer-nav-link">
-                      Home
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/work" className="shape-footer-nav-link">
-                      Work
-                      <span className="shape-new-badge">NEW</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/services" className="shape-footer-nav-link">
-                      Services
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/careers" className="shape-footer-nav-link">
-                      Careers
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/our-clientele" className="shape-footer-nav-link">
-                      Clientele
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/contact" className="shape-footer-nav-link">
-                      Contact
-                    </Link>
-                  </li>
-                </ul>
-              </nav>
+                {/* Services Navigation */}
+                <nav className="shape-footer-nav-col" aria-label="Services navigation">
+                  <h3 className="shape-footer-col-header">Services</h3>
+                  <ul className="shape-footer-nav-list">
+                    <li>
+                      <Link href="/services/website-development" className="shape-footer-nav-link">
+                        Website Development
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/services/crm-integrations" className="shape-footer-nav-link">
+                        CRM &amp; Integrations
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/services/ai-automation" className="shape-footer-nav-link">
+                        AI &amp; Automation
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/services/digital-growth" className="shape-footer-nav-link">
+                        Digital Growth &amp; SEO
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/services/digital-transformation" className="shape-footer-nav-link">
+                        Digital Transformation
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/services/technology-engineering" className="shape-footer-nav-link">
+                        Technology Engineering
+                      </Link>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
 
-              {/* Column 4: Get in touch */}
+              {/* Column 3: Get in touch */}
               <div className="shape-footer-contact-col">
                 <h3 className="shape-footer-col-header">Get in touch</h3>
                 <ul className="shape-footer-nav-list">
@@ -287,14 +330,14 @@ export function Footer({ onOpenLeadModal }: FooterProps) {
           </div>
 
           {/* =================================================================
-              MASSIVE OVERSIZED HEADLINE (Full-width across card)
+              MASSIVE OVERSIZED HEADLINE (Desktop >= 1024px)
               ================================================================= */}
           <div className="shape-footer-massive-text" aria-hidden="true">
             Better Insights<span className="text-[#CBFC6B]">.</span>
           </div>
 
           {/* =================================================================
-              BOTTOM LEGAL BAR (Full-width across card)
+              BOTTOM LEGAL BAR
               ================================================================= */}
           <div className="shape-footer-bottom-bar">
             <div className="shape-footer-brand-meta">
