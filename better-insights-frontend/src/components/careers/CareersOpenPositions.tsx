@@ -2,7 +2,9 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { BlobButton } from "@/components/ui/BlobButton";
 
 export interface JobOpening {
   id: string;
@@ -119,29 +121,11 @@ export function CareersOpenPositions({
 
             if (isOpen) {
               return (
-                <div
+                <Link
                   key={job.id}
-                  role="button"
-                  tabIndex={0}
-                  onClick={() =>
-                    onSelectRole?.({
-                      id: job.id,
-                      title: job.title,
-                      department: job.department,
-                    })
-                  }
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      onSelectRole?.({
-                        id: job.id,
-                        title: job.title,
-                        department: job.department,
-                      });
-                    }
-                  }}
-                  className="w-full bg-[#191A1C] hover:bg-[#202226] border border-white/[0.04] hover:border-white/10 rounded-2xl py-4 sm:py-5 px-5 sm:px-8 cursor-pointer transition-all duration-300 group shadow-sm focus:outline-none focus:ring-2 focus:ring-[#CBFC6B]/50"
-                  aria-label={`${job.title} – ${job.employmentType} (Open position, click to apply)`}
+                  href={`/careers/${job.id}`}
+                  className="w-full bg-[#191A1C] hover:bg-[#202226] border border-white/[0.04] hover:border-white/10 rounded-2xl py-4 sm:py-5 px-5 sm:px-8 cursor-pointer transition-all duration-300 group shadow-sm focus:outline-none focus:ring-2 focus:ring-[#CBFC6B]/50 block"
+                  aria-label={`${job.title} – ${job.employmentType} (Open position, click to view details and apply)`}
                 >
                   <div className="flex items-center justify-between gap-4 w-full">
                     {/* Left: Availability Badge */}
@@ -168,11 +152,18 @@ export function CareersOpenPositions({
                         className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/[0.06] text-white flex items-center justify-center transition-all duration-300 group-hover:bg-[#CBFC6B] group-hover:text-black group-hover:scale-105"
                         aria-hidden="true"
                       >
-                        <ArrowUpRight className="w-4 h-4 stroke-[2.5] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                        <svg
+                          className="w-3 h-3 fill-current transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 384 512"
+                          aria-hidden="true"
+                        >
+                          <path d="M328 96h24v288h-48V177.9L81 401l-17 17-33.9-34 17-17 223-223H64V96h264z" />
+                        </svg>
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               );
             }
 
@@ -249,18 +240,22 @@ export function CareersOpenPositions({
                   </p>
                 </div>
 
-                <a
+                <BlobButton
                   href="https://www.linkedin.com/company/better-insights-bi/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#CBFC6B] hover:bg-[#bbf055] text-[#101112] text-xs sm:text-sm font-semibold transition-all duration-300 hover:scale-105 active:scale-95 shadow-md group [font-family:'Host_Grotesk',sans-serif]"
+                  size="sm"
+                  variant="primary"
+                  icon="arrow-up-right"
+                  ariaLabel="Follow Better Insights on LinkedIn"
                 >
-                  <span>Follow BI on</span>
-                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.75a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z" />
-                  </svg>
-                  <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </a>
+                  <span className="inline-flex items-center gap-1.5">
+                    <span>Follow BI on</span>
+                    <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.75a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z" />
+                    </svg>
+                  </span>
+                </BlobButton>
               </div>
 
               {/* Founder Photograph */}

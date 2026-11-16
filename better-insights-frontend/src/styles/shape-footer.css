@@ -204,10 +204,13 @@
 }
 
 .shape-social-icon-btn:hover {
-  transform: scale(1.12);
   box-shadow: 0 6px 18px rgba(203, 252, 107, 0.35);
-  background-color: #d8ffa0;
-  color: #000000;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.shape-social-icon-btn:hover svg {
+  color: white;
 }
 
 /* ==========================================================================
@@ -539,7 +542,7 @@
 /* Massive Headline: Building What's Next */
 .shape-footer-massive-text {
   font-family: inherit;
-  font-size: clamp(2.35rem, 7.8vw, 8.5rem);
+  font-size: clamp(3.2rem, 13.3vw, 11.8rem);
   font-weight: 650;
   color: #FFFFFF;
   letter-spacing: -0.04em;
@@ -563,7 +566,7 @@
 
 @media (min-width: 1024px) {
   .shape-footer-massive-text {
-    font-size: clamp(3.2rem, 7.3vw, 8.8rem);
+    font-size: clamp(3.2rem, 13.3vw, 11.8rem);
     white-space: nowrap;
     margin-top: 5rem;
     margin-bottom: 3.5rem;

@@ -103,7 +103,7 @@
 
 .contact__ways .contact__way-label,
 .contact__ways p {
-  color: #666666;
+  color: rgba(255, 255, 255, 0.6);
   font-size: 18px !important;
   line-height: 1.35;
   font-weight: 500;
@@ -115,17 +115,33 @@
 .contact__ways address {
   font-size: 18px !important;
   line-height: 1.4;
-  color: #000000;
+  color: #FFFFFF;
   font-weight: 700;
   text-decoration: none;
   overflow-wrap: break-word;
   word-break: break-word;
-  transition: opacity 0.2s ease, text-decoration 0.2s ease;
+  transition: opacity 0.2s ease, text-decoration 0.2s ease, color 0.2s ease;
 }
 
 .contact__ways a:hover {
   text-decoration: underline;
-  opacity: 0.8;
+  color: #CBFC6B;
+}
+
+/* Contact Page Specific: Connect with our leadership section has dark card background */
+#contact-ways .contact__ways a,
+#contact-ways .contact__ways .contact__way-value,
+#contact-ways .contact__ways address {
+  color: #FFFFFF !important;
+}
+
+#contact-ways .contact__ways .contact__way-label,
+#contact-ways .contact__ways p {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+#contact-ways .contact__ways a:hover {
+  color: #CBFC6B !important;
 }
 
 @media (max-width: 64rem) {

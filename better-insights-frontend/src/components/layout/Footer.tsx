@@ -174,18 +174,7 @@ export function Footer({ onOpenLeadModal }: FooterProps) {
                     Start a project
                   </BlobButton>
 
-                  <div className="shape-footer-reviews">
-                    <span>5.0 from 69 reviews</span>
-                    <div className="shape-footer-reviews-stars">
-                      <span className="shape-google-icon">G</span>
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="w-3.5 h-3.5 fill-[#CBFC6B] text-[#CBFC6B]"
-                        />
-                      ))}
-                    </div>
-                  </div>
+
                 </div>
               </div>
 
@@ -301,7 +290,7 @@ export function Footer({ onOpenLeadModal }: FooterProps) {
               MASSIVE OVERSIZED HEADLINE (Full-width across card)
               ================================================================= */}
           <div className="shape-footer-massive-text" aria-hidden="true">
-            Building What&apos;s Next
+            Better Insights<span className="text-[#CBFC6B]">.</span>
           </div>
 
           {/* =================================================================
@@ -314,7 +303,7 @@ export function Footer({ onOpenLeadModal }: FooterProps) {
               </span>
               <span>© Better Insights 2026</span>
               <span className="shape-footer-separator">|</span>
-              <span>Digital Marketing &amp; Technology</span>
+              <span>Company CIN - U82990RJ2023PTC086216</span>
             </div>
 
             <div className="shape-footer-legal-links">

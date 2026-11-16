@@ -65,14 +65,14 @@ export function CultureEthos() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14 xl:gap-20">
-          
+
           {/* ================================================================= */}
           {/* Left Column – Large Portrait-Oriented Editorial Photograph (~52%) */}
           {/* ================================================================= */}
           <div ref={leftColRef} className="w-full lg:w-[52%] shrink-0">
             <div className="relative w-full aspect-[0.95/1] rounded-[24px] overflow-hidden bg-[#16161D] shadow-[0_24px_60px_-15px_rgba(0,0,0,0.7)] group">
               <Image
-                src="/images/culture/hero-marketing-team.jpg"
+                src="/BI Photos/Office BI/20250716_180019_resized.webp"
                 alt="Better Insights team collaborating in studio on digital strategy"
                 fill
                 priority
@@ -86,7 +86,7 @@ export function CultureEthos() {
           {/* Right Column – Content Area (~48%)                                */}
           {/* ================================================================= */}
           <div ref={rightColRef} className="w-full lg:w-[48%] flex flex-col justify-center">
-            
+
             {/* Small White Bullet + 'Our Culture' Label */}
             <div className="inline-flex items-center gap-2 mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-white/90" />
@@ -109,7 +109,7 @@ export function CultureEthos() {
             {/* Prominent Emerald Green Testimonial Card (#CBFC6B)                */}
             {/* =============================================================== */}
             <div className="relative bg-[#CBFC6B] text-[#101112] rounded-[20px] p-7 sm:p-8 lg:p-9 shadow-[0_20px_50px_rgba(203, 252, 107,0.25)] overflow-hidden">
-              
+
               {/* Quote Icon & Text */}
               <div className="flex items-start gap-3.5 mb-6">
                 <svg

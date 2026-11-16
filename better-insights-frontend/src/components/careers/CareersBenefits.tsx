@@ -81,7 +81,7 @@ export function CareersBenefits({
         {/* ================================================================= */}
         {/* Large Rounded, Blob-Inspired Card with Stepped Top-Left Cutout    */}
         {/* ================================================================= */}
-        <div className="relative w-full bg-[#191A1D] rounded-2xl sm:rounded-3xl lg:rounded-[32px] p-6 sm:p-10 lg:p-14 xl:p-16 border border-white/[0.04] shadow-2xl overflow-hidden">
+        <div className="relative w-full bg-[#191A1D] rounded-2xl sm:rounded-3xl lg:rounded-[32px] p-6 sm:p-10 lg:p-14 xl:p-16  border-white/[0.04]  overflow-hidden">
           {/* --------------------------------------------------------------- */}
           {/* Distinctive Stepped/Curved Top-Left Cutout & Fillet SVGs        */}
           {/* Exactly matching MadeByShape organic container geometry         */}
@@ -140,19 +140,16 @@ export function CareersBenefits({
               return (
                 <div
                   key={benefit.id}
-                  className={`flex flex-col items-start pb-8 lg:pb-12 ${
-                    isFirstRowDesktop
+                  className={`flex flex-col items-start pb-8 lg:pb-12 ${isFirstRowDesktop
                       ? "lg:border-b lg:border-white/10"
                       : "lg:border-b-0"
-                  } ${
-                    isFirstTwoRowsTablet
+                    } ${isFirstTwoRowsTablet
                       ? "md:max-lg:border-b md:max-lg:border-white/10"
                       : "md:max-lg:border-b-0"
-                  } ${
-                    isNotLastMobile
+                    } ${isNotLastMobile
                       ? "max-md:border-b max-md:border-white/10"
                       : "max-md:border-b-0"
-                  }`}
+                    }`}
                 >
                   {/* Top: Lime-green icon container + Benefit title */}
                   <div className="flex items-center gap-3.5 sm:gap-4 mb-3 sm:mb-4">

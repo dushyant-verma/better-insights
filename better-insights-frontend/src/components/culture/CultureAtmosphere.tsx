@@ -236,6 +236,106 @@ const ATMOSPHERE_CLUSTERS: ImageCluster[] = [
       },
     ],
   },
+
+  // ---------------------------------------------------------------------------
+  // Cluster 6: Studio Energy & Strategic Thinking (3 BI Photos)
+  // ---------------------------------------------------------------------------
+  {
+    id: "cluster-6",
+    title: "Studio Energy & Strategic Thinking",
+    widthClass: "w-[84vw] sm:w-[540px] md:w-[600px] lg:w-[660px] xl:w-[700px]",
+    cards: [
+      {
+        id: "c6-card-1",
+        src: "/BI Photos/BI team photo webp/Copy of DSC00506.webp",
+        alt: "Better Insights team members collaborating at studio workstations",
+        wrapperClass: "w-[56%] sm:w-[52%] aspect-[16/10] top-[10%] left-[2%] z-10",
+        cardRotation: "-rotate-[3deg]",
+        caption: {
+          text: "Studio Energy in Motion",
+          emoji: "⚡",
+          position: "top",
+          align: "left",
+        },
+      },
+      {
+        id: "c6-card-2",
+        src: "/BI Photos/Office BI/20250716_175928_resized.webp",
+        alt: "Better Insights strategic conference room and discussion space",
+        wrapperClass: "w-[52%] sm:w-[48%] aspect-[4/3] top-[8%] left-[48%] z-5",
+        cardRotation: "rotate-[3.5deg]",
+        caption: {
+          text: "Strategy & Sprint Room",
+          emoji: "👇",
+          position: "top",
+          align: "right",
+        },
+      },
+      {
+        id: "c6-card-3",
+        src: "/BI Photos/BI team photo webp/Copy of IMG_0092.webp",
+        alt: "Better Insights team member portrait",
+        wrapperClass: "w-[44%] sm:w-[40%] aspect-[3/4] top-[38%] left-[26%] z-20",
+        cardRotation: "-rotate-[4deg]",
+        caption: {
+          text: "The Minds Behind BI",
+          emoji: "☝️",
+          position: "bottom",
+          align: "center",
+        },
+      },
+    ],
+  },
+
+  // ---------------------------------------------------------------------------
+  // Cluster 7: Office Spaces & Atmosphere (4 BI Photos)
+  // ---------------------------------------------------------------------------
+  {
+    id: "cluster-7",
+    title: "Office Spaces & Atmosphere",
+    widthClass: "w-[88vw] sm:w-[620px] md:w-[680px] lg:w-[760px] xl:w-[800px]",
+    cards: [
+      {
+        id: "c7-card-1",
+        src: "/BI Photos/BI team photo webp/Copy_of_IMG_0087_40.webp",
+        alt: "Better Insights team problem solving and design alignment",
+        wrapperClass: "w-[46%] sm:w-[43%] aspect-[4/3] top-[8%] left-[2%] z-10",
+        cardRotation: "rotate-[2.5deg]",
+        caption: {
+          text: "Creative Alignment",
+          emoji: "👇",
+          position: "top",
+          align: "left",
+        },
+      },
+      {
+        id: "c7-card-2",
+        src: "/BI Photos/Office BI/20250716_175920_resized.webp",
+        alt: "Better Insights open bay workstations and creative desks",
+        wrapperClass: "w-[46%] sm:w-[43%] aspect-[4/3] top-[6%] left-[52%] z-5",
+        cardRotation: "-rotate-[3deg]",
+        caption: {
+          text: "Our Workstation Bay",
+          emoji: "👇",
+          position: "top",
+          align: "right",
+        },
+      },
+      {
+        id: "c7-card-3",
+        src: "/BI Photos/Office BI/20250716_180258_resized.webp",
+        alt: "Better Insights office entrance and welcome gallery",
+        wrapperClass: "w-[46%] sm:w-[42%] aspect-[4/3] top-[46%] left-[26%] z-20",
+        cardRotation: "-rotate-[3.5deg]",
+        caption: {
+          text: "Headquarters Reception",
+          emoji: "☝️",
+          position: "bottom",
+          align: "left",
+        },
+      }
+    ],
+  },
 ];
 
 export function CultureAtmosphere() {
@@ -460,17 +560,15 @@ export function CultureAtmosphere() {
                         {/* Caption Decoration with Emoji */}
                         {card.caption && (
                           <div
-                            className={`absolute z-30 pointer-events-none flex flex-col items-center ${
-                              card.caption.position === "top"
-                                ? "-top-9 sm:-top-11 md:-top-14"
-                                : "-bottom-10 sm:-bottom-13 md:-bottom-16"
-                            } ${
-                              card.caption.align === "left"
+                            className={`absolute z-30 pointer-events-none flex flex-col items-center ${card.caption.position === "top"
+                              ? "-top-9 sm:-top-11 md:-top-14"
+                              : "-bottom-10 sm:-bottom-13 md:-bottom-16"
+                              } ${card.caption.align === "left"
                                 ? "left-1 sm:left-2 md:left-4"
                                 : card.caption.align === "right"
-                                ? "right-1 sm:right-2 md:right-4"
-                                : "left-1/2 -translate-x-1/2"
-                            }`}
+                                  ? "right-1 sm:right-2 md:right-4"
+                                  : "left-1/2 -translate-x-1/2"
+                              }`}
                           >
                             {card.caption.position === "bottom" && (
                               <span className="text-base sm:text-xl md:text-2xl mb-0.5 filter drop-shadow">
@@ -528,7 +626,11 @@ export function CultureAtmosphere() {
               className="h-full bg-[#CBFC6B] w-full origin-left scale-x-0 will-change-transform"
             />
           </div>
-          <span className="text-[9px] sm:text-[10px] text-white/40 font-mono">05</span>
+          <span className="text-[9px] sm:text-[10px] text-white/40 font-mono">
+            {ATMOSPHERE_CLUSTERS.length < 10
+              ? `0${ATMOSPHERE_CLUSTERS.length}`
+              : ATMOSPHERE_CLUSTERS.length}
+          </span>
         </div>
       </div>
     </section>

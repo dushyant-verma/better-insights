@@ -7,6 +7,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
+  width: fit-content;
+  max-width: fit-content;
+  justify-self: start;
   cursor: pointer;
   outline: none;
   border: none;
@@ -18,6 +21,12 @@
   -webkit-tap-highlight-color: transparent;
   user-select: none;
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+}
+
+.bi-blob-btn:not(.bi-blob-btn--full) {
+  width: fit-content !important;
+  max-width: fit-content !important;
+  justify-self: start !important;
 }
 
 .bi-blob-btn:disabled,
@@ -76,7 +85,8 @@
 
 .bi-blob-btn-arrow-icon {
   display: block;
-  stroke-width: 2.5;
+  width: 0.75rem;
+  height: 0.75rem;
   transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -93,11 +103,11 @@
 }
 
 .bi-blob-btn:hover .bi-blob-btn-arrow-icon {
-  transform: rotate(var(--bi-arrow-rotate, 45deg));
+  transform: translate(1.5px, -1.5px) rotate(var(--bi-arrow-rotate, 0deg));
 }
 
 .bi-blob-btn[data-arrow="down"]:hover .bi-blob-btn-arrow-icon {
-  transform: translateY(3px);
+  transform: translate(1.5px, 1.5px) rotate(90deg);
 }
 
 .bi-blob-btn[data-arrow="right"]:hover .bi-blob-btn-arrow-icon {
@@ -115,7 +125,7 @@
 /* Medium / Default (Matching Header CTA) */
 .bi-blob-btn--md {
   --bi-blob-offset: 0.65rem;
-  --bi-arrow-rotate: 45deg;
+  --bi-arrow-rotate: 0deg;
 }
 .bi-blob-btn--md .bi-blob-btn-pill {
   font-size: 0.875rem;
@@ -132,14 +142,14 @@
   height: 2.25rem;
 }
 .bi-blob-btn--md .bi-blob-btn-arrow-icon {
-  width: 0.95rem;
-  height: 0.95rem;
+  width: 0.75rem;
+  height: 0.75rem;
 }
 
 /* Large / Hero & Main CTAs */
 .bi-blob-btn--lg {
   --bi-blob-offset: 0.75rem;
-  --bi-arrow-rotate: 45deg;
+  --bi-arrow-rotate: 0deg;
 }
 .bi-blob-btn--lg .bi-blob-btn-pill {
   font-size: 0.9375rem;
@@ -157,14 +167,14 @@
   height: 2.75rem;
 }
 .bi-blob-btn--lg .bi-blob-btn-arrow-icon {
-  width: 1.125rem;
-  height: 1.125rem;
+  width: 0.75rem;
+  height: 0.75rem;
 }
 
 /* Small / Compact Cards & Secondary CTAs */
 .bi-blob-btn--sm {
   --bi-blob-offset: 0.5rem;
-  --bi-arrow-rotate: 45deg;
+  --bi-arrow-rotate: 0deg;
 }
 .bi-blob-btn--sm .bi-blob-btn-pill {
   font-size: 0.8125rem;
@@ -182,8 +192,8 @@
   height: 1.95rem;
 }
 .bi-blob-btn--sm .bi-blob-btn-arrow-icon {
-  width: 0.85rem;
-  height: 0.85rem;
+  width: 0.75rem;
+  height: 0.75rem;
 }
 
 /* Full Width (Mobile Drawer / Forms) */
@@ -196,6 +206,52 @@
 .bi-blob-btn--full .bi-blob-btn-pill {
   flex: 1;
   justify-content: center;
+}
+
+/* Dark Variant for Careers / Application Form Submit (#292A2D) */
+.bi-blob-btn--dark .bi-blob-btn-pill {
+  background-color: #292A2D !important;
+  color: #FFFFFF !important;
+}
+.bi-blob-btn--dark .bi-blob-btn-blob {
+  background-color: #292A2D !important;
+}
+.bi-blob-btn--dark .bi-blob-btn-arrow-wrap {
+  color: #FFFFFF !important;
+}
+.bi-blob-btn--dark .bi-blob-btn-arrow-icon {
+  color: #FFFFFF !important;
+}
+.bi-blob-btn--dark:hover .bi-blob-btn-pill,
+.bi-blob-btn--dark:hover .bi-blob-btn-blob {
+  background-color: #38393D !important;
+}
+
+/* Secondary / Light Variant (White pill & blob with clean contrast and dark text) */
+.bi-blob-btn--secondary .bi-blob-btn-pill,
+.bi-blob-btn--light .bi-blob-btn-pill {
+  background-color: #FFFFFF !important;
+  color: #111113 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
+}
+.bi-blob-btn--secondary .bi-blob-btn-blob,
+.bi-blob-btn--light .bi-blob-btn-blob {
+  background-color: #FFFFFF !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
+}
+.bi-blob-btn--secondary .bi-blob-btn-arrow-wrap,
+.bi-blob-btn--light .bi-blob-btn-arrow-wrap {
+  color: #111113 !important;
+}
+.bi-blob-btn--secondary .bi-blob-btn-arrow-icon,
+.bi-blob-btn--light .bi-blob-btn-arrow-icon {
+  color: #111113 !important;
+}
+.bi-blob-btn--secondary:hover .bi-blob-btn-pill,
+.bi-blob-btn--secondary:hover .bi-blob-btn-blob,
+.bi-blob-btn--light:hover .bi-blob-btn-pill,
+.bi-blob-btn--light:hover .bi-blob-btn-blob {
+  background-color: #F0F0EE !important;
 }
 
 /* Loading State */

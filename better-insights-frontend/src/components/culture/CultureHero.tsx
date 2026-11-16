@@ -64,16 +64,7 @@ const FLOATING_CARDS: FloatingCard[] = [
     rotation: "-rotate-2",
     parallaxSpeed: -40,
   },
-  // 6. Bottom-Center: Knowledge sharing presentation (landscape 4:3)
-  {
-    src: "/images/culture/photo-1551836022-d5d88e9218df.jpg",
-    alt: "Team presentation and knowledge sharing",
-    className: "bottom-[0%] left-[41%] xl:left-[43%] w-[170px] md:w-[195px] xl:w-[200px] hidden lg:block",
-    aspectClass: "aspect-[4/3]",
-    rotation: "rotate-1",
-    parallaxSpeed: 30,
-  },
-  // 7. Bottom-Right: Design review & review (landscape 16:10)
+  // 6. Bottom-Right: Design review & review (landscape 16:10)
   {
     src: "/images/culture/photo-1559136555-9303baea8ebd.jpg",
     alt: "Design critique and brand review",

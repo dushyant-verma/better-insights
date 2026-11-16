@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowDown, Sparkles, Building2, Handshake, CheckCircle2 } from "lucide-react";
+import { BlobButton } from "@/components/ui/BlobButton";
 
 export function ClienteleHero() {
   const scrollToDirectory = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -61,21 +62,23 @@ export function ClienteleHero() {
 
         {/* Action CTAs */}
         <div className="mt-10 flex flex-wrap items-center gap-4 sm:gap-6">
-          <a
+          <BlobButton
             href="#clientele-directory"
             onClick={scrollToDirectory}
-            className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-[#CBFC6B] hover:bg-[#CBFC6B] text-[#1B1411] text-sm font-semibold rounded-full transition-all shadow-md"
+            size="md"
+            icon="arrow-down"
           >
-            <span>Explore clientele</span>
-            <ArrowDown className="w-4 h-4 animate-bounce" />
-          </a>
+            Explore clientele
+          </BlobButton>
 
-          <Link
+          <BlobButton
             href="/work"
-            className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-[#1B1411] border border-black/15 text-sm font-semibold rounded-full hover:border-black transition-all shadow-sm"
+            size="md"
+            variant="secondary"
+            icon="arrow-up-right"
           >
-            <span>View case studies</span>
-          </Link>
+            View case studies
+          </BlobButton>
         </div>
 
         {/* Trust Metric Counters */}

@@ -56,7 +56,7 @@ export function FeaturedInsight({ post }: FeaturedInsightProps) {
             
             {/* Visual Column */}
             <div className="lg:col-span-7 relative min-h-[320px] sm:min-h-[420px] lg:min-h-[500px] bg-[#FAF5F0] overflow-hidden">
-              <Link href={`/insights/${post.slug}`} className="block h-full w-full relative" tabIndex={-1} aria-hidden="true">
+              <Link href={`/insights/${post.slug}`} data-cursor-image="true" className="block h-full w-full relative" tabIndex={-1} aria-hidden="true">
                 <Image
                   src={imgSrc}
                   alt={title}

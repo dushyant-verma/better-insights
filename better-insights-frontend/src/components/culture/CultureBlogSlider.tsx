@@ -9,92 +9,43 @@ import { STATIC_POSTS } from "@/lib/wordpress/static-posts";
 import { resolvePostImageUrl } from "@/lib/wordpress/images";
 import { getGSAP } from "@/lib/gsap";
 import { BlobButton } from "@/components/ui/BlobButton";
+import { ReusableBlogCard } from "@/components/blog/ReusableBlogCard";
 
-interface CultureBlogSliderProps {
+export interface CultureBlogSliderProps {
   initialPosts?: WPPost[];
   className?: string;
+  eyebrow?: string;
+  heading?: React.ReactNode;
+  ctaText?: string;
+  ctaHref?: string;
+  currentSlug?: string;
 }
 
-function cleanHtmlText(text: string): string {
-  if (!text) return "";
-  return text
-    .replace(/<[^>]*>/g, "")
-    .replace(/&amp;/g, "&")
-    .replace(/&#8217;/g, "’")
-    .replace(/&#8216;/g, "‘")
-    .replace(/&#8220;/g, "“")
-    .replace(/&#8221;/g, "”")
-    .replace(/&quot;/g, '"')
-    .replace(/&#038;/g, "&")
-    .replace(/&nbsp;/g, " ")
-    .replace(/&hellip;/g, "...")
-    .trim();
-}
 
-function calculateReadTime(post: WPPost): number {
-  const content = post.content?.rendered || post.excerpt?.rendered || "";
-  const words = cleanHtmlText(content).split(/\s+/).filter(Boolean).length;
-  return Math.max(2, Math.ceil(words / 190));
-}
 
-function BlogCard({ post, isActive = false }: { post: WPPost; isActive?: boolean }) {
-  const title = cleanHtmlText(post.title?.rendered || "Untitled Post");
-  const rawExcerpt = cleanHtmlText(post.excerpt?.rendered || "");
-  const excerpt = rawExcerpt.length > 150 ? rawExcerpt.slice(0, 150) + "..." : rawExcerpt;
-  const readTime = calculateReadTime(post);
 
-  const rawImage = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
-  const initialImage = resolvePostImageUrl(rawImage, "/images/blog01.webp");
-  const [imgSrc, setImgSrc] = useState<string>(initialImage);
 
-  return (
-    <article className="w-[82vw] max-w-[340px] sm:w-[360px] md:w-[380px] lg:w-[400px] xl:w-[420px] shrink-0 flex flex-col group select-none">
-      <Link
-        href={`/insights/${post.slug}`}
-        className="flex flex-col h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#CBFC6B] rounded-[22px]"
-      >
-        {/* 1. Featured Image (16:9 Landscape with Rounded Corners) */}
-        <div className="relative aspect-[16/9] w-full rounded-[18px] sm:rounded-[20px] overflow-hidden bg-[#16161D] mb-4 sm:mb-5 shadow-[0_12px_30px_-8px_rgba(0,0,0,0.5)]">
-          <Image
-            src={imgSrc}
-            alt={title}
-            fill
-            sizes="(max-width: 640px) 85vw, (max-width: 1024px) 45vw, 420px"
-            className="object-cover object-center transition-transform duration-600 ease-out group-hover:scale-105"
-            onError={() => setImgSrc("/images/blog01.webp")}
-          />
-        </div>
-
-        {/* 2. Blog Metadata (Grey bullet + estimated reading time) */}
-        <div className="flex items-center gap-2 mb-2 sm:mb-2.5 text-xs sm:text-[13px] text-white/50 [font-family:'Host_Grotesk',sans-serif]">
-          <span className="w-1.5 h-1.5 rounded-full bg-white/40 shrink-0" aria-hidden="true" />
-          <span>{readTime} min read</span>
-        </div>
-
-        {/* 3. Blog Title (White by default, Lime-green when active or on hover) */}
-        <h3
-          className={`text-xl sm:text-2xl lg:text-[26px] xl:text-[27px] font-semibold leading-[1.22] tracking-tight transition-colors duration-300 [font-family:'Host_Grotesk',sans-serif] line-clamp-2 mb-2 ${
-            isActive ? "text-[#CBFC6B]" : "text-white group-hover:text-[#CBFC6B]"
-          }`}
-        >
-          {title}
-        </h3>
-
-        {/* 4. Blog Excerpt (Muted grey, 2-line clamp with ellipsis) */}
-        <p className="text-sm sm:text-[15px] lg:text-[16px] text-white/60 font-light leading-relaxed line-clamp-2 [font-family:'Host_Grotesk',sans-serif]">
-          {excerpt}
-        </p>
-      </Link>
-    </article>
-  );
-}
-
-export function CultureBlogSlider({ initialPosts, className = "" }: CultureBlogSliderProps) {
+export function CultureBlogSlider({
+  initialPosts,
+  className = "",
+  eyebrow = "Blog",
+  heading = (
+    <>
+      A bit about<br />our culture
+    </>
+  ),
+  ctaText = "View the Blog",
+  ctaHref = "/insights",
+  currentSlug,
+}: CultureBlogSliderProps) {
   // Use dynamically supplied posts or robust static posts fallback
-  const posts = (initialPosts && initialPosts.length > 0
-    ? initialPosts
-    : STATIC_POSTS
-  ).slice(0, 8);
+  const rawPosts = initialPosts && initialPosts.length > 0 ? initialPosts : STATIC_POSTS;
+  
+  // Filter out current post if rendering on single blog page
+  const posts = (currentSlug ? rawPosts.filter((p) => p.slug !== currentSlug) : rawPosts).slice(
+    0,
+    8
+  );
 
   const sectionRef = useRef<HTMLElement | null>(null);
   const leftColRef = useRef<HTMLDivElement | null>(null);
@@ -191,7 +142,7 @@ export function CultureBlogSlider({ initialPosts, className = "" }: CultureBlogS
       ref={sectionRef}
       id="culture-blog-slider"
       className={`py-20 sm:py-28 lg:py-32 bg-[#0E0F10] text-white relative overflow-hidden select-none ${className}`}
-      aria-label="A bit about our culture blog slider"
+      aria-label="Blog posts showcase slider"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-stretch gap-10 lg:gap-14 xl:gap-16">
@@ -208,22 +159,22 @@ export function CultureBlogSlider({ initialPosts, className = "" }: CultureBlogS
               <div className="inline-flex items-center gap-2 mb-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-white/90" />
                 <span className="text-sm font-light text-white/90 tracking-wide [font-family:'Host_Grotesk',sans-serif]">
-                  Blog
+                  {eyebrow}
                 </span>
               </div>
 
               {/* Main Heading */}
               <h2 className="text-3xl sm:text-4xl lg:text-[40px] xl:text-[44px] font-semibold tracking-[-0.03em] text-white leading-[1.12] [font-family:'Host_Grotesk',sans-serif] text-balance mb-6 sm:mb-8">
-                A bit about<br />our culture
+                {heading}
               </h2>
 
-              {/* Emerald Green Pill CTA with External Arrow */}
+              {/* Lime Green Pill CTA with External Arrow */}
               <BlobButton
-                href="/insights"
+                href={ctaHref}
                 size="md"
                 icon="arrow-up-right"
               >
-                View the Blog
+                {ctaText}
               </BlobButton>
             </div>
 
@@ -275,10 +226,12 @@ export function CultureBlogSlider({ initialPosts, className = "" }: CultureBlogS
               aria-label="Blog posts carousel"
             >
               {posts.map((post, idx) => (
-                <BlogCard
+                <ReusableBlogCard
                   key={post.id || post.slug}
                   post={post}
                   isActive={idx === activeIndex}
+                  index={idx}
+                  className="w-[82vw] max-w-[340px] sm:w-[360px] md:w-[380px] lg:w-[400px] xl:w-[420px] shrink-0"
                 />
               ))}
             </div>
@@ -289,3 +242,5 @@ export function CultureBlogSlider({ initialPosts, className = "" }: CultureBlogS
   );
 }
 
+// Named alias export for flexibility
+export const BlogSlider = CultureBlogSlider;

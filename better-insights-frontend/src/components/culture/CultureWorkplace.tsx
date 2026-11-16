@@ -140,7 +140,7 @@ export function CultureWorkplace() {
             className="relative w-full aspect-[16/10] sm:aspect-[16/9] min-h-[320px] sm:min-h-[460px] md:min-h-[520px] lg:min-h-[600px] xl:min-h-[660px] rounded-2xl sm:rounded-3xl lg:rounded-[24px] overflow-hidden bg-[#16161D] shadow-[0_25px_70px_-15px_rgba(0,0,0,0.7)] z-10"
           >
             <Image
-              src="/images/culture/photo-1552664730-d307ca884978.jpg"
+              src="/BI Photos/BI team photo webp/Copy of DSC00505.webp"
               alt="Better Insights team collaborating in a comfortable and supportive creative environment"
               fill
               priority

@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, CheckCircle2, TrendingUp, Sparkles } from "lucide-react";
+import { BlobButton } from "@/components/ui/BlobButton";
 import { getFeaturedClientStories } from "@/lib/data/clientele";
 
 const FEATURED_STORIES = [
@@ -89,13 +90,14 @@ export function ClienteleStories() {
             </p>
           </div>
 
-          <Link
+          <BlobButton
             href="/work"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#1B1411] text-white text-xs font-semibold uppercase tracking-wider hover:bg-[#CBFC6B] hover:text-[#1B1411] transition-all self-start md:self-auto group shadow-xs"
+            size="md"
+            variant="dark"
+            icon="arrow-up-right"
           >
-            <span>Explore all case studies</span>
-            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </Link>
+            Explore all case studies
+          </BlobButton>
         </div>
 
         {/* Stories Grid */}

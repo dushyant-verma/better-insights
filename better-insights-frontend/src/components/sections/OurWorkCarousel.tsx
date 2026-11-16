@@ -102,15 +102,20 @@ export function OurWorkCarousel() {
         {/* Active Split Showcase Card */}
         <div className="bg-[#F3F2EF] rounded-3xl border border-black/10 overflow-hidden shadow-xl grid grid-cols-1 lg:grid-cols-12 items-center">
           {/* Left 50% Image */}
-          <div className="lg:col-span-7 relative aspect-[16/10] sm:aspect-[16/9] w-full bg-black/5">
+          <Link
+            href={current.link}
+            className="lg:col-span-7 relative aspect-[16/10] sm:aspect-[16/9] w-full bg-black/5 block overflow-hidden group/img"
+            data-cursor-image="true"
+            aria-label={`View ${current.title} case study`}
+          >
             <Image
               src={current.image}
               alt={current.title}
               fill
-              className="object-cover transition-all duration-700"
+              className="object-cover transition-all duration-700 group-hover/img:scale-105"
               sizes="(max-width: 1024px) 100vw, 60vw"
             />
-          </div>
+          </Link>
 
           {/* Right 50% Content */}
           <div className="lg:col-span-5 p-8 sm:p-12 space-y-6">

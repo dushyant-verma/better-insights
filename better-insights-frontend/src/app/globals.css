@@ -254,6 +254,22 @@ p {
 }
 
 /* --------------------------------------------------------------------------
+   Custom Magnetic Cursor Base Styling
+   Ensures cursor is strictly fixed to viewport at top-level z-index
+   -------------------------------------------------------------------------- */
+.magnetic-cursor {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 999999 !important;
+  pointer-events: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  will-change: transform, width, height, border-radius;
+}
+
+/* --------------------------------------------------------------------------
    Custom Cursor Touch & Mobile Prevention
    Completely disable and hide custom cursor on touch screens, coarse pointers,
    and mobile/tablet devices to prevent floating circle artifacts.
@@ -266,4 +282,62 @@ p {
     opacity: 0 !important;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Desktop Clickable Images Cursor Styling
+   Hides the default native pointer over clickable image elements so the
+   global custom MadeByShape 96px lime-green cursor tracks smoothly.
+   Strictly desktop-only (hover: hover and min-width: 1025px).
+   -------------------------------------------------------------------------- */
+@media (hover: hover) and (pointer: fine) and (min-width: 1025px) {
+  a:has(img),
+  a:has(picture),
+  button:has(img),
+  button:has(picture),
+  [data-cursor-image],
+  .blog-slider-thumb,
+  .work-card,
+  .portfolio-card,
+  .case-study-thumb,
+  .js-cursor-trigger-drag {
+    cursor: none !important;
+  }
+
+  a:has(img) *,
+  a:has(picture) *,
+  button:has(img) *,
+  button:has(picture) *,
+  [data-cursor-image] *,
+  .blog-slider-thumb * {
+    cursor: none !important;
+  }
+
+  /* Exclude header, navigation, and explicit controls so they retain normal cursor */
+  header,
+  header *,
+  nav,
+  nav *,
+  .site-header,
+  .site-header *,
+  [data-cursor="default"],
+  [data-cursor="none"],
+  [data-cursor="auto"],
+  input,
+  textarea,
+  select {
+    cursor: auto !important;
+  }
+
+  header a,
+  header a *,
+  header button,
+  header button *,
+  nav a,
+  nav a *,
+  nav button,
+  nav button * {
+    cursor: pointer !important;
+  }
+}
+
 

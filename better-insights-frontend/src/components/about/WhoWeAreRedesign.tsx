@@ -159,9 +159,9 @@ export function WhoWeAreRedesign() {
 
           {/* Asymmetrical Editorial Workspace Image with Corner Badge */}
           <div className="who-hero-card who-reveal-item">
-            <div className="relative aspect-[16/9] sm:aspect-[21/10] w-full">
+            <div className="relative aspect-[16/9] sm:aspect-[16/10] w-full">
               <Image
-                src="/images/culture/hero-marketing-team.jpg"
+                src="/BI Photos/BI team photo webp/Copy_of_IMG_0086_40.webp"
                 alt="Better Insights creative team collaborating in our modern open workspace"
                 fill
                 priority
@@ -202,7 +202,7 @@ export function WhoWeAreRedesign() {
               <div className="who-culture-image-card group">
                 <div className="relative aspect-[4/3] sm:aspect-[16/11] lg:aspect-[5/4] w-full overflow-hidden">
                   <Image
-                    src="/images/culture/photo-1552664730-d307ca884978.jpg"
+                    src="/BI Photos/Office BI/20250716_180258_resized.webp"
                     alt="Better Insights team collaborating on digital sprint strategies"
                     fill
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
@@ -327,10 +327,7 @@ export function WhoWeAreRedesign() {
                 </div>
                 <div className="mt-6 sm:mt-8 pt-4 border-t border-black/8 flex items-center justify-between text-[11px] font-mono">
                   <span className="text-[#9CA3AF] tracking-wider uppercase font-medium">METRIC // 0{idx + 1}</span>
-                  <span className="text-[#CBFC6B] font-bold tracking-wider uppercase flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
-                    VERIFIED
-                  </span>
+
                 </div>
               </div>
             ))}

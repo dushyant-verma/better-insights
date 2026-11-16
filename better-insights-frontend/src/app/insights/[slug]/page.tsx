@@ -9,6 +9,7 @@ import { SingleBlogHero } from "@/components/insights/SingleBlogHero";
 import { BlogTableOfContents, TOCItem } from "@/components/insights/BlogTableOfContents";
 import { BlogSocialShare } from "@/components/insights/BlogSocialShare";
 import { BlogArticleContent } from "@/components/insights/BlogArticleContent";
+import { CultureBlogSlider } from "@/components/culture/CultureBlogSlider";
 import { 
   Calendar, 
   User, 
@@ -148,11 +149,11 @@ export default async function InsightDetailPage({
   // Process Headings & Table of Contents
   const { processedHtml, tocItems } = processArticleContent(post.content?.rendered || "");
 
-  // Fetch 3 related posts
+  // Fetch related posts for the blog slider carousel
   const { posts: allPosts } = await getPosts({ perPage: 12 });
   const relatedPosts = allPosts
     .filter((p) => p.slug !== slug)
-    .slice(0, 3);
+    .slice(0, 8);
 
   // Article Structured Data (Schema.org)
   const jsonLd = {
@@ -266,77 +267,21 @@ export default async function InsightDetailPage({
           </div>
         </div>
 
-        {/* 3. Related Articles Section */}
-        {relatedPosts.length > 0 && (
-          <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mt-24 pt-16 border-t border-white/10">
-            <div className="flex items-center justify-between mb-8">
-              <div>
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 text-[#CBFC6B] text-[11px] font-semibold border border-white/10 mb-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#CBFC6B]" />
-                  Keep Exploring
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-semibold tracking-[-0.03em] text-white [font-family:'Host_Grotesk',sans-serif]">
-                  Related Perspectives
-                </h3>
-              </div>
-
-              <Link
-                href="/insights"
-                className="text-xs font-semibold text-neutral-300 hover:text-[#CBFC6B] transition-colors flex items-center gap-1"
-              >
-                <span>View Archive</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {relatedPosts.map((rel) => {
-                const relTitle = rel.title.rendered;
-                const rawRelImage = rel._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
-                const relImage = resolvePostImageUrl(rawRelImage, "/images/blog01.webp");
-                const relCat =
-                  rel._embedded?.["wp:term"]?.[0]?.[0]?.name ||
-                  "Perspective";
-
-                return (
-                  <Link
-                    key={rel.id}
-                    href={`/insights/${rel.slug}`}
-                    className="bi-insight-card bg-[#141518] rounded-[1.75rem] border border-white/10 overflow-hidden shadow-xl hover:shadow-2xl hover:border-[#CBFC6B]/40 transition-all flex flex-col justify-between group"
-                  >
-                    <div>
-                      <div className="relative aspect-[16/10] w-full bg-neutral-900 overflow-hidden">
-                        <Image
-                          src={relImage}
-                          alt={relTitle}
-                          fill
-                          className="bi-card-img object-cover group-hover:scale-105 transition-transform duration-500"
-                          sizes="(max-width: 768px) 100vw, 33vw"
-                        />
-                        <div className="absolute top-3 left-3">
-                          <span className="px-2.5 py-0.5 bg-black/70 backdrop-blur-md text-[#CBFC6B] text-[10px] font-semibold rounded-full border border-white/10">
-                            {relCat.replace(/&amp;/g, "&")}
-                          </span>
-                        </div>
-                      </div>
-
-                      <div className="p-5">
-                        <h4 className="text-sm font-semibold tracking-[-0.02em] text-white [font-family:'Host_Grotesk',sans-serif] leading-snug group-hover:text-[#CBFC6B] transition-colors line-clamp-2">
-                          {relTitle}
-                        </h4>
-                      </div>
-                    </div>
-
-                    <div className="px-5 pb-5 pt-1 flex items-center justify-between text-[11px] font-semibold text-neutral-400 group-hover:text-[#CBFC6B] transition-colors">
-                      <span>Read Article</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </section>
-        )}
+        {/* 3. Related Articles Section - Reusable Blog Slider Carousel with Author Reveal & Lime Arrow Cursor */}
+        <div className="border-t border-white/10 mt-20 sm:mt-28">
+          <CultureBlogSlider
+            initialPosts={relatedPosts}
+            currentSlug={slug}
+            eyebrow="Related Perspectives"
+            heading={
+              <>
+                Related<br />Perspectives
+              </>
+            }
+            ctaText="View All Insights"
+            ctaHref="/insights"
+          />
+        </div>
 
         {/* 4. Bottom Conversion / Consultation CTA */}
         <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mt-24">

@@ -44,9 +44,9 @@ export function resolveAuthorProfile(rawAuthor?: SingleBlogHeroAuthor): {
   } else if (lower.includes("dushyant")) {
     image = image || "/team/photos/dushyant-verma-photo-v2.webp";
     role = role || "Web Developer";
-  } else if (lower.includes("kanika")) {
-    image = image || "/team/photos/kanika-sohal-photo.png";
-    role = role || "HR Manager";
+  } else if (lower.includes("riya") || lower.includes("kanika")) {
+    image = image || "/team/photos/riya-balyan-photo.png";
+    role = role || "HR & Culture Manager";
   } else if (lower.includes("dinkey")) {
     image = image || "/team/photos/dinkey-lekhwani-photo.png";
     role = role || "Business Development Manager";

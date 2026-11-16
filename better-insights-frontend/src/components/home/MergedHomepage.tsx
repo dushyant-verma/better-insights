@@ -282,7 +282,7 @@ export function MergedHomepage() {
       };
 
       // Queue Motion Engine
-      const fontsReady: Promise<void> = document.fonts ? document.fonts.ready.then(() => {}) : Promise.resolve();
+      const fontsReady: Promise<void> = document.fonts ? document.fonts.ready.then(() => { }) : Promise.resolve();
       const parsedReady = document.readyState === "loading"
         ? new Promise(resolve => document.addEventListener("DOMContentLoaded", resolve, { once: true }))
         : Promise.resolve();
@@ -294,9 +294,9 @@ export function MergedHomepage() {
         for (const trigger of ScrollTrigger.getAll() || []) {
           if (!trigger.end && ScrollTrigger.getAll().includes(trigger)) trigger.refresh(0, 1);
         }
-        const ctx = gsap.context(() => {});
+        const ctx = gsap.context(() => { });
         contexts.push(ctx);
-        const log = new MutationObserver(() => {});
+        const log = new MutationObserver(() => { });
         log.observe(document.documentElement, { attributes: true, attributeOldValue: true, subtree: true });
         let failure: any = null;
         let records: MutationRecord[] = [];
@@ -851,7 +851,7 @@ export function MergedHomepage() {
           const endDrag = (e: PointerEvent) => {
             if (dragging) {
               dragging = false;
-              try { sliderEl.releasePointerCapture(e.pointerId); } catch {}
+              try { sliderEl.releasePointerCapture(e.pointerId); } catch { }
             }
           };
           sliderEl.addEventListener("pointerup", endDrag);
@@ -1020,7 +1020,7 @@ export function MergedHomepage() {
         try {
           if (typeof ctx._customCleanup === "function") ctx._customCleanup();
           ctx.revert();
-        } catch {}
+        } catch { }
       });
 
       // Clean up layout classes
@@ -1066,7 +1066,7 @@ export function MergedHomepage() {
               <Link className="m-link hero__link" href="/work">
                 <span className="m-link__label">Explore Our Work</span>
                 <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true">
-                  <path d="M2 8h11M9 3.5 13.5 8 9 12.5"/>
+                  <path d="M2 8h11M9 3.5 13.5 8 9 12.5" />
                 </svg>
               </Link>
             </div>
@@ -1123,12 +1123,12 @@ export function MergedHomepage() {
               </p>
               <nav className="statement__index" aria-label="On this page">
                 <ul>
-                  <li><Link className="m-link" href="/work"><span className="m-link__label">See the work</span><svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></Link></li>
-                  <li><Link className="m-link" href="/services"><span className="m-link__label">What we do</span><svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></Link></li>
-                  <li><a className="m-link" href="#method"><span className="m-link__label">How we work</span><svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a></li>
-                  <li><Link className="m-link" href="/about"><span className="m-link__label">Inside Better Insights</span><svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></Link></li>
-                  <li><Link className="m-link" href="/insights"><span className="m-link__label">Ideas and news</span><svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></Link></li>
-                  <li><Link className="m-link" href="/contact"><span className="m-link__label">Get Marketing Plan</span><svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></Link></li>
+                  <li><Link className="m-link" href="/work"><span className="m-link__label">See the work</span><svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg></Link></li>
+                  <li><Link className="m-link" href="/services"><span className="m-link__label">What we do</span><svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg></Link></li>
+                  <li><a className="m-link" href="#method"><span className="m-link__label">How we work</span><svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg></a></li>
+                  <li><Link className="m-link" href="/about"><span className="m-link__label">Inside Better Insights</span><svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg></Link></li>
+                  <li><Link className="m-link" href="/insights"><span className="m-link__label">Ideas and news</span><svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg></Link></li>
+                  <li><Link className="m-link" href="/contact"><span className="m-link__label">Get Marketing Plan</span><svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg></Link></li>
                 </ul>
               </nav>
             </div>
@@ -1144,7 +1144,7 @@ export function MergedHomepage() {
                   Verified client results and growth campaigns across diverse industries.{" "}
                   <Link href="/work" className="m-link" style={{ marginLeft: "0.5rem", display: "inline-flex" }}>
                     <span className="m-link__label">View All Work</span>
-                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg>
                   </Link>
                 </p>
               </div>
@@ -1173,7 +1173,7 @@ export function MergedHomepage() {
                       <p className="m-text-5 case__line">Intelligent course discovery portal and expert career counseling platform.</p>
                       <Link href="/work/course-proxy" className="m-link m-text-6" style={{ marginTop: "0.5rem", display: "inline-flex" }}>
                         <span className="m-link__label">Read Case Study</span>
-                        <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+                        <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg>
                       </Link>
                     </div>
                   </li>
@@ -1200,7 +1200,7 @@ export function MergedHomepage() {
                       <p className="m-text-5 case__line">High-volume international search engine optimization and scalable organic reach.</p>
                       <Link href="/work/the-ly" className="m-link m-text-6" style={{ marginTop: "0.5rem", display: "inline-flex" }}>
                         <span className="m-link__label">Read Case Study</span>
-                        <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+                        <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg>
                       </Link>
                     </div>
                   </li>
@@ -1227,7 +1227,7 @@ export function MergedHomepage() {
                       <p className="m-text-5 case__line">Unified patient care ecosystem, OPD digitization, and teleconsultations.</p>
                       <Link href="/work/pooja-hospital-telehealth" className="m-link m-text-6" style={{ marginTop: "0.5rem", display: "inline-flex" }}>
                         <span className="m-link__label">Read Case Study</span>
-                        <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+                        <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg>
                       </Link>
                     </div>
                   </li>
@@ -1254,7 +1254,7 @@ export function MergedHomepage() {
                       <p className="m-text-5 case__line">Performance user acquisition, viral referral mechanics, and brand growth.</p>
                       <Link href="/work/voyya-app-growth" className="m-link m-text-6" style={{ marginTop: "0.5rem", display: "inline-flex" }}>
                         <span className="m-link__label">Read Case Study</span>
-                        <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+                        <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg>
                       </Link>
                     </div>
                   </li>
@@ -1281,7 +1281,7 @@ export function MergedHomepage() {
                       <p className="m-text-5 case__line">AI-driven adaptive learning workflows and personalized student guidance.</p>
                       <Link href="/work/veda-edu" className="m-link m-text-6" style={{ marginTop: "0.5rem", display: "inline-flex" }}>
                         <span className="m-link__label">Read Case Study</span>
-                        <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+                        <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg>
                       </Link>
                     </div>
                   </li>
@@ -1299,7 +1299,7 @@ export function MergedHomepage() {
                   More than 250 digital marketing projects helping over 250 brands scale through SEO, ads, web, and growth systems.{" "}
                   <Link href="/our-clientele" className="m-link" style={{ marginLeft: "0.5rem", display: "inline-flex" }}>
                     <span className="m-link__label">Explore Our Clientele</span>
-                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg>
                   </Link>
                 </p>
               </div>
@@ -1354,7 +1354,7 @@ export function MergedHomepage() {
                 Data-driven marketing, web design, and digital growth services tailored to elevate your business.{" "}
                 <Link href="/services" className="m-link" style={{ marginLeft: "0.5rem", display: "inline-flex" }}>
                   <span className="m-link__label">Explore All Services</span>
-                  <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+                  <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg>
                 </Link>
               </p>
             </div>
@@ -1370,7 +1370,7 @@ export function MergedHomepage() {
                   <ul className="service__tags"><li className="m-badge">UI/UX Design</li><li className="m-badge">Landing Pages</li><li className="m-badge">Web Development</li><li className="m-badge">Performance</li></ul>
                   <Link href="/services/website-development" className="m-link m-text-6" style={{ marginTop: "1rem", display: "inline-flex" }}>
                     <span className="m-link__label">Explore Website Development</span>
-                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg>
                   </Link>
                 </div>
                 <Link href="/services/website-development" className="service__media" data-8b-motion="iris" aria-label="Website Development">
@@ -1389,7 +1389,7 @@ export function MergedHomepage() {
                   <ul className="service__tags"><li className="m-badge">Google Ads</li><li className="m-badge">Meta Ads</li><li className="m-badge">PPC Campaigns</li><li className="m-badge">ROI Scaling</li></ul>
                   <Link href="/services/digital-growth" className="m-link m-text-6" style={{ marginTop: "1rem", display: "inline-flex" }}>
                     <span className="m-link__label">Explore Digital Growth</span>
-                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg>
                   </Link>
                 </div>
                 <Link href="/services/digital-growth" className="service__media" data-8b-motion="iris" aria-label="Digital Growth">
@@ -1408,7 +1408,7 @@ export function MergedHomepage() {
                   <ul className="service__tags"><li className="m-badge">AI Agents</li><li className="m-badge">Workflow Automation</li><li className="m-badge">Cognitive Systems</li><li className="m-badge">Efficiency</li></ul>
                   <Link href="/services/ai-automation" className="m-link m-text-6" style={{ marginTop: "1rem", display: "inline-flex" }}>
                     <span className="m-link__label">Explore AI &amp; Automation</span>
-                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg>
                   </Link>
                 </div>
                 <Link href="/services/ai-automation" className="service__media" data-8b-motion="iris" aria-label="AI and Automation">
@@ -1427,7 +1427,7 @@ export function MergedHomepage() {
                   <ul className="service__tags"><li className="m-badge">HubSpot &amp; Zoho</li><li className="m-badge">API Integrations</li><li className="m-badge">Lead Pipelines</li><li className="m-badge">Data Sync</li></ul>
                   <Link href="/services/crm-integrations" className="m-link m-text-6" style={{ marginTop: "1rem", display: "inline-flex" }}>
                     <span className="m-link__label">Explore CRM &amp; Integrations</span>
-                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg>
                   </Link>
                 </div>
                 <Link href="/services/crm-integrations" className="service__media" data-8b-motion="iris" aria-label="CRM and Integrations">
@@ -1446,7 +1446,7 @@ export function MergedHomepage() {
                   <ul className="service__tags"><li className="m-badge">Brand Identity</li><li className="m-badge">Logo Design</li><li className="m-badge">Enterprise Strategy</li><li className="m-badge">Scale</li></ul>
                   <Link href="/services/digital-transformation" className="m-link m-text-6" style={{ marginTop: "1rem", display: "inline-flex" }}>
                     <span className="m-link__label">Explore Digital Transformation</span>
-                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg>
                   </Link>
                 </div>
                 <Link href="/services/digital-transformation" className="service__media" data-8b-motion="iris" aria-label="Digital Transformation">
@@ -1466,8 +1466,8 @@ export function MergedHomepage() {
             <div className="method__body">
               <div className="method__ring" aria-hidden="true">
                 <svg className="method__svg" viewBox="0 0 400 400">
-                  <circle className="method__track" cx="200" cy="200" r="170"/>
-                  <circle className="method__arc" cx="200" cy="200" r="170" pathLength={1} strokeDasharray="1 1" strokeDashoffset={0}/>
+                  <circle className="method__track" cx="200" cy="200" r="170" />
+                  <circle className="method__arc" cx="200" cy="200" r="170" pathLength={1} strokeDasharray="1 1" strokeDashoffset={0} />
                 </svg>
                 <span className="method__station" style={{ "--x": 0, "--y": -1 } as React.CSSProperties}></span>
                 <span className="method__station" style={{ "--x": 1, "--y": 0 } as React.CSSProperties}></span>
@@ -1492,16 +1492,16 @@ export function MergedHomepage() {
                 Based in Pune, India, we are a multidisciplinary team of marketing strategists, developers, SEO analysts, and creatives dedicated to driving measurable growth for brands.{" "}
                 <Link href="/about" className="m-link" style={{ marginLeft: "0.5rem", display: "inline-flex" }}>
                   <span className="m-link__label">Learn More About Us</span>
-                  <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+                  <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg>
                 </Link>
               </p>
             </div>
             <div className="studio__collage">
-              <figure className="shot shot--wide"><img src="https://images.unsplash.com/photo-1787647559705-d2ad3322020e?auto=format&fit=crop&w=690&h=460&q=80" width={690} height={460} alt="Team meeting" loading="lazy" /></figure>
-              <figure className="shot shot--tall"><img src="https://images.unsplash.com/photo-1643373977342-73cfc7cc0c5e?auto=format&fit=crop&w=400&h=533&q=80" width={400} height={533} alt="Colleagues laughing" loading="lazy" /></figure>
-              <figure className="shot shot--tall"><img src="https://images.unsplash.com/photo-1745434159123-4908d0b9df94?auto=format&fit=crop&w=400&h=533&q=80" width={400} height={533} alt="Designer smiling" loading="lazy" /></figure>
-              <figure className="shot shot--wide"><img src="https://images.unsplash.com/photo-1787647560262-ebfcf6c5f979?auto=format&fit=crop&w=690&h=460&q=80" width={690} height={460} alt="Collaborating at table" loading="lazy" /></figure>
-              <figure className="shot shot--wide"><img src="https://images.unsplash.com/photo-1623652653308-d49d335c92eb?auto=format&fit=crop&w=690&h=460&q=80" width={690} height={460} alt="Team discussion" loading="lazy" /></figure>
+              <figure className="shot shot--wide"><img src="/BI Photos/BI team photo webp/Copy_of_IMG_0087_40.webp" width={690} height={460} alt="Better Insights team collaboration" loading="lazy" /></figure>
+              <figure className="shot shot--tall"><img src="/BI Photos/Office BI/20250716_175936_resized.webp" width={400} height={533} alt="Better Insights team member portrait" loading="lazy" /></figure>
+              <figure className="shot shot--tall"><img src="/BI Photos/BI team photo webp/Copy of IMG_0089.webp" width={400} height={533} alt="Better Insights team workspace" loading="lazy" /></figure>
+              <figure className="shot shot--wide"><img src="/BI Photos/Office BI/20250716_175920_resized.webp" width={690} height={460} alt="Better Insights office workstation" loading="lazy" /></figure>
+              <figure className="shot shot--wide"><img src="/BI Photos/BI team photo webp/Copy of DSC00505.webp " width={690} height={460} alt="Better Insights office entrance" loading="lazy" /></figure>
               <div className="studio__roles">
                 <h3 className="m-text-7" data-8b-motion="rise">Open roles<span className="m-dot" aria-hidden="true"></span></h3>
                 <ul>
@@ -1512,11 +1512,11 @@ export function MergedHomepage() {
                 <div style={{ display: "flex", gap: "1.25rem", flexWrap: "wrap", marginTop: "1rem" }}>
                   <Link className="m-link" href="/careers">
                     <span className="m-link__label">Explore Open Roles</span>
-                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg>
                   </Link>
                   <a className="m-link" href="mailto:contact@betterinsights.in">
                     <span className="m-link__label">contact@betterinsights.in</span>
-                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg>
                   </a>
                 </div>
               </div>
@@ -1567,7 +1567,7 @@ export function MergedHomepage() {
               <h2 className="m-text-3" id="journal-title" data-8b-motion="rise">Ideas and news<span className="m-dot" aria-hidden="true"></span></h2>
               <Link href="/insights" className="m-link">
                 <span className="m-link__label">Explore All Insights</span>
-                <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+                <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg>
               </Link>
             </div>
             <div className="journal__body">
@@ -1588,7 +1588,7 @@ export function MergedHomepage() {
                   <p className="m-text story__text">Why intuitive navigation, rapid page loading, and clear calls to action turn visitors into paying customers.</p>
                   <Link href="/insights" className="m-link m-text-6" style={{ marginTop: "0.5rem", display: "inline-flex" }}>
                     <span className="m-link__label">Read Article</span>
-                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg>
                   </Link>
                 </li>
                 <li className="story">
@@ -1601,7 +1601,7 @@ export function MergedHomepage() {
                   <p className="m-text story__text">Proven search engine strategies that build domain authority, target buyer intent, and capture sustainable organic traffic.</p>
                   <Link href="/insights" className="m-link m-text-6" style={{ marginTop: "0.5rem", display: "inline-flex" }}>
                     <span className="m-link__label">Read Article</span>
-                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg>
                   </Link>
                 </li>
                 <li className="story">
@@ -1614,7 +1614,7 @@ export function MergedHomepage() {
                   <p className="m-text story__text">Structuring high-converting Google and Meta ad campaigns to lower acquisition costs and maximize return on investment.</p>
                   <Link href="/insights" className="m-link m-text-6" style={{ marginTop: "0.5rem", display: "inline-flex" }}>
                     <span className="m-link__label">Read Article</span>
-                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg>
                   </Link>
                 </li>
                 <li className="story">
@@ -1627,7 +1627,7 @@ export function MergedHomepage() {
                   <p className="m-text story__text">Aligning brand messaging, marketing funnels, and data analytics into one cohesive engine for long-term business growth.</p>
                   <Link href="/insights" className="m-link m-text-6" style={{ marginTop: "0.5rem", display: "inline-flex" }}>
                     <span className="m-link__label">Read Article</span>
-                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+                    <svg className="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg>
                   </Link>
                 </li>
               </ol>
@@ -1666,7 +1666,7 @@ export function MergedHomepage() {
                           <div className="phone__top">
                             <p className="phone__who">Better Insights Strategy</p>
                             <p className="phone__state"><span className="phone__dot" aria-hidden="true"></span>Consultation · Live Session</p>
-                            <span className="phone__end" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 14c4-4 12-4 16 0l-2 3-3-1v-2c-2-1-4-1-6 0v2l-3 1z"/></svg></span>
+                            <span className="phone__end" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 14c4-4 12-4 16 0l-2 3-3-1v-2c-2-1-4-1-6 0v2l-3 1z" /></svg></span>
                           </div>
                           <p className="phone__number" data-step="2">Verified Growth Partner · Better Insights</p>
                           <ol className="phone__log">
@@ -1676,12 +1676,12 @@ export function MergedHomepage() {
                             <li className="phone__msg" data-step="4"><p className="m-caption"><span className="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span className="m-caption__text">We have already prepared the expansion roadmap for your team review.</span></p></li>
                             <li className="phone__msg phone__msg--you" data-step="5"><p className="m-caption-2"><span className="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span className="m-caption__text">Let us connect on Friday to review the new campaign.</span></p></li>
                           </ol>
-                          <p className="phone__saved" data-step="5"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Growth plan delivered to your team</p>
+                          <p className="phone__saved" data-step="5"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" /></svg>Growth plan delivered to your team</p>
                           <div className="phone__bar" aria-hidden="true">
-                            <span><svg viewBox="0 0 24 24"><path d="M4 10v4h4l5 4V6L8 10zM16 9a4 4 0 0 1 0 6"/></svg>Speaker</span>
-                            <span><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Mute</span>
-                            <span><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h1M11 10h1M15 10h1M8 14h8"/></svg>Type</span>
-                            <span><svg viewBox="0 0 24 24"><path d="M6 6h.01M12 6h.01M18 6h.01M6 12h.01M12 12h.01M18 12h.01M6 18h.01M12 18h.01M18 18h.01"/></svg>Keypad</span>
+                            <span><svg viewBox="0 0 24 24"><path d="M4 10v4h4l5 4V6L8 10zM16 9a4 4 0 0 1 0 6" /></svg>Speaker</span>
+                            <span><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3" /><path d="M5 11a7 7 0 0 0 14 0M12 18v3" /></svg>Mute</span>
+                            <span><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2" /><path d="M7 10h1M11 10h1M15 10h1M8 14h8" /></svg>Type</span>
+                            <span><svg viewBox="0 0 24 24"><path d="M6 6h.01M12 6h.01M18 6h.01M6 12h.01M12 12h.01M18 12h.01M6 18h.01M12 18h.01M18 18h.01" /></svg>Keypad</span>
                           </div>
                         </div>
                       </figure>
@@ -1832,8 +1832,8 @@ export function MergedHomepage() {
                 <p className="rooms__now m-text-6"><i aria-hidden="true"></i>Omnichannel Presence · 5 Touchpoints</p>
                 <div className="rooms__track">
                   <svg className="rooms__lines" viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden="true">
-                    <path className="rooms__line rooms__line--a" pathLength={1} d="M0 60C40 10 80 10 120 50S200 95 240 55 320 5 360 45 440 95 480 55 560 5 600 45 680 95 720 55 800 5 840 45 920 95 1000 50"/>
-                    <path className="rooms__line rooms__line--b" pathLength={1} d="M0 40C40 90 80 90 120 50S200 5 240 45 320 95 360 55 440 5 480 45 560 95 600 55 680 5 720 45 800 95 840 55 920 5 1000 50"/>
+                    <path className="rooms__line rooms__line--a" pathLength={1} d="M0 60C40 10 80 10 120 50S200 95 240 55 320 5 360 45 440 95 480 55 560 5 600 45 680 95 720 55 800 5 840 45 920 95 1000 50" />
+                    <path className="rooms__line rooms__line--b" pathLength={1} d="M0 40C40 90 80 90 120 50S200 5 240 45 320 95 360 55 440 5 480 45 560 95 600 55 680 5 720 45 800 95 840 55 920 5 1000 50" />
                   </svg>
                   <figure className="rooms__place">
                     <img src="https://images.unsplash.com/photo-1786772444593-63542e7d0618?auto=format&fit=crop&w=400&q=80" width={400} alt="Search and Discovery" loading="lazy" />
@@ -1892,7 +1892,7 @@ export function MergedHomepage() {
                     <p>“Better Insights transformed our digital presence with exceptional agility. Their strategic clarity and engineering precision delivered measurable business growth from day one.”</p>
                   </blockquote>
                   <figcaption className="voices__who m-text-6">
-                    <span className="voices__badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+                    <span className="voices__badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z" /><path d="M9 12l2 2 4-4" /></svg></span>
                     <p>Eileen Brennan<br /><span>Managing Director, Stylebar Ireland</span></p>
                   </figcaption>
                 </figure>
@@ -1900,21 +1900,21 @@ export function MergedHomepage() {
                   <ul className="voices__col">
                     <li className="m-card">
                       <p className="voices__stars" aria-label="5 out of 5 stars">
-                        {[...Array(5)].map((_, i) => (<svg key={i} viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg>))}
+                        {[...Array(5)].map((_, i) => (<svg key={i} viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z" /></svg>))}
                       </p>
                       <p className="m-text">The SEO strategy they implemented drove a massive increase in organic inquiries within three months.</p>
                       <p className="m-text-6">David C. Gallagher, Operations Director</p>
                     </li>
                     <li className="m-card">
                       <p className="voices__stars" aria-label="5 out of 5 stars">
-                        {[...Array(5)].map((_, i) => (<svg key={i} viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg>))}
+                        {[...Array(5)].map((_, i) => (<svg key={i} viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z" /></svg>))}
                       </p>
                       <p className="m-text">Their Google Ads management lowered our cost per acquisition while doubling our qualified leads.</p>
                       <p className="m-text-6">Ananya Khare, Principal Partner</p>
                     </li>
                     <li className="m-card">
                       <p className="voices__stars" aria-label="5 out of 5 stars">
-                        {[...Array(5)].map((_, i) => (<svg key={i} viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg>))}
+                        {[...Array(5)].map((_, i) => (<svg key={i} viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z" /></svg>))}
                       </p>
                       <p className="m-text">Exceptional web design and development. The team understood our vision and executed flawlessly.</p>
                       <p className="m-text-6">Ravi Sharma, Founder</p>
@@ -1923,21 +1923,21 @@ export function MergedHomepage() {
                   <ul className="voices__col">
                     <li className="m-card">
                       <p className="voices__stars" aria-label="5 out of 5 stars">
-                        {[...Array(5)].map((_, i) => (<svg key={i} viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg>))}
+                        {[...Array(5)].map((_, i) => (<svg key={i} viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z" /></svg>))}
                       </p>
                       <p className="m-text">Over 62,500 leads driven for clients is not just a stat—we saw the results in our own pipeline.</p>
                       <p className="m-text-6">Vikram Patel, Director</p>
                     </li>
                     <li className="m-card">
                       <p className="voices__stars" aria-label="5 out of 5 stars">
-                        {[...Array(5)].map((_, i) => (<svg key={i} viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg>))}
+                        {[...Array(5)].map((_, i) => (<svg key={i} viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z" /></svg>))}
                       </p>
                       <p className="m-text">Strategic, data-driven, and highly responsive. Better Insights is a true growth partner.</p>
                       <p className="m-text-6">Kavita N., Brand Manager</p>
                     </li>
                     <li className="m-card">
                       <p className="voices__stars" aria-label="5 out of 5 stars">
-                        {[...Array(5)].map((_, i) => (<svg key={i} viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z"/></svg>))}
+                        {[...Array(5)].map((_, i) => (<svg key={i} viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.4l-4.2 2.4 1-4.6L1.3 6l4.7-.5z" /></svg>))}
                       </p>
                       <p className="m-text">Collaborative and practical. They helped us eliminate digital bottlenecks and grow sustainably.</p>
                       <p className="m-text-6">Neha Joshi, COO</p>
@@ -1961,9 +1961,9 @@ export function MergedHomepage() {
                   <p className="setup__num m-text-2" aria-hidden="true">1</p>
                   <div className="setup__copy"><h3 className="m-text-5">Discovery &amp; Audit</h3><p className="m-text-8">We analyze your existing marketing channels, search visibility, competitor landscape, and conversion funnels to identify growth opportunities.</p></div>
                   <div className="setup__ui m-text-6" aria-hidden="true">
-                    <p className="setup__check"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Full Channel Audit</p>
-                    <p className="setup__check"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Competitor Benchmark</p>
-                    <p className="setup__check"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Growth Roadmap</p>
+                    <p className="setup__check"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M8 12.5l2.5 2.5L16 9.5" /></svg>Full Channel Audit</p>
+                    <p className="setup__check"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M8 12.5l2.5 2.5L16 9.5" /></svg>Competitor Benchmark</p>
+                    <p className="setup__check"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M8 12.5l2.5 2.5L16 9.5" /></svg>Growth Roadmap</p>
                   </div>
                 </li>
                 <li className="setup__card" style={{ "--setup-i": 1 } as React.CSSProperties}>
@@ -2035,12 +2035,12 @@ export function MergedHomepage() {
                 <h2 className="m-text-3" id="contact-title" data-8b-motion="captionIn">Connect with our marketing team.</h2>
                 <p className="m-text-4">Tell us about your brand and goals. Our marketing specialists review every enquiry and reply within 24 hours.</p>
                 <figure className="contact__photo">
-                  <img src="https://images.unsplash.com/photo-1766066014237-00645c74e9c6?auto=format&fit=crop&w=680&q=80" width={680} alt="Support specialist" loading="lazy" />
+                  <img src="/BI Photos/Office BI/20250716_175936_resized.webp" width={680} alt="Better Insights office workspace" loading="lazy" />
                 </figure>
-                <ul className="contact__ways">
-                  <li><p className="m-text-6">Call / WhatsApp</p><a className="m-link m-text-5" href="tel:+919509996730">+91 950 999 6730</a></li>
-                  <li><p className="m-text-6">Email</p><a className="m-link m-text-5" href="mailto:contact@betterinsights.in">contact@betterinsights.in</a></li>
-                  <li><p className="m-text-6">Office</p><Link className="m-link m-text-5" href="/contact">Pune, Maharashtra, India</Link></li>
+                <ul className="contact__ways !text-black">
+                  <li><p className="m-text-6 !text-black !opacity-75">Call / WhatsApp</p><a className="m-link m-text-5 !text-black font-semibold hover:underline" href="tel:+919509996730">+91 950 999 6730</a></li>
+                  <li><p className="m-text-6 !text-black !opacity-75">Email</p><a className="m-link m-text-5 !text-black font-semibold hover:underline" href="mailto:contact@betterinsights.in">contact@betterinsights.in</a></li>
+                  <li><p className="m-text-6 !text-black !opacity-75">Office</p><Link className="m-link m-text-5 !text-black font-semibold hover:underline" href="/contact">Pune, Maharashtra, India</Link></li>
                 </ul>
               </div>
               <form className="contact__form" id="contact-form" noValidate data-msg-ok="Thanks — our marketing team will review your enquiry and write back within 24 hours." data-msg-error="Please add your name, a valid email and a short message.">
@@ -2048,7 +2048,9 @@ export function MergedHomepage() {
                 <div className="m-field"><label className="m-field__label" htmlFor="contact-name">Your name</label><input className="m-field__input" id="contact-name" name="name" type="text" autoComplete="name" required /></div>
                 <div className="m-field"><label className="m-field__label" htmlFor="contact-email">Email</label><input className="m-field__input" id="contact-email" name="email" type="email" autoComplete="email" required /></div>
                 <div className="m-field"><label className="m-field__label" htmlFor="contact-message">How can we help?</label><textarea className="m-field__input" id="contact-message" name="message" rows={4} required></textarea></div>
-                <BlobButton type="submit" size="md" icon="arrow-up-right">Send Enquiry</BlobButton>
+                <div className="flex justify-start items-center w-fit">
+                  <BlobButton type="submit" size="md" icon="arrow-up-right">Send Enquiry</BlobButton>
+                </div>
                 <p className="contact__status m-text-8" role="status" aria-live="polite"></p>
               </form>
             </div>

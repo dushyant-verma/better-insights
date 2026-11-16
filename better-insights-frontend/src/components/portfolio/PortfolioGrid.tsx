@@ -113,11 +113,16 @@ export function PortfolioGrid() {
             return (
               <article
                 key={project.slug}
-                className="bg-white rounded-[1.75rem] border border-black/10 overflow-hidden shadow-xs hover:shadow-2xl hover:border-[#CBFC6B]/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative"
+                className="bg-white rounded-[1.75rem] border border-black/10 overflow-hidden shadow-xs hover:shadow-2xl hover:border-[#CBFC6B]/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative work-card"
               >
                 <div>
                   {/* Project Image & Badges */}
-                  <div className="relative aspect-16/10 w-full bg-black/5 overflow-hidden">
+                  <Link
+                    href={`/work/${project.slug}`}
+                    className="block relative aspect-16/10 w-full bg-black/5 overflow-hidden"
+                    data-cursor-image="true"
+                    aria-label={`View ${project.title} case study`}
+                  >
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -157,7 +162,7 @@ export function PortfolioGrid() {
                         </div>
                       </div>
                     )}
-                  </div>
+                  </Link>
 
                   {/* Project Content */}
                   <div className="p-6 sm:p-8">

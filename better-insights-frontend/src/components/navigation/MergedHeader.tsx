@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, Play, X, ChevronDown, Sun } from "lucide-react";
+import { ArrowUpRight, X, ChevronDown } from "lucide-react";
 import { openMarketingPlanModal } from "@/components/forms/LeadModal";
 import "@/styles/shape-header.css";
 
@@ -346,7 +346,14 @@ export function MergedHeader() {
                                   {srv.shortDesc}
                                 </span>
                               </div>
-                              <ArrowUpRight className="shape-item-arrow w-4 h-4 flex-shrink-0" />
+                              <svg
+                                className="w-3 h-3 fill-current shape-item-arrow flex-shrink-0"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 384 512"
+                                aria-hidden="true"
+                              >
+                                <path d="M328 96h24v288h-48V177.9L81 401l-17 17-33.9-34 17-17 223-223H64V96h264z" />
+                              </svg>
                             </Link>
                           );
                         })}
@@ -449,7 +456,14 @@ export function MergedHeader() {
                                   {item.shortDesc}
                                 </span>
                               </div>
-                              <ArrowUpRight className="shape-item-arrow w-4 h-4 flex-shrink-0" />
+                              <svg
+                                className="w-3 h-3 fill-current shape-item-arrow flex-shrink-0"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 384 512"
+                                aria-hidden="true"
+                              >
+                                <path d="M328 96h24v288h-48V177.9L81 401l-17 17-33.9-34 17-17 223-223H64V96h264z" />
+                              </svg>
                             </Link>
                           );
                         })}
@@ -485,7 +499,13 @@ export function MergedHeader() {
                           />
                           {/* Lime Green Circular Play Button */}
                           <div className="absolute bottom-3 left-3 w-9 h-9 rounded-full bg-[#CBFC6B] flex items-center justify-center shadow-lg transition-transform duration-300 group-hover/showreel:scale-110">
-                            <Play className="w-3.5 h-3.5 fill-[#111113] text-[#111113] ml-0.5" />
+                            <svg
+                              className="w-3 h-3 fill-[#101112] ml-0.5 transition-transform duration-300 group-hover/showreel:scale-105"
+                              viewBox="0 0 384 512"
+                              aria-hidden="true"
+                            >
+                              <path d="M384 256L0 32v448l384-224z" />
+                            </svg>
                           </div>
                         </div>
                       </div>
@@ -518,18 +538,8 @@ export function MergedHeader() {
             </li>
           </ul>
 
-          {/* Right Header Section: Sun Toggle & Start a Project CTA Button */}
+          {/* Right Header Section: Start a Project CTA Button */}
           <div className="hidden lg:flex items-center gap-3.5 xl:gap-4">
-            {/* Theme Toggle Sun Icon (Matches MadeByShape Reference) */}
-            <button
-              type="button"
-              className="p-2 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-colors cursor-pointer flex items-center justify-center"
-              aria-label="Toggle theme mode"
-              title="Theme mode"
-            >
-              <Sun className="w-4 h-4 stroke-[1.8]" />
-            </button>
-
             {/* Start a Project Animated Button with Liquid Notch & Detaching Circle */}
             <button
               type="button"
@@ -553,7 +563,14 @@ export function MergedHeader() {
 
               {/* Arrow Icon Positioned Crisp & Sharp over Circle */}
               <div className="shape-cta-arrow-wrap">
-                <ArrowUpRight className="shape-cta-arrow-icon stroke-[2.5]" />
+                <svg
+                  className="w-3 h-3 fill-current shape-cta-arrow-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 384 512"
+                  aria-hidden="true"
+                >
+                  <path d="M328 96h24v288h-48V177.9L81 401l-17 17-33.9-34 17-17 223-223H64V96h264z" />
+                </svg>
               </div>
             </button>
           </div>
@@ -736,7 +753,14 @@ export function MergedHeader() {
                 <div className="shape-cta-blob" />
               </div>
               <div className="shape-cta-arrow-wrap">
-                <ArrowUpRight className="shape-cta-arrow-icon stroke-[2.5]" />
+                <svg
+                  className="w-3 h-3 fill-current shape-cta-arrow-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 384 512"
+                  aria-hidden="true"
+                >
+                  <path d="M328 96h24v288h-48V177.9L81 401l-17 17-33.9-34 17-17 223-223H64V96h264z" />
+                </svg>
               </div>
             </button>
             <div

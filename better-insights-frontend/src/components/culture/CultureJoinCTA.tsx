@@ -50,13 +50,14 @@ export function CultureJoinCTA() {
                 Let&apos;s Connect
               </BlobButton>
 
-              <Link
+              <BlobButton
                 href="/careers"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-white/5 hover:bg-white/10 text-white font-bold text-xs uppercase tracking-wider border border-white/15 backdrop-blur-md transition-all duration-300 hover:scale-105"
+                size="lg"
+                variant="dark"
+                icon="arrow-up-right"
               >
-                <span>Explore Careers</span>
-                <ArrowUpRight className="w-4 h-4 text-[#A5A5A5]" />
-              </Link>
+                Explore Careers
+              </BlobButton>
             </div>
           </div>
         </div>

@@ -79,8 +79,8 @@ export function CareersHero() {
 
         {/* Main Headline with Exact Reference Line Breaks */}
         <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[80px] 2xl:text-[88px] font-semibold tracking-tight text-white leading-[1.05] sm:leading-[1.02] max-w-4xl text-center select-none">
-          Build your future at <br />
-          Better Insights.
+          Build your future at <br />Better Insights
+          <span className="text-[#CBFC6B]">.</span>
         </h1>
 
         {/* Subtitle & CTA Row matching MadeByShape */}

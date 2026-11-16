@@ -397,20 +397,20 @@ export function SingleServiceTemplate({ service }: SingleServiceTemplateProps) {
           =================================================================== */}
       <section
         id="capabilities"
-        className="py-20 sm:py-28 bg-[#FAF5F0] border-b border-black/10 select-none scroll-mt-20"
+        className="py-20 sm:py-28 bg-[#1B1411] border-b border-white/10 select-none scroll-mt-20 text-white"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-14 sm:mb-16">
             <div className="inline-flex items-center gap-2 mb-3">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white border border-black/10 text-[#1B1411]">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-white/10 border border-white/15 text-white backdrop-blur-md">
                 <span className="w-2 h-2 rounded-full bg-[#CBFC6B]" />
                 Specialized Scope
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-semibold sm:font-bold tracking-[-0.03em] text-[#1B1411] leading-tight [font-family:'Host_Grotesk',sans-serif]">
+            <h2 className="text-3xl sm:text-5xl font-semibold sm:font-bold tracking-[-0.03em] text-white leading-tight [font-family:'Host_Grotesk',sans-serif]">
               Services &amp; capabilities.
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-[#1B1411]/70 font-normal leading-relaxed">
+            <p className="mt-4 text-base sm:text-lg text-white/70 font-normal leading-relaxed">
               Every deliverable is engineered to enterprise standards with full documentation, scalable architecture, and seamless operational handoff.
             </p>
           </div>

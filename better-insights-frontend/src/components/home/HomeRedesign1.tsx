@@ -1694,11 +1694,11 @@ export function HomeRedesign1() {
               </p>
             </div>
             <div className="studio__collage">
-              <figure className="shot shot--wide"><img src="https://images.unsplash.com/photo-1787647559705-d2ad3322020e?auto=format&fit=crop&w=690&h=460&q=80" width={690} height={460} alt="Team meeting" loading="lazy" /></figure>
-              <figure className="shot shot--tall"><img src="https://images.unsplash.com/photo-1643373977342-73cfc7cc0c5e?auto=format&fit=crop&w=400&h=533&q=80" width={400} height={533} alt="Colleagues laughing" loading="lazy" /></figure>
-              <figure className="shot shot--tall"><img src="https://images.unsplash.com/photo-1745434159123-4908d0b9df94?auto=format&fit=crop&w=400&h=533&q=80" width={400} height={533} alt="Designer smiling" loading="lazy" /></figure>
-              <figure className="shot shot--wide"><img src="https://images.unsplash.com/photo-1787647560262-ebfcf6c5f979?auto=format&fit=crop&w=690&h=460&q=80" width={690} height={460} alt="Collaborating at table" loading="lazy" /></figure>
-              <figure className="shot shot--wide"><img src="https://images.unsplash.com/photo-1623652653308-d49d335c92eb?auto=format&fit=crop&w=690&h=460&q=80" width={690} height={460} alt="Team discussion" loading="lazy" /></figure>
+              <figure className="shot shot--wide"><img src="/BI Photos/BI team photo webp/Copy_of_IMG_0087_40.webp" width={690} height={460} alt="Better Insights team collaboration" loading="lazy" /></figure>
+              <figure className="shot shot--tall"><img src="/BI Photos/BI team photo webp/Copy of IMG_0089.webp" width={400} height={533} alt="Better Insights team member portrait" loading="lazy" /></figure>
+              <figure className="shot shot--tall"><img src="/BI Photos/BI team photo webp/Copy of DSC00505.webp" width={400} height={533} alt="Better Insights team workspace" loading="lazy" /></figure>
+              <figure className="shot shot--wide"><img src="/BI Photos/Office BI/20250716_175920_resized.webp" width={690} height={460} alt="Better Insights office workstation" loading="lazy" /></figure>
+              <figure className="shot shot--wide"><img src="/BI Photos/Office BI/20250716_175906_resized.webp" width={690} height={460} alt="Better Insights office entrance" loading="lazy" /></figure>
               <div className="studio__roles">
                 <h3 className="m-text-7" data-8b-motion="rise">Open roles<span className="m-dot" aria-hidden="true"></span></h3>
                 <ul>
@@ -2230,12 +2230,12 @@ export function HomeRedesign1() {
                 <h2 className="m-text-3" id="contact-title" data-8b-motion="captionIn">Connect with our marketing team.</h2>
                 <p className="m-text-4">Tell us about your brand and goals. Our marketing specialists review every enquiry and reply within 24 hours.</p>
                 <figure className="contact__photo">
-                  <img src="https://images.unsplash.com/photo-1766066014237-00645c74e9c6?auto=format&fit=crop&w=680&q=80" width={680} alt="Support specialist" loading="lazy" />
+                  <img src="/BI Photos/Office BI/20250716_175936_resized.webp" width={680} alt="Better Insights office workspace" loading="lazy" />
                 </figure>
-                <ul className="contact__ways">
-                  <li><p className="m-text-6">Call / WhatsApp</p><a className="m-link m-text-5" href="tel:+919509996730">+91 950 999 6730</a></li>
-                  <li><p className="m-text-6">Email</p><a className="m-link m-text-5" href="mailto:contact@betterinsights.in">contact@betterinsights.in</a></li>
-                  <li><p className="m-text-6">Office</p><Link className="m-link m-text-5" href="/contact">Pune, Maharashtra, India</Link></li>
+                <ul className="contact__ways !text-black">
+                  <li><p className="m-text-6 !text-black !opacity-75">Call / WhatsApp</p><a className="m-link m-text-5 !text-black font-semibold hover:underline" href="tel:+919509996730">+91 950 999 6730</a></li>
+                  <li><p className="m-text-6 !text-black !opacity-75">Email</p><a className="m-link m-text-5 !text-black font-semibold hover:underline" href="mailto:contact@betterinsights.in">contact@betterinsights.in</a></li>
+                  <li><p className="m-text-6 !text-black !opacity-75">Office</p><Link className="m-link m-text-5 !text-black font-semibold hover:underline" href="/contact">Pune, Maharashtra, India</Link></li>
                 </ul>
               </div>
               <form className="contact__form" id="contact-form" noValidate data-msg-ok="Thanks — our marketing team will review your enquiry and write back within 24 hours." data-msg-error="Please add your name, a valid email and a short message.">
@@ -2243,7 +2243,9 @@ export function HomeRedesign1() {
                 <div className="m-field"><label className="m-field__label" htmlFor="contact-name">Your name</label><input className="m-field__input" id="contact-name" name="name" type="text" autoComplete="name" required /></div>
                 <div className="m-field"><label className="m-field__label" htmlFor="contact-email">Email</label><input className="m-field__input" id="contact-email" name="email" type="email" autoComplete="email" required /></div>
                 <div className="m-field"><label className="m-field__label" htmlFor="contact-message">How can we help?</label><textarea className="m-field__input" id="contact-message" name="message" rows={4} required></textarea></div>
-                <BlobButton type="submit" size="md" icon="arrow-up-right">Send Enquiry</BlobButton>
+                <div className="flex justify-start items-center w-fit">
+                  <BlobButton type="submit" size="md" icon="arrow-up-right">Send Enquiry</BlobButton>
+                </div>
                 <p className="contact__status m-text-8" role="status" aria-live="polite"></p>
               </form>
             </div>

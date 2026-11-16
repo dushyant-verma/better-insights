@@ -14,7 +14,7 @@ export interface BlobButtonProps {
   className?: string;
   size?: "sm" | "md" | "lg";
   icon?: "arrow-up-right" | "arrow-down" | "arrow-right" | "none" | React.ReactNode;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "dark";
   fullWidth?: boolean;
   disabled?: boolean;
   loading?: boolean;
@@ -76,12 +76,31 @@ export const BlobButton = React.forwardRef<HTMLElement, BlobButtonProps>(
         return icon;
       }
       if (isArrowDown) {
-        return <ArrowDown className="bi-blob-btn-arrow-icon stroke-[2.5]" />;
+        return (
+          <svg
+            className="w-3 h-3 fill-current bi-blob-btn-arrow-icon"
+            style={{ transform: "rotate(90deg)" }}
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 384 512"
+            aria-hidden="true"
+          >
+            <path d="M328 96h24v288h-48V177.9L81 401l-17 17-33.9-34 17-17 223-223H64V96h264z" />
+          </svg>
+        );
       }
       if (isArrowRight) {
         return <ArrowRight className="bi-blob-btn-arrow-icon stroke-[2.5]" />;
       }
-      return <ArrowUpRight className="bi-blob-btn-arrow-icon stroke-[2.5]" />;
+      return (
+        <svg
+          className="w-3 h-3 fill-current bi-blob-btn-arrow-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 384 512"
+          aria-hidden="true"
+        >
+          <path d="M328 96h24v288h-48V177.9L81 401l-17 17-33.9-34 17-17 223-223H64V96h264z" />
+        </svg>
+      );
     };
 
     const displayText = label || children;

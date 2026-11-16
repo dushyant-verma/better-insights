@@ -82,6 +82,7 @@ export function CulturePeople({ onSelectMember }: CulturePeopleProps) {
             <div
               key={member.id}
               onClick={() => onSelectMember(member)}
+              data-cursor-image="true"
               className="group p-6 rounded-[2rem] bg-[#15151A] border border-white/10 hover:border-[#CBFC6B]/40 hover:bg-[#191920] transition-all duration-300 flex flex-col justify-between cursor-pointer shadow-lg hover:shadow-2xl hover:-translate-y-1.5"
             >
               <div>

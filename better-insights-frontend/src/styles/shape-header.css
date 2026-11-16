@@ -233,7 +233,7 @@
 }
 
 .shape-cta-btn:hover .shape-cta-arrow-icon {
-  transform: rotate(45deg);
+  transform: translate(1.5px, -1.5px);
 }
 
 /* Mega Menus Container - Exact rgb(26 27 30) Background */

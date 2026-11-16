@@ -3,7 +3,6 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { getGSAP } from "@/lib/gsap";
 import { BlobButton } from "@/components/ui/BlobButton";
 
@@ -221,15 +220,17 @@ export function CultureStackedCards() {
             </h2>
 
             {/* CTA Button: 'I like the sound of it' */}
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-white/8 hover:bg-white/12 text-white border border-white/12 hover:border-[#CBFC6B]/40 text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 group shadow-lg hover:scale-105"
-            >
-              <span>I like the sound of it</span>
-              <div className="w-6 h-6 rounded-full bg-white/10 group-hover:bg-[#CBFC6B] flex items-center justify-center transition-colors duration-300">
-                <ArrowUpRight className="w-3.5 h-3.5 text-white group-hover:text-[#101112] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </div>
-            </Link>
+            <div>
+              <BlobButton
+                href="/contact"
+                size="md"
+                variant="primary"
+                icon="arrow-up-right"
+                ariaLabel="I like the sound of it – contact Better Insights"
+              >
+                I like the sound of it
+              </BlobButton>
+            </div>
           </div>
 
           {/* ================================================================= */}

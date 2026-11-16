@@ -8,6 +8,7 @@ import { WPPost, WPCategory } from "@/types/wordpress";
 import { Calendar, Clock, ArrowUpRight, Filter, ChevronRight } from "lucide-react";
 import { resolvePostImageUrl } from "@/lib/wordpress/images";
 import { BlobButton } from "@/components/ui/BlobButton";
+import { ReusableBlogCard } from "@/components/blog/ReusableBlogCard";
 
 interface InsightsExplorerProps {
   initialPosts: WPPost[];
@@ -172,7 +173,12 @@ export function InsightsExplorer({
 }
 
 function PostCard({ post }: { post: WPPost }) {
-  const title = post.title.rendered;
+  const cleanTitle = post.title.rendered
+    .replace(/&amp;/g, "&")
+    .replace(/&#8217;/g, "'")
+    .replace(/&#8211;/g, "–")
+    .replace(/&quot;/g, '"');
+
   const rawExcerpt = post.excerpt?.rendered
     ? post.excerpt.rendered.replace(/<[^>]*>/g, "").trim()
     : "";
@@ -197,35 +203,36 @@ function PostCard({ post }: { post: WPPost }) {
   const readTime = Math.max(2, Math.ceil(words / 190));
 
   return (
-    <article className="bg-white rounded-[1.75rem] border border-black/8 overflow-hidden flex flex-col justify-between group shadow-sm hover:border-black/20 hover:shadow-md transition-all duration-300">
+    <article className="bg-white rounded-[28px] sm:rounded-[32px] border border-black/8 overflow-hidden flex flex-col justify-between group shadow-sm hover:border-black/20 hover:shadow-md transition-all duration-300">
       <div>
         {/* Featured Image */}
         <Link
           href={`/insights/${post.slug}`}
-          className="relative aspect-[16/10] w-full overflow-hidden bg-[#FAF5F0] block"
+          data-cursor-image="true"
+          className="relative aspect-[16/11] w-full overflow-hidden bg-[#FAF5F0] block"
           tabIndex={-1}
           aria-hidden="true"
         >
           <Image
             src={imgSrc}
-            alt={title}
+            alt={cleanTitle}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-500"
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             onError={() => setImgSrc("/images/blog01.webp")}
           />
           <div className="absolute top-4 left-4">
-            <span className="px-3 py-1 bg-white/95 backdrop-blur-sm text-[#1B1411] text-[10px] font-semibold uppercase tracking-wider rounded-full shadow-sm">
+            <span className="px-3.5 py-1.5 bg-white text-[#111113] text-[10px] sm:text-[11px] font-bold uppercase tracking-wider rounded-full shadow-sm">
               {catName.replace(/&amp;/g, "&")}
             </span>
           </div>
         </Link>
 
         {/* Card Content */}
-        <div className="p-6 sm:p-7">
+        <div className="p-6 sm:p-7 pb-4">
           <div className="flex items-center justify-between text-[11px] font-mono text-[#66574F]/70 mb-3">
             <div className="flex items-center gap-1.5">
-              <Calendar className="w-3.5 h-3.5 text-[#CBFC6B]" />
+              <Calendar className="w-3.5 h-3.5 text-[#86efac] text-[#CBFC6B]" />
               <span>{date}</span>
             </div>
             <div className="flex items-center gap-1">
@@ -234,9 +241,9 @@ function PostCard({ post }: { post: WPPost }) {
             </div>
           </div>
 
-          <h3 className="text-lg font-semibold text-[#1B1411] leading-snug group-hover:text-[#CBFC6B] transition-colors">
-            <Link href={`/insights/${post.slug}`}>
-              {title}
+          <h3 className="text-lg font-semibold sm:font-bold text-[#1B1411] leading-snug group-hover:text-[#CBFC6B] transition-colors [font-family:'Host_Grotesk',sans-serif]">
+            <Link href={`/insights/${post.slug}`} className="group-hover:text-[#CBFC6B] transition-colors">
+              {cleanTitle}
             </Link>
           </h3>
 
@@ -246,10 +253,11 @@ function PostCard({ post }: { post: WPPost }) {
         </div>
       </div>
 
-      <div className="p-6 sm:p-7 pt-0 border-t border-black/5 mt-4 flex items-center justify-between">
+      <div className="p-6 sm:p-7 pt-4 border-t border-black/5 mt-4 flex items-center justify-between">
         <BlobButton
           href={`/insights/${post.slug}`}
           size="sm"
+          variant="primary"
           icon="arrow-up-right"
         >
           Read Article
