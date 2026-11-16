@@ -196,22 +196,29 @@
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 9999px;
-  margin-left: -0.5rem;
+  margin-left: -0.25rem;
   flex-shrink: 0;
-  transform: translateX(0);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+  transform: translateX(0) rotate(0deg);
+  transition: transform 0.9s cubic-bezier(0.135, 0.9, 0.15, 1),
     background-color 0.25s ease;
 }
 
-.shape-cta-btn:hover .shape-cta-blob {
-  transform: translateX(0.65rem);
+@media (hover: hover) and (pointer: fine) {
+  .shape-cta-btn:hover .shape-cta-blob {
+    transform: translateX(0.75rem) rotate(45deg);
+  }
+
+  .shape-cta-btn:hover .shape-cta-arrow-wrap {
+    transform: translateY(-50%) translateX(0.75rem) rotate(45deg);
+  }
 }
 
 .shape-cta-arrow-wrap {
   position: absolute;
   right: 0;
   top: 50%;
-  transform: translateY(-50%) translateX(0);
+  transform: translateY(-50%) translateX(0) rotate(0deg);
+  transform-origin: center center;
   width: 2.25rem;
   height: 2.25rem;
   display: flex;
@@ -219,21 +226,13 @@
   justify-content: center;
   pointer-events: none;
   color: #111113;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.shape-cta-btn:hover .shape-cta-arrow-wrap {
-  transform: translateY(-50%) translateX(0.65rem);
+  transition: transform 0.9s cubic-bezier(0.135, 0.9, 0.15, 1);
 }
 
 .shape-cta-arrow-icon {
-  width: 0.95rem;
-  height: 0.95rem;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.shape-cta-btn:hover .shape-cta-arrow-icon {
-  transform: translate(1.5px, -1.5px);
+  width: 0.85rem;
+  height: 0.85rem;
+  display: block;
 }
 
 /* Mega Menus Container - Exact rgb(26 27 30) Background */

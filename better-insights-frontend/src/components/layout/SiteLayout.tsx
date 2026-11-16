@@ -48,14 +48,15 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
       >
         <defs>
           <filter id="biButtonFilter">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+            <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
             <feColorMatrix
               in="blur"
               mode="matrix"
               values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
-              result="goo"
+              result="buttonFilter"
             />
-            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+            <feComposite in="SourceGraphic" in2="buttonFilter" operator="atop" />
+            <feBlend in="SourceGraphic" in2="buttonFilter" />
           </filter>
         </defs>
       </svg>

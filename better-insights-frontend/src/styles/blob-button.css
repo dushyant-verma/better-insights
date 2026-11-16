@@ -64,8 +64,8 @@
   background-color: #CBFC6B !important;
   border-radius: 9999px;
   flex-shrink: 0;
-  transform: translateX(0);
-  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+  transform: translateX(0) rotate(0deg);
+  transition: transform 0.9s cubic-bezier(0.135, 0.9, 0.15, 1),
     background-color 0.25s ease;
 }
 
@@ -74,44 +74,50 @@
   position: absolute;
   right: 0;
   top: 50%;
-  transform: translateY(-50%) translateX(0);
+  transform: translateY(-50%) translateX(0) rotate(0deg);
+  transform-origin: center center;
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
   color: #111113 !important;
-  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.9s cubic-bezier(0.135, 0.9, 0.15, 1);
 }
 
 .bi-blob-btn-arrow-icon {
   display: block;
   width: 0.75rem;
   height: 0.75rem;
-  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ==========================================================================
-   Hover Animation: Detach Blob & Animate Arrow Icon
+   Hover Animation: Detach Blob & Animate Arrow Icon (MadeByShape Reference)
    ========================================================================== */
 
-.bi-blob-btn:hover .bi-blob-btn-blob {
-  transform: translateX(var(--bi-blob-offset, 0.65rem));
-}
+@media (hover: hover) and (pointer: fine) {
+  .bi-blob-btn:hover .bi-blob-btn-blob {
+    transform: translateX(var(--bi-blob-offset, 0.75rem)) rotate(var(--bi-blob-rotate, 45deg));
+  }
 
-.bi-blob-btn:hover .bi-blob-btn-arrow-wrap {
-  transform: translateY(-50%) translateX(var(--bi-blob-offset, 0.65rem));
-}
+  .bi-blob-btn:hover .bi-blob-btn-arrow-wrap {
+    transform: translateY(-50%) translateX(var(--bi-blob-offset, 0.75rem)) rotate(var(--bi-arrow-rotate, 45deg));
+  }
 
-.bi-blob-btn:hover .bi-blob-btn-arrow-icon {
-  transform: translate(1.5px, -1.5px) rotate(var(--bi-arrow-rotate, 0deg));
-}
+  .bi-blob-btn[data-arrow="down"]:hover .bi-blob-btn-arrow-wrap {
+    transform: translateY(-50%) translateX(var(--bi-blob-offset, 0.75rem)) rotate(0deg);
+  }
 
-.bi-blob-btn[data-arrow="down"]:hover .bi-blob-btn-arrow-icon {
-  transform: translate(1.5px, 1.5px) rotate(90deg);
-}
+  .bi-blob-btn[data-arrow="down"]:hover .bi-blob-btn-arrow-icon {
+    transform: rotate(90deg) translateX(2px);
+  }
 
-.bi-blob-btn[data-arrow="right"]:hover .bi-blob-btn-arrow-icon {
-  transform: translateX(3px);
+  .bi-blob-btn[data-arrow="right"]:hover .bi-blob-btn-arrow-wrap {
+    transform: translateY(-50%) translateX(var(--bi-blob-offset, 0.75rem)) rotate(0deg);
+  }
+
+  .bi-blob-btn[data-arrow="right"]:hover .bi-blob-btn-arrow-icon {
+    transform: translateX(3px);
+  }
 }
 
 .bi-blob-btn:active {
@@ -124,8 +130,9 @@
 
 /* Medium / Default (Matching Header CTA) */
 .bi-blob-btn--md {
-  --bi-blob-offset: 0.65rem;
-  --bi-arrow-rotate: 0deg;
+  --bi-blob-offset: 0.75rem;
+  --bi-blob-rotate: 45deg;
+  --bi-arrow-rotate: 45deg;
 }
 
 .bi-blob-btn--md .bi-blob-btn-pill {
@@ -137,7 +144,7 @@
 .bi-blob-btn--md .bi-blob-btn-blob {
   width: 2.25rem;
   height: 2.25rem;
-  margin-left: -0.5rem;
+  margin-left: -0.25rem;
 }
 
 .bi-blob-btn--md .bi-blob-btn-arrow-wrap {
@@ -152,8 +159,9 @@
 
 /* Large / Hero & Main CTAs */
 .bi-blob-btn--lg {
-  --bi-blob-offset: 0.75rem;
-  --bi-arrow-rotate: 0deg;
+  --bi-blob-offset: 0.85rem;
+  --bi-blob-rotate: 45deg;
+  --bi-arrow-rotate: 45deg;
 }
 
 .bi-blob-btn--lg .bi-blob-btn-pill {
@@ -166,7 +174,7 @@
 .bi-blob-btn--lg .bi-blob-btn-blob {
   width: 2.75rem;
   height: 2.75rem;
-  margin-left: -0.6rem;
+  margin-left: -0.35rem;
 }
 
 .bi-blob-btn--lg .bi-blob-btn-arrow-wrap {
@@ -181,8 +189,9 @@
 
 /* Small / Compact Cards & Secondary CTAs */
 .bi-blob-btn--sm {
-  --bi-blob-offset: 0.5rem;
-  --bi-arrow-rotate: 0deg;
+  --bi-blob-offset: 0.65rem;
+  --bi-blob-rotate: 45deg;
+  --bi-arrow-rotate: 45deg;
 }
 
 .bi-blob-btn--sm .bi-blob-btn-pill {
@@ -195,7 +204,7 @@
 .bi-blob-btn--sm .bi-blob-btn-blob {
   width: 1.95rem;
   height: 1.95rem;
-  margin-left: -0.45rem;
+  margin-left: -0.2rem;
 }
 
 .bi-blob-btn--sm .bi-blob-btn-arrow-wrap {
@@ -296,5 +305,15 @@
 
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  .bi-blob-btn-blob,
+  .bi-blob-btn-arrow-wrap,
+  .shape-cta-blob,
+  .shape-cta-arrow-wrap {
+    transition-duration: 0.01ms !important;
   }
 }
