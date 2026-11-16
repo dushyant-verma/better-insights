@@ -66,7 +66,7 @@
   flex-shrink: 0;
   transform: translateX(0);
   transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.25s ease;
+    background-color 0.25s ease;
 }
 
 /* Arrow Wrapper sits outside the SVG filter to keep the icon crisp and pixel-sharp */
@@ -127,20 +127,24 @@
   --bi-blob-offset: 0.65rem;
   --bi-arrow-rotate: 0deg;
 }
+
 .bi-blob-btn--md .bi-blob-btn-pill {
   font-size: 0.875rem;
   line-height: 1.25;
   padding: 0.55rem 1.15rem 0.55rem 1.35rem;
 }
+
 .bi-blob-btn--md .bi-blob-btn-blob {
   width: 2.25rem;
   height: 2.25rem;
   margin-left: -0.5rem;
 }
+
 .bi-blob-btn--md .bi-blob-btn-arrow-wrap {
   width: 2.25rem;
   height: 2.25rem;
 }
+
 .bi-blob-btn--md .bi-blob-btn-arrow-icon {
   width: 0.75rem;
   height: 0.75rem;
@@ -151,21 +155,25 @@
   --bi-blob-offset: 0.75rem;
   --bi-arrow-rotate: 0deg;
 }
+
 .bi-blob-btn--lg .bi-blob-btn-pill {
   font-size: 0.9375rem;
   line-height: 1.25;
   padding: 0.75rem 1.45rem 0.75rem 1.65rem;
   font-weight: 600;
 }
+
 .bi-blob-btn--lg .bi-blob-btn-blob {
   width: 2.75rem;
   height: 2.75rem;
   margin-left: -0.6rem;
 }
+
 .bi-blob-btn--lg .bi-blob-btn-arrow-wrap {
   width: 2.75rem;
   height: 2.75rem;
 }
+
 .bi-blob-btn--lg .bi-blob-btn-arrow-icon {
   width: 0.75rem;
   height: 0.75rem;
@@ -176,21 +184,25 @@
   --bi-blob-offset: 0.5rem;
   --bi-arrow-rotate: 0deg;
 }
+
 .bi-blob-btn--sm .bi-blob-btn-pill {
   font-size: 0.8125rem;
   line-height: 1.2;
   padding: 0.45rem 0.95rem 0.45rem 1.1rem;
   font-weight: 600;
 }
+
 .bi-blob-btn--sm .bi-blob-btn-blob {
   width: 1.95rem;
   height: 1.95rem;
   margin-left: -0.45rem;
 }
+
 .bi-blob-btn--sm .bi-blob-btn-arrow-wrap {
   width: 1.95rem;
   height: 1.95rem;
 }
+
 .bi-blob-btn--sm .bi-blob-btn-arrow-icon {
   width: 0.75rem;
   height: 0.75rem;
@@ -200,9 +212,11 @@
 .bi-blob-btn--full {
   width: 100%;
 }
+
 .bi-blob-btn--full .bi-blob-btn-filter {
   width: 100%;
 }
+
 .bi-blob-btn--full .bi-blob-btn-pill {
   flex: 1;
   justify-content: center;
@@ -213,15 +227,19 @@
   background-color: #292A2D !important;
   color: #FFFFFF !important;
 }
+
 .bi-blob-btn--dark .bi-blob-btn-blob {
   background-color: #292A2D !important;
 }
+
 .bi-blob-btn--dark .bi-blob-btn-arrow-wrap {
   color: #FFFFFF !important;
 }
+
 .bi-blob-btn--dark .bi-blob-btn-arrow-icon {
   color: #FFFFFF !important;
 }
+
 .bi-blob-btn--dark:hover .bi-blob-btn-pill,
 .bi-blob-btn--dark:hover .bi-blob-btn-blob {
   background-color: #38393D !important;
@@ -234,19 +252,23 @@
   color: #111113 !important;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
 }
+
 .bi-blob-btn--secondary .bi-blob-btn-blob,
 .bi-blob-btn--light .bi-blob-btn-blob {
   background-color: #FFFFFF !important;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
 }
+
 .bi-blob-btn--secondary .bi-blob-btn-arrow-wrap,
 .bi-blob-btn--light .bi-blob-btn-arrow-wrap {
   color: #111113 !important;
 }
+
 .bi-blob-btn--secondary .bi-blob-btn-arrow-icon,
 .bi-blob-btn--light .bi-blob-btn-arrow-icon {
   color: #111113 !important;
 }
+
 .bi-blob-btn--secondary:hover .bi-blob-btn-pill,
 .bi-blob-btn--secondary:hover .bi-blob-btn-blob,
 .bi-blob-btn--light:hover .bi-blob-btn-pill,
@@ -258,14 +280,20 @@
 .bi-blob-btn.is-loading {
   cursor: wait;
 }
+
 .bi-blob-btn.is-loading .bi-blob-btn-arrow-icon {
   animation: bi-spin 1s linear infinite;
+}
+
+.bi-blob-btn--full {
+  max-width: 100%;
 }
 
 @keyframes bi-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
