@@ -15,7 +15,7 @@ export const TEAM_MEMBERS: TeamMemberData[] = [
     experience: "7+ years leading creative strategy, digital innovation, critical thinking, and agency leadership.",
     expertise: ["Research & Insights", "AI Automation", "Strategic Growth", "Executive Leadership"],
     bio: "As a seasoned professional with 7 years of experience, I bring a unique perspective to my work as a creative thinker. I am driven by my surroundings and inspired by life, allowing me to approach each project with an original and innovative mindset.\n\nI am highly dedicated to my work, consistently striving for excellence through critical thinking and a 'get-it-done' attitude. My progress and success are a result of overcoming obstacles and making my work a priority.\n\nClient satisfaction is of utmost importance to me and I firmly believe that the quality of my work is worth the investment. I take a proactive approach to client relations, anticipating potential challenges and providing long-term solutions tailored to their specific needs. I am committed to maintaining the trust of my clients, and I never make false promises.\n\nMy team is my greatest asset and I am proud to lead a group of highly skilled professionals who bring a unique touch to each project. By fostering an environment of trust and collaboration, we are able to achieve greater insights and make rapid progress as a unit.",
-    linkedin: "https://www.linkedin.com/company/better-insights-bi/",
+    linkedin: "https://www.linkedin.com/in/itsgautamkoli/",
   },
   {
     id: "dinkey-lekhwani",

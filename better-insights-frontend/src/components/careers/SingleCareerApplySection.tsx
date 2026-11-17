@@ -476,7 +476,7 @@ export function SingleCareerApplySection({ career }: SingleCareerApplySectionPro
                 {/* Follow on LinkedIn Blob CTA */}
                 <div>
                   <BlobButton
-                    href="https://www.linkedin.com/in/gautamkoli/"
+                    href="https://www.linkedin.com/in/itsgautamkoli/"
                     target="_blank"
                     rel="noopener noreferrer"
                     size="sm"

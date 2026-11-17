@@ -171,7 +171,7 @@ export function CultureEthos() {
                   </svg>
 
                   <a
-                    href="https://www.linkedin.com/company/better-insights-bi/"
+                    href="https://www.linkedin.com/in/itsgautamkoli/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#18191E] hover:bg-[#25262C] text-white text-xs font-semibold tracking-wide transition-all duration-300 shadow-md group hover:scale-105"
